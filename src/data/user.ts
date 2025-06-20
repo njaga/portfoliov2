@@ -5,11 +5,7 @@ export const USER = {
   username: "ndiaga",
   gender: "male",
   bio: "FullStack Developer passionate about digital transformation.",
-  flipSentences: [
-    "FullStack Developer",
-    "UI/UX Designer",
-    "Digital Marketer",
-  ],
+  flipSentences: ["FullStack Developer", "UI/UX Designer", "Digital Marketer"],
   address: "Dakar, Senegal",
   phoneNumber: "KzIyMTc4MTYzMzQxOQ==", // E.164 format, base64 encoded (https://t.io.vn/base64-string-converter)
   email: "Y29udGFjdEBuZGlhZ2FuZGlheWUuY29t", // base64 encoded
@@ -37,8 +33,8 @@ I hold multiple certifications in Front End Development, Mobile Development, Art
 
 Let's connect and collaborate!
   `,
-  avatar: "http://ndiagandiaye.com/assets/png/Ndiaga-Ndiaye-Developpeur-web.jpg",
-  ogImage: "http://ndiagandiaye.com/assets/png/Ndiaga-Ndiaye-Developpeur-web.jpg",
+  avatar: "/Ndiaga-Ndiaye-Developpeur-web.jpg",
+  ogImage: "/Ndiaga-Ndiaye-Developpeur-web.jpg",
   keywords:
     "ndiaga ndiaye, kamit digital solutions, fullstack developer, digital transformation, ui ux design, digital marketing",
   dateCreated: "2025-06-15", // YYYY-MM-DD
