@@ -26,14 +26,15 @@
       "@/*": [
         "./src/*"
       ]
-    },
+    }
   },
   "include": [
-    "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
+    "./src/scripts/**/*.ts",
     ".next/types/**/*.ts",
-    "./src/scripts/**/*.ts"
+    "next-env.d.ts",
+    "dist/types/**/*.ts"
   ],
   "exclude": [
     "node_modules",
