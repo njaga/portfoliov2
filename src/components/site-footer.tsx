@@ -14,7 +14,7 @@ export function SiteFooter() {
           Built by{" "}
           <a
             className="link"
-            href="https://linkedin.com/in/ndiaga-ndiaye"
+            href="https://www.linkedin.com/in/ndiagandiaye"
             target="_blank"
             rel="noopener"
           >
