@@ -45,10 +45,10 @@ export default function Page() {
         <Experiences />
         <Separator />
 
-        <Services />
+        <Projects />
         <Separator />
 
-        <Projects />
+        <Services />
         <Separator />
 
         <Blog />

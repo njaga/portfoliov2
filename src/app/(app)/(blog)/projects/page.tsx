@@ -1,6 +1,12 @@
 "use client";
 
-import { ArrowLeftIcon, ArrowRightIcon, ChevronLeftIcon, ChevronRightIcon, MailIcon } from "lucide-react";
+import {
+  ArrowLeftIcon,
+  ArrowRightIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  MailIcon,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -13,7 +19,7 @@ const PROJECTS_PER_PAGE = 6;
 
 export default function Page() {
   const [currentPage, setCurrentPage] = useState(1);
-  
+
   const totalPages = Math.ceil(PROJECTS.length / PROJECTS_PER_PAGE);
   const startIndex = (currentPage - 1) * PROJECTS_PER_PAGE;
   const endIndex = startIndex + PROJECTS_PER_PAGE;
@@ -21,21 +27,21 @@ export default function Page() {
 
   const goToPage = (page: number) => {
     setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
-    <div className="min-h-svh [--color-project:#10B981] dark:[--color-project:#34D399]">
+    <div className="min-h-svh [--color-project:#3B82F6] dark:[--color-project:#60A5FA]">
       {/* Header */}
       <div className="flex items-center justify-between p-2 pl-4">
-        <Link 
+        <Link
           href="/#projects"
-          className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+          className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
         >
           <ArrowLeftIcon className="h-4 w-4" />
           Back to Portfolio
         </Link>
-        
+
         <Link
           href="/contact"
           className="flex items-center gap-2 rounded-lg bg-primary px-3 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
@@ -51,7 +57,8 @@ export default function Page() {
 
       <div className="screen-line-after p-4">
         <p className="font-mono text-sm text-muted-foreground">
-          A collection of my projects and work. Page {currentPage} of {totalPages} ({PROJECTS.length} projects total)
+          A collection of my projects and work. Page {currentPage} of{" "}
+          {totalPages} ({PROJECTS.length} projects total)
         </p>
       </div>
 
@@ -85,7 +92,7 @@ export default function Page() {
                   <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-black/10 ring-inset dark:ring-white/10" />
                 </div>
               ) : (
-                <div className="relative select-none aspect-video rounded-xl bg-muted flex items-center justify-center">
+                <div className="relative flex aspect-video items-center justify-center rounded-xl bg-muted select-none">
                   <Icons.project
                     className="size-16 text-(--color-project)"
                     aria-hidden
@@ -98,15 +105,13 @@ export default function Page() {
                 <h2 className="font-heading text-lg leading-snug font-medium text-balance decoration-(--color-project) underline-offset-4 group-hover/project:underline">
                   {project.title}
                 </h2>
-                <p className="text-sm text-muted-foreground">
-                  {project.time}
-                </p>
+                <p className="text-sm text-muted-foreground">{project.time}</p>
                 {project.description && (
-                  <p className="text-sm text-muted-foreground mt-1 line-clamp-2">
-                    {project.description.split('\n')[0]}
+                  <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">
+                    {project.description.split("\n")[0]}
                   </p>
                 )}
-                <div className="flex flex-wrap gap-1 mt-2">
+                <div className="mt-2 flex flex-wrap gap-1">
                   {project.skills.slice(0, 4).map((skill, index) => (
                     <span
                       key={index}
@@ -139,19 +144,21 @@ export default function Page() {
             >
               <ChevronLeftIcon className="h-4 w-4" />
             </Button>
-            
+
             <div className="flex items-center gap-1">
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-                <Button
-                  key={page}
-                  variant={currentPage === page ? "default" : "ghost"}
-                  size="icon"
-                  onClick={() => goToPage(page)}
-                  className="h-8 w-8"
-                >
-                  {page}
-                </Button>
-              ))}
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                (page) => (
+                  <Button
+                    key={page}
+                    variant={currentPage === page ? "default" : "ghost"}
+                    size="icon"
+                    onClick={() => goToPage(page)}
+                    className="h-8 w-8"
+                  >
+                    {page}
+                  </Button>
+                )
+              )}
             </div>
 
             <Button
@@ -169,13 +176,14 @@ export default function Page() {
       {/* CTA Section */}
       <div className="screen-line-before p-4">
         <div className="rounded-xl border border-edge bg-muted/50 p-6 text-center">
-          <h2 className="font-heading text-xl font-semibold mb-2">
+          <h2 className="mb-2 font-heading text-xl font-semibold">
             Have a Project in Mind?
           </h2>
-          <p className="text-sm text-muted-foreground mb-4">
-            I&apos;m always excited to work on new projects and bring ideas to life. Let&apos;s discuss how we can collaborate!
+          <p className="mb-4 text-sm text-muted-foreground">
+            I&apos;m always excited to work on new projects and bring ideas to
+            life. Let&apos;s discuss how we can collaborate!
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <div className="flex flex-col justify-center gap-3 sm:flex-row">
             <Link
               href="/contact"
               className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
@@ -197,4 +205,4 @@ export default function Page() {
       <div className="h-4" />
     </div>
   );
-} 
+}

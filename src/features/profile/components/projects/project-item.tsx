@@ -33,6 +33,7 @@ export function ProjectItem({
               height={32}
               quality={100}
               className="mx-4 flex size-6 shrink-0"
+              priority
               unoptimized
             />
           ) : (
@@ -47,7 +48,7 @@ export function ProjectItem({
           <div className="flex-1 border-l border-dashed border-edge">
             <AccordionPrimitive.Trigger className="group/project flex w-full items-center justify-between gap-4 p-4 pr-2 text-left select-none [&[data-state=open]_.lucide-chevron-down]:rotate-180">
               <div>
-                <h3 className="mb-1 flex items-center gap-1 font-heading leading-snug font-medium text-balance decoration-ring underline-offset-4 group-hover/project:underline">
+                <h3 className="mb-1 flex items-center gap-1 font-heading leading-snug font-medium text-balance underline-offset-4 group-hover/project:underline group-hover/project:project-title-hover">
                   {project.title}
                   <a
                     className="flex size-6 shrink-0 items-center justify-center text-muted-foreground"

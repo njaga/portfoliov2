@@ -54,6 +54,10 @@
   @apply font-medium underline underline-offset-4;
 }
 
+@utility project-title-hover {
+  text-decoration-color: rgb(59 130 246); /* blue-500 */
+}
+
 @utility screen-line-before {
   @apply relative before:absolute before:top-0 before:-left-[100vw] before:-z-1 before:h-px before:w-[200vw] before:bg-edge;
 }
