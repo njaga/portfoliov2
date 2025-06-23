@@ -177,7 +177,7 @@ export const PROJECTS: Project[] = [
       "Alpine.js",
       "Axios",
     ],
-    description: `Website for Prosen SARL, a senegalese company that provides security services.
+    description: `The Kinsiba App is a web application for managing the Kinsiba association.
 - Dashboard
 - Management of donations
 - Management of events
