@@ -1,75 +1,108 @@
-# Configuration EmailJS pour le formulaire de contact
+# Configuration SMTP pour le formulaire de contact
 
-## Étapes de configuration
+## Nouvelle approche - API Next.js avec Nodemailer (Recommandée)
 
-### 1. Créer un compte EmailJS
+Cette nouvelle implémentation utilise une API route Next.js côté serveur avec Nodemailer au lieu d'EmailJS côté client, ce qui est plus fiable et sécurisé.
 
-1. Allez sur [EmailJS](https://www.emailjs.com/)
-2. Créez un compte gratuit
-3. Connectez votre service email (Gmail, Outlook, etc.)
+### 1. Configuration des variables d'environnement
 
-### 2. Créer les templates d'email
-
-#### Template principal (pour recevoir les messages)
-
-- **Template ID**: `template_contact_main`
-- **Contenu**:
-
-```html
-Nouveau message de contact depuis votre site web De: {{from_name}}
-({{from_email}}) Sujet: {{subject}} Message: {{message}} --- Envoyé depuis
-ndiagandiaye.com
-```
-
-#### Template de confirmation (pour l'utilisateur)
-
-- **Template ID**: `template_contact_confirmation`
-- **Contenu**:
-
-```html
-Bonjour {{to_name}}, Merci pour votre message concernant "{{subject}}". J'ai
-bien reçu votre demande et je vous répondrai dans les 24 heures. Votre message:
-{{original_message}} Cordialement, Ndiaga Ndiaye contact@ndiagandiaye.com ---
-Ceci est un message automatique de confirmation.
-```
-
-### 3. Variables d'environnement
-
-Ajoutez ces variables dans votre fichier `.env.local`:
+Créez un fichier `.env.local` à la racine du projet avec :
 
 ```env
-# Variables publiques (préfixe NEXT_PUBLIC_ requis pour le côté client)
-NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
-NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=template_contact_main
-NEXT_PUBLIC_EMAILJS_CONFIRMATION_TEMPLATE_ID=template_contact_confirmation
-NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
+# Configuration SMTP
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=votre-email@gmail.com
+SMTP_PASS=votre-mot-de-passe-application
+SMTP_FROM=contact@ndiagandiaye.com
 ```
 
-**Important** : Les variables doivent avoir le préfixe `NEXT_PUBLIC_` car EmailJS fonctionne côté client.
+### 2. Configuration Gmail (Recommandée)
 
-### 4. Configuration du service
+#### Étape 1 : Activer l'authentification à 2 facteurs
 
-1. Dans EmailJS, allez dans "Email Services"
-2. Ajoutez votre service email (Gmail recommandé)
-3. Notez le Service ID
+1. Allez dans votre compte Google
+2. Sécurité → Authentification à 2 facteurs
+3. Activez l'authentification à 2 facteurs
 
-### 5. Test
+#### Étape 2 : Générer un mot de passe d'application
+
+1. Allez dans Sécurité → Mots de passe des applications
+2. Sélectionnez "Mail" et votre appareil
+3. Générez le mot de passe (16 caractères)
+4. Utilisez ce mot de passe dans `SMTP_PASS`
+
+### 3. Configuration alternative avec d'autres fournisseurs
+
+#### Outlook/Hotmail
+
+```env
+SMTP_HOST=smtp.live.com
+SMTP_PORT=587
+SMTP_USER=votre-email@outlook.com
+SMTP_PASS=votre-mot-de-passe
+```
+
+#### Yahoo
+
+```env
+SMTP_HOST=smtp.mail.yahoo.com
+SMTP_PORT=587
+SMTP_USER=votre-email@yahoo.com
+SMTP_PASS=votre-mot-de-passe-application
+```
+
+### 4. Test de la configuration
 
 1. Redémarrez votre serveur de développement
 2. Testez le formulaire de contact
-3. Vérifiez que vous recevez l'email et que l'utilisateur reçoit la confirmation
+3. Vérifiez les logs dans la console pour débogage
 
-## Fonctionnalités
+### 5. Avantages de cette approche
 
-- ✅ Envoi d'email à contact@ndiagandiaye.com
-- ✅ Email de confirmation automatique à l'utilisateur
-- ✅ Validation des données côté serveur
-- ✅ Gestion des erreurs
-- ✅ Interface utilisateur avec états de chargement
-- ✅ Notifications toast pour le feedback utilisateur
+- ✅ Plus sécurisé (côté serveur)
+- ✅ Pas de problèmes de CORS
+- ✅ Pas de timeout client
+- ✅ Meilleur contrôle des erreurs
+- ✅ Emails de confirmation automatiques
+- ✅ Templates HTML personnalisés
+- ✅ **Emails bilingues français/anglais**
+- ✅ Interface utilisateur en anglais pour usage international
 
-## Sécurité
+### 6. Dépannage
 
-- Les clés API sont stockées côté serveur uniquement
-- Validation des données d'entrée
-- Protection contre le spam (peut être étendue avec reCAPTCHA)
+#### Erreur "Invalid login"
+
+- Vérifiez que l'authentification à 2 facteurs est activée
+- Utilisez un mot de passe d'application, pas votre mot de passe principal
+- Vérifiez que "Accès moins sécurisé" est désactivé
+
+#### Erreur de connexion
+
+- Vérifiez les paramètres SMTP_HOST et SMTP_PORT
+- Assurez-vous que votre pare-feu n'bloque pas le port 587
+
+#### L'email n'arrive pas
+
+- Vérifiez les dossiers spam/courrier indésirable
+- Vérifiez que SMTP_FROM est un email valide
+- Consultez les logs du serveur pour plus de détails
+
+---
+
+## Ancienne configuration EmailJS (Dépréciée)
+
+<details>
+<summary>Cliquez pour voir l'ancienne configuration EmailJS</summary>
+
+### Variables d'environnement (Ancien système)
+
+```env
+NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=r-xsl3lV8GxOC7HEP
+NEXT_PUBLIC_EMAILJS_SERVICE_ID=service_vc3ag3p
+NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=template_gj0vzz7
+```
+
+**Note :** Cette configuration est maintenant dépréciée en faveur de l'API Next.js plus robuste.
+
+</details>

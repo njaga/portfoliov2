@@ -88,66 +88,28 @@ export function ContactForm() {
     setIsSubmitting(true);
 
     try {
-      // Vérification des variables d'environnement
-      if (
-        !process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ||
-        !process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ||
-        !process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
-      ) {
-        throw new Error(
-          "EmailJS configuration is missing. Please check your environment variables."
-        );
-      }
-
-      // Import EmailJS dynamiquement côté client
-      const emailjs = await import("@emailjs/browser");
-
-      // Configuration des paramètres du template
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        subject: formData.subject,
-        message: formData.message,
-        to_email: "contact@ndiagandiaye.com",
-      };
-
-      console.log("Sending email with EmailJS...", {
-        serviceId: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-        templateId: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-        publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
+      // Envoi via l'API Next.js
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          captcha: formData.captcha,
+        }),
       });
 
-      // Envoi de l'email principal
-      const result = await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-        templateParams,
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
-      );
+      const result = await response.json();
 
-      console.log("Email sent successfully:", result);
+      if (!response.ok) {
+        throw new Error(result.error || "Error sending message");
+      }
 
-      // Envoi de l'email de confirmation (temporairement désactivé pour debug)
-      // if (process.env.NEXT_PUBLIC_EMAILJS_CONFIRMATION_TEMPLATE_ID) {
-      //   const confirmationParams = {
-      //     to_name: formData.name,
-      //     to_email: formData.email,
-      //     subject: formData.subject,
-      //     original_message: formData.message,
-      //   };
-
-      //   try {
-      //     const confirmationResult = await emailjs.send(
-      //       process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-      //       process.env.NEXT_PUBLIC_EMAILJS_CONFIRMATION_TEMPLATE_ID,
-      //       confirmationParams,
-      //       process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
-      //     );
-      //     console.log('Confirmation email sent successfully:', confirmationResult);
-      //   } catch (confirmationError) {
-      //     console.warn('Failed to send confirmation email:', confirmationError);
-      //   }
-      // }
+      console.log("Message sent successfully:", result);
 
       setIsSubmitted(true);
       setFormData({
@@ -162,7 +124,14 @@ export function ContactForm() {
       );
     } catch (error) {
       console.error("Error sending message:", error);
-      toast.error("Failed to send message. Please try again later.");
+
+      let errorMessage = "Failed to send message. Please try again later.";
+
+      if (error instanceof Error) {
+        errorMessage = error.message;
+      }
+
+      toast.error(errorMessage);
     } finally {
       setIsSubmitting(false);
     }
