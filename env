@@ -1,6 +1,12 @@
-# EmailJS Configuration
 NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=r-xsl3lV8GxOC7HEP
 NEXT_PUBLIC_EMAILJS_PRIVATE_KEY=dr5j4wzEGNH8zhxhgxXsA
 NEXT_PUBLIC_EMAILJS_SERVICE_ID=service_vc3ag3p
 NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=template_gj0vzz7
 NEXT_PUBLIC_EMAILJS_CONFIRMATION_TEMPLATE_ID=template_gj0vzz7
+APP_URL=https://ndiagandiaye.com
+
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=nnjaga01@gmail.com
+SMTP_PASS=qwbq jpci vxok gsxf
+SMTP_FROM=contact@ndiagandiaye.com
