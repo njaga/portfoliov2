@@ -50,12 +50,6 @@ export const TECH_STACK: TechStack[] = [
     categories: ["Framework"],
   },
   {
-    key: "angular",
-    title: "Angular",
-    href: "https://angular.io/",
-    categories: ["Framework"],
-  },
-  {
     key: "laravel",
     title: "Laravel",
     href: "https://laravel.com/",
