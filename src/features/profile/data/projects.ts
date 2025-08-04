@@ -134,6 +134,28 @@ export const PROJECTS: Project[] = [
     logo: "/projects/kinsiba.png",
   },
   {
+    id: "kns-services",
+    title: "KNS Services",
+    time: "2025",
+    link: "https://kns-services.com",
+    skills: [
+      "Client Project",
+      "Nuxt.js",
+      "Tailwind CSS",
+      "Vue.js",
+      "Axios",
+      "Contentful",
+    ],
+    description: `Website for KNS Services, a senegalese company that provides cleaning services.
+- Home page
+- About page
+- Services page
+- Contact page
+- Shop
+- Blog page`,
+    logo: "/projects/kns-services.png",
+  },
+  {
     id: "sentol221",
     title: "Sentol221",
     time: "2025",
