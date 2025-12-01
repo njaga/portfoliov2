@@ -30,10 +30,13 @@ import {
   CommandSeparator,
 } from "@/components/ui/command";
 import { SOCIAL_LINKS as SOCIAL_LINKS_DATA } from "@/features/profile/data/social-links";
+import { useTranslation } from "@/hooks/use-translation";
+import { defaultLocale, getTranslations } from "@/lib/i18n";
+import { getTranslatedBlogPost } from "@/lib/translations";
 import { copyText } from "@/utils/copy";
 
 import { Icons } from "./icons";
-import { getMarkSVG, getWordmarkSVG,NdiagaMark } from "./ndiaga-mark";
+import { getMarkSVG, getWordmarkSVG, NdiagaMark } from "./ndiaga-mark";
 import { Button } from "./ui/button";
 
 type CommandItemType = {
@@ -42,81 +45,6 @@ type CommandItemType = {
   icon?: React.ComponentType;
   iconImage?: string;
 };
-
-const PAGES: CommandItemType[] = [
-  {
-    title: "Home",
-    value: "/",
-    icon: NdiagaMark,
-  },
-  {
-    title: "Projects",
-    value: "/projects",
-    icon: Icons.project,
-  },
-  {
-    title: "Blog",
-    value: "/blog",
-    icon: RssIcon,
-  },
-  {
-    title: "Contact",
-    value: "/contact",
-    icon: CircleUserIcon,
-  },
-];
-
-const PORTFOLIO: CommandItemType[] = [
-  {
-    title: "About",
-    value: "/#about",
-    icon: LetterTextIcon,
-  },
-  {
-    title: "Experience",
-    value: "/#experience",
-    icon: BriefcaseBusinessIcon,
-  },
-  {
-    title: "Services",
-    value: "/#services",
-    icon: SettingsIcon,
-  },
-  {
-    title: "Projects",
-    value: "/#projects",
-    icon: Icons.project,
-  },
-  {
-    title: "Certifications",
-    value: "/#certs",
-    icon: Icons.certificate,
-  },
-  {
-    title: "Download vCard",
-    value: "/vcard",
-    icon: CircleUserIcon,
-  },
-];
-
-const BLOG: CommandItemType[] = [
-  {
-    title: "The Importance of Having a Website in 2025",
-    value: "/blog/importance-site-web-2025",
-  },
-  {
-    title: "Essential Tools for Modern Entrepreneurs",
-    value: "/blog/entrepreneur-tools",
-  },
-  {
-    title: "Senegal's Technological New Deal",
-    value: "/blog/technological-new-deal",
-  },
-  {
-    title: "Vibe Coding: The Future of Development",
-    value: "/blog/vibe-coding",
-  },
-];
 
 const SOCIAL_LINKS: CommandItemType[] = SOCIAL_LINKS_DATA.map((item) => ({
   title: item.title,
@@ -127,8 +55,95 @@ const SOCIAL_LINKS: CommandItemType[] = SOCIAL_LINKS_DATA.map((item) => ({
 export function CommandMenu() {
   const router = useRouter();
   const { setTheme, resolvedTheme } = useTheme();
+  const { t, locale, mounted } = useTranslation();
+  const translations = mounted ? t : getTranslations(defaultLocale);
+  const currentLocale = mounted ? locale : defaultLocale;
 
   const [open, setOpen] = useState(false);
+
+  // Générer les listes traduites
+  const PAGES: CommandItemType[] = [
+    {
+      title: translations.nav.home,
+      value: "/",
+      icon: NdiagaMark,
+    },
+    {
+      title: translations.nav.projects,
+      value: "/projects",
+      icon: Icons.project,
+    },
+    {
+      title: translations.nav.blog,
+      value: "/blog",
+      icon: RssIcon,
+    },
+    {
+      title: translations.nav.contact,
+      value: "/contact",
+      icon: CircleUserIcon,
+    },
+  ];
+
+  const PORTFOLIO: CommandItemType[] = [
+    {
+      title: translations.about.title,
+      value: "/#about",
+      icon: LetterTextIcon,
+    },
+    {
+      title: translations.experience.title,
+      value: "/#experience",
+      icon: BriefcaseBusinessIcon,
+    },
+    {
+      title: translations.services.title,
+      value: "/#services",
+      icon: SettingsIcon,
+    },
+    {
+      title: translations.projects.title,
+      value: "/#projects",
+      icon: Icons.project,
+    },
+    {
+      title: translations.certifications.title,
+      value: "/#certs",
+      icon: Icons.certificate,
+    },
+    {
+      title: translations.profile.saveVCard,
+      value: "/vcard",
+      icon: CircleUserIcon,
+    },
+  ];
+
+  const BLOG: CommandItemType[] = [
+    {
+      title:
+        getTranslatedBlogPost("importance-site-web-2025", currentLocale)
+          ?.title || "The Importance of Having a Website in 2025",
+      value: "/blog/importance-site-web-2025",
+    },
+    {
+      title:
+        getTranslatedBlogPost("entrepreneur-tools", currentLocale)?.title ||
+        "Essential Tools for Modern Entrepreneurs",
+      value: "/blog/entrepreneur-tools",
+    },
+    {
+      title:
+        getTranslatedBlogPost("technological-new-deal", currentLocale)?.title ||
+        "Senegal's Technological New Deal",
+      value: "/blog/technological-new-deal",
+    },
+    {
+      title:
+        getTranslatedBlogPost("vibe-coding", currentLocale)?.title ||
+        "Vibe Coding: The Future of Development",
+      value: "/blog/vibe-coding",
+    },
+  ];
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -207,7 +222,7 @@ export function CommandMenu() {
         </svg>
 
         <span className="font-sans text-sm/4 font-medium sm:hidden">
-          Search
+          {translations.search.button}
         </span>
 
         <span className="max-sm:hidden">
@@ -222,13 +237,13 @@ export function CommandMenu() {
       </Button>
 
       <CommandDialog open={open} onOpenChange={setOpen}>
-        <CommandInput placeholder="Type a command or search..." />
+        <CommandInput placeholder={translations.search.placeholder} />
 
         <CommandList>
-          <CommandEmpty>No results found.</CommandEmpty>
+          <CommandEmpty>{translations.search.noResults}</CommandEmpty>
 
           <CommandGroupItems
-            heading="Pages"
+            heading={translations.search.pages}
             items={PAGES}
             onSelect={handleOpenLink}
           />
@@ -236,7 +251,7 @@ export function CommandMenu() {
           <CommandSeparator />
 
           <CommandGroupItems
-            heading="Portfolio"
+            heading={translations.search.portfolio}
             items={PORTFOLIO}
             onSelect={handleOpenLink}
           />
@@ -244,7 +259,7 @@ export function CommandMenu() {
           <CommandSeparator />
 
           <CommandGroupItems
-            heading="Blog"
+            heading={translations.search.blog}
             items={BLOG}
             onSelect={handleOpenLink}
           />
@@ -252,66 +267,74 @@ export function CommandMenu() {
           <CommandSeparator />
 
           <CommandGroupItems
-            heading="Social Links"
+            heading={translations.search.socialLinks}
             items={SOCIAL_LINKS}
             onSelect={(value) => handleOpenLink(value, true)}
           />
 
           <CommandSeparator />
 
-          <CommandGroup heading="Theme">
+          <CommandGroup heading={translations.search.theme}>
             <CommandItem onSelect={() => handleThemeChange("light")}>
               <SunIcon />
-              Light
+              {translations.search.light}
             </CommandItem>
             <CommandItem onSelect={() => handleThemeChange("dark")}>
               <MoonStarIcon />
-              Dark
+              {translations.search.dark}
             </CommandItem>
             <CommandItem onSelect={() => handleThemeChange("system")}>
               <MonitorIcon />
-              System
+              {translations.search.system}
             </CommandItem>
           </CommandGroup>
 
           <CommandSeparator />
 
-          <CommandGroup heading="Ndiaga Brand">
+          <CommandGroup heading={translations.search.ndiagaBrand}>
             <CommandItem
               onSelect={() => {
                 handleCopyText(
                   getMarkSVG(resolvedTheme === "light" ? "#000" : "#fff"),
-                  "Copied Mark as SVG"
+                  translations.search.copiedMark
                 );
               }}
             >
               <NdiagaMark />
-              Copy Mark as SVG
+              {translations.search.copyMark}
             </CommandItem>
 
             <CommandItem
               onSelect={() => {
                 handleCopyText(
                   getWordmarkSVG(resolvedTheme === "light" ? "#000" : "#fff"),
-                  "Copied Logotype as SVG"
+                  translations.search.copiedLogotype
                 );
               }}
             >
               <TypeIcon />
-              Copy Logotype as SVG
+              {translations.search.copyLogotype}
             </CommandItem>
 
             <CommandItem asChild>
-              <a href="mailto:contact@ndiagandiaye.com" target="_blank" rel="noopener noreferrer">
+              <a
+                href="mailto:contact@ndiagandiaye.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <MailIcon />
-                Contact Me
+                {translations.search.contactMe}
               </a>
             </CommandItem>
 
             <CommandItem asChild>
-              <a href="https://github.com/njaga" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://github.com/njaga"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <DownloadIcon />
-                GitHub Profile
+                {translations.search.githubProfile}
               </a>
             </CommandItem>
           </CommandGroup>

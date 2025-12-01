@@ -1,0 +1,151 @@
+{
+  "common": {
+    "back": "Retour",
+    "backToPortfolio": "Retour au portfolio",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "close": "Fermer",
+    "viewOnline": "Voir le projet en ligne",
+    "screenshots": "Captures d'écran",
+    "technologies": "Technologies",
+    "companyProject": "Projet d'entreprise",
+    "clientProject": "Projet client",
+    "components": "Composants",
+    "showMore": "Afficher plus",
+    "showLess": "Afficher moins"
+  },
+  "projects": {
+    "title": "Projets",
+    "allProjects": "Tous les projets",
+    "page": "Page",
+    "of": "sur",
+    "projectsTotal": "projets au total",
+    "collection": "Une collection de mes projets et réalisations.",
+    "haveProject": "Vous avez un projet en tête ?",
+    "excited": "Je suis toujours ravi de travailler sur de nouveaux projets et de donner vie aux idées. Discutons de la façon dont nous pouvons collaborer !",
+    "startProject": "Démarrer un projet",
+    "viewServices": "Voir les services"
+  },
+  "blog": {
+    "title": "Blog",
+    "allPosts": "Tous les articles",
+    "description": "Réflexions, idées et tutoriels.",
+    "page": "Page",
+    "of": "sur",
+    "articlesTotal": "articles au total",
+    "wantToShare": "Vous voulez partager votre histoire ?",
+    "connectDescription": "J'adore échanger avec d'autres développeurs et entrepreneurs. Discutons d'idées, collaborons ou simplement avons une bonne conversation !",
+    "letsConnect": "Restons en contact"
+  },
+  "contact": {
+    "title": "Contact",
+    "workTogether": "Travaillons ensemble",
+    "description": "Contactez-moi pour discuter de vos projets web et demander un devis.",
+    "getInTouch": "Contactez-moi",
+    "email": "Email",
+    "phone": "Téléphone",
+    "location": "Localisation",
+    "quickQuote": "Devis Rapide",
+    "quickQuoteDescription": "Obtenez un devis personnalisé sous 24 heures.",
+    "requestQuote": "Demander un Devis",
+    "bookMeeting": "Réserver un Rendez-vous",
+    "bookMeetingDescription": "Planifiez une réunion pour discuter de votre projet. Consultez mes disponibilités et réservez un créneau qui vous convient.",
+    "viewAvailability": "Voir les Disponibilités",
+    "hideCalendar": "Masquer le calendrier",
+    "loadingCalendar": "Chargement du calendrier...",
+    "sendMessage": "Envoyer un Message",
+    "fullName": "Nom Complet",
+    "fullNamePlaceholder": "Votre nom complet",
+    "emailAddress": "Adresse Email",
+    "emailPlaceholder": "votre.email@exemple.com",
+    "subject": "Sujet",
+    "subjectPlaceholder": "Demande de projet, consultation, etc.",
+    "message": "Message",
+    "messagePlaceholder": "Parlez-moi de votre projet, du délai et des exigences...",
+    "securityCheck": "Vérification de Sécurité",
+    "whatIs": "Quel est le résultat de",
+    "enterAnswer": "Entrez la réponse",
+    "sending": "Envoi en cours...",
+    "sendMessageButton": "Envoyer le Message",
+    "messageSentSuccess": "Message Envoyé avec Succès !",
+    "messageSentDescription": "Merci pour votre message. Je vous répondrai dans les 24 heures.",
+    "messageSentResponse": "Je répondrai à votre demande dans les 24 heures.",
+    "sendAnotherMessage": "Envoyer un autre message",
+    "responseTime": "Je réponds généralement dans les 24 heures. Pour les questions urgentes, veuillez appeler directement.",
+    "incorrectCaptcha": "Réponse captcha incorrecte. Veuillez réessayer.",
+    "messageSentToast": "Message envoyé avec succès ! Je vous répondrai dans les 24 heures.",
+    "messageError": "Échec de l'envoi du message. Veuillez réessayer plus tard."
+  },
+  "services": {
+    "title": "Services",
+    "description": "Services numériques complets pour aider votre entreprise à croître et réussir dans le monde numérique.",
+    "getQuote": "Demander un devis",
+    "viewAll": "Voir tous les services",
+    "backToPortfolio": "Retour au portfolio",
+    "readyToStart": "Prêt à Démarrer Votre Projet ?",
+    "letsDiscuss": "Discutons de vos besoins et créons quelque chose d'extraordinaire ensemble.",
+    "getFreeQuote": "Obtenir un Devis Gratuit",
+    "emailDirectly": "Envoyer un Email"
+  },
+  "nav": {
+    "home": "Accueil",
+    "projects": "Projets",
+    "services": "Services",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "about": {
+    "title": "À propos",
+    "text": "Je suis Ndiaga Ndiaye — un **Résolveur de Problèmes** et **Transporteur Digital**. Je suis votre **Couteau Suisse** pour les défis numériques.\n\nJe transforme les problèmes business complexes en solutions numériques élégantes. Que ce soit la construction d'applications web scalables, la conception d'interfaces utilisateur intuitives, l'optimisation des performances, ou l'implémentation de systèmes backend robustes — je livre des solutions de bout en bout.\n\nMon expertise couvre le développement FullStack, l'architecture backend, le design frontend, le DevOps, les Applications Web Progressives, et l'exploration de l'intégration IA et des solutions de machine learning.\n\nAvec plus de 4 ans d'expérience, j'ai fondé **Kamit Digital Solutions** pour accompagner les startups africaines dans leur transformation digitale en fournissant des solutions sur mesure adaptées à leurs besoins et budgets.\n\n**Prêt à résoudre votre prochain défi numérique ?** Connectons-nous !"
+  },
+  "experience": {
+    "title": "Expérience"
+  },
+  "certifications": {
+    "title": "Certifications"
+  },
+  "profile": {
+    "overview": "Aperçu",
+    "verified": "Vérifié",
+    "bio": "Résolveur de Problèmes & Transporteur Digital",
+    "flipSentences": [
+      "Résolveur de Problèmes",
+      "Transporteur Digital",
+      "Couteau Suisse",
+      "Développeur FullStack",
+      "Designer UI/UX"
+    ],
+    "jobs": [
+      {
+        "title": "Fondateur & PDG"
+      }
+    ],
+    "saveVCard": "Enregistrer vCard",
+    "sendEmail": "Envoyer un Email"
+  },
+  "search": {
+    "button": "Rechercher",
+    "placeholder": "Tapez une commande ou recherchez...",
+    "noResults": "Aucun résultat trouvé.",
+    "pages": "Pages",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "socialLinks": "Liens Sociaux",
+    "theme": "Thème",
+    "light": "Clair",
+    "dark": "Sombre",
+    "system": "Système",
+    "ndiagaBrand": "Marque Ndiaga",
+    "copyMark": "Copier le Logo en SVG",
+    "copiedMark": "Logo copié en SVG",
+    "copyLogotype": "Copier le Logotype en SVG",
+    "copiedLogotype": "Logotype copié en SVG",
+    "contactMe": "Me Contacter",
+    "githubProfile": "Profil GitHub"
+  },
+  "footer": {
+    "craftedWithPassion": "Créé avec passion à Dakar, Sénégal 🇸🇳",
+    "builtBy": "Créé par",
+    "sourceCodeAvailable": "Le code source est disponible sur"
+  }
+}

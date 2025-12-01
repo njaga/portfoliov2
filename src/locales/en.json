@@ -1,0 +1,151 @@
+{
+  "common": {
+    "back": "Back",
+    "backToPortfolio": "Back to Portfolio",
+    "next": "Next",
+    "previous": "Previous",
+    "close": "Close",
+    "viewOnline": "View project online",
+    "screenshots": "Screenshots",
+    "technologies": "Technologies",
+    "companyProject": "Company Project",
+    "clientProject": "Client Project",
+    "components": "Components",
+    "showMore": "Show More",
+    "showLess": "Show Less"
+  },
+  "projects": {
+    "title": "Projects",
+    "allProjects": "All Projects",
+    "page": "Page",
+    "of": "of",
+    "projectsTotal": "projects total",
+    "collection": "A collection of my projects and work.",
+    "haveProject": "Have a Project in Mind?",
+    "excited": "I'm always excited to work on new projects and bring ideas to life. Let's discuss how we can collaborate!",
+    "startProject": "Start a Project",
+    "viewServices": "View Services"
+  },
+  "blog": {
+    "title": "Blog",
+    "allPosts": "All Posts",
+    "description": "Thoughts, insights, and tutorials.",
+    "page": "Page",
+    "of": "of",
+    "articlesTotal": "articles total",
+    "wantToShare": "Want to Share Your Story?",
+    "connectDescription": "I love connecting with fellow developers and entrepreneurs. Let's discuss ideas, collaborate, or just have a great conversation!",
+    "letsConnect": "Let's Connect"
+  },
+  "contact": {
+    "title": "Contact",
+    "workTogether": "Let's work together",
+    "description": "Contact me to discuss your web projects and request a quote.",
+    "getInTouch": "Get in Touch",
+    "email": "Email",
+    "phone": "Phone",
+    "location": "Location",
+    "quickQuote": "Quick Quote",
+    "quickQuoteDescription": "Get a personalized quote within 24 hours.",
+    "requestQuote": "Request Quote",
+    "bookMeeting": "Book a Meeting",
+    "bookMeetingDescription": "Schedule a meeting to discuss your project. Check my availability and book a time slot that works for you.",
+    "viewAvailability": "View Availability",
+    "hideCalendar": "Hide Calendar",
+    "loadingCalendar": "Loading calendar...",
+    "sendMessage": "Send a Message",
+    "fullName": "Full Name",
+    "fullNamePlaceholder": "Your full name",
+    "emailAddress": "Email Address",
+    "emailPlaceholder": "your.email@example.com",
+    "subject": "Subject",
+    "subjectPlaceholder": "Project inquiry, consultation, etc.",
+    "message": "Message",
+    "messagePlaceholder": "Tell me about your project, timeline, and requirements...",
+    "securityCheck": "Security Check",
+    "whatIs": "What is",
+    "enterAnswer": "Enter the answer",
+    "sending": "Sending...",
+    "sendMessageButton": "Send Message",
+    "messageSentSuccess": "Message Sent Successfully!",
+    "messageSentDescription": "Thank you for your message. I'll get back to you within 24 hours.",
+    "messageSentResponse": "I'll respond to your inquiry within 24 hours.",
+    "sendAnotherMessage": "Send another message",
+    "responseTime": "I typically respond within 24 hours. For urgent matters, please call directly.",
+    "incorrectCaptcha": "Incorrect captcha answer. Please try again.",
+    "messageSentToast": "Message sent successfully! I'll get back to you within 24 hours.",
+    "messageError": "Failed to send message. Please try again later."
+  },
+  "services": {
+    "title": "Services",
+    "description": "Comprehensive digital services to help your business grow and succeed in the digital world.",
+    "getQuote": "Get Quote",
+    "viewAll": "View all services",
+    "backToPortfolio": "Back to Portfolio",
+    "readyToStart": "Ready to Start Your Project?",
+    "letsDiscuss": "Let's discuss your needs and create something amazing together.",
+    "getFreeQuote": "Get Free Quote",
+    "emailDirectly": "Email Directly"
+  },
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "services": "Services",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "about": {
+    "title": "About",
+    "text": "I'm Ndiaga Ndiaye — a **Problem Solver** and **Digital Transporter**. I'm your **Swiss Army Knife** for digital challenges.\n\nI transform complex business problems into elegant digital solutions. Whether it's building scalable web applications, designing intuitive user interfaces, optimizing performance, or implementing robust backend systems — I deliver end-to-end solutions.\n\nMy expertise spans FullStack development, backend architecture, frontend design, DevOps, Progressive Web Apps, and exploring AI integration and machine learning solutions.\n\nWith over 4 years of experience, I founded **Kamit Digital Solutions** to support African startups in their digital transformation by providing solutions tailored to their needs and budgets.\n\n**Ready to solve your next digital challenge?** Let's connect!"
+  },
+  "experience": {
+    "title": "Experience"
+  },
+  "certifications": {
+    "title": "Certifications"
+  },
+  "profile": {
+    "overview": "Overview",
+    "verified": "Verified",
+    "bio": "Problem Solver & Digital Transporter",
+    "flipSentences": [
+      "Problem Solver",
+      "Digital Transporter",
+      "Swiss Army Knife",
+      "FullStack Developer",
+      "UI/UX Designer"
+    ],
+    "jobs": [
+      {
+        "title": "Founder & CEO"
+      }
+    ],
+    "saveVCard": "Save vCard",
+    "sendEmail": "Send Email"
+  },
+  "search": {
+    "button": "Search",
+    "placeholder": "Type a command or search...",
+    "noResults": "No results found.",
+    "pages": "Pages",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "socialLinks": "Social Links",
+    "theme": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "ndiagaBrand": "Ndiaga Brand",
+    "copyMark": "Copy Mark as SVG",
+    "copiedMark": "Copied Mark as SVG",
+    "copyLogotype": "Copy Logotype as SVG",
+    "copiedLogotype": "Copied Logotype as SVG",
+    "contactMe": "Contact Me",
+    "githubProfile": "GitHub Profile"
+  },
+  "footer": {
+    "craftedWithPassion": "Crafted with passion in Dakar, Senegal 🇸🇳",
+    "builtBy": "Built by",
+    "sourceCodeAvailable": "The source code is available on"
+  }
+}

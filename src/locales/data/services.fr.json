@@ -1,0 +1,99 @@
+{
+  "web-development": {
+    "title": "Développement Web",
+    "description": "Sites web et applications web personnalisés construits avec des technologies modernes",
+    "shortDescription": "Sites web & applications modernes",
+    "features": [
+      "Design responsive pour tous les appareils",
+      "Frameworks modernes (React, Next.js, Vue)",
+      "Optimisation des performances",
+      "Architecture SEO-friendly",
+      "Systèmes de gestion de contenu",
+      "Solutions e-commerce"
+    ],
+    "duration": "2-8 semaines",
+    "whatsIncluded": "Ce qui est inclus :",
+    "durationLabel": "Durée :"
+  },
+  "mobile-development": {
+    "title": "Développement Mobile",
+    "description": "Applications mobiles natives et multiplateformes",
+    "shortDescription": "Applications iOS & Android",
+    "features": [
+      "Développement iOS et Android",
+      "React Native & Flutter",
+      "Déploiement sur les stores",
+      "Notifications push",
+      "Fonctionnalité hors ligne",
+      "Intégrations API"
+    ],
+    "duration": "4-12 semaines",
+    "whatsIncluded": "Ce qui est inclus :",
+    "durationLabel": "Durée :"
+  },
+  "ui-ux-design": {
+    "title": "Design UI/UX",
+    "description": "Solutions de design centrées sur l'utilisateur pour améliorer l'engagement",
+    "shortDescription": "Design d'expérience utilisateur",
+    "features": [
+      "Recherche utilisateur & personas",
+      "Wireframing & prototypage",
+      "Systèmes de design visuel",
+      "Tests d'utilisabilité",
+      "Design d'identité de marque",
+      "Création de systèmes de design"
+    ],
+    "duration": "1-4 semaines",
+    "whatsIncluded": "Ce qui est inclus :",
+    "durationLabel": "Durée :"
+  },
+  "digital-marketing": {
+    "title": "Marketing Digital",
+    "description": "Stratégies de marketing digital complètes pour faire croître votre entreprise",
+    "shortDescription": "SEO & croissance digitale",
+    "features": [
+      "Optimisation SEO",
+      "Stratégie de réseaux sociaux",
+      "Marketing de contenu",
+      "Gestion Google Ads",
+      "Analyses & rapports",
+      "Campagnes d'email marketing"
+    ],
+    "duration": "En continu",
+    "whatsIncluded": "Ce qui est inclus :",
+    "durationLabel": "Durée :"
+  },
+  "tech-consulting": {
+    "title": "Conseil Technologique",
+    "description": "Conseil technologique stratégique pour la croissance de votre entreprise",
+    "shortDescription": "Stratégie technologique",
+    "features": [
+      "Sélection de stack technologique",
+      "Planification d'architecture",
+      "Audits & revues de code",
+      "Optimisation des performances",
+      "Formation & mentorat d'équipe",
+      "Stratégie de transformation digitale"
+    ],
+    "duration": "Flexible",
+    "whatsIncluded": "Ce qui est inclus :",
+    "durationLabel": "Durée :"
+  },
+  "maintenance-support": {
+    "title": "Maintenance & Support",
+    "description": "Support et maintenance continus pour vos actifs numériques",
+    "shortDescription": "Maintenance continue",
+    "features": [
+      "Mises à jour & correctifs réguliers",
+      "Surveillance de la sécurité",
+      "Surveillance des performances",
+      "Corrections de bugs & améliorations",
+      "Sauvegarde & récupération",
+      "Support technique 24/7"
+    ],
+    "duration": "En continu",
+    "whatsIncluded": "Ce qui est inclus :",
+    "durationLabel": "Durée :"
+  }
+}
+

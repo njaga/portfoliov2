@@ -1,0 +1,35 @@
+{
+  "kamit-founder-ceo-current": {
+    "title": "Fondateur & PDG",
+    "description": "- Fondation de Kamit Digital Solutions pour accompagner les startups africaines dans leur transformation numérique.\n- Fournir des solutions sur mesure adaptées aux besoins et budgets des clients.\n- Diriger les équipes techniques et superviser tous les projets de développement.\n- Développer des stratégies commerciales et gérer les relations clients.\n- Accompagner les entreprises dans leur parcours de transformation numérique."
+  },
+  "kamit-fullstack-dev-current": {
+    "title": "Développeur FullStack",
+    "description": "- Développer des sites web professionnels et des solutions logicielles métier.\n- Créer des applications web modernes utilisant les dernières technologies.\n- Implémenter des designs UI/UX responsive pour une expérience utilisateur optimale.\n- Intégrer des APIs et construire des systèmes backend scalables.\n- Assurer la qualité du code et maintenir des standards de développement élevés."
+  },
+  "prosen-responsable-informatique": {
+    "title": "Responsable Informatique",
+    "description": "- Développement et gestion de la plateforme web de l'entreprise.\n- Conception et mise en œuvre de solutions logicielles adaptées aux besoins de Prosen.\n- Supervision de la gestion des données et des systèmes d'information.\n- Mise en place de solutions de sécurité informatique pour assurer la confidentialité des données.\n- Formation des équipes sur l'utilisation des outils numériques et la gestion technologique."
+  },
+  "linfluent-cofounder-fullstack": {
+    "title": "Co-fondateur & Développeur Full Stack",
+    "description": "- Concevoir et maintenir des applications web interactives utilisant des frameworks modernes comme Nuxt.js, Vue.js, React et Next.js.\n- Gérer les relations clients pour assurer la satisfaction et la livraison de projets de haute qualité.\n- Implémenter des solutions personnalisées visant à optimiser l'engagement numérique pour les entreprises partenaires."
+  },
+  "kinsiba-dev-benevolat": {
+    "title": "Développeur Bénévole & Graphiste",
+    "description": "- Développement du site web de l'association.\n- Création d'une application de gestion des patients.\n- Conception d'une application mobile pour le suivi des activités.\n- Création de supports graphiques pour l'impression."
+  },
+  "vie-publique-dev-benevolat": {
+    "title": "Développeur Web Bénévole",
+    "description": "- Conception et développement de la plateforme citoyenne.\n- Participation à l'amélioration de l'accessibilité et de la transparence des informations publiques.\n- Contribution à l'open source et à la collaboration communautaire."
+  },
+  "carre-dor-consultant-digital": {
+    "title": "Consultant Digital Manager",
+    "description": "- Création d'une application dédiée à la gestion immobilière et à la gestion de la relation client.\n- Création d'un site web complet, en tenant compte de l'UI/UX, pour offrir une expérience utilisateur optimale.\n- Conception du logo de la marque et développement d'une charte graphique pour assurer la cohérence visuelle de l'entreprise.\n- Création de cartes de visite, flyers, brochures, bannières, plaques de porte et autres supports visuels pour promouvoir l'entreprise.\n- Gestion de la stratégie numérique et développement de la présence en ligne de la marque."
+  },
+  "vigilus-chef-projet-digital": {
+    "title": "Chef de Projet Digital",
+    "description": "- Développement de solutions numériques pour l'entreprise.\n- Gestion de la présence en ligne et création de contenu pour les campagnes publicitaires.\n- Mise en œuvre de stratégies de marketing numérique pour optimiser l'engagement des utilisateurs.\n- Suivi des performances et analyse des résultats des campagnes."
+  }
+}
+

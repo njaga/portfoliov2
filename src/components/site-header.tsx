@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 
 import { CommandMenu } from "@/components/command-menu";
@@ -6,13 +8,30 @@ import { MobileNav } from "@/components/mobile-nav";
 import { NavItemGitHub } from "@/components/nav-item-github";
 import { ToggleTheme } from "@/components/toggle-theme";
 import { MAIN_NAV } from "@/config/site";
+import { useTranslation } from "@/hooks/use-translation";
+import { defaultLocale, getTranslations } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
+import type { NavItem } from "@/types/nav";
 
 import { BrandContextMenu } from "./brand-context-menu";
+import { LanguageSwitcher } from "./language-switcher";
 import { SiteHeaderMark } from "./site-header-mark";
 import { SiteHeaderWrapper } from "./site-header-wrapper";
 
 export const SiteHeader = () => {
+  const { t, mounted } = useTranslation();
+  const translations = mounted ? t : getTranslations(defaultLocale);
+
+  // Créer les items de navigation traduits
+  const translatedNav: NavItem[] = MAIN_NAV.map((item) => {
+    const translationKey =
+      item.title.toLowerCase() as keyof typeof translations.nav;
+    return {
+      ...item,
+      title: translations.nav[translationKey] || item.title,
+    };
+  });
+
   return (
     <>
       <div className="flex h-14" />
@@ -36,13 +55,14 @@ export const SiteHeader = () => {
 
           <div className="flex-1" />
 
-          <DesktopNav items={MAIN_NAV} />
+          <DesktopNav items={translatedNav} />
 
           <div className="flex items-center gap-2">
             <CommandMenu />
+            <LanguageSwitcher />
             <NavItemGitHub />
             <ToggleTheme />
-            <MobileNav className="sm:hidden" items={MAIN_NAV} />
+            <MobileNav className="sm:hidden" items={translatedNav} />
           </div>
         </div>
       </SiteHeaderWrapper>

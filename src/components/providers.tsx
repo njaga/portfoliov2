@@ -8,6 +8,7 @@ import { ThemeProvider } from "next-themes";
 
 import { Toaster } from "@/components/ui/sonner";
 
+import { I18nProvider } from "./i18n-provider";
 import { PostHogProvider } from "./posthog-provider";
 
 export function Providers({ children }: { children: React.ReactNode }) {
@@ -21,14 +22,16 @@ export function Providers({ children }: { children: React.ReactNode }) {
         defaultTheme="system"
         attribute="class"
       >
-        <AppProgressProvider
-          color="var(--color-info)"
-          height="2px"
-          delay={500}
-          options={{ showSpinner: false }}
-        >
-          <PostHogProvider>{children}</PostHogProvider>
-        </AppProgressProvider>
+        <I18nProvider>
+          <AppProgressProvider
+            color="var(--color-info)"
+            height="2px"
+            delay={500}
+            options={{ showSpinner: false }}
+          >
+            <PostHogProvider>{children}</PostHogProvider>
+          </AppProgressProvider>
+        </I18nProvider>
 
         <Toaster />
         <Analytics />

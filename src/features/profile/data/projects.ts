@@ -25,6 +25,7 @@ export const PROJECTS: Project[] = [
 - Blog to share our knowledge
 - Multilingual (French/English)`,
     logo: "/projects/kamit-website.png",
+    images: [],
   },
   {
     id: "prosen",
@@ -78,6 +79,7 @@ export const PROJECTS: Project[] = [
 - Digital business card (vCard)
 - Optimized performance`,
     logo: "/screenshots/screenshot-desktop-light.png",
+    images: [],
   },
   {
     id: "longrich-agence-senegal",
@@ -379,8 +381,6 @@ export const PROJECTS: Project[] = [
       "WordPress",
       "Elementor",
       "WooCommerce",
-      "WPML",
-      "WPML Multilingual CMS",
       "WPML Multilingual CMS",
     ],
     description: `Website for KDM Group, a senegalese company that provides Protections Equipements and IT materials.
@@ -415,5 +415,133 @@ export const PROJECTS: Project[] = [
 - Logos and branding
 - User testing`,
     logo: "/projects/ui-ux-designs.png",
+  },
+  {
+    id: "happy-avantages-app",
+    title: "Happy Avantages App",
+    time: "2025",
+    link: "https://app.happyavantages.com",
+    skills: [
+      "Client Project",
+      "Laravel",
+      "MySQL",
+      "Tailwind CSS",
+      "Vue.js",
+      "Pinia",
+      "In Development",
+    ],
+    description: `Web application for Happy Avantages - Complete management of members and partners.
+- Member management
+- Partner management
+- Card management
+- Discount system
+- Transaction management
+- Dashboard and analytics`,
+    logo: "/projects/happy-avantages.png",
+  },
+  {
+    id: "happy-avantages-website",
+    title: "Happy Avantages",
+    time: "2025",
+    link: "http://happyavantages.com",
+    skills: ["Client Project", "Web Development", "In Development"],
+    description: `Presentation website and card purchase platform for Happy Avantages.
+- Card purchase
+- Partnership request
+- Information about advantages
+- Contact form`,
+    logo: "/projects/happy-avantages.png",
+  },
+  {
+    id: "sunu-ride",
+    title: "Sunu Ride",
+    time: "2025",
+    link: "https://sunuride.sn",
+    skills: [
+      "Client Project",
+      "Nuxt.js",
+      "Vue.js",
+      "Tailwind CSS",
+      "PWA",
+      "In Development",
+    ],
+    description: `Your trusted partner for all your transport and delivery needs in Senegal. Speed, reliability and security guaranteed.
+- Ride booking
+- Delivery service
+- Real-time tracking
+- Secure payments
+- PWA support`,
+    logo: "/projects/sunu-ride.png",
+  },
+  {
+    id: "reflet",
+    title: "REFLET",
+    time: "2024",
+    link: "https://www.reseaureflet.com",
+    skills: ["Client Project", "Vue.js", "Pinia", "Directus", "Tailwind CSS"],
+    description: `Website for REFLET Network - Network of Women Leaders around Thierno Amadou Ba.
+- Events display
+- Programs presentation
+- Photo gallery
+- News and articles
+- Contact information`,
+    logo: "/projects/reflet.png",
+  },
+  {
+    id: "colorfusion",
+    title: "ColorFusion",
+    time: "2024",
+    link: "https://colorfusion-five.vercel.app/",
+    skills: ["Open Source", "Next.js", "React", "Tailwind CSS", "TypeScript"],
+    description: `Free and open source project that brings together many tools for developers.
+- Color Converter
+- Tailwind Gradient
+- Background Patterns
+- Blob Composition
+- Shadow Generator
+- Grid Generator
+- Table Generator
+- Code Visualizer`,
+    logo: "/projects/colorfusion.png",
+  },
+  {
+    id: "convertisseur-documents",
+    title: "Document Converter",
+    time: "2024",
+    link: "https://convertisseur-documents.vercel.app",
+    skills: ["Open Source", "Next.js", "React", "TypeScript"],
+    description: `Open source document converter project.
+- Multiple format support
+- Fast conversion
+- Secure processing
+- Free to use`,
+    logo: "/projects/convertisseur.png",
+  },
+  {
+    id: "xof-converter",
+    title: "XOF Converter",
+    time: "2024",
+    link: "https://xof-converter.vercel.app",
+    skills: ["Open Source", "Next.js", "React", "TypeScript"],
+    description: `Open source currency converter project.
+- XOF currency conversion
+- Multiple currencies support
+- Real-time rates
+- Favorite conversions`,
+    logo: "/projects/xof-converter.png",
+  },
+  {
+    id: "jotali-app",
+    title: "JOTALI App",
+    time: "2025",
+    link: "#",
+    skills: ["Client Project", "Mobile App", "React Native", "In Development"],
+    description: `Mobile application for managing Prosen security agents patrols.
+- Real-time tracking
+- Instant alerts
+- Detailed reports
+- Direct communication
+- QR Code scanning`,
+    logo: "/projects/jotali.png",
   },
 ];

@@ -10,6 +10,9 @@ import {
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
+import { useTranslation } from "@/hooks/use-translation";
+import { defaultLocale, getTranslations } from "@/lib/i18n";
+
 interface ContactFormData {
   name: string;
   email: string;
@@ -19,6 +22,9 @@ interface ContactFormData {
 }
 
 export function ContactForm() {
+  const { t, mounted } = useTranslation();
+  const translations = mounted ? t : getTranslations(defaultLocale);
+
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     email: "",
@@ -79,7 +85,7 @@ export function ContactForm() {
 
     // Validate captcha
     if (formData.captcha !== captchaQuestion.answer) {
-      toast.error("Incorrect captcha answer. Please try again.");
+      toast.error(translations.contact.incorrectCaptcha);
       generateCaptcha(); // Generate new captcha
       setFormData((prev) => ({ ...prev, captcha: "" }));
       return;
@@ -119,13 +125,11 @@ export function ContactForm() {
         message: "",
         captcha: "",
       });
-      toast.success(
-        "Message sent successfully! I'll get back to you within 24 hours."
-      );
+      toast.success(translations.contact.messageSentToast);
     } catch (error) {
       console.error("Error sending message:", error);
 
-      let errorMessage = "Failed to send message. Please try again later.";
+      let errorMessage = translations.contact.messageError;
 
       if (error instanceof Error) {
         errorMessage = error.message;
@@ -139,21 +143,22 @@ export function ContactForm() {
 
   if (isSubmitted) {
     return (
-      <div className="space-y-4 p-4">
-        <div className="space-y-4 text-center">
+      <div className="rounded-xl border border-edge bg-background/50 p-8 sm:p-12">
+        <div className="mx-auto max-w-md space-y-6 text-center">
           <div className="flex justify-center">
-            <CheckCircleIcon className="h-16 w-16 text-green-500" />
+            <div className="flex h-20 w-20 items-center justify-center rounded-full bg-success/10">
+              <CheckCircleIcon className="h-12 w-12 text-success" />
+            </div>
           </div>
-          <div>
-            <h3 className="mb-2 font-heading text-lg font-medium text-green-600 dark:text-green-400">
-              Message Sent Successfully!
+          <div className="space-y-2">
+            <h3 className="font-heading text-2xl font-semibold text-foreground">
+              {translations.contact.messageSentSuccess}
             </h3>
-            <p className="mb-4 text-sm text-muted-foreground">
-              Thank you for your message. I&apos;ll get back to you within 24
-              hours.
+            <p className="text-base text-muted-foreground">
+              {translations.contact.messageSentDescription}
             </p>
-            <p className="text-xs text-muted-foreground">
-              I&apos;ll respond to your inquiry within 24 hours.
+            <p className="text-sm text-muted-foreground">
+              {translations.contact.messageSentResponse}
             </p>
           </div>
           <button
@@ -161,9 +166,10 @@ export function ContactForm() {
               setIsSubmitted(false);
               generateCaptcha(); // Generate new captcha for next form
             }}
-            className="text-sm text-primary hover:underline"
+            className="inline-flex items-center gap-2 rounded-lg border border-edge bg-background px-4 py-2 text-sm font-medium text-foreground transition-all hover:bg-muted/50 hover:shadow-sm"
           >
-            Send another message
+            <SendIcon className="h-4 w-4" />
+            {translations.contact.sendAnotherMessage}
           </button>
         </div>
       </div>
@@ -171,30 +177,32 @@ export function ContactForm() {
   }
 
   return (
-    <div className="space-y-4 p-4">
-      <h2 className="mb-4 flex items-center gap-2 font-heading text-lg font-medium">
-        <MailIcon className="h-5 w-5 text-muted-foreground" />
-        Send a Message
-      </h2>
+    <div className="space-y-4 rounded-xl border border-edge bg-background/50 p-4">
+      <div className="mb-4">
+        <h2 className="mb-4 flex items-center gap-2 font-heading text-lg font-medium">
+          <MailIcon className="h-5 w-5 text-muted-foreground" />
+          {translations.contact.sendMessage}
+        </h2>
+      </div>
 
-      <form className="space-y-4" onSubmit={handleSubmit}>
+      <form className="space-y-5" onSubmit={handleSubmit}>
         <div className="space-y-2">
           <label
             htmlFor="name"
-            className="text-xs font-medium text-muted-foreground"
+            className="block text-sm font-medium text-foreground"
           >
-            Full Name
+            {translations.contact.fullName}
           </label>
           <div className="relative">
-            <UserIcon className="absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 transform text-muted-foreground" />
+            <UserIcon className="absolute top-1/2 left-3 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
             <input
               type="text"
               id="name"
               name="name"
               value={formData.name}
               onChange={handleInputChange}
-              className="w-full rounded-xl border border-edge bg-background py-3 pr-4 pl-10 text-sm transition-all focus:border-primary focus:ring-2 focus:ring-primary/50 focus:outline-none"
-              placeholder="Your full name"
+              className="w-full rounded-lg border border-edge bg-background py-3 pr-4 pl-11 text-sm transition-all placeholder:text-muted-foreground/60 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+              placeholder={translations.contact.fullNamePlaceholder}
               required
               disabled={isSubmitting}
             />
@@ -204,20 +212,20 @@ export function ContactForm() {
         <div className="space-y-2">
           <label
             htmlFor="email"
-            className="text-xs font-medium text-muted-foreground"
+            className="block text-sm font-medium text-foreground"
           >
-            Email Address
+            {translations.contact.emailAddress}
           </label>
           <div className="relative">
-            <MailIcon className="absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 transform text-muted-foreground" />
+            <MailIcon className="absolute top-1/2 left-3 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
             <input
               type="email"
               id="email"
               name="email"
               value={formData.email}
               onChange={handleInputChange}
-              className="w-full rounded-xl border border-edge bg-background py-3 pr-4 pl-10 text-sm transition-all focus:border-primary focus:ring-2 focus:ring-primary/50 focus:outline-none"
-              placeholder="your.email@example.com"
+              className="w-full rounded-lg border border-edge bg-background py-3 pr-4 pl-11 text-sm transition-all placeholder:text-muted-foreground/60 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+              placeholder={translations.contact.emailPlaceholder}
               required
               disabled={isSubmitting}
             />
@@ -227,9 +235,9 @@ export function ContactForm() {
         <div className="space-y-2">
           <label
             htmlFor="subject"
-            className="text-xs font-medium text-muted-foreground"
+            className="block text-sm font-medium text-foreground"
           >
-            Subject
+            {translations.contact.subject}
           </label>
           <input
             type="text"
@@ -237,8 +245,8 @@ export function ContactForm() {
             name="subject"
             value={formData.subject}
             onChange={handleInputChange}
-            className="w-full rounded-xl border border-edge bg-background px-4 py-3 text-sm transition-all focus:border-primary focus:ring-2 focus:ring-primary/50 focus:outline-none"
-            placeholder="Project inquiry, consultation, etc."
+            className="w-full rounded-lg border border-edge bg-background px-4 py-3 text-sm transition-all placeholder:text-muted-foreground/60 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+            placeholder={translations.contact.subjectPlaceholder}
             required
             disabled={isSubmitting}
           />
@@ -247,18 +255,18 @@ export function ContactForm() {
         <div className="space-y-2">
           <label
             htmlFor="message"
-            className="text-xs font-medium text-muted-foreground"
+            className="block text-sm font-medium text-foreground"
           >
-            Message
+            {translations.contact.message}
           </label>
           <textarea
             id="message"
             name="message"
-            rows={4}
+            rows={5}
             value={formData.message}
             onChange={handleInputChange}
-            className="w-full resize-none rounded-xl border border-edge bg-background px-4 py-3 text-sm transition-all focus:border-primary focus:ring-2 focus:ring-primary/50 focus:outline-none"
-            placeholder="Tell me about your project, timeline, and requirements..."
+            className="w-full resize-none rounded-lg border border-edge bg-background px-4 py-3 text-sm transition-all placeholder:text-muted-foreground/60 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+            placeholder={translations.contact.messagePlaceholder}
             required
             disabled={isSubmitting}
           ></textarea>
@@ -268,9 +276,13 @@ export function ContactForm() {
         <div className="space-y-2">
           <label
             htmlFor="captcha"
-            className="text-xs font-medium text-muted-foreground"
+            className="block text-sm font-medium text-foreground"
           >
-            Security Check: What is {captchaQuestion.question}?
+            {translations.contact.securityCheck}: {translations.contact.whatIs}{" "}
+            <span className="font-mono font-semibold">
+              {captchaQuestion.question}
+            </span>
+            ?
           </label>
           <input
             type="text"
@@ -278,8 +290,8 @@ export function ContactForm() {
             name="captcha"
             value={formData.captcha}
             onChange={handleInputChange}
-            className="w-full rounded-xl border border-edge bg-background px-4 py-3 text-sm transition-all focus:border-primary focus:ring-2 focus:ring-primary/50 focus:outline-none"
-            placeholder="Enter the answer"
+            className="w-full rounded-lg border border-edge bg-background px-4 py-3 text-sm transition-all placeholder:text-muted-foreground/60 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+            placeholder={translations.contact.enterAnswer}
             required
             disabled={isSubmitting}
           />
@@ -288,28 +300,21 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3 text-sm font-medium text-primary-foreground shadow-sm transition-all hover:bg-primary/90 focus:ring-2 focus:ring-primary/50 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+          className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary/90 hover:shadow-md focus:ring-2 focus:ring-primary/50 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
         >
           {isSubmitting ? (
             <>
               <LoaderIcon className="h-4 w-4 animate-spin" />
-              Sending...
+              {translations.contact.sending}
             </>
           ) : (
             <>
               <SendIcon className="h-4 w-4" />
-              Send Message
+              {translations.contact.sendMessageButton}
             </>
           )}
         </button>
       </form>
-
-      <div className="mt-4 rounded-xl border border-edge bg-muted/50 p-3">
-        <p className="text-center text-xs text-muted-foreground">
-          I typically respond within 24 hours. For urgent matters, please call
-          directly.
-        </p>
-      </div>
     </div>
   );
 }

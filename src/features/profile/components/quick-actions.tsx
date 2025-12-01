@@ -8,10 +8,14 @@ import { Button } from "@/components/ui/button";
 import { MAIN_NAV } from "@/config/site";
 import { USER } from "@/data/user";
 import { useIsClient } from "@/hooks/use-is-client";
+import { useTranslation } from "@/hooks/use-translation";
+import { defaultLocale, getTranslations } from "@/lib/i18n";
 import { decodeEmail } from "@/utils/string";
 
 export function QuickActions() {
   const isClient = useIsClient();
+  const { t, mounted } = useTranslation();
+  const translations = mounted ? t : getTranslations(defaultLocale);
 
   const { scrollY } = useScroll();
 
@@ -43,7 +47,7 @@ export function QuickActions() {
                 <Button size="lg" asChild>
                   <a href="/vcard" target="_blank" rel="noopener noreferrer">
                     <DownloadIcon />
-                    Save vCard
+                    {translations.profile.saveVCard}
                   </a>
                 </Button>
 
@@ -54,7 +58,7 @@ export function QuickActions() {
                     rel="noopener noreferrer"
                   >
                     <PaperPlaneTiltIcon />
-                    Send Email
+                    {translations.profile.sendEmail}
                   </a>
                 </Button>
 

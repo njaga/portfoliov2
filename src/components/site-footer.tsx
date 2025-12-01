@@ -1,17 +1,24 @@
+"use client";
+
 import { SOURCE_CODE_GITHUB_URL } from "@/config/site";
+import { useTranslation } from "@/hooks/use-translation";
+import { defaultLocale, getTranslations } from "@/lib/i18n";
 
 import { NdiagaMark } from "./ndiaga-mark";
 
 export function SiteFooter() {
+  const { t, mounted } = useTranslation();
+  const translations = mounted ? t : getTranslations(defaultLocale);
+
   return (
     <footer className="max-w-screen overflow-x-hidden px-2">
       <div className="screen-line-before mx-auto border-x border-edge pt-4 pb-[env(safe-area-inset-bottom,0px)] md:max-w-3xl">
         <p className="mb-1 text-center font-mono text-sm text-balance text-muted-foreground">
-          Crafted with passion in Dakar, Senegal 🇸🇳
+          {translations.footer.craftedWithPassion}
         </p>
 
         <p className="mb-4 text-center font-mono text-sm text-balance text-muted-foreground">
-          Built by{" "}
+          {translations.footer.builtBy}{" "}
           <a
             className="link"
             href="https://www.linkedin.com/in/ndiagandiaye"
@@ -20,7 +27,7 @@ export function SiteFooter() {
           >
             Ndiaga Ndiaye
           </a>
-          . The source code is available on{" "}
+          . {translations.footer.sourceCodeAvailable}{" "}
           <a
             className="link"
             href={SOURCE_CODE_GITHUB_URL}

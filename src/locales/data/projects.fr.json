@@ -1,0 +1,98 @@
+{
+  "kamit-website": {
+    "title": "Kamit Digital Solutions",
+    "description": "Site web officiel de Kamit Digital Solutions - Accompagnement des startups africaines dans leur transformation numérique.\n- Site vitrine moderne et responsive\n- Interface utilisateur intuitive et élégante\n- Optimisation SEO avancée\n- Intégration de formulaire de contact\n- Présentation des services et du portfolio\n- Blog pour partager nos connaissances\n- Multilingue (Français/Anglais)"
+  },
+  "prosen": {
+    "title": "Prosen",
+    "description": "Site web pour Prosen SARL, une entreprise sénégalaise qui fournit des services de sécurité.\n- Page d'accueil\n- Page À propos\n- Page Services\n- Page Contact\n- Page Blog\n- Page Portfolio\n- Page Témoignages"
+  },
+  "portfolio-ndiaga": {
+    "title": "ndiagandiaye.com",
+    "description": "Mon portfolio personnel moderne et minimaliste, présentant mon travail et mon expérience en tant que développeur FullStack.\n- Design élégant et minimaliste\n- Mode sombre/clair\n- Blog avec support MDX\n- Optimisation SEO complète\n- PWA installable\n- Carte de visite numérique (vCard)\n- Performance optimisée"
+  },
+  "longrich-agence-senegal": {
+    "title": "Longrich Agence Sénégal",
+    "description": "Site web pour Longrich Agence Sénégal, une entreprise sénégalaise qui fournit des produits Longrich.\n- Page d'accueil\n- Page À propos\n- Page Produits\n- Page Contact\n- Page Blog\n- Page Connexion\n- Page Inscription\n- Page Mot de passe oublié\n- Page Réinitialisation du mot de passe\n- Page Vérification email"
+  },
+  "kinsiba": {
+    "title": "Kinsiba",
+    "description": "Site web pour Kinsiba, une association d'aide aux personnes souffrant de cancer.\n- Page d'accueil\n- Page À propos\n- Page Don\n- Page Événements\n- Page Blog\n- Page Contact"
+  },
+  "kns-services": {
+    "title": "KNS Services",
+    "description": "Site web pour KNS Services, une entreprise sénégalaise qui fournit des services de nettoyage.\n- Page d'accueil\n- Page À propos\n- Page Services\n- Page Contact\n- Boutique\n- Page Blog"
+  },
+  "sentol221": {
+    "title": "Sentol221",
+    "description": "Site web pour Sentol221, une entreprise sénégalaise qui fournit des fruits et légumes.\n- Page d'accueil\n- Page Produits\n- Page Contact\n- Page Blog\n- Page Connexion\n- Page Inscription\n- Page Mot de passe oublié\n- Page Réinitialisation du mot de passe\n- Page Vérification email"
+  },
+  "kinsiba-app": {
+    "title": "Kinsiba App",
+    "description": "L'application Kinsiba est une application web pour gérer l'association Kinsiba.\n- Tableau de bord\n- Gestion des dons\n- Gestion des événements\n- Gestion du blog\n- Gestion des utilisateurs\n- Gestion des rôles\n- Gestion des permissions"
+  },
+  "gainde": {
+    "title": "Gainde",
+    "description": "Application web pour une entreprise de sécurité pour gérer leurs clients et leurs agents.\n- Gestion des clients\n- Gestion des agents\n- Gestion des rapports\n- Système de notifications\n- Gestion des plans\n- Gestion des contrats\n- Gestion des paiements"
+  },
+  "noflay": {
+    "title": "Noflay",
+    "description": "Noflay est une plateforme qui permet de gérer votre propriété et vos locataires. C'est une application web construite avec Angular et Node.js.\n- Gestion des propriétés\n- Gestion des locataires\n- Gestion des loyers\n- Gestion des paiements\n- Gestion des rapports\n- Système de notifications"
+  },
+  "sidibe-et-frere": {
+    "title": "Sidibé et Frère",
+    "description": "Site web pour Sidibé et Frère, magasin d'automobiles et d'accessoires.\n- Page d'accueil\n- Page À propos\n- Page Produits\n- Page Contact\n- Page Blog\n- Page Connexion\n- Page Inscription\n- Page Mot de passe oublié\n- Page Réinitialisation du mot de passe\n- Page Vérification email"
+  },
+  "senegal-commerce": {
+    "title": "Sénégal Commerce",
+    "description": "Plateforme de marketplace complète développée pour tous types d'entreprises et particuliers.\n- Catalogue de produits dynamique\n- Gestion des commandes et des stocks\n- Paiements sécurisés avec Stripe\n- Tableau de bord administrateur\n- API REST complète\n- Interface mobile responsive\n- Système de notifications\n- Analyses et rapports"
+  },
+  "digaccess": {
+    "title": "Digaccess",
+    "description": "Site web pour Digaccess, une entreprise sénégalaise qui fournit des services de télécommunication.\n- Page d'accueil\n- Page À propos\n- Page Services\n- Page Contact\n- Page Blog\n- Page Portfolio\n- Page Témoignages"
+  },
+  "securis": {
+    "title": "Securis Services",
+    "description": "Site web pour Securis Services, une entreprise sénégalaise qui fournit des services de sécurité.\n- Page d'accueil\n- Page À propos\n- Page Services\n- Page Contact\n- Page Blog"
+  },
+  "kdm": {
+    "title": "KDM Group",
+    "description": "Site web pour KDM Group, une entreprise sénégalaise qui fournit des Équipements de Protection et matériels informatiques.\n- Page d'accueil\n- Page À propos\n- Page Services\n- Page Contact\n- Page Blog"
+  },
+  "portfolio-designs": {
+    "title": "Designs UI/UX",
+    "description": "Collection de designs UI/UX créés pour divers clients et projets personnels.\n- Identités visuelles complètes\n- Wireframes et prototypes\n- Systèmes de design\n- Applications mobiles\n- Sites web responsive\n- Pages d'atterrissage\n- Logos et branding\n- Tests utilisateurs"
+  },
+  "happy-avantages-app": {
+    "title": "Happy Avantages App",
+    "description": "Application web pour Happy Avantages - Gestion complète des adhérents et des partenaires. Cartes Avantages. Vos réductions partout à Dakar ! Profitez de 10% à 40% chez nos partenaires mode, beauté, restos, et bien plus. Economisez malin, vivez Happy !\n- Gestion des adhérents\n- Gestion des partenaires\n- Gestion des cartes\n- Système de réductions\n- Gestion des transactions\n- Tableau de bord et analyses"
+  },
+  "happy-avantages-website": {
+    "title": "Happy Avantages",
+    "description": "Site web de présentation et d'achat de cartes ou pour demande de partenariat.\n- Achat de cartes\n- Demande de partenariat\n- Informations sur les avantages\n- Formulaire de contact"
+  },
+  "sunu-ride": {
+    "title": "Sunu Ride",
+    "description": "Votre partenaire de confiance pour tous vos besoins de transport et livraison au Sénégal. Rapidité, fiabilité et sécurité garanties.\n- Réservation de courses\n- Service de livraison\n- Suivi en temps réel\n- Paiements sécurisés\n- Support PWA"
+  },
+  "reflet": {
+    "title": "REFLET",
+    "description": "Site web pour le Réseau des Femmes Leaders autour de Thierno Amadou Ba. Excellence & Leadership Féminin.\n- Affichage des événements\n- Présentation des programmes\n- Album photo\n- Actualités et articles\n- Informations de contact"
+  },
+  "colorfusion": {
+    "title": "ColorFusion",
+    "description": "Projet open source et gratuit qui regroupe beaucoup d'outils pour les développeurs.\n- Convertisseur de couleurs\n- Dégradé Tailwind\n- Motifs de fond\n- Composition Blob\n- Générateur d'ombres\n- Générateur de grille\n- Générateur de tableau\n- Visualiseur de code"
+  },
+  "convertisseur-documents": {
+    "title": "Convertisseur de Fichiers",
+    "description": "Projet open source de convertisseur de documents.\n- Support de multiples formats\n- Conversion rapide\n- Traitement sécurisé\n- Gratuit à utiliser"
+  },
+  "xof-converter": {
+    "title": "XOF Converter",
+    "description": "Projet open source de convertisseur de devises.\n- Conversion de devises XOF\n- Support de multiples devises\n- Taux en temps réel\n- Conversions favorites"
+  },
+  "jotali-app": {
+    "title": "Application mobile JOTALI",
+    "description": "Application mobile pour la gestion des patrouilles des agents de Prosen.\n- Suivi en temps réel\n- Alerte instantanée\n- Rapports détaillés\n- Communication directe\n- Scan de code QR"
+  }
+}

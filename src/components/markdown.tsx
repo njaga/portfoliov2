@@ -1,21 +1,38 @@
 import { MarkdownAsync } from "react-markdown";
+import ReactMarkdown from "react-markdown";
 import rehypeExternalLinks from "rehype-external-links";
 import remarkGfm from "remark-gfm";
 
 import { UTM_PARAMS } from "@/config/site";
 import { rehypeAddQueryParams } from "@/lib/rehype-add-query-params";
 
+const rehypePlugins = [
+  [
+    rehypeExternalLinks,
+    { target: "_blank", rel: "nofollow noopener noreferrer" },
+  ],
+  [rehypeAddQueryParams, UTM_PARAMS],
+] as const;
+
+// Version async pour les Server Components
 export function Markdown(props: React.ComponentProps<typeof MarkdownAsync>) {
   return (
     <MarkdownAsync
       remarkPlugins={[remarkGfm]}
-      rehypePlugins={[
-        [
-          rehypeExternalLinks,
-          { target: "_blank", rel: "nofollow noopener noreferrer" },
-        ],
-        [rehypeAddQueryParams, UTM_PARAMS],
-      ]}
+      rehypePlugins={rehypePlugins}
+      {...props}
+    />
+  );
+}
+
+// Version synchrone pour les Client Components
+export function MarkdownClient(
+  props: React.ComponentProps<typeof ReactMarkdown>
+) {
+  return (
+    <ReactMarkdown
+      remarkPlugins={[remarkGfm]}
+      rehypePlugins={rehypePlugins}
       {...props}
     />
   );

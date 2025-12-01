@@ -1,0 +1,98 @@
+{
+  "kamit-website": {
+    "title": "Kamit Digital Solutions",
+    "description": "Official website of Kamit Digital Solutions - Supporting African startups in their digital transformation.\n- Modern and responsive showcase website\n- Intuitive and elegant user interface\n- Advanced SEO optimization\n- Contact form integration\n- Services and portfolio presentation\n- Blog to share our knowledge\n- Multilingual (French/English)"
+  },
+  "prosen": {
+    "title": "Prosen",
+    "description": "Website for Prosen SARL, a senegalese company that provides security services.\n- Home page\n- About page\n- Services page\n- Contact page\n- Blog page\n- Portfolio page\n- Testimonials page"
+  },
+  "portfolio-ndiaga": {
+    "title": "ndiagandiaye.com",
+    "description": "My modern and minimalist personal portfolio, showcasing my work and experience as a FullStack developer.\n- Elegant and minimalist design\n- Dark/light mode\n- Blog with MDX support\n- Complete SEO optimization\n- Installable PWA\n- Digital business card (vCard)\n- Optimized performance"
+  },
+  "longrich-agence-senegal": {
+    "title": "Longrich Agence Sénégal",
+    "description": "Website for Longrich Agence Sénégal, a senegalese company that provides Longrich products.\n- Home page\n- About page\n- Products page\n- Contact page\n- Blog page\n- Login page\n- Register page\n- Forgot password page\n- Reset password page\n- Verify email page"
+  },
+  "kinsiba": {
+    "title": "Kinsiba",
+    "description": "Website for kinsiba an association for helping people who suffer from cancer.\n- Home page\n- About page\n- Donate page\n- Events page\n- Blog page\n- Contact page"
+  },
+  "kns-services": {
+    "title": "KNS Services",
+    "description": "Website for KNS Services, a senegalese company that provides cleaning services.\n- Home page\n- About page\n- Services page\n- Contact page\n- Shop\n- Blog page"
+  },
+  "sentol221": {
+    "title": "Sentol221",
+    "description": "Website for Sentol221, a senegalese company that provides fruits and vegetables.\n- Home page\n- Products page\n- Contact page\n- Blog page\n- Login page\n- Register page\n- Forgot password page\n- Reset password page\n- Verify email page"
+  },
+  "kinsiba-app": {
+    "title": "Kinsiba App",
+    "description": "The Kinsiba App is a web application for managing the Kinsiba association.\n- Dashboard\n- Management of donations\n- Management of events\n- Management of blog\n- Management of users\n- Management of roles\n- Management of permissions"
+  },
+  "gainde": {
+    "title": "Gainde",
+    "description": "Web application for security company for managing their clients and their agents.\n- Client management\n- Agent management\n- Report management\n- Notification system\n- Plan management\n- Contract management\n- Payment management"
+  },
+  "noflay": {
+    "title": "Noflay",
+    "description": "Noflay is a platform that allows you to manage your property and your tenants. It is a web application built with Angular and Node.js.\n- Property management\n- Tenant management\n- Rent management\n- Payment management\n- Report management\n- Notification system"
+  },
+  "sidibe-et-frere": {
+    "title": "Sidibé et Frère",
+    "description": "Website for Sidibé et Frère, automobile and accessories shop.\n- Home page\n- About page\n- Products page\n- Contact page\n- Blog page\n- Login page\n- Register page\n- Forgot password page\n- Reset password page\n- Verify email page"
+  },
+  "senegal-commerce": {
+    "title": "Sénégal Commerce",
+    "description": "Complete marketplace platform developed for all types of businesses and individuals.\n- Dynamic product catalog\n- Order and inventory management\n- Secure payments with Stripe\n- Admin dashboard\n- Complete REST API\n- Responsive mobile interface\n- Notification system\n- Analytics and reports"
+  },
+  "digaccess": {
+    "title": "Digaccess",
+    "description": "Website for Digaccess, a senegalese company that provides telecommunication services.\n- Home page\n- About page\n- Services page\n- Contact page\n- Blog page\n- Portfolio page\n- Testimonials page"
+  },
+  "securis": {
+    "title": "Securis Services",
+    "description": "Website for Securis Services, a senegalese company that provides security services.\n- Home page\n- About page\n- Services page\n- Contact page\n- Blog page"
+  },
+  "kdm": {
+    "title": "KDM Group",
+    "description": "Website for KDM Group, a senegalese company that provides Protections Equipements and IT materials.\n- Home page\n- About page\n- Services page\n- Contact page\n- Blog page"
+  },
+  "portfolio-designs": {
+    "title": "UI/UX Designs",
+    "description": "Collection of UI/UX designs created for various clients and personal projects.\n- Complete visual identities\n- Wireframes and prototypes\n- Design systems\n- Mobile applications\n- Responsive websites\n- Landing pages\n- Logos and branding\n- User testing"
+  },
+  "happy-avantages-app": {
+    "title": "Happy Avantages App",
+    "description": "Web application for Happy Avantages - Complete management of members and partners. Advantage Cards. Your discounts everywhere in Dakar! Enjoy 10% to 40% at our partners in fashion, beauty, restaurants, and more. Save smart, live Happy!\n- Member management\n- Partner management\n- Card management\n- Discount system\n- Transaction management\n- Dashboard and analytics"
+  },
+  "happy-avantages-website": {
+    "title": "Happy Avantages",
+    "description": "Presentation website and card purchase platform for Happy Avantages.\n- Card purchase\n- Partnership request\n- Information about advantages\n- Contact form"
+  },
+  "sunu-ride": {
+    "title": "Sunu Ride",
+    "description": "Your trusted partner for all your transport and delivery needs in Senegal. Speed, reliability and security guaranteed.\n- Ride booking\n- Delivery service\n- Real-time tracking\n- Secure payments\n- PWA support"
+  },
+  "reflet": {
+    "title": "REFLET",
+    "description": "Website for REFLET Network - Network of Women Leaders around Thierno Amadou Ba. Excellence & Women's Leadership.\n- Events display\n- Programs presentation\n- Photo gallery\n- News and articles\n- Contact information"
+  },
+  "colorfusion": {
+    "title": "ColorFusion",
+    "description": "Free and open source project that brings together many tools for developers.\n- Color Converter\n- Tailwind Gradient\n- Background Patterns\n- Blob Composition\n- Shadow Generator\n- Grid Generator\n- Table Generator\n- Code Visualizer"
+  },
+  "convertisseur-documents": {
+    "title": "Document Converter",
+    "description": "Open source document converter project.\n- Multiple format support\n- Fast conversion\n- Secure processing\n- Free to use"
+  },
+  "xof-converter": {
+    "title": "XOF Converter",
+    "description": "Open source currency converter project.\n- XOF currency conversion\n- Multiple currencies support\n- Real-time rates\n- Favorite conversions"
+  },
+  "jotali-app": {
+    "title": "JOTALI App",
+    "description": "Mobile application for managing Prosen security agents patrols.\n- Real-time tracking\n- Instant alerts\n- Detailed reports\n- Direct communication\n- QR Code scanning"
+  }
+}

@@ -1,19 +1,30 @@
+"use client";
+
 import Image from "next/image";
 
 import { SimpleTooltip } from "@/components/ui/tooltip";
 import { USER } from "@/data/user";
+import { useTranslation } from "@/hooks/use-translation";
+import { defaultLocale, getTranslations } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import { FlipSentences } from "@/registry/flip-sentences";
 
 import { VerifiedIcon } from "./verified-icon";
 
 export function ProfileHeader() {
+  const { t, mounted } = useTranslation();
+  const translations = mounted ? t : getTranslations(defaultLocale);
+
+  // Traduire la bio et les phrases flip
+  const bio = translations.profile.bio;
+  const flipSentences = translations.profile.flipSentences;
+
   return (
     <div className="screen-line-after flex border-x border-edge">
       <div className="shrink-0 border-r border-edge">
         <div className="mx-[2px] my-[3px]">
           <Image
-            className="size-32 rounded-full ring-1 ring-border ring-offset-2 ring-offset-background select-none object-cover sm:size-40"
+            className="size-32 rounded-full object-cover ring-1 ring-border ring-offset-2 ring-offset-background select-none sm:size-40"
             alt={`${USER.displayName}'s avatar`}
             src={USER.avatar}
             width={512}
@@ -56,13 +67,13 @@ export function ProfileHeader() {
           <h1 className="flex items-center pl-4 font-heading text-3xl font-semibold">
             {USER.displayName}
             &nbsp;
-            <SimpleTooltip content="Verified">
+            <SimpleTooltip content={translations.profile.verified}>
               <VerifiedIcon className="size-[0.6em] text-info" />
             </SimpleTooltip>
           </h1>
 
           <div className="h-12 border-t border-edge py-1 pl-4 sm:h-auto">
-            <FlipSentences sentences={[USER.bio, ...USER.flipSentences]} />
+            <FlipSentences sentences={[bio, ...flipSentences]} />
           </div>
         </div>
       </div>

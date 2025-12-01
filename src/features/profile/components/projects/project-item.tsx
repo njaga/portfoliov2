@@ -1,14 +1,18 @@
+"use client";
+
 import { ArrowUpRightIcon, ChevronDownIcon } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { Accordion as AccordionPrimitive } from "radix-ui";
 import React from "react";
 
 import { Icons } from "@/components/icons";
-import { Markdown } from "@/components/markdown";
+import { MarkdownClient } from "@/components/markdown";
 import { Tag } from "@/components/ui/tag";
 import { Prose } from "@/components/ui/typography";
-import { UTM_PARAMS } from "@/config/site";
-import { addQueryParams } from "@/utils/url";
+import { useTranslation } from "@/hooks/use-translation";
+import { defaultLocale } from "@/lib/i18n";
+import { getTranslatedProject } from "@/lib/translations";
 
 import type { Project } from "../../types/projects";
 
@@ -21,6 +25,14 @@ export function ProjectItem({
   project: Project;
   showLogo?: boolean;
 }) {
+  const { locale, mounted } = useTranslation();
+  const currentLocale = mounted ? locale : defaultLocale;
+  const projectTranslation = getTranslatedProject(project.id, currentLocale);
+
+  const projectTitle = projectTranslation?.title || project.title;
+  const projectDescription =
+    projectTranslation?.description || project.description;
+
   return (
     <AccordionPrimitive.Item value={project.id} asChild>
       <div className={className}>
@@ -49,16 +61,14 @@ export function ProjectItem({
             <AccordionPrimitive.Trigger className="group/project flex w-full items-center justify-between gap-4 p-4 pr-2 text-left select-none [&[data-state=open]_.lucide-chevron-down]:rotate-180">
               <div>
                 <h3 className="mb-1 flex items-center gap-1 font-heading leading-snug font-medium text-balance underline-offset-4 group-hover/project:underline group-hover/project:project-title-hover">
-                  {project.title}
-                  <a
-                    className="flex size-6 shrink-0 items-center justify-center text-muted-foreground"
-                    href={addQueryParams(project.link, UTM_PARAMS)}
-                    target="_blank"
-                    rel="noopener"
+                  <Link
+                    href={`/projects/${project.id}`}
+                    className="flex items-center gap-1"
                   >
-                    <ArrowUpRightIcon className="pointer-events-none size-4" />
-                    <span className="sr-only">Open</span>
-                  </a>
+                    {projectTitle}
+                    <ArrowUpRightIcon className="size-4 text-muted-foreground" />
+                    <span className="sr-only">Voir le détail</span>
+                  </Link>
                 </h3>
 
                 <p className="text-sm text-muted-foreground">{project.time}</p>
@@ -71,9 +81,9 @@ export function ProjectItem({
 
         <AccordionPrimitive.Content className="overflow-hidden duration-300 data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
           <div className="space-y-4 border-t border-dashed border-edge p-4">
-            {project.description && (
+            {projectDescription && (
               <Prose>
-                <Markdown>{project.description}</Markdown>
+                <MarkdownClient>{projectDescription}</MarkdownClient>
               </Prose>
             )}
 

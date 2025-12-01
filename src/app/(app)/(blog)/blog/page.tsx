@@ -1,17 +1,27 @@
 "use client";
 
 import dayjs from "dayjs";
-import { ArrowLeftIcon, ChevronLeftIcon, ChevronRightIcon, MailIcon, PenToolIcon } from "lucide-react";
+import {
+  ArrowLeftIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  MailIcon,
+  PenToolIcon,
+} from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import { PostItem } from "@/components/post-item";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "@/hooks/use-translation";
+import { defaultLocale, getTranslations } from "@/lib/i18n";
 import type { Post } from "@/types/blog";
 
 const POSTS_PER_PAGE = 6;
 
 export default function Page() {
+  const { t, mounted } = useTranslation();
+  const translations = mounted ? t : getTranslations(defaultLocale);
   const [allPosts, setAllPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
@@ -19,7 +29,7 @@ export default function Page() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch('/api/blog');
+        const response = await fetch("/api/blog");
         const posts = await response.json();
         const sortedPosts = posts
           .slice()
@@ -28,7 +38,7 @@ export default function Page() {
           );
         setAllPosts(sortedPosts);
       } catch (error) {
-        console.error('Error fetching posts:', error);
+        console.error("Error fetching posts:", error);
       } finally {
         setLoading(false);
       }
@@ -36,7 +46,7 @@ export default function Page() {
 
     fetchPosts();
   }, []);
-  
+
   const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
   const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
   const endIndex = startIndex + POSTS_PER_PAGE;
@@ -44,37 +54,41 @@ export default function Page() {
 
   const goToPage = (page: number) => {
     setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
     <>
       {/* Header */}
       <div className="flex items-center justify-between p-2 pl-4">
-        <Link 
+        <Link
           href="/#blog"
-          className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+          className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
         >
           <ArrowLeftIcon className="h-4 w-4" />
-          Back to Portfolio
+          {translations.common.backToPortfolio}
         </Link>
-        
+
         <Link
           href="/contact"
           className="flex items-center gap-2 rounded-lg bg-primary px-3 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
         >
           <MailIcon className="h-4 w-4" />
-          Get in Touch
+          {translations.contact.getInTouch}
         </Link>
       </div>
 
       <div className="screen-line-after -mt-px px-4">
-        <h1 className="font-heading text-3xl font-semibold">Blog</h1>
+        <h1 className="font-heading text-3xl font-semibold">
+          {translations.blog.title}
+        </h1>
       </div>
 
       <div className="screen-line-after p-4">
         <p className="font-mono text-sm text-muted-foreground">
-          Thoughts, insights, and tutorials. Page {currentPage} of {totalPages} ({allPosts.length} articles total)
+          {translations.blog.description} {translations.blog.page} {currentPage}{" "}
+          {translations.blog.of} {totalPages} ({allPosts.length}{" "}
+          {translations.blog.articlesTotal})
         </p>
       </div>
 
@@ -89,9 +103,9 @@ export default function Page() {
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {Array.from({ length: POSTS_PER_PAGE }).map((_, index) => (
               <div key={index} className="animate-pulse">
-                <div className="h-48 bg-muted rounded-lg mb-4"></div>
-                <div className="h-4 bg-muted rounded w-3/4 mb-2"></div>
-                <div className="h-3 bg-muted rounded w-1/2"></div>
+                <div className="mb-4 h-48 rounded-lg bg-muted"></div>
+                <div className="mb-2 h-4 w-3/4 rounded bg-muted"></div>
+                <div className="h-3 w-1/2 rounded bg-muted"></div>
               </div>
             ))}
           </div>
@@ -120,19 +134,21 @@ export default function Page() {
             >
               <ChevronLeftIcon className="h-4 w-4" />
             </Button>
-            
+
             <div className="flex items-center gap-1">
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-                <Button
-                  key={page}
-                  variant={currentPage === page ? "default" : "ghost"}
-                  size="icon"
-                  onClick={() => goToPage(page)}
-                  className="h-8 w-8"
-                >
-                  {page}
-                </Button>
-              ))}
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                (page) => (
+                  <Button
+                    key={page}
+                    variant={currentPage === page ? "default" : "ghost"}
+                    size="icon"
+                    onClick={() => goToPage(page)}
+                    className="h-8 w-8"
+                  >
+                    {page}
+                  </Button>
+                )
+              )}
             </div>
 
             <Button
@@ -150,26 +166,26 @@ export default function Page() {
       {/* CTA Section */}
       <div className="screen-line-before p-4">
         <div className="rounded-xl border border-edge bg-muted/50 p-6 text-center">
-          <h2 className="font-heading text-xl font-semibold mb-2">
-            Want to Share Your Story?
+          <h2 className="mb-2 font-heading text-xl font-semibold">
+            {translations.blog.wantToShare}
           </h2>
-          <p className="text-sm text-muted-foreground mb-4">
-            I love connecting with fellow developers and entrepreneurs. Let&apos;s discuss ideas, collaborate, or just have a great conversation!
+          <p className="mb-4 text-sm text-muted-foreground">
+            {translations.blog.connectDescription}
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <div className="flex flex-col justify-center gap-3 sm:flex-row">
             <Link
               href="/contact"
               className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
             >
               <MailIcon className="h-4 w-4" />
-              Let&apos;s Connect
+              {translations.blog.letsConnect}
             </Link>
             <Link
               href="/services"
               className="inline-flex items-center justify-center gap-2 rounded-lg border border-edge px-4 py-2 text-sm font-medium transition-colors hover:bg-muted"
             >
               <PenToolIcon className="h-4 w-4" />
-              Work Together
+              {translations.contact.workTogether}
             </Link>
           </div>
         </div>

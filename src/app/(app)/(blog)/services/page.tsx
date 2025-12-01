@@ -1,45 +1,48 @@
+"use client";
+
 import { ArrowLeftIcon, MailIcon } from "lucide-react";
-import type { Metadata } from "next";
 import Link from "next/link";
 
 import { ServiceItem } from "@/features/profile/components/services/service-item";
 import { SERVICES } from "@/features/profile/data/services";
-
-export const metadata: Metadata = {
-  title: "Services",
-  description: "Comprehensive digital services including web development, mobile apps, UI/UX design, and more.",
-};
+import { useTranslation } from "@/hooks/use-translation";
+import { defaultLocale, getTranslations } from "@/lib/i18n";
 
 export default function Page() {
+  const { t, mounted } = useTranslation();
+  const translations = mounted ? t : getTranslations(defaultLocale);
+
   return (
     <div className="min-h-svh [--color-services:#3B82F6] dark:[--color-services:#60A5FA]">
       {/* Header */}
       <div className="flex items-center justify-between p-2 pl-4">
-        <Link 
+        <Link
           href="/#services"
-          className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+          className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
         >
           <ArrowLeftIcon className="h-4 w-4" />
-          Back to Portfolio
+          {translations.common.backToPortfolio}
         </Link>
-        
+
         <Link
           href="/contact"
           className="flex items-center gap-2 rounded-lg bg-primary px-3 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
         >
           <MailIcon className="h-4 w-4" />
-          Get Quote
+          {translations.services.getQuote}
         </Link>
       </div>
 
       {/* Title */}
       <div className="screen-line-after px-4">
-        <h1 className="font-heading text-3xl font-semibold">Services</h1>
+        <h1 className="font-heading text-3xl font-semibold">
+          {translations.services.title}
+        </h1>
       </div>
 
       <div className="screen-line-after p-4">
         <p className="font-mono text-sm text-muted-foreground">
-          Comprehensive digital services to help your business grow and succeed in the digital world.
+          {translations.services.description}
         </p>
       </div>
 
@@ -62,25 +65,25 @@ export default function Page() {
       {/* CTA Section */}
       <div className="screen-line-before p-4">
         <div className="rounded-xl border border-edge bg-muted/50 p-6 text-center">
-          <h2 className="font-heading text-xl font-semibold mb-2">
-            Ready to Start Your Project?
+          <h2 className="mb-2 font-heading text-xl font-semibold">
+            {translations.services.readyToStart}
           </h2>
-          <p className="text-sm text-muted-foreground mb-4">
-            Let&apos;s discuss your needs and create something amazing together.
+          <p className="mb-4 text-sm text-muted-foreground">
+            {translations.services.letsDiscuss}
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <div className="flex flex-col justify-center gap-3 sm:flex-row">
             <Link
               href="/contact"
               className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
             >
               <MailIcon className="h-4 w-4" />
-              Get Free Quote
+              {translations.services.getFreeQuote}
             </Link>
             <Link
               href="mailto:contact@ndiagandiaye.com"
               className="inline-flex items-center justify-center gap-2 rounded-lg border border-edge px-4 py-2 text-sm font-medium transition-colors hover:bg-muted"
             >
-              Email Directly
+              {translations.services.emailDirectly}
             </Link>
           </div>
         </div>
@@ -89,4 +92,4 @@ export default function Page() {
       <div className="h-4" />
     </div>
   );
-} 
+}

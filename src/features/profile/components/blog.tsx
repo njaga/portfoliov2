@@ -1,20 +1,39 @@
+"use client";
+
 import { ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { PostItem } from "@/components/post-item";
 import { Button } from "@/components/ui/button";
-import { getAllPosts } from "@/data/blog";
+import { useTranslation } from "@/hooks/use-translation";
+import { defaultLocale, getTranslations } from "@/lib/i18n";
+import type { Post } from "@/types/blog";
 
 import { Panel, PanelHeader, PanelTitle } from "./panel";
 
 export function Blog() {
-  const allPosts = getAllPosts();
+  const { t, mounted } = useTranslation();
+  const translations = mounted ? t : getTranslations(defaultLocale);
+  const [allPosts, setAllPosts] = useState<Post[]>([]);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await fetch("/api/blog");
+        const posts = await response.json();
+        setAllPosts(posts.slice(0, 4));
+      } catch (error) {
+        console.error("Error fetching posts:", error);
+      }
+    };
+    fetchPosts();
+  }, []);
 
   return (
     <Panel id="blog">
       <PanelHeader>
-        <PanelTitle>Blog</PanelTitle>
+        <PanelTitle>{translations.blog.title}</PanelTitle>
       </PanelHeader>
 
       <div className="relative py-4">
@@ -24,7 +43,7 @@ export function Blog() {
         </div>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {allPosts.slice(0, 4).map((post) => (
+          {allPosts.map((post) => (
             <PostItem key={post.slug} post={post} />
           ))}
         </div>
@@ -33,7 +52,7 @@ export function Blog() {
       <div className="screen-line-before flex justify-center py-2">
         <Button variant="secondary" asChild>
           <Link href="/blog">
-            <span>All Posts</span>
+            <span>{translations.blog.allPosts}</span>
             <ArrowRightIcon />
           </Link>
         </Button>

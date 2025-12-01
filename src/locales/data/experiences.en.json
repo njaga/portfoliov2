@@ -1,0 +1,35 @@
+{
+  "kamit-founder-ceo-current": {
+    "title": "Founder & CEO",
+    "description": "- Founded Kamit Digital Solutions to support African startups in their digital transformation.\n- Provide tailored solutions adapted to client needs and budgets.\n- Lead technical teams and oversee all development projects.\n- Develop business strategies and manage client relationships.\n- Accompany companies in their digital transformation journey."
+  },
+  "kamit-fullstack-dev-current": {
+    "title": "FullStack Developer",
+    "description": "- Develop professional websites and business software solutions.\n- Create modern web applications using latest technologies.\n- Implement responsive UI/UX designs for optimal user experience.\n- Integrate APIs and build scalable backend systems.\n- Ensure code quality and maintain high development standards."
+  },
+  "prosen-responsable-informatique": {
+    "title": "IT Manager",
+    "description": "- Development and management of the company's web platform.\n- Design and implementation of software solutions tailored to Prosen's needs.\n- Supervision of data management and information systems.\n- Implementation of IT security solutions to ensure data confidentiality.\n- Training teams on digital tools usage and technology management."
+  },
+  "linfluent-cofounder-fullstack": {
+    "title": "Co-founder & Full Stack Developer",
+    "description": "- Design and maintain interactive web applications using modern frameworks like Nuxt.js, Vue.js, React and Next.js.\n- Manage client relationships to ensure satisfaction and delivery of high-quality projects.\n- Implement customized solutions aimed at optimizing digital engagement for partner companies."
+  },
+  "kinsiba-dev-benevolat": {
+    "title": "Volunteer Developer & Graphic Designer",
+    "description": "- Development of the association's website.\n- Creation of a patient management application.\n- Design of a mobile application for activity tracking.\n- Creation of graphic materials for printing."
+  },
+  "vie-publique-dev-benevolat": {
+    "title": "Volunteer Web Developer",
+    "description": "- Design and development of the citizen platform.\n- Participation in improving accessibility and transparency of public information.\n- Contribution to open source and community collaboration."
+  },
+  "carre-dor-consultant-digital": {
+    "title": "Digital Consultant Manager",
+    "description": "- Creation of an application dedicated to real estate management and customer relationship management.\n- Creation of a complete website, taking into account UI/UX, to offer an optimal user experience.\n- Design of the brand logo and development of a graphic charter to ensure the visual consistency of the company.\n- Creation of business cards, flyers, brochures, banners, door plates and other visual materials to promote the company.\n- Management of digital strategy and development of the brand's online presence."
+  },
+  "vigilus-chef-projet-digital": {
+    "title": "Digital Project Manager",
+    "description": "- Development of digital solutions for the company.\n- Management of online presence and content creation for advertising campaigns.\n- Implementation of digital marketing strategies to optimize user engagement.\n- Performance monitoring and analysis of campaign results."
+  }
+}
+
