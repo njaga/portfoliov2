@@ -352,7 +352,7 @@ export const PROJECTS: Project[] = [
     id: "securis",
     title: "Securis Services",
     time: "2024",
-    link: "https://securis.services.com",
+    link: "https://securis-services.com",
     skills: [
       "Client Project",
       "React",
