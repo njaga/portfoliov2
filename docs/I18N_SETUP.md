@@ -95,3 +95,4 @@ const { t } = useTranslation();
 - Les routes doivent être mises à jour pour inclure le préfixe de locale
 - Pour les liens internes, utilisez `addLocaleToPath()` de `@/lib/i18n`
 
+

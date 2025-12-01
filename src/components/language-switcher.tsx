@@ -18,10 +18,18 @@ const languages: { code: Locale; name: string; flag: string }[] = [
 ];
 
 export function LanguageSwitcher() {
-  const { locale } = useTranslation();
+  const { locale, setLocale } = useTranslation();
 
-  const handleLanguageChange = () => {
-    // Forcer un re-render en rafraîchissant la page
+  const handleLanguageChange = (newLocale: Locale) => {
+    // Ne rien faire si la langue est déjà sélectionnée
+    if (newLocale === locale) {
+      return;
+    }
+
+    // Mettre à jour la locale (cela met à jour le cookie et localStorage)
+    setLocale(newLocale);
+
+    // Recharger la page pour appliquer le changement
     window.location.reload();
   };
 
@@ -41,7 +49,7 @@ export function LanguageSwitcher() {
         {languages.map((lang) => (
           <DropdownMenuItem
             key={lang.code}
-            onClick={() => handleLanguageChange()}
+            onClick={() => handleLanguageChange(lang.code)}
             className={locale === lang.code ? "bg-muted" : ""}
           >
             <span className="mr-2">{lang.flag}</span>

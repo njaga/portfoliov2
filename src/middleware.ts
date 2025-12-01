@@ -30,17 +30,15 @@ export function middleware(request: NextRequest) {
     }
   }
 
-  // Créer une réponse et définir le cookie si nécessaire
+  // Créer une réponse et définir le cookie
   const response = NextResponse.next();
 
-  // Définir le cookie de locale s'il n'existe pas
-  if (!cookieLocale) {
-    response.cookies.set("locale", locale, {
-      path: "/",
-      maxAge: 60 * 60 * 24 * 365, // 1 an
-      sameSite: "lax",
-    });
-  }
+  // Toujours définir/mettre à jour le cookie de locale pour garantir la synchronisation
+  response.cookies.set("locale", locale, {
+    path: "/",
+    maxAge: 60 * 60 * 24 * 365, // 1 an
+    sameSite: "lax",
+  });
 
   // Ajouter un header pour que les composants puissent accéder à la locale
   response.headers.set("x-locale", locale);
