@@ -16,12 +16,14 @@ import { Button } from "@/components/ui/button";
 import { PROJECTS } from "@/features/profile/data/projects";
 import { useTranslation } from "@/hooks/use-translation";
 import { defaultLocale, getTranslations } from "@/lib/i18n";
+import { getTranslatedProject } from "@/lib/translations";
 
 const PROJECTS_PER_PAGE = 6;
 
 export default function Page() {
-  const { t, mounted } = useTranslation();
+  const { t, locale, mounted } = useTranslation();
   const translations = mounted ? t : getTranslations(defaultLocale);
+  const currentLocale = mounted ? locale : defaultLocale;
   const [currentPage, setCurrentPage] = useState(1);
 
   const totalPages = Math.ceil(PROJECTS.length / PROJECTS_PER_PAGE);
@@ -78,11 +80,20 @@ export default function Page() {
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {currentProjects.map((Project) => {
+            // Obtenir les traductions du projet
+            const projectTranslation = getTranslatedProject(
+              Project.id,
+              currentLocale
+            );
+            const projectTitle = projectTranslation?.title || Project.title;
+            const projectDescription =
+              projectTranslation?.description || Project.description;
+
             // Préparer description (paragraphe + puces)
             let descContent = null;
-            if (Project.description) {
-              if (Project.description.includes("- ")) {
-                const lines = Project.description.split(/\r?\n/);
+            if (projectDescription) {
+              if (projectDescription.includes("- ")) {
+                const lines = projectDescription.split(/\r?\n/);
                 const firstLine = lines[0];
                 const bulletLines = lines.filter((line) =>
                   line.trim().startsWith("-")
@@ -99,7 +110,7 @@ export default function Page() {
                 );
               } else {
                 descContent = (
-                  <p className="line-clamp-2">{Project.description}</p>
+                  <p className="line-clamp-2">{projectDescription}</p>
                 );
               }
             }
@@ -113,7 +124,7 @@ export default function Page() {
                   <div className="relative select-none [&_img]:aspect-video [&_img]:rounded-xl">
                     <Image
                       src={Project.logo}
-                      alt={Project.title}
+                      alt={projectTitle}
                       width={600}
                       height={338}
                       quality={100}
@@ -134,15 +145,15 @@ export default function Page() {
 
                 <div className="flex flex-col gap-1 p-2">
                   <h2 className="flex items-center gap-2 font-heading text-lg leading-snug font-medium text-balance decoration-(--color-project) underline-offset-4 group-hover/project:underline">
-                    {Project.title}
+                    {projectTitle}
                     {Project.skills.includes("Company Project") && (
                       <span className="inline-block rounded-full bg-blue-100 px-2 py-0.5 text-xs font-semibold text-blue-800">
-                        Company Project
+                        {translations.common.companyProject}
                       </span>
                     )}
                     {Project.skills.includes("Client Project") && (
                       <span className="inline-block rounded-full bg-green-100 px-2 py-0.5 text-xs font-semibold text-green-800">
-                        Client Project
+                        {translations.common.clientProject}
                       </span>
                     )}
                   </h2>

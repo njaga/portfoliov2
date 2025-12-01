@@ -96,3 +96,4 @@ const { t } = useTranslation();
 - Pour les liens internes, utilisez `addLocaleToPath()` de `@/lib/i18n`
 
 
+

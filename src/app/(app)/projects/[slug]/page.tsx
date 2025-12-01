@@ -58,6 +58,17 @@ export default function ProjectDetailPage({
   const projectDescription =
     projectTranslation?.description || project.description;
 
+  // Traduire les projets précédent et suivant
+  const previousTranslation =
+    previous && mounted
+      ? getTranslatedProject(previous.id, currentLocale)
+      : null;
+  const nextTranslation =
+    next && mounted ? getTranslatedProject(next.id, currentLocale) : null;
+
+  const previousTitle = previousTranslation?.title || previous?.title || "";
+  const nextTitle = nextTranslation?.title || next?.title || "";
+
   // Prepare gallery images (logo + images, no duplicates)
   let galleryImages: string[] = [];
   if (project.logo && project.images) {
@@ -184,7 +195,7 @@ export default function ProjectDetailPage({
             >
               <Image
                 src={galleryImages[currentImageIndex]}
-                alt={`Screenshot ${currentImageIndex + 1} of project ${project.title}`}
+                alt={`Screenshot ${currentImageIndex + 1} of project ${projectTitle}`}
                 fill
                 style={{ objectFit: "cover" }}
                 sizes="(max-width: 640px) 100vw, 100vw"
@@ -267,7 +278,7 @@ export default function ProjectDetailPage({
                     setZoomImg(null);
                   }
                 }}
-                aria-label={t.common.close}
+                aria-label={translations.common.close}
               />
               <div className="relative w-full max-w-5xl p-4">
                 <Image
@@ -304,7 +315,7 @@ export default function ProjectDetailPage({
               {translations.common.previous}
             </span>
             <span className="max-w-[120px] truncate sm:max-w-none">
-              {previous.title}
+              {previousTitle}
             </span>
           </Link>
         ) : (
@@ -316,7 +327,7 @@ export default function ProjectDetailPage({
             className="group flex items-center gap-2 rounded-lg border border-muted bg-muted/30 px-4 py-2 text-sm font-medium transition-all hover:border-foreground/20 hover:bg-muted/50"
           >
             <span className="max-w-[120px] truncate sm:max-w-none">
-              {next.title}
+              {nextTitle}
             </span>
             <span className="hidden sm:inline">{translations.common.next}</span>
             <ChevronRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />

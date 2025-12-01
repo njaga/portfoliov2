@@ -92,14 +92,30 @@ export function Projects() {
                     </p>
                   )}
                   <div className="mt-2 flex flex-wrap gap-1">
-                    {project.skills.slice(0, 3).map((skill, index) => (
-                      <Tag key={index} className="text-xs">
-                        {skill}
-                      </Tag>
-                    ))}
-                    {project.skills.length > 3 && (
+                    {project.skills
+                      .filter(
+                        (skill) =>
+                          skill !== "Company Project" &&
+                          skill !== "Client Project"
+                      )
+                      .slice(0, 3)
+                      .map((skill, index) => (
+                        <Tag key={index} className="text-xs">
+                          {skill}
+                        </Tag>
+                      ))}
+                    {project.skills.filter(
+                      (skill) =>
+                        skill !== "Company Project" &&
+                        skill !== "Client Project"
+                    ).length > 3 && (
                       <Tag className="text-xs text-muted-foreground">
-                        +{project.skills.length - 3}
+                        +
+                        {project.skills.filter(
+                          (skill) =>
+                            skill !== "Company Project" &&
+                            skill !== "Client Project"
+                        ).length - 3}
                       </Tag>
                     )}
                   </div>
