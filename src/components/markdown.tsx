@@ -22,10 +22,9 @@ function CustomLink({
   href,
   children,
   ...props
-}: {
+}: React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   href?: string;
   children?: React.ReactNode;
-  [key: string]: unknown;
 }) {
   if (!href) {
     return <a {...props}>{children}</a>;
@@ -44,7 +43,7 @@ function CustomLink({
     !href.startsWith("tel:")
   ) {
     return (
-      <Link href={href} {...props}>
+      <Link href={href} {...(props as React.ComponentProps<typeof Link>)}>
         {children}
       </Link>
     );
