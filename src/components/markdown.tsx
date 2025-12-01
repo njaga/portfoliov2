@@ -43,10 +43,13 @@ function CustomLink(
     !href.startsWith("tel:")
   ) {
     // Retirer href des props pour éviter la duplication
-    const linkProps = { ...restProps };
-    delete (linkProps as { href?: string }).href;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { href: _unused, ...linkProps } = restProps as { href?: string };
     return (
-      <Link href={href} {...(linkProps as React.ComponentProps<typeof Link>)}>
+      <Link
+        href={href}
+        {...(linkProps as Omit<React.ComponentProps<typeof Link>, "href">)}
+      >
         {children}
       </Link>
     );
