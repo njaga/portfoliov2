@@ -28,13 +28,26 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const slug = (await params).slug;
-  const post = getPostBySlug(slug);
+
+  // Récupérer la locale depuis les cookies
+  const { cookies: getCookies } = await import("next/headers");
+  const cookieStore = await getCookies();
+  const locale =
+    (cookieStore.get("locale")?.value as "fr" | "en") || defaultLocale;
+
+  const post = getPostBySlug(slug, locale);
 
   if (!post) {
     return notFound();
   }
 
-  const { title, description, image, createdAt, updatedAt } = post.metadata;
+  // Utiliser les traductions si disponibles
+  const { getTranslatedBlogPost } = await import("@/lib/translations");
+  const postTranslation = getTranslatedBlogPost(slug, locale);
+
+  const title = postTranslation?.title || post.metadata.title;
+  const description = postTranslation?.description || post.metadata.description;
+  const { image, createdAt, updatedAt } = post.metadata;
 
   const ogImage = image || `/og/simple?title=${encodeURIComponent(title)}`;
 
@@ -43,10 +56,16 @@ export async function generateMetadata({
     description,
     alternates: {
       canonical: `/blog/${post.slug}`,
+      languages: {
+        fr: `/blog/${post.slug}`,
+        en: `/blog/${post.slug}`,
+      },
     },
     openGraph: {
       url: `/blog/${post.slug}`,
       type: "article",
+      title,
+      description,
       publishedTime: dayjs(createdAt).toISOString(),
       modifiedTime: dayjs(updatedAt).toISOString(),
       images: {
@@ -58,6 +77,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
+      title,
+      description,
       images: [ogImage],
     },
   };

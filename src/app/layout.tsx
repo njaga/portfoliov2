@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
 
 import type { Metadata, Viewport } from "next";
+import { cookies } from "next/headers";
 import Script from "next/script";
 import type { WebSite, WithContext } from "schema-dts";
 
@@ -8,6 +9,7 @@ import { Providers } from "@/components/providers";
 import { META_THEME_COLORS, SITE_INFO } from "@/config/site";
 import { USER } from "@/data/user";
 import { fontGlitch, fontMono, fontSans } from "@/lib/fonts";
+import { defaultLocale, type Locale } from "@/lib/i18n";
 
 function getWebSiteJsonLd(): WithContext<WebSite> {
   return {
@@ -34,55 +36,66 @@ const darkModeScript = String.raw`
   } catch (_) {}
 `;
 
-export const metadata: Metadata = {
-  metadataBase: new URL(SITE_INFO.url),
-  alternates: {
-    canonical: "/",
-  },
-  title: {
-    template: `%s | ${SITE_INFO.name}`,
-    default: `${USER.displayName} - ${USER.jobTitle}`,
-  },
-  description: SITE_INFO.description,
-  keywords: SITE_INFO.keywords,
-  authors: [
-    {
-      name: "Ndiaga Ndiaye",
-      url: SITE_INFO.url,
+export async function generateMetadata(): Promise<Metadata> {
+  // Utiliser la bio de l'utilisateur comme description (elle est déjà traduite dans les données)
+  const description = SITE_INFO.description;
+
+  return {
+    metadataBase: new URL(SITE_INFO.url),
+    alternates: {
+      canonical: "/",
+      languages: {
+        fr: "/",
+        en: "/",
+      },
     },
-  ],
-  creator: "Ndiaga Ndiaye",
-  openGraph: {
-    siteName: SITE_INFO.name,
-    url: "/",
-    type: "profile",
-    firstName: USER.firstName,
-    lastName: USER.lastName,
-    username: USER.username,
-    gender: USER.gender,
-    images: [
+    title: {
+      template: `%s | ${SITE_INFO.name}`,
+      default: `${USER.displayName} - ${USER.jobTitle}`,
+    },
+    description,
+    keywords: SITE_INFO.keywords,
+    authors: [
       {
-        url: SITE_INFO.ogImage,
-        width: 1200,
-        height: 630,
-        alt: SITE_INFO.name,
+        name: "Ndiaga Ndiaye",
+        url: SITE_INFO.url,
       },
     ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    creator: "@ndiaga_dev", // Twitter username
-    images: [SITE_INFO.ogImage],
-  },
-  icons: {
-    icon: [
-      {
-        url: "/favicon.ico",
-        sizes: "any",
-      },
-    ],
-  },
-};
+    creator: "Ndiaga Ndiaye",
+    openGraph: {
+      siteName: SITE_INFO.name,
+      url: "/",
+      type: "profile",
+      firstName: USER.firstName,
+      lastName: USER.lastName,
+      username: USER.username,
+      gender: USER.gender,
+      description,
+      images: [
+        {
+          url: SITE_INFO.ogImage,
+          width: 1200,
+          height: 630,
+          alt: SITE_INFO.name,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      creator: "@ndiaga_dev",
+      description,
+      images: [SITE_INFO.ogImage],
+    },
+    icons: {
+      icon: [
+        {
+          url: "/favicon.ico",
+          sizes: "any",
+        },
+      ],
+    },
+  };
+}
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -91,14 +104,17 @@ export const viewport: Viewport = {
   themeColor: META_THEME_COLORS.light,
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const cookieStore = await cookies();
+  const locale = (cookieStore.get("locale")?.value as Locale) || defaultLocale;
+
   return (
     <html
-      lang="en"
+      lang={locale}
       className={`${fontSans.variable} ${fontMono.variable} ${fontGlitch.variable}`}
       suppressHydrationWarning
     >

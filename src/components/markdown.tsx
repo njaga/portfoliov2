@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { MarkdownAsync } from "react-markdown";
 import ReactMarkdown from "react-markdown";
 import rehypeExternalLinks from "rehype-external-links";
@@ -16,12 +17,56 @@ const rehypePlugins: any[] = [
   [rehypeAddQueryParams, UTM_PARAMS],
 ];
 
+// Composant personnalisé pour les liens internes
+function CustomLink({
+  href,
+  children,
+  ...props
+}: {
+  href?: string;
+  children?: React.ReactNode;
+  [key: string]: unknown;
+}) {
+  if (!href) {
+    return <a {...props}>{children}</a>;
+  }
+
+  // Vérifier si c'est un lien interne (commence par / ou #)
+  const isInternalLink =
+    href.startsWith("/") ||
+    href.startsWith("#") ||
+    href.startsWith("mailto:") ||
+    href.startsWith("tel:");
+
+  if (
+    isInternalLink &&
+    !href.startsWith("mailto:") &&
+    !href.startsWith("tel:")
+  ) {
+    return (
+      <Link href={href} {...props}>
+        {children}
+      </Link>
+    );
+  }
+
+  // Pour les liens externes, utiliser une balise <a> normale
+  return (
+    <a href={href} {...props}>
+      {children}
+    </a>
+  );
+}
+
 // Version async pour les Server Components
 export function Markdown(props: React.ComponentProps<typeof MarkdownAsync>) {
   return (
     <MarkdownAsync
       remarkPlugins={[remarkGfm]}
       rehypePlugins={rehypePlugins}
+      components={{
+        a: CustomLink,
+      }}
       {...props}
     />
   );
@@ -35,6 +80,9 @@ export function MarkdownClient(
     <ReactMarkdown
       remarkPlugins={[remarkGfm]}
       rehypePlugins={rehypePlugins}
+      components={{
+        a: CustomLink,
+      }}
       {...props}
     />
   );

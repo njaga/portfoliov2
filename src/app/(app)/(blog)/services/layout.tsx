@@ -9,21 +9,21 @@ export async function generateMetadata(): Promise<Metadata> {
   const t = getTranslations(locale);
 
   return {
-    title: t.projects.title,
-    description: t.projects.collection,
+    title: t.services.title,
+    description: t.services.description,
     openGraph: {
-      title: t.projects.title,
-      description: t.projects.collection,
+      title: t.services.title,
+      description: t.services.description,
     },
     twitter: {
       card: "summary_large_image",
-      title: t.projects.title,
-      description: t.projects.collection,
+      title: t.services.title,
+      description: t.services.description,
     },
   };
 }
 
-export default function ProjectsLayout({
+export default function ServicesLayout({
   children,
 }: {
   children: React.ReactNode;
