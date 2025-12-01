@@ -42,8 +42,11 @@ function CustomLink({
     !href.startsWith("mailto:") &&
     !href.startsWith("tel:")
   ) {
+    // Extraire href des props pour éviter la duplication
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { href: _href, ...linkProps } = props;
     return (
-      <Link href={href} {...(props as React.ComponentProps<typeof Link>)}>
+      <Link href={href} {...(linkProps as React.ComponentProps<typeof Link>)}>
         {children}
       </Link>
     );
