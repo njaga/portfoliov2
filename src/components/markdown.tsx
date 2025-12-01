@@ -18,16 +18,16 @@ const rehypePlugins: any[] = [
 ];
 
 // Composant personnalisé pour les liens internes
-function CustomLink({
-  href,
-  children,
-  ...props
-}: React.AnchorHTMLAttributes<HTMLAnchorElement> & {
-  href?: string;
-  children?: React.ReactNode;
-}) {
+function CustomLink(
+  props: React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+    href?: string;
+    children?: React.ReactNode;
+  }
+) {
+  const { href, children, ...restProps } = props;
+
   if (!href) {
-    return <a {...props}>{children}</a>;
+    return <a {...restProps}>{children}</a>;
   }
 
   // Vérifier si c'est un lien interne (commence par / ou #)
@@ -42,9 +42,9 @@ function CustomLink({
     !href.startsWith("mailto:") &&
     !href.startsWith("tel:")
   ) {
-    // Extraire href des props pour éviter la duplication
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { href: _href, ...linkProps } = props;
+    // Retirer href des props pour éviter la duplication
+    const linkProps = { ...restProps };
+    delete (linkProps as { href?: string }).href;
     return (
       <Link href={href} {...(linkProps as React.ComponentProps<typeof Link>)}>
         {children}
@@ -54,7 +54,7 @@ function CustomLink({
 
   // Pour les liens externes, utiliser une balise <a> normale
   return (
-    <a href={href} {...props}>
+    <a href={href} {...restProps}>
       {children}
     </a>
   );
