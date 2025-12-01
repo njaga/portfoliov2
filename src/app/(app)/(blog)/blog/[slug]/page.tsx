@@ -1,22 +1,19 @@
 import dayjs from "dayjs";
 import { getTableOfContents } from "fumadocs-core/server";
-import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import type { BlogPosting as PageSchema, WithContext } from "schema-dts";
 
-import { InlineTOC } from "@/components/inline-toc";
-import { MDX } from "@/components/mdx";
-import { Button } from "@/components/ui/button";
-import { Prose } from "@/components/ui/typography";
 import { SITE_INFO } from "@/config/site";
 import { findNeighbour, getAllPosts, getPostBySlug } from "@/data/blog";
 import { USER } from "@/data/user";
+import { defaultLocale } from "@/lib/i18n";
 import type { Post } from "@/types/blog";
 
 import { Back } from "./back";
+import { BlogNavigation } from "./blog-navigation";
+import { BlogPostContent } from "./blog-post-content";
 
 export async function generateStaticParams() {
   const posts = getAllPosts();
@@ -95,7 +92,14 @@ export default async function Page({
   }>;
 }) {
   const slug = (await params).slug;
-  const post = getPostBySlug(slug);
+
+  // Récupérer la locale depuis les cookies
+  const { cookies: getCookies } = await import("next/headers");
+  const cookieStore = await getCookies();
+  const locale =
+    (cookieStore.get("locale")?.value as "fr" | "en") || defaultLocale;
+
+  const post = getPostBySlug(slug, locale);
 
   if (!post) {
     notFound();
@@ -124,40 +128,14 @@ export default async function Page({
           <Back />
         </Suspense>
 
-        <div className="flex items-center gap-2">
-          {previous && (
-            <Button variant="secondary" size="icon" asChild>
-              <Link href={`/blog/${previous.slug}`}>
-                <ArrowLeftIcon />
-                <span className="sr-only">Previous</span>
-              </Link>
-            </Button>
-          )}
-
-          {next && (
-            <Button variant="secondary" size="icon" asChild>
-              <Link href={`/blog/${next.slug}`}>
-                <span className="sr-only">Next</span>
-                <ArrowRightIcon />
-              </Link>
-            </Button>
-          )}
-        </div>
+        <Suspense>
+          <BlogNavigation previous={previous} next={next} />
+        </Suspense>
       </div>
 
-      <Prose className="px-4">
-        <h1 className="screen-line-before screen-line-after mb-6 font-heading font-semibold">
-          {post.metadata.title}
-        </h1>
-
-        <p className="lead mt-6 mb-6">{post.metadata.description}</p>
-
-        <InlineTOC items={toc} />
-
-        <div>
-          <MDX code={post.content} />
-        </div>
-      </Prose>
+      <Suspense>
+        <BlogPostContent post={post} toc={toc} />
+      </Suspense>
 
       <div className="screen-line-before h-4 w-full" />
     </>

@@ -1,8 +1,7 @@
 import { ChevronDownIcon } from "lucide-react";
 import { Accordion as AccordionPrimitive } from "radix-ui";
-import React from "react";
 
-import { Markdown } from "@/components/markdown";
+import { MarkdownClient } from "@/components/markdown";
 import { Tag } from "@/components/ui/tag";
 import { Prose } from "@/components/ui/typography";
 
@@ -12,7 +11,7 @@ import { ExperienceIcon } from "./experience-position-icon";
 export function ExperiencePositionItem({
   position,
 }: {
-  position: ExperiencePosition;
+  readonly position: ExperiencePosition;
 }) {
   return (
     <AccordionPrimitive.Item value={position.id} asChild>
@@ -45,14 +44,14 @@ export function ExperiencePositionItem({
         <AccordionPrimitive.Content className="overflow-hidden duration-300 data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
           {position.description && (
             <Prose className="pt-2 pl-9">
-              <Markdown>{position.description}</Markdown>
+              <MarkdownClient>{position.description}</MarkdownClient>
             </Prose>
           )}
 
           {Array.isArray(position.skills) && position.skills.length > 0 && (
             <div className="flex flex-wrap gap-1.5 pt-2 pl-9">
-              {position.skills.map((skill, index) => (
-                <Tag key={index}>{skill}</Tag>
+              {position.skills.map((skill) => (
+                <Tag key={skill}>{skill}</Tag>
               ))}
             </div>
           )}

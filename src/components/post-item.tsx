@@ -10,8 +10,8 @@ export function PostItem({
   post,
   shouldPreloadImage,
 }: {
-  post: Post;
-  shouldPreloadImage?: boolean;
+  readonly post: Post;
+  readonly shouldPreloadImage?: boolean;
 }) {
   return (
     <Link
