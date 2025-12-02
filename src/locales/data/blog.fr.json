@@ -26,5 +26,9 @@
   "pwa-vs-native-2025": {
     "title": "PWA vs Application Native : Quel choix pour votre projet en 2025 ?",
     "description": "Comparatif approfondi entre Progressive Web Apps et applications natives, exploration des solutions hybrides émergentes, et guide pour déterminer la meilleure stratégie pour votre projet."
+  },
+  "ia-vs-developpeurs": {
+    "title": "Est-ce que l'IA remplacera les développeurs ?",
+    "description": "Exploration approfondie de l'impact réel de l'IA sur le métier de développeur : gains de productivité mesurables, limitations fondamentales, évolution des rôles et stratégies pour prospérer dans cette nouvelle ère."
   }
 }
