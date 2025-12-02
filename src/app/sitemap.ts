@@ -3,6 +3,7 @@ import type { MetadataRoute } from "next";
 
 import { SITE_INFO } from "@/config/site";
 import { getAllPosts } from "@/data/blog";
+import { PROJECTS } from "@/features/profile/data/projects";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts().map((post) => ({
@@ -10,10 +11,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: dayjs(post.metadata.updatedAt).toISOString(),
   }));
 
+  const projects = PROJECTS.map((project) => ({
+    url: `${SITE_INFO.url}/projects/${project.id}`,
+    lastModified: dayjs().toISOString(),
+  }));
+
   const routes = ["", "/projects", "/blog", "/components"].map((route) => ({
     url: `${SITE_INFO.url}${route}`,
     lastModified: dayjs().toISOString(),
   }));
 
-  return [...routes, ...posts];
+  return [...routes, ...posts, ...projects];
 }
