@@ -30,5 +30,17 @@
   "ia-vs-developpeurs": {
     "title": "Est-ce que l'IA remplacera les développeurs ?",
     "description": "Exploration approfondie de l'impact réel de l'IA sur le métier de développeur : gains de productivité mesurables, limitations fondamentales, évolution des rôles et stratégies pour prospérer dans cette nouvelle ère."
+  },
+  "identite-visuelle-entreprise": {
+    "title": "Pourquoi votre entreprise a besoin d'une identité visuelle forte",
+    "description": "Découvrez pourquoi investir dans le design UI/UX, le branding, le design graphique, le marketing digital et l'accompagnement en transformation digitale représente un levier de croissance incontournable pour les entreprises modernes."
+  },
+  "micro-saas-developpeurs": {
+    "title": "Pourquoi les développeurs devraient lancer leur propre Micro SaaS",
+    "description": "Découvrez pourquoi créer un Micro SaaS est l'opportunité idéale pour les développeurs solo de générer des revenus récurrents, atteindre la liberté financière et construire un produit qui leur appartient."
+  },
+  "erreurs-fatales-startups": {
+    "title": "Les 7 erreurs fatales qui tuent les startups digitales (et comment les éviter)",
+    "description": "Découvrez les erreurs les plus courantes qui causent l'échec de 90% des startups et apprenez comment les éviter pour maximiser vos chances de succès."
   }
 }
