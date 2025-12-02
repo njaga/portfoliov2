@@ -22,6 +22,10 @@
   "digitalisation-pme-africaines": {
     "title": "Digitalization of African SMEs: Where to Start?",
     "description": "Practical guide to support African SMEs in their first steps of digitalization, with concrete, accessible solutions adapted to the African context."
+  },
+  "pwa-vs-native-2025": {
+    "title": "PWA vs Native App: Which Choice for Your Project in 2025?",
+    "description": "In-depth comparison between Progressive Web Apps and native applications, exploration of emerging hybrid solutions, and guide to determine the best strategy for your project."
   }
 }
 
