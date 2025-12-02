@@ -49,7 +49,13 @@ export async function generateMetadata({
   const description = postTranslation?.description || post.metadata.description;
   const { image, createdAt, updatedAt } = post.metadata;
 
-  const ogImage = image || `/og/simple?title=${encodeURIComponent(title)}`;
+  // Construire l'URL absolue de l'image
+  const ogImagePath = image || `/og/simple?title=${encodeURIComponent(title)}`;
+  const ogImage = ogImagePath.startsWith("http")
+    ? ogImagePath
+    : `${SITE_INFO.url}${ogImagePath}`;
+
+  const blogUrl = `${SITE_INFO.url}/blog/${post.slug}`;
 
   return {
     title,
@@ -62,7 +68,7 @@ export async function generateMetadata({
       },
     },
     openGraph: {
-      url: `/blog/${post.slug}`,
+      url: blogUrl,
       type: "article",
       title,
       description,
