@@ -1,0 +1,230 @@
+@media print {
+  @page {
+    size: A4;
+    margin: 2cm 1.5cm;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Masquer uniquement le header et footer du site (frères du main) */
+  body > header,
+  body > footer,
+  main ~ header,
+  main ~ footer,
+  /* Masquer les éléments avec classes spécifiques du header/footer */
+  header[class*="fixed"],
+  header[class*="inset-x-0"],
+  header[data-affix],
+  footer[class*="max-w-screen"],
+  footer[class*="overflow-x-hidden"],
+  /* Masquer les éléments de navigation */
+  nav,
+  [data-header-container],
+  [data-scroll-top],
+  /* Masquer les boutons et liens sauf ceux du contrat */
+  .no-print,
+  button:not(#contrat-content button),
+  a:not(#contrat-content a),
+  /* Masquer les éléments avec z-50 (header fixe) */
+  .z-50,
+  /* Masquer les éléments avant et après main */
+  main ~ * {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* Ajuster le main */
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    display: block !important;
+  }
+
+  /* Afficher le contenu du contrat */
+  #contrat-content {
+    display: block !important;
+    visibility: visible !important;
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Masquer les lignes décoratives */
+  .screen-line-after::after,
+  .screen-line-before::before,
+  .screen-line-after::before {
+    display: none !important;
+  }
+
+  /* Masquer le border-x du layout */
+  .border-x {
+    border-left: none !important;
+    border-right: none !important;
+  }
+
+  /* Styles pour le contenu */
+  .print-content {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Améliorer la lisibilité */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: black !important;
+    page-break-after: avoid;
+  }
+
+  section {
+    page-break-inside: avoid;
+    margin-bottom: 1.5rem;
+  }
+
+  p,
+  li {
+    color: #333 !important;
+    line-height: 1.6;
+  }
+
+  /* Signature section */
+  .signature-section {
+    page-break-inside: avoid;
+    margin-top: 2rem;
+    padding: 1rem;
+    border: 1px solid #000 !important;
+  }
+
+  /* Badge et éléments décoratifs */
+  .badge,
+  .inline-flex {
+    border: 1px solid #000 !important;
+    background: transparent !important;
+    color: black !important;
+  }
+
+  /* Liste */
+  ul {
+    margin-left: 1.5rem;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+
+  /* Espacement */
+  .space-y-8 > * + * {
+    margin-top: 1.5rem;
+  }
+
+  /* Couleurs pour l'impression */
+  .text-muted-foreground {
+    color: #333 !important;
+  }
+
+  .text-primary {
+    color: black !important;
+  }
+
+  .bg-background,
+  .bg-muted,
+  .bg-muted\/30 {
+    background: white !important;
+  }
+
+  .border-edge,
+  .border {
+    border-color: #000 !important;
+  }
+
+  /* Améliorer les espacements */
+  .mb-8 {
+    margin-bottom: 1.5rem !important;
+  }
+
+  .mb-4 {
+    margin-bottom: 1rem !important;
+  }
+
+  .mt-12 {
+    margin-top: 2rem !important;
+  }
+
+  .p-8 {
+    padding: 1.5rem !important;
+  }
+
+  .p-6 {
+    padding: 1rem !important;
+  }
+
+  .px-4 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .py-8 {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Titres */
+  h1 {
+    font-size: 2rem !important;
+    margin-bottom: 1rem !important;
+    page-break-after: avoid;
+  }
+
+  h2 {
+    font-size: 1.5rem !important;
+    margin-bottom: 0.75rem !important;
+    page-break-after: avoid;
+  }
+
+  /* Texte */
+  p {
+    margin-bottom: 0.75rem;
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* Liste */
+  ul {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* Conteneur principal */
+  .max-w-4xl {
+    max-width: 100% !important;
+  }
+
+  /* Espacement entre sections */
+  .space-y-8 > * + * {
+    margin-top: 1.5rem !important;
+  }
+
+  /* Grid pour signature */
+  .grid {
+    display: grid !important;
+  }
+
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}

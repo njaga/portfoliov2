@@ -2,8 +2,11 @@
 
 import {
   AlertTriangleIcon,
+  ArrowRightIcon,
   BarChartIcon,
   CheckIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
   ClockIcon,
   CodeIcon,
   CoinsIcon,
@@ -39,6 +42,10 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
+import { PROJECTS } from "@/features/profile/data/projects";
+import { useTranslation } from "@/hooks/use-translation";
+import { defaultLocale } from "@/lib/i18n";
+import { getTranslatedProject } from "@/lib/translations";
 
 // Mapping des technologies avec leurs logos
 const technologies = [
@@ -225,6 +232,231 @@ function SignatureCanvas({
       <p className="text-xs text-muted-foreground">
         Utilisez votre souris ou votre doigt pour signer dans la zone ci-dessus
       </p>
+    </div>
+  );
+}
+
+// Composant Carousel des projets
+function ProjectsCarousel() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const { locale, mounted } = useTranslation();
+  const currentLocale = mounted ? locale : defaultLocale;
+
+  // Récupérer les 6 derniers projets
+  const recentProjects = PROJECTS.slice(0, 6);
+
+  const scrollToIndex = (index: number) => {
+    if (!scrollContainerRef.current) return;
+    const container = scrollContainerRef.current;
+    const card = cardRefs.current[index];
+    if (!card) return;
+
+    const cardRect = card.getBoundingClientRect();
+    const containerRect = container.getBoundingClientRect();
+    const scrollPosition =
+      container.scrollLeft + (cardRect.left - containerRect.left);
+
+    container.scrollTo({
+      left: scrollPosition,
+      behavior: "smooth",
+    });
+    setCurrentIndex(index);
+  };
+
+  const goToPrevious = () => {
+    const newIndex =
+      currentIndex === 0 ? recentProjects.length - 1 : currentIndex - 1;
+    scrollToIndex(newIndex);
+  };
+
+  const goToNext = () => {
+    const newIndex =
+      currentIndex === recentProjects.length - 1 ? 0 : currentIndex + 1;
+    scrollToIndex(newIndex);
+  };
+
+  const handleScroll = () => {
+    if (!scrollContainerRef.current) return;
+    const container = scrollContainerRef.current;
+
+    // Trouver quelle carte est la plus visible
+    let maxVisible = 0;
+    let maxIndex = 0;
+
+    cardRefs.current.forEach((card, index) => {
+      if (!card) return;
+      const rect = card.getBoundingClientRect();
+      const containerRect = container.getBoundingClientRect();
+      const visibleWidth =
+        Math.min(rect.right, containerRect.right) -
+        Math.max(rect.left, containerRect.left);
+
+      if (visibleWidth > maxVisible) {
+        maxVisible = visibleWidth;
+        maxIndex = index;
+      }
+    });
+
+    setCurrentIndex(maxIndex);
+  };
+
+  return (
+    <div className="screen-line-after bg-muted/30 p-4 py-12">
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-8 text-center">
+          <h2 className="mb-2 font-heading text-2xl font-semibold">
+            Mes Dernières Réalisations
+          </h2>
+          <p className="text-muted-foreground">
+            Découvrez quelques-uns de mes projets récents
+          </p>
+        </div>
+
+        {/* Carousel */}
+        <div className="relative">
+          {/* Boutons de navigation */}
+          <button
+            onClick={goToPrevious}
+            className="absolute top-1/2 left-0 z-10 -translate-x-4 -translate-y-1/2 rounded-full border border-edge bg-background p-2 shadow-lg transition-all hover:bg-muted hover:shadow-xl md:-translate-x-12"
+            aria-label="Projet précédent"
+          >
+            <ChevronLeftIcon className="h-5 w-5" />
+          </button>
+          <button
+            onClick={goToNext}
+            className="absolute top-1/2 right-0 z-10 translate-x-4 -translate-y-1/2 rounded-full border border-edge bg-background p-2 shadow-lg transition-all hover:bg-muted hover:shadow-xl md:translate-x-12"
+            aria-label="Projet suivant"
+          >
+            <ChevronRightIcon className="h-5 w-5" />
+          </button>
+
+          {/* Container scrollable */}
+          <div
+            ref={scrollContainerRef}
+            onScroll={handleScroll}
+            className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
+            {recentProjects.map((project, projectIndex) => {
+              const projectTranslation = getTranslatedProject(
+                project.id,
+                currentLocale
+              );
+              const projectTitle = projectTranslation?.title || project.title;
+              const projectDescription =
+                projectTranslation?.description || project.description;
+
+              return (
+                <div
+                  key={project.id}
+                  ref={(el) => {
+                    cardRefs.current[projectIndex] = el;
+                  }}
+                  className="relative min-w-full snap-center sm:min-w-[calc(50%-0.5rem)] md:min-w-[calc(33.333%-0.67rem)]"
+                >
+                  <div className="group relative overflow-hidden rounded-xl border border-edge bg-background/50 shadow-sm transition-all hover:border-primary/50 hover:shadow-md">
+                    {/* Image du projet */}
+                    {project.logo && (
+                      <div className="relative aspect-video w-full overflow-hidden bg-muted">
+                        <Image
+                          src={project.logo}
+                          alt={projectTitle}
+                          fill
+                          className="object-cover transition-transform duration-300 group-hover:scale-105"
+                          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+                        />
+                      </div>
+                    )}
+
+                    {/* Contenu */}
+                    <div className="p-6">
+                      <div className="mb-2 flex items-center justify-between">
+                        <h3 className="font-heading text-lg font-semibold">
+                          {projectTitle}
+                        </h3>
+                        <span className="font-mono text-xs text-muted-foreground">
+                          {project.time}
+                        </span>
+                      </div>
+
+                      {/* Technologies */}
+                      <div className="mb-4 flex flex-wrap gap-2">
+                        {project.skills.slice(0, 4).map((skill, idx) => (
+                          <span
+                            key={idx}
+                            className="rounded-full border border-edge bg-muted/50 px-2 py-1 text-xs text-muted-foreground"
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                        {project.skills.length > 4 && (
+                          <span className="rounded-full border border-edge bg-muted/50 px-2 py-1 text-xs text-muted-foreground">
+                            +{project.skills.length - 4}
+                          </span>
+                        )}
+                      </div>
+
+                      {/* Description */}
+                      {projectDescription && (
+                        <p className="mb-4 line-clamp-3 text-sm text-muted-foreground">
+                          {projectDescription.split("\n")[0]}
+                        </p>
+                      )}
+
+                      {/* Lien vers le projet */}
+                      <div className="flex items-center justify-between gap-2">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="w-full"
+                          asChild
+                        >
+                          <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <GlobeIcon className="mr-2 h-4 w-4" />
+                            Voir le projet
+                          </a>
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Indicateurs de pagination */}
+          <div className="mt-4 flex justify-center gap-2">
+            {recentProjects.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => scrollToIndex(index)}
+                className={`h-2 rounded-full transition-all ${
+                  index === currentIndex
+                    ? "w-8 bg-primary"
+                    : "w-2 bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                }`}
+                aria-label={`Aller au projet ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Bouton vers la page contrat */}
+        <div className="mt-8 text-center">
+          <Button size="lg" asChild>
+            <Link href="/contrat">
+              <FileTextIcon className="mr-2 h-5 w-5" />
+              Voir le Contrat Type
+              <ArrowRightIcon className="ml-2 h-5 w-5" />
+            </Link>
+          </Button>
+        </div>
+      </div>
     </div>
   );
 }
@@ -964,7 +1196,7 @@ export default function OffreQSEPage() {
                 </div>
                 <div className="text-right">
                   <div className="font-heading text-2xl font-bold text-primary">
-                    315 000 FCFA
+                    300 000 FCFA
                   </div>
                   <div className="text-sm text-muted-foreground">
                     Une seule fois
@@ -980,7 +1212,7 @@ export default function OffreQSEPage() {
               <span className="font-heading text-2xl font-bold">TOTAL</span>
               <div className="text-right">
                 <span className="font-heading text-4xl font-bold text-primary">
-                  385 000 FCFA
+                  370 000 FCFA
                 </span>
               </div>
             </div>
@@ -1187,6 +1419,9 @@ export default function OffreQSEPage() {
           </div>
         </div>
       </div>
+
+      {/* Mes dernières réalisations */}
+      <ProjectsCarousel />
 
       {/* CTA Section - Style adapté au thème */}
       <div id="contact" className="screen-line-before p-4 py-16">
