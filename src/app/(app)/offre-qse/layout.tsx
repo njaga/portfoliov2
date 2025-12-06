@@ -29,5 +29,6 @@ export default function OffreQSELayout({
   readonly children: React.ReactNode;
 }) {
   // Layout sans les contraintes du layout blog pour permettre un design plus large
-  return <>{children}</>;
+  // Le layout principal (app) ajoute px-2, on l'annule pour cette page
+  return <div className="-mx-2">{children}</div>;
 }
