@@ -1061,14 +1061,19 @@ export default function OffreQSEPage() {
           <div className="flex flex-col gap-3 sm:flex-row">
             <Button
               size="lg"
-              className="flex-1"
+              className="w-full sm:flex-1"
               onClick={() => setIsModalOpen(true)}
               disabled={isSubmitted}
             >
               <MailIcon className="h-5 w-5" />
               {isSubmitted ? "Offre Validée" : "Valider Cette Offre"}
             </Button>
-            <Button variant="outline" size="lg" className="flex-1" asChild>
+            <Button
+              variant="outline"
+              size="lg"
+              className="w-full sm:flex-1"
+              asChild
+            >
               <a href="tel:+221781633419">
                 <PhoneIcon className="h-5 w-5" />
                 Discuter du Projet
@@ -1079,13 +1084,14 @@ export default function OffreQSEPage() {
       </div>
 
       {/* Timeline */}
-      <div className="screen-line-after p-4 py-12">
+      <div className="screen-line-after bg-muted/30 p-4 py-12">
         <div className="mx-auto max-w-4xl">
           <h2 className="mb-8 text-center font-heading text-2xl font-semibold">
             Planning de Développement
           </h2>
-          <div className="relative">
-            <div className="absolute top-0 left-4 h-full w-0.5 bg-edge md:left-1/2 md:-translate-x-0.5"></div>
+          <div className="relative space-y-8">
+            {/* Ligne verticale */}
+            <div className="absolute top-0 left-6 hidden h-full w-0.5 bg-edge md:left-1/2 md:block md:-translate-x-0.5"></div>
             {[
               {
                 week: "Semaine 1",
@@ -1108,23 +1114,26 @@ export default function OffreQSEPage() {
             ].map((step, index) => (
               <div
                 key={index}
-                className={`relative mb-8 flex items-start gap-4 md:flex-row ${
-                  index % 2 === 0 ? "md:flex-row-reverse" : ""
-                }`}
+                className="relative flex items-start gap-4 md:gap-8"
               >
-                <div className="relative z-10 flex-1 rounded-xl border border-edge bg-background/50 p-6">
-                  <div className="mb-2 font-mono text-xs font-semibold text-primary">
-                    {step.week}
+                {/* Point sur la timeline */}
+                <div className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-background bg-primary text-sm font-semibold text-primary-foreground shadow-md md:absolute md:left-1/2 md:-translate-x-1/2">
+                  {index + 1}
+                </div>
+                {/* Contenu */}
+                <div className="relative z-10 flex-1 rounded-xl border border-edge bg-background/50 p-6 shadow-sm transition-all hover:border-primary/50 hover:shadow-md">
+                  <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1">
+                    <ClockIcon className="h-3 w-3 text-primary" />
+                    <span className="font-mono text-xs font-semibold text-primary">
+                      {step.week}
+                    </span>
                   </div>
-                  <h3 className="mb-2 font-heading text-lg font-semibold">
+                  <h3 className="mt-3 mb-2 font-heading text-lg font-semibold">
                     {step.title}
                   </h3>
                   <p className="text-sm text-muted-foreground">
                     {step.description}
                   </p>
-                </div>
-                <div className="relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 border-background bg-primary text-sm font-semibold text-primary-foreground md:absolute md:left-1/2 md:-translate-x-1/2">
-                  {index + 1}
                 </div>
               </div>
             ))}
@@ -1194,6 +1203,7 @@ export default function OffreQSEPage() {
             <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
               <Button
                 size="lg"
+                className="w-full sm:w-auto"
                 onClick={() => setIsModalOpen(true)}
                 disabled={isSubmitted}
               >
@@ -1203,7 +1213,7 @@ export default function OffreQSEPage() {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-2 border-white/40 bg-white/20 font-semibold text-white backdrop-blur-md hover:border-white/60 hover:bg-white/30 dark:border-zinc-700 dark:bg-zinc-800/80 dark:text-zinc-50 dark:hover:bg-zinc-700"
+                className="w-full border-2 border-white/40 bg-white/20 font-semibold text-white backdrop-blur-md hover:border-white/60 hover:bg-white/30 sm:w-auto dark:border-zinc-700 dark:bg-zinc-800/80 dark:text-zinc-50 dark:hover:bg-zinc-700"
                 asChild
               >
                 <a href="tel:+221781633419">
