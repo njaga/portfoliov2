@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { SITE_INFO } from "@/config/site";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Offre Site Web QSE & Prévention des Risques",
@@ -28,7 +29,18 @@ export default function OffreQSELayout({
 }: {
   readonly children: React.ReactNode;
 }) {
-  // Layout sans les contraintes du layout blog pour permettre un design plus large
-  // Le layout principal (app) ajoute px-2, on l'annule pour cette page
-  return <div className="-mx-2">{children}</div>;
+  return (
+    <div className="mx-auto border-x border-edge md:max-w-3xl">
+      <div
+        className={cn(
+          "h-8 px-2",
+          "screen-line-after",
+          "before:absolute before:-left-[100vw] before:-z-1 before:h-full before:w-[200vw]",
+          "before:bg-[repeating-linear-gradient(315deg,var(--pattern-foreground)_0,var(--pattern-foreground)_1px,transparent_0,transparent_50%)] before:bg-size-[10px_10px] before:[--pattern-foreground:var(--color-edge)]/56"
+        )}
+      />
+
+      {children}
+    </div>
+  );
 }
