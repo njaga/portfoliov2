@@ -406,12 +406,7 @@ function ProjectsCarousel() {
 
                       {/* Lien vers le projet */}
                       <div className="flex items-center justify-between gap-2">
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          className="w-full"
-                          asChild
-                        >
+                        <Button variant="outline" className="w-full" asChild>
                           <a
                             href={project.link}
                             target="_blank"
