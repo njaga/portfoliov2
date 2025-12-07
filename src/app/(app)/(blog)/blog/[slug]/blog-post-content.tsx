@@ -4,7 +4,7 @@ import { cookies } from "next/headers";
 import { InlineTOC } from "@/components/inline-toc";
 import { MDX } from "@/components/mdx";
 import { Prose } from "@/components/ui/typography";
-import { defaultLocale, getTranslations } from "@/lib/i18n";
+import { defaultLocale } from "@/lib/i18n";
 import { getTranslatedBlogPost } from "@/lib/translations";
 import type { Post } from "@/types/blog";
 
@@ -20,7 +20,6 @@ export async function BlogPostContent({
   const locale =
     (cookieStore.get("locale")?.value as "fr" | "en") || defaultLocale;
   const postTranslation = getTranslatedBlogPost(post.slug, locale);
-  const translations = getTranslations(locale);
 
   const title = postTranslation?.title || post.metadata.title;
 
@@ -30,7 +29,9 @@ export async function BlogPostContent({
         {title}
       </h1>
 
-      <InlineTOC items={toc}>{translations.blog.tableOfContents}</InlineTOC>
+      <InlineTOC items={toc}>
+        {locale === "fr" ? "Table des matières" : "Table of Contents"}
+      </InlineTOC>
 
       <div>
         <MDX code={post.content} />
