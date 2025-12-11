@@ -141,6 +141,8 @@ export default function ContratPage() {
     telephone: "",
     dateSignature: new Date().toISOString().split("T")[0],
     signature: null as string | null,
+    prestataireSignature: null as string | null,
+    prestataireDateSignature: new Date().toISOString().split("T")[0],
   });
   const contratRef = useRef<HTMLDivElement>(null);
   const [isGenerating, setIsGenerating] = useState(false);
@@ -176,49 +178,276 @@ export default function ContratPage() {
         signatureImg.replaceWith(img);
       }
 
+      // Remplacer la signature du prestataire
+      const prestataireSignatureImg = clone.querySelector(
+        "#prestataire-signature-img"
+      );
+      if (prestataireSignatureImg && formData.prestataireSignature) {
+        const img = document.createElement("img");
+        img.src = formData.prestataireSignature;
+        img.style.maxWidth = "200px";
+        img.style.height = "auto";
+        prestataireSignatureImg.replaceWith(img);
+      }
+
       // Masquer les éléments non nécessaires dans le clone
       const inputs = clone.querySelectorAll("input, textarea, canvas, button");
       inputs.forEach((el) => {
-        if (el.id !== "client-signature-img") {
+        if (
+          el.id !== "client-signature-img" &&
+          el.id !== "prestataire-signature-img"
+        ) {
           el.remove();
         }
       });
 
-      // Créer un conteneur temporaire
-      const container = document.createElement("div");
-      container.style.position = "absolute";
-      container.style.left = "-9999px";
-      container.style.width = "210mm"; // A4 width
-      container.appendChild(clone);
-      document.body.appendChild(container);
+      // Injecter un style global pour forcer toutes les couleurs en RGB
+      const globalStyle = document.createElement("style");
+      globalStyle.id = "pdf-color-fix";
+      globalStyle.textContent = `
+        * {
+          color: rgb(0, 0, 0) !important;
+          background-color: rgb(255, 255, 255) !important;
+          border-color: rgb(0, 0, 0) !important;
+        }
+        .bg-background, .bg-background\\/50 {
+          background-color: rgb(255, 255, 255) !important;
+        }
+        .bg-muted, .bg-muted\\/30 {
+          background-color: rgb(245, 245, 245) !important;
+        }
+        .bg-primary\\/5 {
+          background-color: rgb(250, 250, 250) !important;
+        }
+        .bg-primary\\/10 {
+          background-color: rgb(240, 240, 240) !important;
+        }
+        .bg-primary\\/20 {
+          background-color: rgb(230, 230, 230) !important;
+        }
+        .bg-primary {
+          background-color: rgb(255, 255, 255) !important;
+        }
+        .text-muted-foreground {
+          color: rgb(100, 100, 100) !important;
+        }
+        .text-primary {
+          color: rgb(0, 0, 0) !important;
+        }
+        .border-edge, .border, .border-primary\\/20, .border-primary\\/30, .border-primary\\/50 {
+          border-color: rgb(0, 0, 0) !important;
+        }
+        h1, h2, h3, h4, h5, h6 {
+          color: rgb(0, 0, 0) !important;
+        }
+        p, li, span {
+          color: rgb(0, 0, 0) !important;
+        }
+        .signature-section {
+          background-color: rgb(240, 240, 240) !important;
+          border-color: rgb(0, 0, 0) !important;
+          border-width: 2px !important;
+        }
+        section {
+          background-color: rgb(255, 255, 255) !important;
+        }
+      `;
+      clone.insertBefore(globalStyle, clone.firstChild);
 
-      // Générer le PDF
+      // Forcer toutes les couleurs en RGB en appliquant des styles inline
+      const allElements = clone.querySelectorAll("*");
+      allElements.forEach((el) => {
+        const element = el as HTMLElement;
+
+        // Appliquer des styles inline pour forcer les couleurs en RGB
+        if (
+          element.classList.contains("bg-background") ||
+          element.classList.contains("bg-background/50")
+        ) {
+          element.style.setProperty("background-color", "#ffffff", "important");
+        } else if (
+          element.classList.contains("bg-muted") ||
+          element.classList.contains("bg-muted/30")
+        ) {
+          element.style.setProperty("background-color", "#f0f0f0", "important");
+        } else if (element.classList.contains("bg-primary/5")) {
+          element.style.setProperty("background-color", "#fafafa", "important");
+        } else if (element.classList.contains("bg-primary/10")) {
+          element.style.setProperty("background-color", "#f0f0f0", "important");
+        } else if (element.classList.contains("bg-primary/20")) {
+          element.style.setProperty("background-color", "#e6e6e6", "important");
+        } else if (element.classList.contains("bg-primary")) {
+          element.style.setProperty("background-color", "#ffffff", "important");
+        }
+
+        if (element.classList.contains("text-muted-foreground")) {
+          element.style.setProperty("color", "#666666", "important");
+        } else if (element.classList.contains("text-primary")) {
+          element.style.setProperty("color", "#000000", "important");
+        }
+
+        if (
+          element.classList.contains("border-edge") ||
+          element.classList.contains("border") ||
+          element.classList.contains("border-primary/20") ||
+          element.classList.contains("border-primary/30") ||
+          element.classList.contains("border-primary/50")
+        ) {
+          element.style.setProperty("border-color", "#000000", "important");
+        }
+
+        // Pour tous les autres éléments, forcer les couleurs de base (fond blanc)
+        if (
+          !element.style.backgroundColor ||
+          element.style.backgroundColor === "" ||
+          element.style.backgroundColor.includes("oklch")
+        ) {
+          element.style.setProperty("background-color", "#ffffff", "important");
+        }
+        if (
+          !element.style.color ||
+          element.style.color === "" ||
+          element.style.color.includes("oklch")
+        ) {
+          element.style.setProperty("color", "#000000", "important");
+        }
+        if (
+          !element.style.borderColor ||
+          element.style.borderColor === "" ||
+          element.style.borderColor.includes("oklch")
+        ) {
+          element.style.setProperty("border-color", "#000000", "important");
+        }
+      });
+
+      // Créer un conteneur temporaire
+      const pdfContainer = document.createElement("div");
+      pdfContainer.style.position = "absolute";
+      pdfContainer.style.left = "-9999px";
+      pdfContainer.style.width = "210mm"; // A4 width
+      pdfContainer.style.backgroundColor = "#ffffff";
+      pdfContainer.appendChild(clone);
+      document.body.appendChild(pdfContainer);
+
+      // Attendre un peu pour que les styles soient appliqués
+      await new Promise((resolve) => setTimeout(resolve, 100));
+
+      // Générer le PDF avec conversion des couleurs
       const canvas = await html2canvas(clone, {
-        scale: 2,
+        scale: 1.5, // Réduit de 2 à 1.5 pour réduire la taille
         useCORS: true,
         logging: false,
         backgroundColor: "#ffffff",
+        foreignObjectRendering: false,
+        onclone: (clonedDoc) => {
+          // S'assurer que toutes les couleurs sont en RGB dans le clone
+          const clonedElements = clonedDoc.querySelectorAll("*");
+          clonedElements.forEach((el) => {
+            const element = el as HTMLElement;
+            const style = element.style;
+            const computedStyle = globalThis.getComputedStyle(element);
+
+            // Forcer backgroundColor en RGB
+            const bgColor = computedStyle.backgroundColor;
+            if (bgColor && !bgColor.includes("rgb") && !bgColor.includes("#")) {
+              style.setProperty("background-color", "#ffffff", "important");
+            }
+
+            // Forcer color en RGB
+            const color = computedStyle.color;
+            if (color && !color.includes("rgb") && !color.includes("#")) {
+              style.setProperty("color", "#000000", "important");
+            }
+
+            // Forcer borderColor en RGB
+            const borderColor = computedStyle.borderColor;
+            if (
+              borderColor &&
+              !borderColor.includes("rgb") &&
+              !borderColor.includes("#")
+            ) {
+              style.setProperty("border-color", "#000000", "important");
+            }
+          });
+        },
       });
 
-      document.body.removeChild(container);
+      document.body.removeChild(pdfContainer);
 
-      const imgData = canvas.toDataURL("image/png");
+      // Utiliser JPEG avec compression pour réduire la taille
+      const imgData = canvas.toDataURL("image/jpeg", 0.85); // Qualité JPEG 85%
       const pdf = new jsPDF("p", "mm", "a4");
-      const imgWidth = 210;
-      const pageHeight = 297;
+
+      // Marges : 10mm de chaque côté (gauche, droite, haut, bas)
+      const margin = 10;
+      const imgWidth = 210 - margin * 2; // Largeur A4 moins les marges (190mm)
+      const pageHeight = 297; // Hauteur A4
+      const availableHeight = pageHeight - margin * 2; // Hauteur disponible par page (277mm)
       const imgHeight = (canvas.height * imgWidth) / canvas.width;
-      let heightLeft = imgHeight;
 
-      let position = 0;
+      // Calculer le ratio pixels/mm
+      const pixelsPerMM = canvas.height / imgHeight;
+      const pixelsPerPage = availableHeight * pixelsPerMM;
 
-      pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
-      heightLeft -= pageHeight;
+      let sourceY = 0; // Position source dans l'image (en pixels)
+      const yPosition = margin; // Position Y fixe avec marge du haut
 
-      while (heightLeft >= 0) {
-        position = heightLeft - imgHeight;
+      // Première page
+      pdf.addImage(
+        imgData,
+        "JPEG",
+        margin,
+        yPosition,
+        imgWidth,
+        imgHeight,
+        undefined,
+        "FAST"
+      );
+      sourceY = pixelsPerPage;
+
+      // Pages suivantes - découper l'image en sections
+      while (sourceY < canvas.height) {
         pdf.addPage();
-        pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
-        heightLeft -= pageHeight;
+
+        // Calculer la hauteur restante à afficher
+        const remainingPixels = canvas.height - sourceY;
+        const pixelsToShow = Math.min(remainingPixels, pixelsPerPage);
+        const heightToShowMM = pixelsToShow / pixelsPerMM;
+
+        // Créer un canvas temporaire avec seulement la section à afficher
+        const tempCanvas = document.createElement("canvas");
+        tempCanvas.width = canvas.width;
+        tempCanvas.height = pixelsToShow;
+        const tempCtx = tempCanvas.getContext("2d");
+
+        if (tempCtx) {
+          // Copier la section de l'image originale
+          tempCtx.drawImage(
+            canvas,
+            0,
+            sourceY, // Source X, Y (commence à sourceY)
+            canvas.width,
+            pixelsToShow, // Source width, height
+            0,
+            0, // Destination X, Y
+            tempCanvas.width,
+            tempCanvas.height // Destination width, height
+          );
+
+          const pageImgData = tempCanvas.toDataURL("image/jpeg", 0.85);
+          pdf.addImage(
+            pageImgData,
+            "JPEG",
+            margin,
+            yPosition,
+            imgWidth,
+            heightToShowMM,
+            undefined,
+            "FAST"
+          );
+        }
+
+        sourceY += pixelsPerPage;
       }
 
       pdf.save(
@@ -335,6 +564,40 @@ export default function ContratPage() {
               <SignatureCanvas
                 onSignatureChange={(signature) =>
                   setFormData({ ...formData, signature })
+                }
+              />
+            </div>
+          </div>
+
+          {/* Formulaire Prestataire */}
+          <div className="no-print mb-8 rounded-xl border border-primary/30 bg-primary/5 p-6">
+            <h2 className="mb-4 font-heading text-xl font-semibold">
+              Signature du Prestataire
+            </h2>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="space-y-2">
+                <Label htmlFor="prestataireDateSignature">
+                  Date de signature *
+                </Label>
+                <input
+                  id="prestataireDateSignature"
+                  type="date"
+                  required
+                  value={formData.prestataireDateSignature}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      prestataireDateSignature: e.target.value,
+                    })
+                  }
+                  className="w-full rounded-lg border border-edge bg-background px-3 py-2 text-sm focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none"
+                />
+              </div>
+            </div>
+            <div className="mt-4">
+              <SignatureCanvas
+                onSignatureChange={(signature) =>
+                  setFormData({ ...formData, prestataireSignature: signature })
                 }
               />
             </div>
@@ -575,9 +838,10 @@ export default function ContratPage() {
               </p>
               <p className="text-muted-foreground">
                 Tout retard de paiement entraîne de plein droit
-                l&apos;application d&apos;intérêts de retard au taux de 3 fois
-                le taux légal en vigueur, ainsi qu&apos;une indemnité
-                forfaitaire pour frais de recouvrement de 40€.
+                l&apos;application d&apos;intérêts de retard au taux légal en
+                vigueur au Sénégal (taux d&apos;escompte de la BCEAO), ainsi
+                qu&apos;une indemnité forfaitaire pour frais de recouvrement de
+                10 000 FCFA.
               </p>
             </section>
 
@@ -700,8 +964,27 @@ export default function ContratPage() {
                     <p>
                       <strong>Téléphone :</strong> +221 78 163 34 19
                     </p>
-                    <p className="mt-4">Signature : _________________</p>
-                    <p>Date : _________________</p>
+                    <p className="mt-4">
+                      Signature :{" "}
+                      {formData.prestataireSignature ? (
+                        <span id="prestataire-signature-img">
+                          <Image
+                            src={formData.prestataireSignature}
+                            alt="Signature Prestataire"
+                            width={200}
+                            height={80}
+                            className="h-auto max-w-[200px]"
+                            unoptimized
+                          />
+                        </span>
+                      ) : (
+                        "_________________"
+                      )}
+                    </p>
+                    <p>
+                      Date :{" "}
+                      {formData.prestataireDateSignature || "_________________"}
+                    </p>
                   </div>
                 </div>
                 <div>
@@ -761,7 +1044,8 @@ export default function ContratPage() {
                 isGenerating ||
                 !formData.signature ||
                 !formData.raisonSociale ||
-                !formData.representant
+                !formData.representant ||
+                !formData.prestataireSignature
               }
             >
               {isGenerating ? (
