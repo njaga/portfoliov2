@@ -36,6 +36,14 @@ Check out the live site: [ndiagandiaye.com](https://ndiagandiaye.com)
 
 Please refer to the [Development Guide](./DEVELOPMENT.md) for more details.
 
+## Analytics ✅
+
+This project can optionally load Microsoft Clarity to collect heatmaps and session replays. To enable it locally or in production, set the following environment variable in the `env` file or your deployment settings:
+
+- `NEXT_PUBLIC_CLARITY_ID=YOUR_CLARITY_PROJECT_ID`
+
+When the variable is present the site injects Clarity's snippet after the page becomes interactive. If you are subject to privacy regulations, ensure you update your privacy policy and obtain consent where required.
+
 ## License
 
 Licensed under the [MIT license](./LICENSE).
