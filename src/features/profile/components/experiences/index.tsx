@@ -37,7 +37,7 @@ export function Experiences() {
         <div className="pr-2 pl-4">
           <CollapsibleList
             items={EXPERIENCES}
-            max={3}
+            max={2}
             keyExtractor={(experience) => experience.company}
             renderItem={(experience) => (
               <ExperienceItem experience={experience} />

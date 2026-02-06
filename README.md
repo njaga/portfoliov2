@@ -42,7 +42,7 @@ This project can optionally load Microsoft Clarity to collect heatmaps and sessi
 
 - `NEXT_PUBLIC_CLARITY_ID=YOUR_CLARITY_PROJECT_ID`
 
-When the variable is present the site injects Clarity's snippet after the page becomes interactive. If you are subject to privacy regulations, ensure you update your privacy policy and obtain consent where required.
+When the variable is present the site injects Clarity's snippet in the `<head>` so it loads as early as possible (using `strategy="beforeInteractive"`). If you are subject to privacy regulations, ensure you update your privacy policy and obtain consent where required (or load Clarity only after consent).
 
 ## License
 

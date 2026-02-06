@@ -7,18 +7,17 @@ import {
   ChevronRightIcon,
   MailIcon,
 } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
+import { ProjectImage } from "@/components/ui/project-image";
 import { PROJECTS } from "@/features/profile/data/projects";
 import { useTranslation } from "@/hooks/use-translation";
 import { defaultLocale, getTranslations } from "@/lib/i18n";
 import { getTranslatedProject } from "@/lib/translations";
 
-const PROJECTS_PER_PAGE = 6;
+const PROJECTS_PER_PAGE = 12;
 
 export default function Page() {
   const { t, locale, mounted } = useTranslation();
@@ -120,42 +119,11 @@ export default function Page() {
                 href={`/projects/${Project.id}`}
                 className="group/project flex flex-col gap-2 p-2"
               >
-                {Project.logo ? (
-                  <div className="relative select-none [&_img]:aspect-video [&_img]:rounded-xl">
-                    <Image
-                      src={Project.logo}
-                      alt={projectTitle}
-                      width={600}
-                      height={338}
-                      quality={100}
-                      className="object-cover"
-                      unoptimized
-                    />
-                    <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-black/10 ring-inset dark:ring-white/10" />
-                  </div>
-                ) : (
-                  <div className="relative flex aspect-video items-center justify-center rounded-xl bg-muted select-none">
-                    <Icons.project
-                      className="size-16 text-(--color-project)"
-                      aria-hidden
-                    />
-                    <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-black/10 ring-inset dark:ring-white/10" />
-                  </div>
-                )}
+                <ProjectImage src={Project.logo} alt={projectTitle} />
 
                 <div className="flex flex-col gap-1 p-2">
                   <h2 className="flex items-center gap-2 font-heading text-lg leading-snug font-medium text-balance decoration-(--color-project) underline-offset-4 group-hover/project:underline">
                     {projectTitle}
-                    {Project.skills.includes("Company Project") && (
-                      <span className="inline-block rounded-full bg-blue-100 px-2 py-0.5 text-xs font-semibold text-blue-800">
-                        {translations.common.companyProject}
-                      </span>
-                    )}
-                    {Project.skills.includes("Client Project") && (
-                      <span className="inline-block rounded-full bg-green-100 px-2 py-0.5 text-xs font-semibold text-green-800">
-                        {translations.common.clientProject}
-                      </span>
-                    )}
                   </h2>
                   <p className="text-sm text-muted-foreground">
                     {Project.time}

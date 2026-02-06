@@ -1,4 +1,64 @@
 {
+  "payor": {
+    "title": "Payor",
+    "description": "Complete billing solution adapted to the Senegalese context, developed with Laravel 12 and Livewire. Free and open source.\n- Full client management with NINEA support\n- Quotes with automatic numbering (DEV-2025-001)\n- Invoices with status tracking (draft, sent, paid, overdue)\n- 18% VAT (Senegal standard)\n- Mobile Money payment support\n- Automatic reminders (before, on, and after due date)\n- Customizable email templates\n- XOF currency (Franc CFA)\n- Senegalese phone format (+221)\n- CSV export"
+  },
+  "paxton-securite": {
+    "title": "Paxton Sécurité",
+    "description": "Complete security solutions for businesses, industries and individuals in Senegal.\n- Fire protection (Smoke extraction, Extinguishers)\n- Video surveillance\n- Access control & Biometrics\n- Intrusion alarm\n- Fire doors & Automation\n- Corporate showcase with smooth animations\n- Product catalog with filtering\n- Custom quote request system\n- Blog & News\n- Email signature generator"
+  },
+  "kamit-solutions": {
+    "title": "Kamit Solutions",
+    "description": "Modular SaaS platform for business management in Senegal and West Africa.\n- KamitFleet: Fleet management and GPS tracking (web & mobile app)\n- KamitField: Field team management (web & mobile app)\n- KamitImmo: Real estate management\n- KamitSales: Sales management and CRM"
+  },
+  "kamit-fleet": {
+    "title": "KamitFleet",
+    "description": "Fleet management and GPS tracking SaaS platform for businesses in Senegal and West Africa.\n- Real-time vehicle tracking\n- Route optimization\n- Fuel consumption monitoring\n- Driver management\n- Maintenance scheduling\n- Detailed reports and analytics\n- Multi-company support"
+  },
+  "kamit-fleet-mobile": {
+    "title": "KamitFleet Mobile",
+    "description": "Native mobile application for real-time fleet tracking.\n- Real-time vehicle location\n- Push notifications for alerts\n- Offline mode with synchronization\n- Driver trip logs\n- Available on iOS and Android"
+  },
+  "kamit-field": {
+    "title": "KamitField",
+    "description": "Field team management SaaS platform for businesses with on-the-ground operations.\n- Task assignment and tracking\n- Agent geolocation\n- Attendance management\n- Performance monitoring\n- Route planning\n- Real-time communication"
+  },
+  "kamit-field-mobile": {
+    "title": "KamitField Mobile",
+    "description": "Native mobile application for field teams.\n- Task management on the go\n- GPS check-in/check-out\n- Photo uploads for reports\n- Offline mode with synchronization\n- Push notifications for new assignments\n- Available on iOS and Android"
+  },
+  "kamit-immo": {
+    "title": "KamitImmo",
+    "description": "Real estate management SaaS platform for property owners and agencies.\n- Property portfolio management\n- Tenant management\n- Rent collection and tracking\n- Lease contract management\n- Maintenance requests\n- Financial reports"
+  },
+  "kamit-sales": {
+    "title": "KamitSales",
+    "description": "Sales management and CRM SaaS platform for businesses.\n- Customer relationship management\n- Sales pipeline tracking\n- Quote and invoice generation\n- Product catalog management\n- Sales team performance\n- Revenue analytics"
+  },
+  "kamit-core": {
+    "title": "KamitCore",
+    "description": "Human resources and project management SaaS platform.\n- Personnel management\n- Payroll processing\n- Project management\n- Time tracking\n- Leave management\n- HRIS features\n- Employee self-service portal"
+  },
+  "prosen-facturation": {
+    "title": "ProSen Facturation",
+    "description": "Modern and complete invoicing and CRM web application built on Laravel 12 with Livewire, Volt and Flux UI.\n- Invoice management\n- Client management\n- Quote generation\n- Payment tracking\n- Reporting and analytics"
+  },
+  "s2ec-website": {
+    "title": "S2EC Website",
+    "description": "Professional website for S2EC (Société d'Entrepreneuriat d'Études et de Construction), a construction company based in Dakar, Senegal.\n- Homepage with hero, services, achievements and blog\n- About page\n- Detailed services page\n- Achievement gallery with category filters\n- Blog with search and pagination\n- Contact form with validation\n- Admin backoffice with dashboard"
+  },
+  "infos-ai": {
+    "title": "Infos AI",
+    "description": "Automated news aggregator powered by AI. Laravel 12 application that automatically fetches articles from RSS feeds, reformulates them via AI, and publishes them on a news site.\n- Automatic article retrieval from RSS feeds (France 24, RFI, Zone Afrique)\n- Content reformulation via Google Gemini API\n- Admin interface for article moderation\n- Automatic task scheduling every hour"
+  },
+  "ohkas": {
+    "title": "OHKAS",
+    "description": "OHKAS is a company specialized in Quality, Safety and Environment (QSE). The website offers specialized content, operational tools and custom support.\n- Home page\n- Training page\n- Services page\n- Shop\n- Blog\n- Quote request\n- Online diagnostic tool"
+  },
+  "sensouq": {
+    "title": "Sensouq",
+    "description": "E-commerce website for selling electronic equipment, home appliances, IT products, and cosmetics with online payment via Wave and Orange Money.\n- Product catalog\n- Shopping cart\n- Secure checkout\n- Wave payment integration\n- Orange Money integration\n- Order management\n- Customer accounts"
+  },
   "kamit-website": {
     "title": "Kamit Digital Solutions",
     "description": "Official website of Kamit Digital Solutions - Supporting African startups in their digital transformation.\n- Modern and responsive showcase website\n- Intuitive and elegant user interface\n- Advanced SEO optimization\n- Contact form integration\n- Services and portfolio presentation\n- Blog to share our knowledge\n- Multilingual (French/English)"

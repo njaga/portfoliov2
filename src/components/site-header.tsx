@@ -5,7 +5,6 @@ import Link from "next/link";
 import { CommandMenu } from "@/components/command-menu";
 import { DesktopNav } from "@/components/desktop-nav";
 import { MobileNav } from "@/components/mobile-nav";
-import { NavItemGitHub } from "@/components/nav-item-github";
 import { ToggleTheme } from "@/components/toggle-theme";
 import { MAIN_NAV } from "@/config/site";
 import { useTranslation } from "@/hooks/use-translation";
@@ -60,7 +59,6 @@ export const SiteHeader = () => {
           <div className="flex items-center gap-2">
             <CommandMenu />
             <LanguageSwitcher />
-            <NavItemGitHub />
             <ToggleTheme />
             <MobileNav className="sm:hidden" items={translatedNav} />
           </div>

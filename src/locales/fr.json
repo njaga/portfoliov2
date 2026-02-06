@@ -12,7 +12,10 @@
     "clientProject": "Projet client",
     "components": "Composants",
     "showMore": "Afficher plus",
-    "showLess": "Afficher moins"
+    "showLess": "Afficher moins",
+    "inDevelopment": "En cours",
+    "standby": "En pause",
+    "comingSoon": "Bientôt"
   },
   "projects": {
     "title": "Projets",

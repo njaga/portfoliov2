@@ -1,5 +1,7 @@
 "use client";
 
+import { GithubIcon } from "lucide-react";
+
 import { SOURCE_CODE_GITHUB_URL } from "@/config/site";
 import { useTranslation } from "@/hooks/use-translation";
 import { defaultLocale, getTranslations } from "@/lib/i18n";
@@ -39,7 +41,16 @@ export function SiteFooter() {
           .
         </p>
 
-        <div className="flex justify-center pb-5">
+        <div className="flex items-center justify-center gap-4 pb-5">
+          <a
+            href={SOURCE_CODE_GITHUB_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground transition-colors hover:text-foreground"
+            aria-label="GitHub"
+          >
+            <GithubIcon className="h-5 w-5" />
+          </a>
           <NdiagaMark className="h-8 w-8 text-muted-foreground transition-colors hover:text-foreground" />
         </div>
       </div>

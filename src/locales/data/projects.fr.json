@@ -1,4 +1,64 @@
 {
+  "payor": {
+    "title": "Payor",
+    "description": "Solution complète de facturation adaptée au contexte sénégalais, développée avec Laravel 12 et Livewire. Gratuit et open source.\n- Gestion complète des clients avec support NINEA\n- Devis avec numérotation automatique (DEV-2025-001)\n- Factures avec suivi des statuts (brouillon, envoyé, payé, en retard)\n- TVA 18% (standard Sénégal)\n- Support paiement Mobile Money\n- Rappels automatiques (avant, à et après échéance)\n- Templates d'emails personnalisables\n- Devise XOF (Franc CFA)\n- Format téléphone sénégalais (+221)\n- Export CSV"
+  },
+  "paxton-securite": {
+    "title": "Paxton Sécurité",
+    "description": "Solutions complètes de sécurité pour entreprises, industries et particuliers au Sénégal.\n- Protection incendie (Désenfumage, Extincteurs)\n- Vidéosurveillance\n- Contrôle d'accès & Biométrie\n- Alarme intrusion\n- Portes coupe-feu & Automatisations\n- Vitrine corporate avec animations fluides\n- Catalogue produits avec filtrage\n- Système de demande de devis personnalisé\n- Blog & Actualités\n- Générateur de signatures email"
+  },
+  "kamit-solutions": {
+    "title": "Kamit Solutions",
+    "description": "Plateforme SaaS modulaire pour la gestion d'entreprise au Sénégal et en Afrique de l'Ouest.\n- KamitFleet : Gestion de flotte et tracking GPS (web & mobile)\n- KamitField : Gestion des équipes terrain (web & mobile)\n- KamitImmo : Gestion immobilière\n- KamitSales : Gestion commerciale et CRM"
+  },
+  "kamit-fleet": {
+    "title": "KamitFleet",
+    "description": "Plateforme SaaS de gestion de flotte et de tracking GPS pour les entreprises au Sénégal et en Afrique de l'Ouest.\n- Suivi des véhicules en temps réel\n- Optimisation des itinéraires\n- Suivi de la consommation de carburant\n- Gestion des conducteurs\n- Planification de la maintenance\n- Rapports et analyses détaillés\n- Support multi-entreprises"
+  },
+  "kamit-fleet-mobile": {
+    "title": "KamitFleet Mobile",
+    "description": "Application mobile native pour le suivi de flotte en temps réel.\n- Localisation des véhicules en temps réel\n- Notifications push pour les alertes\n- Mode hors-ligne avec synchronisation\n- Journaux de trajets des conducteurs\n- Disponible sur iOS et Android"
+  },
+  "kamit-field": {
+    "title": "KamitField",
+    "description": "Plateforme SaaS de gestion des équipes terrain pour les entreprises avec des opérations sur le terrain.\n- Attribution et suivi des tâches\n- Géolocalisation des agents\n- Gestion des présences\n- Suivi des performances\n- Planification des itinéraires\n- Communication en temps réel"
+  },
+  "kamit-field-mobile": {
+    "title": "KamitField Mobile",
+    "description": "Application mobile native pour les équipes terrain.\n- Gestion des tâches en déplacement\n- Pointage GPS entrée/sortie\n- Téléchargement de photos pour les rapports\n- Mode hors-ligne avec synchronisation\n- Notifications push pour les nouvelles missions\n- Disponible sur iOS et Android"
+  },
+  "kamit-immo": {
+    "title": "KamitImmo",
+    "description": "Plateforme SaaS de gestion immobilière pour propriétaires et agences.\n- Gestion du portefeuille immobilier\n- Gestion des locataires\n- Collecte et suivi des loyers\n- Gestion des contrats de bail\n- Demandes de maintenance\n- Rapports financiers"
+  },
+  "kamit-sales": {
+    "title": "KamitSales",
+    "description": "Plateforme SaaS de gestion commerciale et CRM pour les entreprises.\n- Gestion de la relation client\n- Suivi du pipeline de vente\n- Génération de devis et factures\n- Gestion du catalogue produits\n- Performance de l'équipe commerciale\n- Analyses des revenus"
+  },
+  "kamit-core": {
+    "title": "KamitCore",
+    "description": "Plateforme SaaS de gestion des ressources humaines et de projets.\n- Gestion du personnel\n- Traitement de la paie\n- Gestion de projets\n- Suivi du temps\n- Gestion des congés\n- Fonctionnalités SIRH\n- Portail self-service employé"
+  },
+  "prosen-facturation": {
+    "title": "ProSen Facturation",
+    "description": "Application web moderne et complète de gestion de la facturation et de la relation client (CRM léger), développée sur Laravel 12 avec Livewire, Volt et Flux UI.\n- Gestion des factures\n- Gestion des clients\n- Génération de devis\n- Suivi des paiements\n- Rapports et analyses"
+  },
+  "s2ec-website": {
+    "title": "S2EC Website",
+    "description": "Site web professionnel pour S2EC (Société d'Entrepreneuriat d'Études et de Construction), une entreprise de BTP basée à Dakar, Sénégal.\n- Page d'accueil avec hero, services, réalisations et blog\n- Page À propos\n- Page Services détaillée\n- Galerie de réalisations avec filtres par catégorie\n- Blog avec recherche et pagination\n- Formulaire de contact avec validation\n- Backoffice admin avec tableau de bord"
+  },
+  "infos-ai": {
+    "title": "Infos AI",
+    "description": "Agrégateur d'actualités automatisé alimenté par l'IA. Application Laravel 12 qui récupère automatiquement des articles depuis des flux RSS, les reformule via IA, et les publie sur un site d'information.\n- Récupération automatique d'articles depuis des flux RSS (France 24, RFI, Zone Afrique)\n- Reformulation du contenu via l'API Gemini de Google\n- Interface d'administration pour modérer les articles\n- Planification automatique des tâches toutes les heures"
+  },
+  "ohkas": {
+    "title": "OHKAS",
+    "description": "OHKAS est une entreprise spécialisée dans la Qualité, Sécurité et Environnement (QSE). Le site propose des contenus spécialisés, des outils opérationnels et un accompagnement sur mesure.\n- Page d'accueil\n- Page Formations\n- Page Services\n- Boutique\n- Blog\n- Demande de devis\n- Outil diagnostique en ligne"
+  },
+  "sensouq": {
+    "title": "Sensouq",
+    "description": "Site web e-commerce de vente de matériels électroniques, électroménager, informatique et cosmétique avec paiement en ligne via Wave et Orange Money.\n- Catalogue de produits\n- Panier d'achat\n- Paiement sécurisé\n- Intégration Wave\n- Intégration Orange Money\n- Gestion des commandes\n- Comptes clients"
+  },
   "kamit-website": {
     "title": "Kamit Digital Solutions",
     "description": "Site web officiel de Kamit Digital Solutions - Accompagnement des startups africaines dans leur transformation numérique.\n- Site vitrine moderne et responsive\n- Interface utilisateur intuitive et élégante\n- Optimisation SEO avancée\n- Intégration de formulaire de contact\n- Présentation des services et du portfolio\n- Blog pour partager nos connaissances\n- Multilingue (Français/Anglais)"

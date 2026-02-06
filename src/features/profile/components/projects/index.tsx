@@ -69,7 +69,7 @@ export function Projects() {
                 ) : (
                   <div className="relative flex aspect-video items-center justify-center rounded-xl bg-muted select-none">
                     <Icons.project
-                      className="size-16 text-blue-500"
+                      className="size-16 text-foreground/70"
                       aria-hidden
                     />
                     <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-black/10 ring-inset dark:ring-white/10" />

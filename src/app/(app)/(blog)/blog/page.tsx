@@ -17,7 +17,7 @@ import { useTranslation } from "@/hooks/use-translation";
 import { defaultLocale, getTranslations } from "@/lib/i18n";
 import type { Post } from "@/types/blog";
 
-const POSTS_PER_PAGE = 6;
+const POSTS_PER_PAGE = 12;
 
 export default function Page() {
   const { t, mounted } = useTranslation();

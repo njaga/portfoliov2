@@ -1,14 +1,9 @@
-"use client";
-
 import { ChevronDownIcon } from "lucide-react";
 import { Accordion as AccordionPrimitive } from "radix-ui";
 
 import { MarkdownClient } from "@/components/markdown";
 import { Tag } from "@/components/ui/tag";
 import { Prose } from "@/components/ui/typography";
-import { useTranslation } from "@/hooks/use-translation";
-import { defaultLocale } from "@/lib/i18n";
-import { getTranslatedExperience } from "@/lib/translations";
 
 import type { ExperiencePosition } from "../../types/experiences";
 import { ExperienceIcon } from "./experience-position-icon";
@@ -18,17 +13,6 @@ export function ExperiencePositionItem({
 }: {
   readonly position: ExperiencePosition;
 }) {
-  const { locale, mounted } = useTranslation();
-  const currentLocale = mounted ? locale : defaultLocale;
-  const experienceTranslation = getTranslatedExperience(
-    position.id,
-    currentLocale
-  );
-
-  const positionTitle = experienceTranslation?.title || position.title;
-  const positionDescription =
-    experienceTranslation?.description || position.description;
-
   return (
     <AccordionPrimitive.Item value={position.id} asChild>
       <div className="relative last:before:absolute last:before:h-full last:before:w-4 last:before:bg-background">
@@ -39,7 +23,7 @@ export function ExperiencePositionItem({
             </div>
 
             <h4 className="flex-1 font-heading font-medium text-balance decoration-ring underline-offset-4 group-hover/experience:underline">
-              {positionTitle}
+              {position.title}
             </h4>
 
             <ChevronDownIcon className="size-4 shrink-0 text-muted-foreground transition-transform duration-300" />
@@ -58,9 +42,9 @@ export function ExperiencePositionItem({
         </AccordionPrimitive.Trigger>
 
         <AccordionPrimitive.Content className="overflow-hidden duration-300 data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
-          {positionDescription && (
+          {position.description && (
             <Prose className="pt-2 pl-9">
-              <MarkdownClient>{positionDescription}</MarkdownClient>
+              <MarkdownClient>{position.description}</MarkdownClient>
             </Prose>
           )}
 
