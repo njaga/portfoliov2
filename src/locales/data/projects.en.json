@@ -154,5 +154,21 @@
   "jotali-app": {
     "title": "JOTALI App",
     "description": "Mobile application for managing Prosen security agents patrols.\n- Real-time tracking\n- Instant alerts\n- Detailed reports\n- Direct communication\n- QR Code scanning"
+  },
+  "teranga-deals": {
+    "title": "Teranga Deals",
+    "description": "Modern e-commerce platform designed for selling home appliances, IT equipment and electronics in Senegal. Built with Laravel 11, Livewire 3 and Tailwind CSS.\n- Product catalog with filters (category, brand, price)\n- Infinite scroll on the shop page\n- Product pages with variants and image gallery\n- Instant add-to-cart without page reload\n- Persistent shopping cart and multi-step checkout\n- Customer dashboard (order tracking, profile, claims, coupons)\n- Wave, Orange Money and cash-on-delivery payments\n- Admin panel with sales statistics\n- Inventory, order and promo code management\n- Delivery to Dakar & Senegal regions"
+  },
+  "kumba-media": {
+    "title": "Kumba Media",
+    "description": "African and international news platform built with Laravel and Livewire. Automatically aggregates articles from RSS feeds and rewrites them using AI.\n- Automatic article aggregation from African and international RSS feeds\n- Content rewriting via Gemini (Google) and Mistral AI APIs\n- Modern reading interface with infinite scroll\n- Article categories and types system\n- Full admin interface with bulk actions\n- Article moderation and publishing\n- Automatic task scheduling"
+  },
+  "one-safe": {
+    "title": "One Safe",
+    "description": "Web application for security management in companies. Handles visit management, security operators, sites and full activity tracking.\n- Visit and recurrence management\n- Security operator management\n- Multi-company support\n- Visitor quotas\n- Full audit log (AuditLog)\n- Work unit management\n- Access control and permissions\n- Supervision dashboard"
+  },
+  "sunudroit-immo": {
+    "title": "Sunu Droit Immo",
+    "description": "Presentation and sales website for the book 'Understanding Rent Regulation in Senegalese Real Estate Law' by Papa Djibril Diakhaté, Economic Investigator and real estate consultant.\n- Homepage with hero and book presentation\n- Book details page\n- Author biography page\n- Events page\n- Online order form\n- Contact page\n- Professional and responsive design"
   }
-}
+  }
