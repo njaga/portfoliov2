@@ -164,8 +164,8 @@
     "description": "Plateforme d'information africaine et internationale développée avec Laravel et Livewire. Agrège automatiquement des articles depuis des flux RSS et les reformule via l'IA.\n- Agrégation automatique d'articles depuis des flux RSS africains et internationaux\n- Reformulation du contenu via les API Gemini (Google) et Mistral AI\n- Interface de lecture moderne avec scroll infini\n- Système de catégories et de types d'articles\n- Interface d'administration complète avec actions groupées\n- Modération et publication des articles\n- Planification automatique des tâches"
   },
   "one-safe": {
-    "title": "One Safe",
-    "description": "Application web de gestion de la sécurité pour entreprises. Permet la gestion des visites, des opérateurs, des sites et le suivi complet des activités de sécurité.\n- Gestion des visites et récurrences\n- Gestion des opérateurs de sécurité\n- Gestion multi-entreprises\n- Quotas de visiteurs\n- Journal d'audit complet (AuditLog)\n- Gestion des unités de travail\n- Contrôle d'accès et permissions\n- Tableau de bord de supervision"
+    "title": "ONESAFE",
+    "description": "Suite logicielle modulaire dediee a la gestion HSE/QSE en entreprise. ONESAFE centralise les operations terrain, l'analyse des incidents, la prevention et le pilotage des risques.\n- SafeVisit : gestion complete des visites de securite sur le terrain, audits et recurrence\n- SafeTrack : suivi de l'accidentologie, indicateurs de performance et analyse des causes\n- SafePlan : gestion des plans de prevention, permis feu et acces des entreprises exterieures\n- SafePilot : evaluation DUERP, gestion des risques chimiques et plan d'actions QSE"
   },
   "sunudroit-immo": {
     "title": "Sunu Droit Immo",

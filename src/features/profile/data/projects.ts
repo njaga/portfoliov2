@@ -933,7 +933,7 @@ Disponible sur Play Store, Apple App Store bientôt disponible.`,
   },
   {
     id: "one-safe",
-    title: "One Safe",
+    title: "ONESAFE",
     time: "2025",
     link: "#",
     skills: [
@@ -945,17 +945,13 @@ Disponible sur Play Store, Apple App Store bientôt disponible.`,
       "Multi-company",
     ],
     status: "available",
-    description: `Application web de gestion de la sécurité pour entreprises. Elle permet la gestion des visites, des opérateurs, des sites et le suivi complet des activités de sécurité.
+    description: `Suite logicielle modulaire dediee a la gestion HSE/QSE en entreprise. ONESAFE centralise les operations terrain, l'analyse des incidents, la prevention et le pilotage des risques.
 
-**Fonctionnalités**
-- Gestion des visites et récurrences
-- Gestion des opérateurs de sécurité
-- Gestion multi-entreprises
-- Quotas de visiteurs
-- Journal d'audit complet (AuditLog)
-- Gestion des unités de travail
-- Contrôle d'accès et permissions
-- Tableau de bord de supervision`,
+**Modules**
+- SafeVisit : gestion complete des visites de securite sur le terrain, audits et recurrence
+- SafeTrack : suivi de l'accidentologie, indicateurs de performance et analyse des causes
+- SafePlan : gestion des plans de prevention, permis feu et acces des entreprises exterieures
+- SafePilot : evaluation DUERP, gestion des risques chimiques et plan d'actions QSE`,
     logo: undefined,
   },
   {

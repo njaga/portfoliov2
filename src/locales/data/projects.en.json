@@ -164,8 +164,8 @@
     "description": "African and international news platform built with Laravel and Livewire. Automatically aggregates articles from RSS feeds and rewrites them using AI.\n- Automatic article aggregation from African and international RSS feeds\n- Content rewriting via Gemini (Google) and Mistral AI APIs\n- Modern reading interface with infinite scroll\n- Article categories and types system\n- Full admin interface with bulk actions\n- Article moderation and publishing\n- Automatic task scheduling"
   },
   "one-safe": {
-    "title": "One Safe",
-    "description": "Web application for security management in companies. Handles visit management, security operators, sites and full activity tracking.\n- Visit and recurrence management\n- Security operator management\n- Multi-company support\n- Visitor quotas\n- Full audit log (AuditLog)\n- Work unit management\n- Access control and permissions\n- Supervision dashboard"
+    "title": "ONESAFE",
+    "description": "Modular software suite dedicated to HSE/QSE management in companies. ONESAFE centralizes field operations, incident analysis, prevention workflows and risk steering.\n- SafeVisit: complete management of field safety visits, audits and recurrence\n- SafeTrack: accident tracking, performance indicators and root cause analysis\n- SafePlan: management of prevention plans, hot work permits and third-party company access\n- SafePilot: DUERP assessment, chemical risk management and QSE action plans"
   },
   "sunudroit-immo": {
     "title": "Sunu Droit Immo",
