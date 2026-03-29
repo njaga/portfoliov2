@@ -548,6 +548,38 @@ Disponible sur Play Store, Apple App Store bientôt disponible.`,
     logo: undefined,
   },
   {
+    id: "teranga-deals",
+    title: "Teranga Deals",
+    time: "2025",
+    link: "https://terangadeals.com",
+    skills: [
+      "Client Project",
+      "Laravel 11",
+      "Livewire 3",
+      "Tailwind CSS",
+      "MySQL",
+      "Wave",
+      "Orange Money",
+    ],
+    status: "available",
+    description: `Plateforme e-commerce moderne conçue pour la vente d'équipements électroménagers, informatiques et électroniques au Sénégal. Développée avec Laravel 11, Livewire 3 et Tailwind CSS.
+
+**Catalogue & Commandes**
+- Catalogue produits avec filtres (catégorie, marque, prix)
+- Scroll infini sur la boutique
+- Fiches produits avec variantes et galerie d'images
+- Ajout au panier instantané sans rechargement
+- Panier d'achat persistant et checkout multi-étapes
+
+**Espace Client & Administration**
+- Espace client avec suivi des commandes, profil, réclamations et coupons
+- Paiement Wave, Orange Money et à la livraison
+- Panel admin avec statistiques des ventes
+- Gestion des stocks, commandes et codes promo
+- Livraison à Dakar et dans les régions du Sénégal`,
+    logo: undefined,
+  },
+  {
     id: "s2ec-website",
     title: "S2EC - Site Web",
     time: "2025",
@@ -611,6 +643,35 @@ Disponible sur Play Store, Apple App Store bientôt disponible.`,
 - Approbation/rejet avant publication
 - Planification automatique toutes les heures
 - Statistiques de lecture`,
+    logo: undefined,
+  },
+  {
+    id: "kumba-media",
+    title: "Kumba Media",
+    time: "2025",
+    link: "https://kumba.media",
+    skills: [
+      "Client Project",
+      "Laravel",
+      "Livewire",
+      "Gemini AI",
+      "Mistral AI",
+      "RSS",
+      "MySQL",
+    ],
+    status: "available",
+    description: `Plateforme d'information africaine et internationale développée avec Laravel et Livewire. Elle agrège automatiquement des articles depuis des flux RSS et les reformule via l'IA.
+
+**Automatisation Éditoriale**
+- Agrégation automatique d'articles depuis des flux RSS africains et internationaux
+- Reformulation du contenu via les API Gemini (Google) et Mistral AI
+- Interface de lecture moderne avec scroll infini
+- Système de catégories et de types d'articles
+
+**Administration**
+- Interface d'administration complète avec actions groupées
+- Modération et publication des articles
+- Planification automatique des tâches`,
     logo: undefined,
   },
   {
@@ -871,6 +932,33 @@ Disponible sur Play Store, Apple App Store bientôt disponible.`,
     logo: undefined,
   },
   {
+    id: "one-safe",
+    title: "One Safe",
+    time: "2025",
+    link: "#",
+    skills: [
+      "Client Project",
+      "Laravel",
+      "Livewire",
+      "Tailwind CSS",
+      "AuditLog",
+      "Multi-company",
+    ],
+    status: "available",
+    description: `Application web de gestion de la sécurité pour entreprises. Elle permet la gestion des visites, des opérateurs, des sites et le suivi complet des activités de sécurité.
+
+**Fonctionnalités**
+- Gestion des visites et récurrences
+- Gestion des opérateurs de sécurité
+- Gestion multi-entreprises
+- Quotas de visiteurs
+- Journal d'audit complet (AuditLog)
+- Gestion des unités de travail
+- Contrôle d'accès et permissions
+- Tableau de bord de supervision`,
+    logo: undefined,
+  },
+  {
     id: "noflay",
     title: "Noflay - Gestion Locative",
     time: "2024",
@@ -1042,6 +1130,31 @@ Disponible sur Play Store, Apple App Store bientôt disponible.`,
 - Suivi des transactions
 - Dashboard analytique
 - Notifications automatiques`,
+    logo: undefined,
+  },
+  {
+    id: "sunudroit-immo",
+    title: "Sunu Droit Immo",
+    time: "2025",
+    link: "#",
+    skills: [
+      "Client Project",
+      "Laravel",
+      "Livewire",
+      "Tailwind CSS",
+      "Responsive Design",
+    ],
+    status: "available",
+    description: `Site web de présentation et de vente du livre "Comprendre la régulation des loyers en droit immobilier sénégalais" de Papa Djibril Diakhaté, Commissaire aux enquêtes économiques et consultant immobilier.
+
+**Pages & Contenu**
+- Page d'accueil avec hero et présentation de l'ouvrage
+- Page de présentation du livre
+- Page biographie de l'auteur
+- Page événements
+- Formulaire de commande en ligne
+- Page contact
+- Design professionnel et responsive`,
     logo: undefined,
   },
   {
