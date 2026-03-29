@@ -62,7 +62,7 @@ export const EXPERIENCES: Experience[] = [
       {
         id: "prosen-responsable-informatique",
         title: "IT Manager",
-        year: "Oct 2024 — present",
+        year: "Oct 2024 — Mar 2026",
         employmentType: "Full-time",
         icon: "code",
         description: `- Development and management of the company's web platform.
@@ -82,7 +82,7 @@ export const EXPERIENCES: Experience[] = [
         expanded: true,
       },
     ],
-    current: true,
+    current: false,
   },
   {
     company: "l'influent",
@@ -141,7 +141,8 @@ export const EXPERIENCES: Experience[] = [
   },
   {
     company: "Vie-Publique.sn",
-    companyLogo: "https://ndiagandiaye.com/assets/images/companies/vie-publique.png",
+    companyLogo:
+      "https://ndiagandiaye.com/assets/images/companies/vie-publique.png",
     positions: [
       {
         id: "vie-publique-dev-benevolat",
@@ -167,7 +168,8 @@ export const EXPERIENCES: Experience[] = [
   },
   {
     company: "Carré d'Or",
-    companyLogo: "https://ndiagandiaye.com/assets/images/companies/carre-dor.png",
+    companyLogo:
+      "https://ndiagandiaye.com/assets/images/companies/carre-dor.png",
     positions: [
       {
         id: "carre-dor-consultant-digital",

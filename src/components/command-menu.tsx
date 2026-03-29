@@ -29,10 +29,14 @@ import {
   CommandList,
   CommandSeparator,
 } from "@/components/ui/command";
+import { PROJECTS } from "@/features/profile/data/projects";
 import { SOCIAL_LINKS as SOCIAL_LINKS_DATA } from "@/features/profile/data/social-links";
 import { useTranslation } from "@/hooks/use-translation";
 import { defaultLocale, getTranslations } from "@/lib/i18n";
-import { getTranslatedBlogPost } from "@/lib/translations";
+import {
+  getTranslatedBlogPost,
+  getTranslatedProject,
+} from "@/lib/translations";
 import { copyText } from "@/utils/copy";
 
 import { Icons } from "./icons";
@@ -42,6 +46,7 @@ import { Button } from "./ui/button";
 type CommandItemType = {
   title: string;
   value: string;
+  keywords?: string;
   icon?: React.ComponentType;
   iconImage?: string;
 };
@@ -144,6 +149,18 @@ export function CommandMenu() {
       value: "/blog/vibe-coding",
     },
   ];
+
+  const PROJECT_ITEMS: CommandItemType[] = PROJECTS.map((project) => {
+    const translatedProject = getTranslatedProject(project.id, currentLocale);
+    const title = translatedProject?.title || project.title;
+
+    return {
+      title,
+      value: `/projects/${project.id}`,
+      keywords: [project.id, project.title, title, ...project.skills].join(" "),
+      icon: Icons.project,
+    };
+  });
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -259,6 +276,14 @@ export function CommandMenu() {
           <CommandSeparator />
 
           <CommandGroupItems
+            heading={translations.projects.title}
+            items={PROJECT_ITEMS}
+            onSelect={handleOpenLink}
+          />
+
+          <CommandSeparator />
+
+          <CommandGroupItems
             heading={translations.search.blog}
             items={BLOG}
             onSelect={handleOpenLink}
@@ -363,7 +388,9 @@ function CommandGroupItems({
         return (
           <CommandItem
             key={item.value}
-            value={item.title}
+            value={
+              item.keywords ? `${item.title} ${item.keywords}` : item.title
+            }
             onSelect={() => onSelect(item.value)}
           >
             {item?.iconImage ? (

@@ -47,10 +47,6 @@
     "title": "S2EC Website",
     "description": "Professional website for S2EC (Société d'Entrepreneuriat d'Études et de Construction), a construction company based in Dakar, Senegal.\n- Homepage with hero, services, achievements and blog\n- About page\n- Detailed services page\n- Achievement gallery with category filters\n- Blog with search and pagination\n- Contact form with validation\n- Admin backoffice with dashboard"
   },
-  "infos-ai": {
-    "title": "Infos AI",
-    "description": "Automated news aggregator powered by AI. Laravel 12 application that automatically fetches articles from RSS feeds, reformulates them via AI, and publishes them on a news site.\n- Automatic article retrieval from RSS feeds (France 24, RFI, Zone Afrique)\n- Content reformulation via Google Gemini API\n- Admin interface for article moderation\n- Automatic task scheduling every hour"
-  },
   "ohkas": {
     "title": "OHKAS",
     "description": "OHKAS is a company specialized in Quality, Safety and Environment (QSE). The website offers specialized content, operational tools and custom support.\n- Home page\n- Training page\n- Services page\n- Shop\n- Blog\n- Quote request\n- Online diagnostic tool"
@@ -157,11 +153,11 @@
   },
   "teranga-deals": {
     "title": "Teranga Deals",
-    "description": "Modern e-commerce platform designed for selling home appliances, IT equipment and electronics in Senegal. Built with Laravel 11, Livewire 3 and Tailwind CSS.\n- Product catalog with filters (category, brand, price)\n- Infinite scroll on the shop page\n- Product pages with variants and image gallery\n- Instant add-to-cart without page reload\n- Persistent shopping cart and multi-step checkout\n- Customer dashboard (order tracking, profile, claims, coupons)\n- Wave, Orange Money and cash-on-delivery payments\n- Admin panel with sales statistics\n- Inventory, order and promo code management\n- Delivery to Dakar & Senegal regions"
+    "description": "Owned Kamit Solutions product. Modern e-commerce platform designed for selling home appliances, IT equipment and electronics in Senegal. Built with Laravel 11, Livewire 3 and Tailwind CSS.\n- Product catalog with filters (category, brand, price)\n- Infinite scroll on the shop page\n- Product pages with variants and image gallery\n- Instant add-to-cart without page reload\n- Persistent shopping cart and multi-step checkout\n- Customer dashboard (order tracking, profile, claims, coupons)\n- Wave, Orange Money and cash-on-delivery payments\n- Admin panel with sales statistics\n- Inventory, order and promo code management\n- Delivery to Dakar & Senegal regions"
   },
   "kumba-media": {
     "title": "Kumba Media",
-    "description": "African and international news platform built with Laravel and Livewire. Automatically aggregates articles from RSS feeds and rewrites them using AI.\n- Automatic article aggregation from African and international RSS feeds\n- Content rewriting via Gemini (Google) and Mistral AI APIs\n- Modern reading interface with infinite scroll\n- Article categories and types system\n- Full admin interface with bulk actions\n- Article moderation and publishing\n- Automatic task scheduling"
+    "description": "Owned Kamit Solutions product. African and international news platform built with Laravel and Livewire. Automatically aggregates articles from RSS feeds and rewrites them using AI.\n- Automatic article aggregation from African and international RSS feeds\n- Content rewriting via Gemini (Google) and Mistral AI APIs\n- Modern reading interface with infinite scroll\n- Article categories and types system\n- Full admin interface with bulk actions\n- Article moderation and publishing\n- Automatic task scheduling"
   },
   "one-safe": {
     "title": "ONESAFE",

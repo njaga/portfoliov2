@@ -204,7 +204,7 @@ L'identité utilise des couleurs évoquant la confiance, la sécurité et l'envi
   // ============== SOLUTIONS KAMIT ==============
   {
     id: "kamit-fleet",
-    title: "KamitFleet",
+    title: "Kamit Fleet",
     time: "2025",
     link: "#",
     skills: [
@@ -217,7 +217,7 @@ L'identité utilise des couleurs évoquant la confiance, la sécurité et l'envi
       "GPS Tracking",
     ],
     status: "in-development",
-    description: `Plateforme SaaS de gestion de flotte et de tracking GPS en temps réel, conçue pour les entreprises de transport, logistique et services au Sénégal et en Afrique de l'Ouest.
+    description: `Produit Kamit Solutions de Kamit Digital Solutions. Plateforme SaaS de gestion de flotte et de tracking GPS en temps reel, conçue pour les entreprises de transport, logistique et services au Sénégal et en Afrique de l'Ouest.
 
 **Fonctionnalités Principales**
 - Suivi en temps réel des véhicules sur carte interactive
@@ -236,7 +236,7 @@ L'identité utilise des couleurs évoquant la confiance, la sécurité et l'envi
   },
   {
     id: "kamit-fleet-mobile",
-    title: "KamitFleet Mobile",
+    title: "Kamit Fleet Mobile",
     time: "2025",
     link: "#",
     skills: [
@@ -248,7 +248,7 @@ L'identité utilise des couleurs évoquant la confiance, la sécurité et l'envi
       "Offline Mode",
     ],
     status: "in-development",
-    description: `Application mobile native pour le suivi de flotte KamitFleet. Disponible sur iOS et Android, elle permet aux gestionnaires et conducteurs d'accéder aux informations de flotte en mobilité.
+    description: `Produit Kamit Solutions de Kamit Digital Solutions. Application mobile native pour le suivi de flotte Kamit Fleet. Disponible sur iOS et Android, elle permet aux gestionnaires et conducteurs d'accéder aux informations de flotte en mobilité.
 
 **Fonctionnalités**
 - Visualisation en temps réel des véhicules
@@ -266,7 +266,7 @@ L'identité utilise des couleurs évoquant la confiance, la sécurité et l'envi
   },
   {
     id: "kamit-field",
-    title: "KamitField",
+    title: "Kamit Field",
     time: "2025",
     link: "#",
     skills: [
@@ -279,7 +279,7 @@ L'identité utilise des couleurs évoquant la confiance, la sécurité et l'envi
       "Geolocation",
     ],
     status: "in-development",
-    description: `Plateforme SaaS de gestion des équipes terrain pour les entreprises avec des opérations sur le terrain : maintenance, livraison, services techniques, sécurité.
+    description: `Produit Kamit Solutions de Kamit Digital Solutions. Plateforme SaaS de gestion des équipes terrain pour les entreprises avec des opérations sur le terrain : maintenance, livraison, services techniques, sécurité.
 
 **Fonctionnalités**
 - Attribution et suivi des tâches en temps réel
@@ -298,7 +298,7 @@ L'identité utilise des couleurs évoquant la confiance, la sécurité et l'envi
   },
   {
     id: "kamit-field-mobile",
-    title: "KamitField Mobile",
+    title: "Kamit Field Mobile",
     time: "2025",
     link: "#",
     skills: [
@@ -310,7 +310,7 @@ L'identité utilise des couleurs évoquant la confiance, la sécurité et l'envi
       "Offline Mode",
     ],
     status: "in-development",
-    description: `Application mobile native pour les agents terrain utilisant KamitField. Conçue pour une utilisation intensive sur le terrain avec mode hors-ligne robuste.
+    description: `Produit Kamit Solutions de Kamit Digital Solutions. Application mobile native pour les agents terrain utilisant Kamit Field. Conçue pour une utilisation intensive sur le terrain avec mode hors-ligne robuste.
 
 **Fonctionnalités Agent**
 - Réception et gestion des missions
@@ -328,7 +328,7 @@ L'identité utilise des couleurs évoquant la confiance, la sécurité et l'envi
   },
   {
     id: "kamit-immo",
-    title: "KamitImmo",
+    title: "Kamit Immo",
     time: "2025",
     link: "#",
     skills: [
@@ -340,7 +340,7 @@ L'identité utilise des couleurs évoquant la confiance, la sécurité et l'envi
       "Tailwind CSS",
     ],
     status: "in-development",
-    description: `Plateforme SaaS de gestion immobilière complète pour propriétaires, agences et syndics au Sénégal et en Afrique de l'Ouest.
+    description: `Produit Kamit Solutions de Kamit Digital Solutions. Plateforme SaaS de gestion immobilière complète pour propriétaires, agences et syndics au Sénégal et en Afrique de l'Ouest.
 
 **Gestion Locative**
 - Portefeuille de biens (appartements, maisons, commerces, terrains)
@@ -363,7 +363,7 @@ L'identité utilise des couleurs évoquant la confiance, la sécurité et l'envi
   },
   {
     id: "kamit-sales",
-    title: "KamitSales",
+    title: "Kamit Sales",
     time: "2025",
     link: "#",
     skills: [
@@ -376,7 +376,7 @@ L'identité utilise des couleurs évoquant la confiance, la sécurité et l'envi
       "CRM",
     ],
     status: "in-development",
-    description: `Plateforme SaaS de gestion commerciale et CRM adaptée aux entreprises africaines. Solution complète pour optimiser le cycle de vente.
+    description: `Produit Kamit Solutions de Kamit Digital Solutions. Plateforme SaaS de gestion commerciale et CRM adaptée aux entreprises africaines. Solution complète pour optimiser le cycle de vente.
 
 **CRM & Prospection**
 - Gestion des contacts et entreprises
@@ -399,7 +399,7 @@ L'identité utilise des couleurs évoquant la confiance, la sécurité et l'envi
   },
   {
     id: "kamit-core",
-    title: "KamitCore",
+    title: "Kamit Core",
     time: "2025",
     link: "#",
     skills: [
@@ -412,7 +412,7 @@ L'identité utilise des couleurs évoquant la confiance, la sécurité et l'envi
       "SIRH",
     ],
     status: "in-development",
-    description: `Plateforme SaaS SIRH (Système d'Information des Ressources Humaines) complète pour la gestion du personnel et des projets en entreprise.
+    description: `Produit Kamit Solutions de Kamit Digital Solutions. Plateforme SaaS SIRH (Système d'Information des Ressources Humaines) complète pour la gestion du personnel et des projets en entreprise.
 
 **Gestion du Personnel**
 - Fiches employés complètes
@@ -550,10 +550,10 @@ Disponible sur Play Store, Apple App Store bientôt disponible.`,
   {
     id: "teranga-deals",
     title: "Teranga Deals",
-    time: "2025",
+    time: "2026",
     link: "https://terangadeals.com",
     skills: [
-      "Client Project",
+      "Company Project",
       "Laravel 11",
       "Livewire 3",
       "Tailwind CSS",
@@ -562,7 +562,7 @@ Disponible sur Play Store, Apple App Store bientôt disponible.`,
       "Orange Money",
     ],
     status: "available",
-    description: `Plateforme e-commerce moderne conçue pour la vente d'équipements électroménagers, informatiques et électroniques au Sénégal. Développée avec Laravel 11, Livewire 3 et Tailwind CSS.
+    description: `Produit proprietaire de Kamit Solutions. Plateforme e-commerce moderne conçue pour la vente d'équipements électroménagers, informatiques et électroniques au Sénégal. Développée avec Laravel 11, Livewire 3 et Tailwind CSS.
 
 **Catalogue & Commandes**
 - Catalogue produits avec filtres (catégorie, marque, prix)
@@ -611,47 +611,12 @@ Disponible sur Play Store, Apple App Store bientôt disponible.`,
     logo: undefined,
   },
   {
-    id: "infos-ai",
-    title: "Infos AI",
-    time: "2025",
-    link: "#",
-    skills: [
-      "Personal Project",
-      "Laravel 12",
-      "Gemini AI",
-      "RSS",
-      "Tailwind CSS",
-      "MySQL",
-    ],
-    status: "available",
-    description: `Agrégateur d'actualités automatisé alimenté par l'intelligence artificielle. Application Laravel qui collecte, reformule et publie automatiquement des articles d'actualité.
-
-**Sources**
-- France 24
-- RFI
-- Zone Afrique
-- Autres flux RSS configurables
-
-**Intelligence Artificielle**
-- Reformulation du contenu via Google Gemini API
-- Génération de titres accrocheurs
-- Catégorisation automatique
-- Détection des doublons
-
-**Administration**
-- Interface de modération des articles
-- Approbation/rejet avant publication
-- Planification automatique toutes les heures
-- Statistiques de lecture`,
-    logo: undefined,
-  },
-  {
     id: "kumba-media",
     title: "Kumba Media",
-    time: "2025",
+    time: "2026",
     link: "https://kumba.media",
     skills: [
-      "Client Project",
+      "Company Project",
       "Laravel",
       "Livewire",
       "Gemini AI",
@@ -660,7 +625,7 @@ Disponible sur Play Store, Apple App Store bientôt disponible.`,
       "MySQL",
     ],
     status: "available",
-    description: `Plateforme d'information africaine et internationale développée avec Laravel et Livewire. Elle agrège automatiquement des articles depuis des flux RSS et les reformule via l'IA.
+    description: `Produit proprietaire de Kamit Solutions. Plateforme d'information africaine et internationale développée avec Laravel et Livewire. Elle agrège automatiquement des articles depuis des flux RSS et les reformule via l'IA.
 
 **Automatisation Éditoriale**
 - Agrégation automatique d'articles depuis des flux RSS africains et internationaux

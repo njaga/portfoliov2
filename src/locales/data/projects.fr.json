@@ -47,10 +47,6 @@
     "title": "S2EC Website",
     "description": "Site web professionnel pour S2EC (Société d'Entrepreneuriat d'Études et de Construction), une entreprise de BTP basée à Dakar, Sénégal.\n- Page d'accueil avec hero, services, réalisations et blog\n- Page À propos\n- Page Services détaillée\n- Galerie de réalisations avec filtres par catégorie\n- Blog avec recherche et pagination\n- Formulaire de contact avec validation\n- Backoffice admin avec tableau de bord"
   },
-  "infos-ai": {
-    "title": "Infos AI",
-    "description": "Agrégateur d'actualités automatisé alimenté par l'IA. Application Laravel 12 qui récupère automatiquement des articles depuis des flux RSS, les reformule via IA, et les publie sur un site d'information.\n- Récupération automatique d'articles depuis des flux RSS (France 24, RFI, Zone Afrique)\n- Reformulation du contenu via l'API Gemini de Google\n- Interface d'administration pour modérer les articles\n- Planification automatique des tâches toutes les heures"
-  },
   "ohkas": {
     "title": "OHKAS",
     "description": "OHKAS est une entreprise spécialisée dans la Qualité, Sécurité et Environnement (QSE). Le site propose des contenus spécialisés, des outils opérationnels et un accompagnement sur mesure.\n- Page d'accueil\n- Page Formations\n- Page Services\n- Boutique\n- Blog\n- Demande de devis\n- Outil diagnostique en ligne"
@@ -157,11 +153,11 @@
   },
   "teranga-deals": {
     "title": "Teranga Deals",
-    "description": "Plateforme e-commerce moderne conçue pour la vente d'équipements électroménagers, informatiques et électroniques au Sénégal. Développée avec Laravel 11, Livewire 3 et Tailwind CSS.\n- Catalogue produits avec filtres (catégorie, marque, prix)\n- Scroll infini sur la boutique\n- Fiches produits avec variantes et galerie d'images\n- Ajout au panier instantané sans rechargement\n- Panier d'achat persistant et checkout multi-étapes\n- Espace client (suivi commandes, profil, réclamations, coupons)\n- Paiement Wave, Orange Money et à la livraison\n- Panel admin avec statistiques des ventes\n- Gestion stocks, commandes et codes promo\n- Livraison Dakar & régions du Sénégal"
+    "description": "Produit proprietaire de Kamit Solutions. Plateforme e-commerce moderne conçue pour la vente d'équipements électroménagers, informatiques et électroniques au Sénégal. Développée avec Laravel 11, Livewire 3 et Tailwind CSS.\n- Catalogue produits avec filtres (catégorie, marque, prix)\n- Scroll infini sur la boutique\n- Fiches produits avec variantes et galerie d'images\n- Ajout au panier instantané sans rechargement\n- Panier d'achat persistant et checkout multi-étapes\n- Espace client (suivi commandes, profil, réclamations, coupons)\n- Paiement Wave, Orange Money et à la livraison\n- Panel admin avec statistiques des ventes\n- Gestion stocks, commandes et codes promo\n- Livraison Dakar & régions du Sénégal"
   },
   "kumba-media": {
     "title": "Kumba Media",
-    "description": "Plateforme d'information africaine et internationale développée avec Laravel et Livewire. Agrège automatiquement des articles depuis des flux RSS et les reformule via l'IA.\n- Agrégation automatique d'articles depuis des flux RSS africains et internationaux\n- Reformulation du contenu via les API Gemini (Google) et Mistral AI\n- Interface de lecture moderne avec scroll infini\n- Système de catégories et de types d'articles\n- Interface d'administration complète avec actions groupées\n- Modération et publication des articles\n- Planification automatique des tâches"
+    "description": "Produit proprietaire de Kamit Solutions. Plateforme d'information africaine et internationale développée avec Laravel et Livewire. Agrège automatiquement des articles depuis des flux RSS et les reformule via l'IA.\n- Agrégation automatique d'articles depuis des flux RSS africains et internationaux\n- Reformulation du contenu via les API Gemini (Google) et Mistral AI\n- Interface de lecture moderne avec scroll infini\n- Système de catégories et de types d'articles\n- Interface d'administration complète avec actions groupées\n- Modération et publication des articles\n- Planification automatique des tâches"
   },
   "one-safe": {
     "title": "ONESAFE",

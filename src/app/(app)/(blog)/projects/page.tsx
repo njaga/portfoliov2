@@ -1,39 +1,103 @@
 "use client";
 
-import {
-  ArrowLeftIcon,
-  ArrowRightIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  MailIcon,
-} from "lucide-react";
+import { ArrowLeftIcon, ArrowRightIcon, MailIcon } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
 
-import { Button } from "@/components/ui/button";
 import { ProjectImage } from "@/components/ui/project-image";
 import { PROJECTS } from "@/features/profile/data/projects";
 import { useTranslation } from "@/hooks/use-translation";
 import { defaultLocale, getTranslations } from "@/lib/i18n";
 import { getTranslatedProject } from "@/lib/translations";
 
-const PROJECTS_PER_PAGE = 12;
+const PLATFORM_PROJECT_IDS = new Set([
+  "payor",
+  "kamit-fleet",
+  "kamit-fleet-mobile",
+  "kamit-field",
+  "kamit-field-mobile",
+  "kamit-immo",
+  "kamit-sales",
+  "kamit-core",
+  "sensouq",
+  "teranga-deals",
+  "kumba-media",
+  "one-safe",
+  "sentol221",
+  "senegal-commerce",
+  "sunu-ride",
+]);
+
+const BUSINESS_APP_PROJECT_IDS = new Set([
+  "mtech-erp",
+  "jotali-app",
+  "prosen-facturation",
+  "kinsiba-app",
+  "gainde",
+  "noflay",
+  "happy-avantages-app",
+]);
+
+function getProjectSophistication(projectId: string) {
+  if (PLATFORM_PROJECT_IDS.has(projectId)) return "platform";
+  if (BUSINESS_APP_PROJECT_IDS.has(projectId)) return "business";
+  return "presence";
+}
 
 export default function Page() {
   const { t, locale, mounted } = useTranslation();
   const translations = mounted ? t : getTranslations(defaultLocale);
   const currentLocale = mounted ? locale : defaultLocale;
-  const [currentPage, setCurrentPage] = useState(1);
+  const sophisticationGroups =
+    currentLocale === "fr"
+      ? [
+          {
+            id: "platform",
+            title: "Niveau 3 · Plateformes & suites logicielles",
+            description:
+              "Produits SaaS, suites metier, plateformes transactionnelles et architectures multi-modules.",
+          },
+          {
+            id: "business",
+            title: "Niveau 2 · Applications metier",
+            description:
+              "Outils operationnels, back-offices et applications internes orientes process.",
+          },
+          {
+            id: "presence",
+            title: "Niveau 1 · Sites, branding & utilitaires",
+            description:
+              "Sites vitrines, identites visuelles, portfolios et produits plus legers.",
+          },
+        ]
+      : [
+          {
+            id: "platform",
+            title: "Level 3 · Platforms & software suites",
+            description:
+              "SaaS products, business suites, transactional platforms and multi-module systems.",
+          },
+          {
+            id: "business",
+            title: "Level 2 · Business applications",
+            description:
+              "Operational tools, back-office products and process-driven internal apps.",
+          },
+          {
+            id: "presence",
+            title: "Level 1 · Sites, branding & utilities",
+            description:
+              "Marketing websites, visual identity work, portfolios and lighter digital products.",
+          },
+        ];
 
-  const totalPages = Math.ceil(PROJECTS.length / PROJECTS_PER_PAGE);
-  const startIndex = (currentPage - 1) * PROJECTS_PER_PAGE;
-  const endIndex = startIndex + PROJECTS_PER_PAGE;
-  const currentProjects = PROJECTS.slice(startIndex, endIndex);
-
-  const goToPage = (page: number) => {
-    setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  const groupedProjects = sophisticationGroups
+    .map((group) => ({
+      ...group,
+      projects: PROJECTS.filter(
+        (project) => getProjectSophistication(project.id) === group.id
+      ),
+    }))
+    .filter((group) => group.projects.length > 0);
 
   return (
     <div className="min-h-svh [--color-project:#3B82F6] dark:[--color-project:#60A5FA]">
@@ -64,9 +128,11 @@ export default function Page() {
 
       <div className="screen-line-after p-4">
         <p className="font-mono text-sm text-muted-foreground">
-          {translations.projects.collection} {translations.projects.page}{" "}
-          {currentPage} {translations.projects.of} {totalPages} (
-          {PROJECTS.length} {translations.projects.projectsTotal})
+          {translations.projects.collection} {PROJECTS.length}{" "}
+          {translations.projects.projectsTotal}.{" "}
+          {currentLocale === "fr"
+            ? "Organisation par niveau de sophistication."
+            : "Organized by sophistication level."}
         </p>
       </div>
 
@@ -77,127 +143,117 @@ export default function Page() {
           <div className="border-l border-edge"></div>
         </div>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {currentProjects.map((Project) => {
-            // Obtenir les traductions du projet
-            const projectTranslation = getTranslatedProject(
-              Project.id,
-              currentLocale
-            );
-            const projectTitle = projectTranslation?.title || Project.title;
-            const projectDescription =
-              projectTranslation?.description || Project.description;
-
-            // Préparer description (paragraphe + puces)
-            let descContent = null;
-            if (projectDescription) {
-              if (projectDescription.includes("- ")) {
-                const lines = projectDescription.split(/\r?\n/);
-                const firstLine = lines[0];
-                const bulletLines = lines.filter((line) =>
-                  line.trim().startsWith("-")
-                );
-                descContent = (
-                  <>
-                    <p className="mb-1 line-clamp-1 font-medium">{firstLine}</p>
-                    <ul className="list-disc pl-5 text-xs text-muted-foreground">
-                      {bulletLines.slice(0, 2).map((line) => (
-                        <li key={line}>{line.replace(/^\s*-\s*/, "")}</li>
-                      ))}
-                    </ul>
-                  </>
-                );
-              } else {
-                descContent = (
-                  <p className="line-clamp-2">{projectDescription}</p>
-                );
-              }
-            }
-            return (
-              <Link
-                key={Project.id}
-                href={`/projects/${Project.id}`}
-                className="group/project flex flex-col gap-2 p-2"
-              >
-                <ProjectImage src={Project.logo} alt={projectTitle} />
-
-                <div className="flex flex-col gap-1 p-2">
-                  <h2 className="flex items-center gap-2 font-heading text-lg leading-snug font-medium text-balance decoration-(--color-project) underline-offset-4 group-hover/project:underline">
-                    {projectTitle}
+        <div className="space-y-8">
+          {groupedProjects.map((group) => (
+            <section key={group.id} className="space-y-4">
+              <div className="px-2">
+                <div className="flex flex-wrap items-center gap-3">
+                  <h2 className="font-heading text-2xl font-semibold">
+                    {group.title}
                   </h2>
-                  <p className="text-sm text-muted-foreground">
-                    {Project.time}
-                  </p>
-                  {descContent}
-                  <div className="mt-2 flex flex-wrap gap-1">
-                    {Project.skills
-                      .filter(
-                        (skill) =>
-                          skill !== "Company Project" &&
-                          skill !== "Client Project"
-                      )
-                      .slice(0, 4)
-                      .map((skill) => (
-                        <span
-                          key={skill}
-                          className="rounded-md bg-muted px-1.5 py-0.5 text-xs font-medium text-muted-foreground"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    {Project.skills.length > 4 && (
-                      <span className="rounded-md bg-muted px-1.5 py-0.5 text-xs font-medium text-muted-foreground">
-                        +{Project.skills.length - 4}
-                      </span>
-                    )}
-                  </div>
+                  <span className="rounded-full bg-muted px-2.5 py-1 text-xs font-medium text-muted-foreground">
+                    {group.projects.length}
+                  </span>
                 </div>
-              </Link>
-            );
-          })}
+                <p className="mt-1 max-w-3xl text-sm text-muted-foreground">
+                  {group.description}
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                {group.projects.map((Project) => {
+                  const projectTranslation = getTranslatedProject(
+                    Project.id,
+                    currentLocale
+                  );
+                  const projectTitle =
+                    projectTranslation?.title || Project.title;
+                  const projectDescription =
+                    projectTranslation?.description || Project.description;
+
+                  let descContent = null;
+                  if (projectDescription) {
+                    if (projectDescription.includes("- ")) {
+                      const lines = projectDescription.split(/\r?\n/);
+                      const firstLine = lines[0];
+                      const bulletLines = lines.filter((line) =>
+                        line.trim().startsWith("-")
+                      );
+                      descContent = (
+                        <>
+                          <p className="mb-1 line-clamp-1 font-medium">
+                            {firstLine}
+                          </p>
+                          <ul className="list-disc pl-5 text-xs text-muted-foreground">
+                            {bulletLines.slice(0, 2).map((line) => (
+                              <li key={line}>{line.replace(/^\s*-\s*/, "")}</li>
+                            ))}
+                          </ul>
+                        </>
+                      );
+                    } else {
+                      descContent = (
+                        <p className="line-clamp-2">{projectDescription}</p>
+                      );
+                    }
+                  }
+
+                  return (
+                    <Link
+                      key={Project.id}
+                      href={`/projects/${Project.id}`}
+                      className="group/project flex flex-col gap-2 p-2"
+                    >
+                      <ProjectImage src={Project.logo} alt={projectTitle} />
+
+                      <div className="flex flex-col gap-1 p-2">
+                        <h3 className="flex items-center gap-2 font-heading text-lg leading-snug font-medium text-balance decoration-(--color-project) underline-offset-4 group-hover/project:underline">
+                          {projectTitle}
+                        </h3>
+                        <p className="text-sm text-muted-foreground">
+                          {Project.time}
+                        </p>
+                        {descContent}
+                        <div className="mt-2 flex flex-wrap gap-1">
+                          {Project.skills
+                            .filter(
+                              (skill) =>
+                                skill !== "Company Project" &&
+                                skill !== "Client Project"
+                            )
+                            .slice(0, 4)
+                            .map((skill) => (
+                              <span
+                                key={skill}
+                                className="rounded-md bg-muted px-1.5 py-0.5 text-xs font-medium text-muted-foreground"
+                              >
+                                {skill}
+                              </span>
+                            ))}
+                          {Project.skills.filter(
+                            (skill) =>
+                              skill !== "Company Project" &&
+                              skill !== "Client Project"
+                          ).length > 4 && (
+                            <span className="rounded-md bg-muted px-1.5 py-0.5 text-xs font-medium text-muted-foreground">
+                              +
+                              {Project.skills.filter(
+                                (skill) =>
+                                  skill !== "Company Project" &&
+                                  skill !== "Client Project"
+                              ).length - 4}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+            </section>
+          ))}
         </div>
       </div>
-
-      {/* Pagination */}
-      {totalPages > 1 && (
-        <div className="screen-line-before p-4">
-          <div className="flex items-center justify-center gap-2">
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={() => goToPage(currentPage - 1)}
-              disabled={currentPage === 1}
-            >
-              <ChevronLeftIcon className="h-4 w-4" />
-            </Button>
-
-            <div className="flex items-center gap-1">
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map(
-                (page) => (
-                  <Button
-                    key={page}
-                    variant={currentPage === page ? "default" : "ghost"}
-                    size="icon"
-                    onClick={() => goToPage(page)}
-                    className="h-8 w-8"
-                  >
-                    {page}
-                  </Button>
-                )
-              )}
-            </div>
-
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={() => goToPage(currentPage + 1)}
-              disabled={currentPage === totalPages}
-            >
-              <ChevronRightIcon className="h-4 w-4" />
-            </Button>
-          </div>
-        </div>
-      )}
 
       {/* CTA Section */}
       <div className="screen-line-before p-4">
