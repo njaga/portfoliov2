@@ -1,0 +1,369 @@
+%!TEX program = xelatex
+\documentclass[a4paper,11pt]{article}
+
+% ============================================================
+% PACKAGES
+% ============================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[margin=1.2cm, top=1cm, bottom=1cm]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{fontawesome5}
+\usepackage{tabularx}
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage{parskip}
+\usepackage{array}
+\usepackage{graphicx}
+
+% ============================================================
+% COULEURS
+% ============================================================
+\definecolor{primary}{HTML}{1A365D}     % Bleu marine professionnel
+\definecolor{accent}{HTML}{2B6CB0}      % Bleu accent
+\definecolor{lightgray}{HTML}{F7FAFC}
+\definecolor{darktext}{HTML}{1A202C}
+\definecolor{graytext}{HTML}{4A5568}
+\definecolor{skillbg}{HTML}{EBF4FF}
+\definecolor{divider}{HTML}{CBD5E0}
+
+% ============================================================
+% CONFIGURATION
+% ============================================================
+\hypersetup{
+    colorlinks=true,
+    linkcolor=accent,
+    urlcolor=accent,
+    pdfauthor={Ndiaga Ndiaye},
+    pdftitle={CV Ndiaga Ndiaye — Développeur Full Stack},
+}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
+
+% ============================================================
+% COMMANDES PERSONNALISÉES
+% ============================================================
+\titleformat{\section}{
+    \color{primary}\large\bfseries\scshape
+}{}{0em}{}[\color{divider}\titlerule]
+\titlespacing*{\section}{0pt}{8pt}{5pt}
+
+\newcommand{\cventry}[4]{
+    {\textbf{\color{darktext}#1}} \hfill {\small\color{graytext}#2} \\
+    {\color{accent}\textit{#3}} \hfill {\small\color{graytext}#4}
+}
+
+\newcommand{\skill}[1]{%
+    \tikz[baseline=(char.base)]{
+        \node[fill=skillbg, rounded corners=2pt, inner sep=3pt, text=accent, font=\footnotesize\sffamily] (char) {#1};
+    }\hspace{1pt}%
+}
+
+\newcommand{\dividerline}{\vspace{2pt}{\color{divider}\hrule height 0.2pt}\vspace{2pt}}
+
+% ============================================================
+% DÉBUT DU DOCUMENT
+% ============================================================
+\begin{document}
+
+% ============================================================
+% EN-TÊTE
+% ============================================================
+\begin{center}
+    {\Huge\bfseries\color{primary} Ndiaga Ndiaye}\\[6pt]
+    {\Large\color{accent} Développeur Full Stack}\\[8pt]
+    
+    \begin{tabular}{c@{\hspace{12pt}}c@{\hspace{12pt}}c@{\hspace{12pt}}c}
+        \faIcon{map-marker-alt}\, Dakar, Sénégal &
+        \faIcon{phone}\, +221 78 163 34 19 &
+        \faIcon{envelope}\, \href{mailto:contact@ndiagandiaye.com}{contact@ndiagandiaye.com} &
+        \faIcon{globe}\, \href{https://ndiagandiaye.com}{ndiagandiaye.com}
+    \end{tabular}\\[3pt]
+    
+    \begin{tabular}{c@{\hspace{15pt}}c@{\hspace{15pt}}c}
+        \faIcon{linkedin}\, \href{https://linkedin.com/in/ndiagandiaye}{linkedin.com/in/ndiagandiaye} &
+        \faIcon{github}\, \href{https://github.com/njaga}{github.com/njaga} &
+        \faIcon{birthday-cake}\, 05 Mars 1998 (27 ans)
+    \end{tabular}
+\end{center}
+
+\vspace{4pt}
+
+% ============================================================
+% PROFIL PROFESSIONNEL
+% ============================================================
+\section{\faIcon{user} Profil Professionnel}
+
+Développeur Full Stack avec plus de \textbf{4 ans d'expérience} dans le développement d'applications web et mobiles, la conception d'APIs RESTful et l'intégration de systèmes. J'accompagne les entreprises dans leur \textbf{transformation numérique} en proposant des solutions sur mesure : ERP, systèmes de facturation, dashboards analytiques et applications mobiles. Expertise confirmée en \textbf{JavaScript, PHP, Python, React, Laravel, Node.js, Spring Boot} et bases de données \textbf{SQL/NoSQL}. Passionné par l'automatisation des processus et la digitalisation, notamment dans le secteur de la microfinance et des services financiers.
+
+% ============================================================
+% COMPÉTENCES TECHNIQUES
+% ============================================================
+\section{\faIcon{code} Compétences Techniques}
+
+\begin{tabularx}{\textwidth}{@{}>{	\bfseries\color{primary}}l@{\hspace{8pt}}X@{}}
+    Langages & JavaScript, TypeScript, PHP, Python, Java, HTML5, CSS3, SQL \\[3pt]
+    Front-end & React, Angular, Vue.js, Next.js, Nuxt.js, Tailwind CSS, Alpine.js, Material UI \\[3pt]
+    Back-end & Node.js, Express.js, Laravel (11/12), Livewire, Spring Boot, Django, APIs RESTful \\[3pt]
+    Mobile & React Native, Expo, Flutter \\[3pt]
+    Bases de données & MySQL, PostgreSQL, MongoDB, Redis \\[3pt]
+    Outils \& DevOps & Git, GitHub, Docker, Vercel, CI/CD \\[3pt]
+    Méthodologies & Agile, Scrum, Gestion de projet numérique \\[3pt]
+    Design & Figma, Adobe XD, Photoshop, Illustrator, UI/UX Design \\[3pt]
+    CMS & WordPress, Drupal, Contentful, Directus \\
+\end{tabularx}
+
+% ============================================================
+% EXPÉRIENCES PROFESSIONNELLES
+% ============================================================
+\section{\faIcon{briefcase} Expériences Professionnelles}
+
+% --- Prosen SARL ---
+\cventry{Responsable Informatique}{Oct 2024 — Présent}{Prosen SARL — Sécurité privée}{Dakar, Sénégal}
+\begin{itemize}[leftmargin=12pt, itemsep=1pt, topsep=3pt]
+    \item Développement de \textbf{Doolé} : plateforme de gestion interne (RH, paie, exploitation, stock, qualité)
+    \item Développement de l'application mobile \textbf{JOTALI} (Spring Boot, React Native/Expo) — rondes de sécurité, pointage GPS, gestion des incidents
+    \item Conception du \textbf{système de facturation ProSen} (Laravel 12, Livewire 3, Volt) avec CRM intégré
+    \item Automatisation des \textbf{bulletins de paie} avec calcul des cotisations IPRES, CSS, VRS, IR
+    \item Développement de \textbf{dashboards temps réel} : suivi des agents, KPIs opérationnels, rapports d'activité
+    \item Supervision de la gestion des données, systèmes d'information et sécurité informatique
+    \item Formation des équipes sur les outils numériques
+\end{itemize}
+
+\vspace{4pt}
+
+% --- Développeur Full Stack Freelance ---
+\cventry{Développeur Full Stack — Freelance}{2021 — Présent}{Projets clients divers}{Dakar, Sénégal}
+\begin{itemize}[leftmargin=12pt, itemsep=1pt, topsep=3pt]
+    \item Développement de \textbf{+20 applications web et mobiles} (sites vitrines, ERP, CRM, e-commerce)
+    \item Création d'\textbf{APIs RESTful} robustes et intégration de paiements mobiles (\textbf{Wave, Orange Money, Stripe, PayPal})
+    \item Conception de \textbf{dashboards analytiques} avec suivi d'indicateurs en temps réel
+    \item Technologies : Laravel, React, Vue.js, Next.js, Node.js, React Native, Spring Boot, PostgreSQL, MySQL
+\end{itemize}
+
+\vspace{4pt}
+
+% --- l'influent ---
+\cventry{Co-fondateur \& Développeur Full Stack}{Fév 2021 — Sep 2024}{l'influent}{Dakar, Sénégal}
+\begin{itemize}[leftmargin=12pt, itemsep=1pt, topsep=3pt]
+    \item Conception et maintenance d'applications web interactives (Nuxt.js, Vue.js, React, Next.js)
+    \item Gestion des relations clients et livraison de projets de haute qualité
+    \item Implémentation de solutions personnalisées pour l'engagement digital des partenaires
+\end{itemize}
+
+\vspace{4pt}
+
+% --- Carré d'Or / Vigilus ---
+\cventry{Consultant Digital Manager}{Mar 2022 — Mai 2024}{Carré d'Or · Vigilus Group SA}{Dakar, Sénégal}
+\begin{itemize}[leftmargin=12pt, itemsep=1pt, topsep=3pt]
+    \item Création d'applications de gestion immobilière et de CRM
+    \item Développement de sites web complets avec optimisation UI/UX
+    \item Gestion de la stratégie digitale et marketing (campagnes, analytics, engagement)
+\end{itemize}
+
+\vspace{4pt}
+
+% --- Kinsiba ---
+\cventry{Développeur \& Designer Bénévole}{2024 — Présent}{Association Kinsiba — Lutte contre le cancer}{Dakar, Sénégal}
+\begin{itemize}[leftmargin=12pt, itemsep=1pt, topsep=3pt]
+    \item Développement du site web de l'association et d'une application de gestion de patients
+    \item Conception d'une application mobile de suivi des activités
+    \item Intégration de paiements en ligne (Paydunya, PayPal) pour les dons
+\end{itemize}
+
+\vspace{4pt}
+
+% --- Vie-Publique.sn ---
+\cventry{Développeur Web Bénévole}{2024 — Présent}{Vie-Publique.sn — Plateforme citoyenne}{Dakar, Sénégal}
+\begin{itemize}[leftmargin=12pt, itemsep=1pt, topsep=3pt]
+    \item Conception et développement de la plateforme citoyenne d'accès à l'information publique
+    \item Amélioration de l'accessibilité et contribution open source
+\end{itemize}
+
+% ============================================================
+% PROJETS CLÉS (PERTINENTS POUR LE POSTE)
+% ============================================================
+\section{\faIcon{project-diagram} Projets Clés}
+
+% --- Doolé ---
+{\textbf{\color{darktext}Doolé} — \textit{Plateforme de gestion d'entreprise}} \hfill {\small\color{graytext}Laravel, Livewire, Tailwind CSS}
+\begin{itemize}[leftmargin=12pt, itemsep=0pt, topsep=2pt]
+    \item \textbf{RH complète} : dossiers agents, contrats, congés, formations, dotations uniformes/équipements
+    \item \textbf{Paie automatisée} : bulletins de paie, primes, heures sup, avances, déclarations IPRES/CSS/VRS/IR
+    \item \textbf{Exploitation} : fiches sites, plannings shifts jour/nuit, checkpoints QR, affectations
+    \item \textbf{Stock \& équipements} : inventaire, mouvements, alertes, distribution uniformes
+    \item \textbf{Qualité} : incidents, réclamations clients, dashboards KPIs, exports PDF/Excel
+\end{itemize}
+
+\vspace{3pt}
+
+% --- JOTALI ---
+{\textbf{\color{darktext}JOTALI} — \textit{Application mobile de suivi opérationnel temps réel}} \hfill {\small\color{graytext}Spring Boot, React Native, Expo}
+\begin{itemize}[leftmargin=12pt, itemsep=0pt, topsep=2pt]
+    \item \textbf{Espace Agent} : pointage GPS, rondes QR, registre visiteurs, signalements incidents, demandes RH, fiches de paie
+    \item \textbf{Espace Superviseur} : dashboard présents/absents, carte temps réel, suivi pointages, remplacements rapides
+    \item \textbf{Espace Client} : planning gardes, vérification rondes temps réel, historique visiteurs, réclamations, exports
+\end{itemize}
+
+\vspace{3pt}
+
+% --- Mtech Facturation ---
+{\textbf{\color{darktext}Mtech Facturation} — \textit{Système de facturation et gestion commerciale}} \hfill {\small\color{graytext}Laravel 12, Livewire 3, Volt}
+\begin{itemize}[leftmargin=12pt, itemsep=0pt, topsep=2pt]
+    \item \textbf{Dashboard} : suivi CA annuel/mensuel/trimestriel, graphiques revenus, KPIs (factures payées, devis acceptés)
+    \item \textbf{Facturation avancée} : acomptes, factures récurrentes, avoirs, paiements partiels, PDF professionnels
+    \item \textbf{Gestion clients/fournisseurs} : fiches détaillées, NINEA, historique complet devis/factures/BdL
+    \item \textbf{Bons de commande \& livraison} : suivi logistique, conversion devis $\rightarrow$ BdL $\rightarrow$ facture
+    \item \textbf{Rôles} : Admin, Commercial, Comptable, Achat
+\end{itemize}
+
+\vspace{3pt}
+
+% --- OHKAS ---
+{\textbf{\color{darktext}OHKAS} — \textit{Site web QSE avec e-commerce}} \hfill {\small\color{graytext}Laravel 12, FilamentPHP v4, Tailwind CSS}
+\begin{itemize}[leftmargin=12pt, itemsep=0pt, topsep=2pt]
+    \item Site vitrine QSE (Qualité, Sécurité, Environnement) avec blog, services, expertise
+    \item E-commerce : vente d'outils, documents, formations (PDF, modèles, guides)
+    \item Intégration paiements \textbf{Stripe \& PayPal}, lead generation, demandes de devis
+    \item Administration via FilamentPHP, SEO (Sitemap + OpenGraph), emails transactionnels
+\end{itemize}
+
+\vspace{3pt}
+
+% --- KamitCore ---
+{\textbf{\color{darktext}KamitCore} — \textit{SIRH et gestion interne d'entreprise}} \hfill {\small\color{graytext}Laravel 11, Livewire 3, PostgreSQL}
+\begin{itemize}[leftmargin=12pt, itemsep=0pt, topsep=2pt]
+    \item \textbf{Organisation} : entreprises, sites, départements, équipes, postes, affectations
+    \item \textbf{RH complète} : employés, contrats, congés, absences, sanctions, tickets RH, jours fériés
+    \item \textbf{Paie} : bulletins automatisés, simulateur, cotisations, conventions collectives, avances sur salaire
+    \item \textbf{Recrutement} : demandes, offres, candidatures (Kanban), entretiens, CVthèque
+    \item \textbf{Compétences \& Talents} : catalogue skills, matrice compétences, objectifs SMART, grille 9-Box
+    \item \textbf{Modules transversaux} : projets/tâches Kanban, stock, budgets/dépenses, documents/templates, signature électronique, workflows d'approbation, reporting/dashboard exécutif, journal d'audit
+\end{itemize}
+
+\vspace{3pt}
+
+% --- KamitSales ---
+{\textbf{\color{darktext}KamitSales} — \textit{CRM et gestion commerciale complète}} \hfill {\small\color{graytext}Laravel 11, Livewire 3, PostgreSQL}
+\begin{itemize}[leftmargin=12pt, itemsep=0pt, topsep=2pt]
+    \item \textbf{CRM} : clients, contacts multiples, segmentation, pipeline deals Kanban, prévisions de revenus
+    \item \textbf{Devis \& Factures} : création, PDF, numérotation auto, conversion devis $\rightarrow$ facture, suivi statuts
+    \item \textbf{Paiements} : enregistrement, statuts automatiques, reçus PDF
+    \item \textbf{Marketing Automation} : campagnes email, segments, templates, tracking ouvertures/clics
+    \item \textbf{Support} : tickets avec messages, catégories, historique client
+    \item \textbf{Reporting} : dashboard commercial, rapports de vente, impayés
+\end{itemize}
+
+\vspace{3pt}
+
+% --- KamitField ---
+{\textbf{\color{darktext}KamitField} — \textit{Gestion des équipes et opérations terrain}} \hfill {\small\color{graytext}Laravel 11, Livewire 3, PostgreSQL}
+\begin{itemize}[leftmargin=12pt, itemsep=0pt, topsep=2pt]
+    \item \textbf{Terrain} : équipes, fiches agents, pointage check-in/out géolocalisé, rondes prédéfinies, tâches avec priorités
+    \item \textbf{Incidents} : signalement, types personnalisables, pièces jointes, escalade
+    \item \textbf{Logistique} : matériel terrain, assignation par agent/équipe, sites géolocalisés, planning/rotations
+    \item \textbf{API REST} : 16 endpoints pour l'application mobile (Android/iOS, mode offline)
+\end{itemize}
+
+\vspace{3pt}
+
+% --- KamitFleet ---
+{\textbf{\color{darktext}KamitFleet} — \textit{Gestion de flotte et suivi GPS temps réel}} \hfill {\small\color{graytext}Laravel 11, Livewire 3, PostgreSQL}
+\begin{itemize}[leftmargin=12pt, itemsep=0pt, topsep=2pt]
+    \item \textbf{GPS temps réel} : carte interactive, télémétrie, historique trajets, replay animé (1x-10x)
+    \item \textbf{Gestion} : fiches véhicules/conducteurs, scores de conduite, alertes vitesse, géofences
+    \item \textbf{Opérationnel} : carburant (consommation, coûts/km), maintenance (planification, historique, coûts)
+    \item \textbf{Traceurs} : protocoles GPS103/GT06/H02/TK103, 9 endpoints API REST mobile
+\end{itemize}
+
+\vspace{3pt}
+
+% --- KamitImmo ---
+{\textbf{\color{darktext}KamitImmo} — \textit{Gestion immobilière et locative complète}} \hfill {\small\color{graytext}Laravel 11, Livewire 3, PostgreSQL}
+\begin{itemize}[leftmargin=12pt, itemsep=0pt, topsep=2pt]
+    \item \textbf{Locatif} : portefeuille biens, locataires, bailleurs multi-propriétaires, baux/contrats, alertes expiration
+    \item \textbf{Financier} : loyers, quittances auto, impayés, paiements partiels, cautions/dépôts, trésorerie consolidée
+    \item \textbf{Opérationnel} : dépenses/charges, maintenance, locations courte durée, ventes immobilières, fiscalité
+\end{itemize}
+
+\vspace{3pt}
+
+% --- Applications Mobiles Kamit ---
+{\textbf{\color{darktext}Applications Mobiles}} \hfill {\small\color{graytext}React Native / Expo — iOS \& Android}
+\begin{itemize}[leftmargin=12pt, itemsep=0pt, topsep=2pt]
+    \item \textbf{KamitFleet Mobile} : carte temps réel, détail véhicules, alertes, trajets, scores de conduite
+    \item \textbf{KamitField Mobile} : check-in/out, rondes, tâches, incidents, planning, mode offline
+\end{itemize}
+
+\vspace{3pt}
+
+% --- Autres projets ---
+\begin{tabularx}{\textwidth}{@{}>{	\bfseries}l@{\hspace{6pt}}X@{\hspace{6pt}}>{	\small\color{graytext}}r@{}}
+    Sensouq & Plateforme e-commerce avec intégration Wave et Orange Money & Laravel, React \\[2pt]
+    Mtech Plus ERP & ERP complet : clients, factures, devis, contrats, projets, dashboards KPIs & Laravel 12 \\[2pt]
+    Kinsiba App & Application de gestion associative : dons (Paydunya, PayPal), événements, bénéficiaires & Laravel, Vue.js \\[2pt]
+    S2EC & Site vitrine corporate BTP avec blog, galerie, back-office administration & Laravel 12, Volt \\
+\end{tabularx}
+
+% ============================================================
+% FORMATION
+% ============================================================
+\section{\faIcon{graduation-cap} Formation}
+
+\cventry{Licence en Gestion de Projets Informatiques}{2025}{PSEJ}{Dakar, Sénégal}
+
+\vspace{4pt}
+
+\cventry{Licence en Génie Logiciel}{2024}{Haute École de Management et Informatique (HEMI)}{Dakar, Sénégal}
+
+\vspace{4pt}
+
+\cventry{Certifications Multiples en Informatique}{2021 — 2024}{Force N / Université Cheikh Hamidou Kane · OpenClassrooms · GitHub · Coursera}{En ligne}
+
+\vspace{4pt}
+
+\begin{multicols}{2}
+\begin{itemize}[leftmargin=12pt, itemsep=1pt, topsep=2pt]
+    \item \textbf{GitHub Foundations} — GitHub (2024)
+    \item \textbf{React \& Express} — Coursera (2024)
+    \item \textbf{Intelligence Artificielle} — Force N / UCHK (2024)
+    \item \textbf{Analyse de Données} — Force N / UCHK (2024)
+    \item \textbf{Cybersécurité} — Force N / UCHK (2024)
+    \item \textbf{Développement Mobile} — Force N / UCHK (2024)
+    \item \textbf{Développement Front End} — Force N / UCHK (2024)
+    \item \textbf{PHP \& MySQL} — OpenClassrooms (2023)
+    \item \textbf{JavaScript Avancé} — OpenClassrooms (2023)
+    \item \textbf{Gestion de Projet Digital} — OpenClassrooms (2023)
+    \item \textbf{Adobe XD (UI/UX)} — Adobe / OpenClassrooms (2023)
+    \item \textbf{Marketing Digital} — Google (2022)
+    \item \textbf{Commerce Digital} — Force N / UCHK (2023)
+    \item \textbf{React} — OpenClassrooms (2021)
+    \item \textbf{Anglais B1 Intermédiaire} — British Council (2023)
+\end{itemize}
+\end{multicols}
+
+% ============================================================
+% LANGUES
+% ============================================================
+\section{\faIcon{language} Langues}
+
+\begin{tabularx}{\textwidth}{@{}XXX@{}}
+    \textbf{Français} — Courant (langue de travail) &
+    \textbf{Wolof} — Langue maternelle &
+    \textbf{Anglais} — Intermédiaire (B1)
+\end{tabularx}
+
+% ============================================================
+% CENTRES D'INTÉRÊT
+% ============================================================
+\section{\faIcon{heart} Centres d'Intérêt}
+
+Intelligence Artificielle \& Machine Learning \quad\textbar\quad Open Source \quad\textbar\quad Transformation Digitale en Afrique \quad\textbar\quad Entrepreneuriat \quad\textbar\quad Innovation Fintech
+
+\end{document}
