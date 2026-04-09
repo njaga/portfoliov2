@@ -8,11 +8,16 @@ export type ExperiencePositionIcon =
 export type ExperiencePosition = {
   id: string;
   title: string;
+  titleFr?: string;
   year: string;
+  yearFr?: string;
   employmentType?: string;
+  employmentTypeFr?: string;
   description?: string;
+  descriptionFr?: string;
   icon?: ExperiencePositionIcon;
   skills?: string[];
+  skillsFr?: string[];
   expanded?: boolean;
 };
 
