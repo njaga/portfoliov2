@@ -126,8 +126,14 @@ export function CommandMenu() {
   const BLOG: CommandItemType[] = [
     {
       title:
+        getTranslatedBlogPost("mon-experience-chez-vigilus", currentLocale)
+          ?.title || "My Experience at VIGILUS",
+      value: "/blog/mon-experience-chez-vigilus",
+    },
+    {
+      title:
         getTranslatedBlogPost("pourquoi-je-construis-kumba", currentLocale)
-          ?.title || "Why I'm Building KUMBA",
+          ?.title || "Why I'm Building KUMBA MEDIA",
       value: "/blog/pourquoi-je-construis-kumba",
     },
     {

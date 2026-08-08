@@ -44,8 +44,12 @@
     "description": "Discover the most common mistakes that cause 90% of startups to fail and learn how to avoid them to maximize your chances of success."
   },
   "pourquoi-je-construis-kumba": {
-    "title": "Why I'm Building KUMBA",
+    "title": "Why I'm Building KUMBA MEDIA",
     "description": "A deep dive into the vision, architecture, and motivation behind KUMBA—an AI-powered information platform connecting news, companies, opportunities, and data in Africa."
+  },
+  "mon-experience-chez-vigilus": {
+    "title": "My Experience at VIGILUS: From IT Support to Multi-Country Digital Communication Leadership",
+    "description": "A retrospective on my journey at VIGILUS Group: evolving from IT support technician to Head of Digital Communications across multiple international subsidiaries."
   }
 }
 
