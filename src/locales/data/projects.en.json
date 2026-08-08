@@ -1,130 +1,278 @@
 {
-  "kumba-media": {
-    "title": "Kumba Media",
-    "description": "Kamit Digital Solutions editorial product. Pan-African editorial and news platform dedicated to news, economy, technology, culture, and sports. Automated RSS feed aggregation and intelligent AI rewriting."
-  },
-  "teranga-deals": {
-    "title": "Teranga Deals",
-    "description": "Kamit Digital Solutions e-commerce product. Senegalese e-commerce platform allowing users to discover, order, and get home delivery for everyday products (appliances, electronics, IT)."
-  },
-  "qr-delices": {
-    "title": "QR Délices",
-    "description": "Kamit Digital Solutions product. Complete restaurant platform connecting digital QR menus, order taking, table reservations, kitchen/room management, and delivery."
-  },
-  "yoonu": {
-    "title": "Yoonu",
-    "description": "Kamit Digital Solutions product. Autonomous urban mobility application for booking VTC rides, offering carpooling trips, or organizing express parcel deliveries."
-  },
-  "liggeey": {
-    "title": "Liggéey",
-    "description": "Kamit Digital Solutions product. Standalone job and recruitment platform allowing employers to post job offers and candidates to apply, showcase profiles, and track applications."
-  },
-  "kamit-core": {
-    "title": "Kamit Core (Kamit Ops)",
-    "description": "Kamit Digital Solutions product. Comprehensive enterprise management core (ERP/Accounting/HR) to organize teams, projects, documents, expenses, and business decisions efficiently."
-  },
-  "kamit-sales": {
-    "title": "Kamit Sales",
-    "description": "Kamit Digital Solutions product. CRM and sales management tool tailored for African SMEs to track leads, sales pipelines, quotes, invoicing, payments, and client relationships."
-  },
-  "kamit-immo": {
-    "title": "Kamit Immo",
-    "description": "Kamit Digital Solutions product. Real estate management solution enabling property owners, landlords, and agencies to manage property portfolios, leases, rent collection, receipts, and maintenance."
-  },
-  "kamit-field": {
-    "title": "Kamit Field",
-    "description": "Kamit Digital Solutions product. Web and mobile field team management platform for scheduling interventions, tracking GPS check-ins, documenting rounds, and validating tasks."
-  },
-  "kamit-fleet": {
-    "title": "Kamit Fleet",
-    "description": "Kamit Digital Solutions product. SaaS fleet management and real-time GPS tracking platform: vehicle tracking, routes, fuel consumption, preventive maintenance, and custom alerts."
-  },
-  "kamit-prevention": {
-    "title": "Kamit Prévention",
-    "description": "Kamit Digital Solutions product. Modular QHSE platform dedicated to safety visits (VCS), accident tracking, occupational risk assessment (DUERP), and prevention plans."
-  },
-  "kumba-intelligence": {
-    "title": "Kumba Intelligence",
-    "description": "Kamit Digital Solutions product. Internal technology engine for automated content collection, AI enrichment, and entity classification to power strategic intelligence, data feeds, and editorial production."
-  },
-  "ohkas-onesafe": {
-    "title": "OHKAS - QSE Advisory & OneSafe",
-    "description": "Kamit client project. End-to-end digital partner for OHKAS: corporate showcase website and development of the OneSafe SaaS platform for occupational risk prevention and QSE management."
-  },
-  "onesafe-ohkas": {
-    "title": "OneSafe - QSE SaaS by OHKAS",
-    "description": "Kamit client project. Specialized QSE risk prevention SaaS platform developed for OHKAS. Features QHSE audits, PDF report generation, touch signatures, and action plan tracking."
-  },
-  "site-vigilus-sierra-leone": {
-    "title": "VIGILUS Facilities Sierra Leone",
-    "description": "Kamit client project. Official web platform for VIGILUS Facilities in Freetown (Sierra Leone), featuring physical security, electronic security, fire safety, and Facility Management services."
-  },
-  "site-vigilus-dubai": {
-    "title": "VIGILUS International Dubai",
-    "description": "Kamit client project. International corporate website for VIGILUS International LLC-FZ in Dubai, supporting global positioning and premium advisory and security services."
-  },
-  "site-vigilus-cote-divoire": {
-    "title": "VIGILUS Côte d'Ivoire",
-    "description": "Kamit client project. Digital platform for VIGILUS Ivory Coast in Abidjan, showcasing electronic security, payment systems, IT solutions, and guarding services."
-  },
-  "site-web-mtech-plus": {
-    "title": "MTech Plus - Website",
-    "description": "Kamit client project. Modern corporate showcase website for MTech Plus, a leading technology partner in Dakar specializing in payment solutions, IT, telecoms, and security."
-  },
-  "logiciel-facturation-mtech-plus": {
-    "title": "MTech Plus - Invoicing ERP",
-    "description": "Kamit client project. Custom business web application for commercial management, quote creation, automated invoicing, and payment tracking developed for MTech Plus."
-  },
-  "mbt-services-super-app": {
-    "title": "MBT Services - Super App",
-    "description": "Kamit client project. Multi-service Super App incorporating ride-hailing, motorcycle taxis, express delivery, job opportunities, online food ordering, and e-commerce stores."
-  },
-  "site-vitrine-vigilus-mobility": {
-    "title": "VIGILUS Mobility",
-    "description": "Kamit client project. Web acquisition platform and showcase for VIGILUS Mobility in Dakar: luxury vehicle rentals, corporate fleets, and VIP chauffeur services."
-  },
-  "vigilus-group-site": {
-    "title": "VIGILUS Group - Corporate",
-    "description": "Kamit client project. Full redesign of the corporate portal for VIGILUS Group, an African leader in private security, Facility Management, and digital engineering."
-  },
-  "cooperative-police-platform": {
-    "title": "Police Cooperative - Platform",
-    "description": "Kamit client project. Management application platform for member management, loan requests, contributions, and services for Police Housing Cooperative members."
-  },
-  "securis-site": {
-    "title": "Securis Services",
-    "description": "Kamit client project. Modern showcase website for Securis Services, specializing in physical security, guarding, and corporate protection in Dakar."
-  },
-  "site-web-cooperative-police": {
-    "title": "Police Cooperative - Website",
-    "description": "Kamit client project. Institutional website providing information and communication for members and partners of the Police Housing Cooperative."
-  },
-  "site-vitrine-vigilus-properties": {
-    "title": "VIGILUS Properties",
-    "description": "Kamit client project. Digital platform for VIGILUS Properties dedicated to real estate development, property marketing, and rental management in Dakar."
-  },
-  "site-vitrine-vigilus-facilities": {
-    "title": "VIGILUS Facilities",
-    "description": "Kamit client project. Showcase website for VIGILUS Facilities Senegal: maintenance, electronic security, fire safety, guarding, and Facility Management services."
-  },
-  "site-vitrine-vigilus-securite": {
-    "title": "VIGILUS Security",
-    "description": "Kamit client project. Digital showcase for VIGILUS Security in Senegal, highlighting guarding services, surveillance, and event security."
-  },
   "payor": {
     "title": "Payor",
-    "description": "Complete billing solution adapted to the Senegalese context, developed with Laravel 12 and Livewire. Free and open source."
+    "description": "Complete billing solution adapted to the Senegalese context, developed with Laravel 12 and Livewire. Free and open source.\n- Full client management with NINEA support\n- Quotes with automatic numbering (DEV-2025-001)\n- Invoices with status tracking (draft, sent, paid, overdue)\n- 18% VAT (Senegal standard)\n- Mobile Money payment support\n- Automatic reminders (before, on, and after due date)\n- Customizable email templates\n- XOF currency (Franc CFA)\n- Senegalese phone format (+221)\n- CSV export"
   },
-  "paxton-securite-website": {
+  "paxton-securite": {
     "title": "Paxton Sécurité",
-    "description": "Modern corporate security website for Paxton Sécurité in Senegal."
+    "description": "Complete security solutions for businesses, industries and individuals in Senegal.\n- Fire protection (Smoke extraction, Extinguishers)\n- Video surveillance\n- Access control & Biometrics\n- Intrusion alarm\n- Fire doors & Automation\n- Corporate showcase with smooth animations\n- Product catalog with filtering\n- Custom quote request system\n- Blog & News\n- Email signature generator"
+  },
+  "kamit-solutions": {
+    "title": "Kamit Solutions",
+    "description": "Modular SaaS platform for business management in Senegal and West Africa.\n- KamitFleet: Fleet management and GPS tracking (web & mobile app)\n- KamitField: Field team management (web & mobile app)\n- KamitImmo: Real estate management\n- KamitSales: Sales management and CRM"
+  },
+  "kamit-fleet": {
+    "title": "KamitFleet",
+    "description": "Fleet management and GPS tracking SaaS platform for businesses in Senegal and West Africa.\n- Real-time vehicle tracking\n- Route optimization\n- Fuel consumption monitoring\n- Driver management\n- Maintenance scheduling\n- Detailed reports and analytics\n- Multi-company support"
+  },
+  "kamit-fleet-mobile": {
+    "title": "KamitFleet Mobile",
+    "description": "Native mobile application for real-time fleet tracking.\n- Real-time vehicle location\n- Push notifications for alerts\n- Offline mode with synchronization\n- Driver trip logs\n- Available on iOS and Android"
+  },
+  "kamit-field": {
+    "title": "KamitField",
+    "description": "Field team management SaaS platform for businesses with on-the-ground operations.\n- Task assignment and tracking\n- Agent geolocation\n- Attendance management\n- Performance monitoring\n- Route planning\n- Real-time communication"
+  },
+  "kamit-field-mobile": {
+    "title": "KamitField Mobile",
+    "description": "Native mobile application for field teams.\n- Task management on the go\n- GPS check-in/check-out\n- Photo uploads for reports\n- Offline mode with synchronization\n- Push notifications for new assignments\n- Available on iOS and Android"
+  },
+  "kamit-immo": {
+    "title": "KamitImmo",
+    "description": "Real estate management SaaS platform for property owners and agencies.\n- Property portfolio management\n- Tenant management\n- Rent collection and tracking\n- Lease contract management\n- Maintenance requests\n- Financial reports"
+  },
+  "kamit-sales": {
+    "title": "KamitSales",
+    "description": "Sales management and CRM SaaS platform for businesses.\n- Customer relationship management\n- Sales pipeline tracking\n- Quote and invoice generation\n- Product catalog management\n- Sales team performance\n- Revenue analytics"
+  },
+  "kamit-core": {
+    "title": "KamitCore",
+    "description": "Human resources and project management SaaS platform.\n- Personnel management\n- Payroll processing\n- Project management\n- Time tracking\n- Leave management\n- HRIS features\n- Employee self-service portal"
+  },
+  "prosen-facturation": {
+    "title": "ProSen Facturation",
+    "description": "Modern and complete invoicing and CRM web application built on Laravel 12 with Livewire, Volt and Flux UI.\n- Invoice management\n- Client management\n- Quote generation\n- Payment tracking\n- Reporting and analytics"
+  },
+  "s2ec-website": {
+    "title": "S2EC Website",
+    "description": "Professional website for S2EC (Société d'Entrepreneuriat d'Études et de Construction), a construction company based in Dakar, Senegal.\n- Homepage with hero, services, achievements and blog\n- About page\n- Detailed services page\n- Achievement gallery with category filters\n- Blog with search and pagination\n- Contact form with validation\n- Admin backoffice with dashboard"
+  },
+  "ohkas": {
+    "title": "OHKAS",
+    "description": "OHKAS is a company specialized in Quality, Safety and Environment (QSE). The website offers specialized content, operational tools and custom support.\n- Home page\n- Training page\n- Services page\n- Shop\n- Blog\n- Quote request\n- Online diagnostic tool"
+  },
+  "sensouq": {
+    "title": "Sensouq",
+    "description": "E-commerce website for selling electronic equipment, home appliances, IT products, and cosmetics with online payment via Wave and Orange Money.\n- Product catalog\n- Shopping cart\n- Secure checkout\n- Wave payment integration\n- Orange Money integration\n- Order management\n- Customer accounts"
+  },
+  "kamit-website": {
+    "title": "Kamit Digital Solutions",
+    "description": "Official website of Kamit Digital Solutions - Supporting African startups in their digital transformation.\n- Modern and responsive showcase website\n- Intuitive and elegant user interface\n- Advanced SEO optimization\n- Contact form integration\n- Services and portfolio presentation\n- Blog to share our knowledge\n- Multilingual (French/English)"
+  },
+  "prosen": {
+    "title": "Prosen",
+    "description": "Website for Prosen SARL, a senegalese company that provides security services.\n- Home page\n- About page\n- Services page\n- Contact page\n- Blog page\n- Portfolio page\n- Testimonials page"
   },
   "portfolio-ndiaga": {
     "title": "ndiagandiaye.com",
-    "description": "Modern personal portfolio presenting my journey and achievements as FullStack Developer & Product Manager."
+    "description": "My modern and minimalist personal portfolio, showcasing my work and experience as a FullStack developer.\n- Elegant and minimalist design\n- Dark/light mode\n- Blog with MDX support\n- Complete SEO optimization\n- Installable PWA\n- Digital business card (vCard)\n- Optimized performance"
+  },
+  "longrich-agence-senegal": {
+    "title": "Longrich Agence Sénégal",
+    "description": "Website for Longrich Agence Sénégal, a senegalese company that provides Longrich products.\n- Home page\n- About page\n- Products page\n- Contact page\n- Blog page\n- Login page\n- Register page\n- Forgot password page\n- Reset password page\n- Verify email page"
+  },
+  "kinsiba": {
+    "title": "Kinsiba",
+    "description": "Website for kinsiba an association for helping people who suffer from cancer.\n- Home page\n- About page\n- Donate page\n- Events page\n- Blog page\n- Contact page"
+  },
+  "kns-services": {
+    "title": "KNS Services",
+    "description": "Website for KNS Services, a senegalese company that provides cleaning services.\n- Home page\n- About page\n- Services page\n- Contact page\n- Shop\n- Blog page"
+  },
+  "sentol221": {
+    "title": "Sentol221",
+    "description": "Website for Sentol221, a senegalese company that provides fruits and vegetables.\n- Home page\n- Products page\n- Contact page\n- Blog page\n- Login page\n- Register page\n- Forgot password page\n- Reset password page\n- Verify email page"
+  },
+  "kinsiba-app": {
+    "title": "Kinsiba App",
+    "description": "The Kinsiba App is a web application for managing the Kinsiba association.\n- Dashboard\n- Management of donations\n- Management of events\n- Management of blog\n- Management of users\n- Management of roles\n- Management of permissions"
+  },
+  "gainde": {
+    "title": "Gainde",
+    "description": "Web application for security company for managing their clients and their agents.\n- Client management\n- Agent management\n- Report management\n- Notification system\n- Plan management\n- Contract management\n- Payment management"
+  },
+  "noflay": {
+    "title": "Noflay",
+    "description": "Noflay is a platform that allows you to manage your property and your tenants. It is a web application built with Angular and Node.js.\n- Property management\n- Tenant management\n- Rent management\n- Payment management\n- Report management\n- Notification system"
+  },
+  "sidibe-et-frere": {
+    "title": "Sidibé et Frère",
+    "description": "Website for Sidibé et Frère, automobile and accessories shop.\n- Home page\n- About page\n- Products page\n- Contact page\n- Blog page\n- Login page\n- Register page\n- Forgot password page\n- Reset password page\n- Verify email page"
+  },
+  "senegal-commerce": {
+    "title": "Sénégal Commerce",
+    "description": "Complete marketplace platform developed for all types of businesses and individuals.\n- Dynamic product catalog\n- Order and inventory management\n- Secure payments with Stripe\n- Admin dashboard\n- Complete REST API\n- Responsive mobile interface\n- Notification system\n- Analytics and reports"
+  },
+  "digaccess": {
+    "title": "Digaccess",
+    "description": "Website for Digaccess, a senegalese company that provides telecommunication services.\n- Home page\n- About page\n- Services page\n- Contact page\n- Blog page\n- Portfolio page\n- Testimonials page"
+  },
+  "securis": {
+    "title": "Securis Services",
+    "description": "Website for Securis Services, a senegalese company that provides security services.\n- Home page\n- About page\n- Services page\n- Contact page\n- Blog page"
+  },
+  "kdm": {
+    "title": "KDM Group",
+    "description": "Website for KDM Group, a senegalese company that provides Protections Equipements and IT materials.\n- Home page\n- About page\n- Services page\n- Contact page\n- Blog page"
+  },
+  "portfolio-designs": {
+    "title": "UI/UX Designs",
+    "description": "Collection of UI/UX designs created for various clients and personal projects.\n- Complete visual identities\n- Wireframes and prototypes\n- Design systems\n- Mobile applications\n- Responsive websites\n- Landing pages\n- Logos and branding\n- User testing"
+  },
+  "happy-avantages-app": {
+    "title": "Happy Avantages App",
+    "description": "Web application for Happy Avantages - Complete management of members and partners. Advantage Cards. Your discounts everywhere in Dakar! Enjoy 10% to 40% at our partners in fashion, beauty, restaurants, and more. Save smart, live Happy!\n- Member management\n- Partner management\n- Card management\n- Discount system\n- Transaction management\n- Dashboard and analytics"
+  },
+  "happy-avantages-website": {
+    "title": "Happy Avantages",
+    "description": "Presentation website and card purchase platform for Happy Avantages.\n- Card purchase\n- Partnership request\n- Information about advantages\n- Contact form"
+  },
+  "sunu-ride": {
+    "title": "Sunu Ride",
+    "description": "Your trusted partner for all your transport and delivery needs in Senegal. Speed, reliability and security guaranteed.\n- Ride booking\n- Delivery service\n- Real-time tracking\n- Secure payments\n- PWA support"
+  },
+  "reflet": {
+    "title": "REFLET",
+    "description": "Website for REFLET Network - Network of Women Leaders around Thierno Amadou Ba. Excellence & Women's Leadership.\n- Events display\n- Programs presentation\n- Photo gallery\n- News and articles\n- Contact information"
   },
   "colorfusion": {
     "title": "ColorFusion",
-    "description": "Free and open source developer and designer utility suite."
+    "description": "Free and open source project that brings together many tools for developers.\n- Color Converter\n- Tailwind Gradient\n- Background Patterns\n- Blob Composition\n- Shadow Generator\n- Grid Generator\n- Table Generator\n- Code Visualizer"
+  },
+  "convertisseur-documents": {
+    "title": "Document Converter",
+    "description": "Open source document converter project.\n- Multiple format support\n- Fast conversion\n- Secure processing\n- Free to use"
+  },
+  "xof-converter": {
+    "title": "XOF Converter",
+    "description": "Open source currency converter project.\n- XOF currency conversion\n- Multiple currencies support\n- Real-time rates\n- Favorite conversions"
+  },
+  "jotali-app": {
+    "title": "JOTALI App",
+    "description": "Mobile application for managing Prosen security agents patrols.\n- Real-time tracking\n- Instant alerts\n- Detailed reports\n- Direct communication\n- QR Code scanning"
+  },
+  "teranga-deals": {
+    "title": "Teranga Deals",
+    "description": "Owned Kamit Solutions product. Modern e-commerce platform designed for selling home appliances, IT equipment and electronics in Senegal. Built with Laravel 11, Livewire 3 and Tailwind CSS.\n- Product catalog with filters (category, brand, price)\n- Infinite scroll on the shop page\n- Product pages with variants and image gallery\n- Instant add-to-cart without page reload\n- Persistent shopping cart and multi-step checkout\n- Customer dashboard (order tracking, profile, claims, coupons)\n- Wave, Orange Money and cash-on-delivery payments\n- Admin panel with sales statistics\n- Inventory, order and promo code management\n- Delivery to Dakar & Senegal regions"
+  },
+  "kumba-media": {
+    "title": "Kumba Media",
+    "description": "Owned Kamit Solutions product. African and international news platform built with Laravel and Livewire. Automatically aggregates articles from RSS feeds and rewrites them using AI.\n- Automatic article aggregation from African and international RSS feeds\n- Content rewriting via Gemini (Google) and Mistral AI APIs\n- Modern reading interface with infinite scroll\n- Article categories and types system\n- Full admin interface with bulk actions\n- Article moderation and publishing\n- Automatic task scheduling"
+  },
+  "one-safe": {
+    "title": "ONESAFE",
+    "description": "Modular software suite dedicated to HSE/QSE management in companies. ONESAFE centralizes field operations, incident analysis, prevention workflows and risk steering.\n- SafeVisit: complete management of field safety visits, audits and recurrence\n- SafeTrack: accident tracking, performance indicators and root cause analysis\n- SafePlan: management of prevention plans, hot work permits and third-party company access\n- SafePilot: DUERP assessment, chemical risk management and QSE action plans"
+  },
+  "sunudroit-immo": {
+    "title": "Sunu Droit Immo",
+    "description": "Presentation and sales website for the book 'Understanding Rent Regulation in Senegalese Real Estate Law' by Papa Djibril Diakhaté, Economic Investigator and real estate consultant.\n- Homepage with hero and book presentation\n- Book details page\n- Author biography page\n- Events page\n- Online order form\n- Contact page\n- Professional and responsive design"
+  },
+  "qr-delices": {
+    "title": "QR Délices",
+    "description": "Produit Kamit Digital Solutions. Plateforme de restauration complète qui relie menu digital QR code, prises de commandes, réservations de tables, gestion en cuisine/salle et livraison.\n\n**Fonctionnalités**\n- Menus digitaux accessibles par QR Code\n- Prise de commande directe à table et en livraison\n- Module POS pour la caisse et la salle\n- Gestion des réservations et du stock cuisine"
+  },
+  "yoonu": {
+    "title": "Yoonu",
+    "description": "Produit Kamit Digital Solutions. Application autonome de mobilité urbaine pour réserver un trajet VTC, proposer des courses en covoiturage ou organiser la livraison express de colis.\n\n**Services**\n- Réservation de véhicules VTC avec suivi GPS\n- Module de covoiturage urbain et interurbain\n- Envoi et livraison rapide de colis"
+  },
+  "liggeey": {
+    "title": "Liggéey",
+    "description": "Produit Kamit Digital Solutions. Application autonome d'emploi et de recrutement pour publier des offres, postuler en un clic, valoriser son profil professionnel et suivre ses candidatures.\n\n**Fonctionnalités**\n- Publication et gestion des offres d'emploi\n- Candidature simplifiée et gestion des CVs\n- Tableau de bord recruteurs et candidats"
+  },
+  "kamit-prevention": {
+    "title": "Kamit Prévention",
+    "description": "Produit Kamit Digital Solutions. Plateforme QHSE modulaire dédiée aux visites de sécurité (VCS), au suivi de l'accidentologie, à la gestion des risques professionnels (DUERP) et aux plans de prévention.\n\n**Fonctionnalités**\n- Audits terrain et visites de sécurité\n- Registre d'accidentologie et analyse des causes\n- Évaluation des risques professionnels (DUERP)\n- Plans d'actions QSE et suivi des correctifs"
+  },
+  "kumba-intelligence": {
+    "title": "Kumba Intelligence",
+    "description": "Produit Kamit Digital Solutions. Moteur technologique interne de collecte, d'enrichissement et de classification automatique par IA pour soutenir la veille stratégique et la production éditoriale.\n\n**Fonctionnalités**\n- Ingestion automatisée de flux d'informations et données\n- Traitement NLP et classification automatique d'entités\n- Génération d'insights et synthèses de données"
+  },
+  "ohkas-onesafe": {
+    "title": "OHKAS - Cabinet QSE & OneSafe",
+    "description": "Projet client réalisé par Kamit. Accompagnement digital complet pour le cabinet OHKAS : site vitrine institutionnel et développement de la plateforme SaaS OneSafe dédiée à la prévention des risques QSE."
+  },
+  "onesafe-ohkas": {
+    "title": "OneSafe - SaaS QSE par OHKAS",
+    "description": "Projet client réalisé par Kamit. Plateforme SaaS métier de prévention des risques professionnels développée pour OHKAS. Inclut audits QHSE, génération de rapports PDF, signatures tactiles et suivi des plans d'actions."
+  },
+  "site-vigilus-sierra-leone": {
+    "title": "VIGILUS Facilities Sierra Leone",
+    "description": "Projet client réalisé par Kamit. Plateforme web officielle pour l'implantation de VIGILUS Facilities à Freetown (Sierra Leone), présentant les services de sécurité physique, électronique, incendie et Facility Management."
+  },
+  "site-vigilus-dubai": {
+    "title": "VIGILUS International Dubai",
+    "description": "Projet client réalisé par Kamit. Site web institutionnel international pour VIGILUS International LLC-FZ à Dubaï, accompagnant le positionnement global du Groupe et ses services de conseil."
+  },
+  "site-vigilus-cote-divoire": {
+    "title": "VIGILUS Côte d'Ivoire",
+    "description": "Projet client réalisé par Kamit. Plateforme digitale de VIGILUS Côte d'Ivoire à Abidjan, mettant en avant les solutions de sécurité électronique, monétique, informatique et gardiennage."
+  },
+  "site-web-mtech-plus": {
+    "title": "MTech Plus - Site Web",
+    "description": "Projet client réalisé par Kamit. Site vitrine institutionnel moderne pour MTech Plus, partenaire technologique de référence à Dakar spécialisé en monétique, IT, télécoms et sécurité."
+  },
+  "logiciel-facturation-mtech-plus": {
+    "title": "MTech Plus - Facturation ERP",
+    "description": "Projet client réalisé par Kamit. Application web métier de gestion commerciale, création de devis, facturation automatisée et suivi des paiements développée sur mesure pour MTech Plus."
+  },
+  "mbt-services-super-app": {
+    "title": "MBT Services - Super App",
+    "description": "Projet client réalisé par Kamit. Super application multi-services intégrant VTC, taxi-moto, livraison express, opportunités d'emploi, restauration en ligne et boutiques e-commerce."
+  },
+  "site-vitrine-vigilus-mobility": {
+    "title": "VIGILUS Mobility",
+    "description": "Projet client réalisé par Kamit. Plateforme web d'acquisition et vitrine de VIGILUS Mobility à Dakar : location de véhicules de prestige, flotte d'entreprise et chauffeurs VIP."
+  },
+  "vigilus-group-site": {
+    "title": "VIGILUS Group - Corporate",
+    "description": "Projet client réalisé par Kamit. Refonte complète du portail corporate de VIGILUS Group, leader africain dans la sécurité privée, le Facility Management et l'ingénierie numérique."
+  },
+  "cooperative-police-platform": {
+    "title": "Coopérative Police - Plateforme",
+    "description": "Projet client réalisé par Kamit. Plateforme applicative de gestion des membres, demandes de prêts, cotisations et services pour les adhérents de la Coopérative d'Habitat de la Police."
+  },
+  "securis-site": {
+    "title": "Securis Services",
+    "description": "Projet client réalisé par Kamit. Site vitrine moderne pour Securis Services, entreprise spécialisée dans le gardiennage, la surveillance et la sécurité privée d'entreprise à Dakar."
+  },
+  "site-web-cooperative-police": {
+    "title": "Coopérative Police - Site Web",
+    "description": "Projet client réalisé par Kamit. Site web institutionnel d'information et de communication pour les membres et partenaires de la Coopérative d'Habitat de la Police."
+  },
+  "site-vitrine-vigilus-properties": {
+    "title": "VIGILUS Properties",
+    "description": "Projet client réalisé par Kamit. Plateforme digitale de VIGILUS Properties dédiée à la promotion immobilière, la commercialisation de programmes et la gestion locative à Dakar."
+  },
+  "site-vitrine-vigilus-facilities": {
+    "title": "VIGILUS Facilities",
+    "description": "Projet client réalisé par Kamit. Site vitrine de VIGILUS Facilities Sénégal : services d'entretien, sécurité électronique, sécurité incendie, gardiennage et Facility Management."
+  },
+  "site-vitrine-vigilus-securite": {
+    "title": "VIGILUS Sécurité",
+    "description": "Projet client réalisé par Kamit. Vitrine digitale de VIGILUS Sécurité au Sénégal, présentant les prestations de gardiennage, surveillance et sécurité événementielle."
+  },
+  "paxton-securite-website": {
+    "title": "Paxton Sécurité - Site Web",
+    "description": "Site web corporate moderne pour Paxton Sécurité, entreprise leader dans les solutions de sécurité au Sénégal. Une vitrine digitale élégante présentant l'expertise et les services de l'entreprise.\n\n**Partie Publique**\n- Vitrine corporate avec animations fluides (x-intersect)\n- Présentation détaillée des services : Protection incendie, Vidéosurveillance, Contrôle d'accès & Biométrie, Alarme intrusion, Portes coupe-feu\n- Catalogue produits avec système de filtrage avancé\n- Système de demande de devis personnalisé (remplace le panier classique)\n- Blog & Actualités sur la sécurité\n- Contact avec carte interactive\n- Générateur de signatures email pour les employés\n\n**Back-office Administration**\n- Gestion des produits et catégories\n- Gestion des articles de blog\n- Gestion des demandes de devis et contacts\n- Interface personnalisée (sans Filament) pour flexibilité maximale"
+  },
+  "paxton-securite-branding": {
+    "title": "Paxton Sécurité - Identité Visuelle",
+    "description": "Création complète de l'identité visuelle pour Paxton Sécurité. Une image de marque professionnelle et moderne reflétant l'expertise et la fiabilité de l'entreprise dans le domaine de la sécurité.\n\n**Livrables**\n- Logo principal et variations\n- Charte graphique complète\n- Cartes de visite professionnelles\n- Plaquette commerciale\n- Flyers promotionnels\n- Signature électronique pour emails\n\nL'identité visuelle utilise des couleurs évoquant la confiance et la sécurité, avec une typographie moderne et lisible."
+  },
+  "ohkas-website": {
+    "title": "OHKAS - Site Web",
+    "description": "Site web professionnel pour OHKAS, cabinet de conseil spécialisé en Qualité, Sécurité et Environnement (QSE). Une plateforme complète offrant contenus spécialisés, outils opérationnels et accompagnement sur mesure aux entreprises.\n\n**Fonctionnalités**\n- Page d'accueil avec présentation des services QSE\n- Catalogue de formations certifiantes\n- Boutique en ligne pour outils et documents QSE\n- Blog avec articles d'expertise\n- Outil diagnostique QSE en ligne\n- Système de demande de devis\n- Espace client personnalisé\n\n**Administration**\n- Gestion via Filament Admin Panel\n- Suivi des demandes et des clients\n- Analytics et reporting"
+  },
+  "ohkas-branding": {
+    "title": "OHKAS - Identité Visuelle",
+    "description": "Création de l'identité visuelle complète pour OHKAS, reflétant le professionnalisme et l'expertise du cabinet en QSE (Qualité, Sécurité, Environnement).\n\n**Livrables**\n- Logo principal et déclinaisons\n- Charte graphique détaillée\n- Cartes de visite\n- Plaquette de présentation\n\nL'identité utilise des couleurs évoquant la confiance, la sécurité et l'environnement, avec une approche moderne et professionnelle."
+  },
+  "mtech-website": {
+    "title": "Mtech Plus - Site Web",
+    "description": "Refonte complète du site web de Mtech Plus, partenaire technologique de confiance offrant des solutions innovantes pour un futur connecté. Site vitrine moderne présentant les quatre domaines d'expertise de l'entreprise.\n\n**Domaines d'Expertise**\n- Monétique : Solutions de paiement électronique\n- Communication Digitale : Stratégies et outils digitaux\n- Informatique : Infrastructure et solutions IT\n- Sécurité : Systèmes de protection et surveillance\n\n**Fonctionnalités**\n- Design moderne et responsive\n- Présentation des services et réalisations\n- Formulaire de contact et demande de devis\n- Blog technique\n- Espace partenaires"
+  },
+  "mtech-erp": {
+    "title": "Mtech Plus - ERP",
+    "description": "Logiciel de gestion interne développé sur mesure pour Mtech Plus. Solution ERP complète pour la gestion quotidienne de l'entreprise.\n\n**Modules**\n- Gestion des clients et prospects\n- Création et suivi des factures\n- Établissement des devis\n- Gestion des contrats\n- Suivi des projets et tâches\n- Tableau de bord avec KPIs\n- Rapports et exports"
   }
 }

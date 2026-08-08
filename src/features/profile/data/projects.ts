@@ -1,9 +1,6 @@
 import type { Project } from "../types/projects";
 
 export const PROJECTS: Project[] = [
-  // =========================================================================
-  // ============== SOLUTIONS KAMIT (https://kamit.tech/solutions) ===========
-  // =========================================================================
   {
     id: "kumba-media",
     title: "Kumba Media",
@@ -21,18 +18,8 @@ export const PROJECTS: Project[] = [
       "MySQL",
     ],
     status: "available",
-    description: `Produit éditorial de Kamit Digital Solutions. Plateforme éditoriale et d'information panafricaine consacrée à l’actualité, l’économie, la technologie, la culture et le sport. Agrégation automatique de flux RSS et reformulation intelligente via l'IA.
-
-**Automatisation Éditoriale**
-- Agrégation automatique d'articles depuis des flux RSS africains et internationaux
-- Reformulation du contenu via les API Gemini (Google) et Mistral AI
-- Interface de lecture moderne avec scroll infini
-- Système de catégories et de types d'articles
-
-**Administration**
-- Interface d'administration complète avec actions groupées
-- Modération et publication des articles
-- Planification automatique des tâches`,
+    description:
+      "Produit éditorial de Kamit Digital Solutions. Plateforme éditoriale et d'information panafricaine consacrée à l’actualité, l’économie, la technologie, la culture et le sport. Agrégation automatique de flux RSS et reformulation intelligente via l'IA.\n\n**Automatisation Éditoriale**\n- Agrégation automatique d'articles depuis des flux RSS africains et internationaux\n- Reformulation du contenu via les API Gemini (Google) et Mistral AI\n- Interface de lecture moderne avec scroll infini\n- Système de catégories et de types d'articles\n\n**Administration**\n- Interface d'administration complète avec actions groupées\n- Modération et publication des articles\n- Planification automatique des tâches",
   },
   {
     id: "teranga-deals",
@@ -50,18 +37,8 @@ export const PROJECTS: Project[] = [
       "MySQL",
     ],
     status: "available",
-    description: `Produit e-commerce de Kamit Digital Solutions. Plateforme e-commerce sénégalaise permettant de découvrir, commander et se faire livrer des produits utiles au quotidien (électroménager, électronique, informatique).
-
-**Catalogue & Commandes**
-- Catalogue produits avec filtres (catégorie, marque, prix)
-- Scroll infini sur la boutique
-- Fiches produits avec variantes et galerie d'images
-- Panier d'achat persistant et checkout multi-étapes
-
-**Espace Client & Paiements**
-- Espace client avec suivi des commandes, profil, réclamations et coupons
-- Paiement Wave, Orange Money et à la livraison
-- Panel admin avec statistiques des ventes et gestion de stock`,
+    description:
+      "Produit e-commerce de Kamit Digital Solutions. Plateforme e-commerce sénégalaise permettant de découvrir, commander et se faire livrer des produits utiles au quotidien (électroménager, électronique, informatique).\n\n**Catalogue & Commandes**\n- Catalogue produits avec filtres (catégorie, marque, prix)\n- Scroll infini sur la boutique\n- Fiches produits avec variantes et galerie d'images\n- Panier d'achat persistant et checkout multi-étapes\n\n**Espace Client & Paiements**\n- Espace client avec suivi des commandes, profil, réclamations et coupons\n- Paiement Wave, Orange Money et à la livraison\n- Panel admin avec statistiques des ventes et gestion de stock",
   },
   {
     id: "qr-delices",
@@ -79,13 +56,8 @@ export const PROJECTS: Project[] = [
       "Tailwind CSS",
     ],
     status: "in-development",
-    description: `Produit Kamit Digital Solutions. Plateforme de restauration complète qui relie menu digital QR code, prises de commandes, réservations de tables, gestion en cuisine/salle et livraison.
-
-**Fonctionnalités**
-- Menus digitaux accessibles par QR Code
-- Prise de commande directe à table et en livraison
-- Module POS pour la caisse et la salle
-- Gestion des réservations et du stock cuisine`,
+    description:
+      "Produit Kamit Digital Solutions. Plateforme de restauration complète qui relie menu digital QR code, prises de commandes, réservations de tables, gestion en cuisine/salle et livraison.\n\n**Fonctionnalités**\n- Menus digitaux accessibles par QR Code\n- Prise de commande directe à table et en livraison\n- Module POS pour la caisse et la salle\n- Gestion des réservations et du stock cuisine",
   },
   {
     id: "yoonu",
@@ -103,12 +75,8 @@ export const PROJECTS: Project[] = [
       "Laravel",
     ],
     status: "coming-soon",
-    description: `Produit Kamit Digital Solutions. Application autonome de mobilité urbaine pour réserver un trajet VTC, proposer des courses en covoiturage ou organiser la livraison express de colis.
-
-**Services**
-- Réservation de véhicules VTC avec suivi GPS
-- Module de covoiturage urbain et interurbain
-- Envoi et livraison rapide de colis`,
+    description:
+      "Produit Kamit Digital Solutions. Application autonome de mobilité urbaine pour réserver un trajet VTC, proposer des courses en covoiturage ou organiser la livraison express de colis.\n\n**Services**\n- Réservation de véhicules VTC avec suivi GPS\n- Module de covoiturage urbain et interurbain\n- Envoi et livraison rapide de colis",
   },
   {
     id: "liggeey",
@@ -126,12 +94,8 @@ export const PROJECTS: Project[] = [
       "PostgreSQL",
     ],
     status: "coming-soon",
-    description: `Produit Kamit Digital Solutions. Application autonome d'emploi et de recrutement pour publier des offres, postuler en un clic, valoriser son profil professionnel et suivre ses candidatures.
-
-**Fonctionnalités**
-- Publication et gestion des offres d'emploi
-- Candidature simplifiée et gestion des CVs
-- Tableau de bord recruteurs et candidats`,
+    description:
+      "Produit Kamit Digital Solutions. Application autonome d'emploi et de recrutement pour publier des offres, postuler en un clic, valoriser son profil professionnel et suivre ses candidatures.\n\n**Fonctionnalités**\n- Publication et gestion des offres d'emploi\n- Candidature simplifiée et gestion des CVs\n- Tableau de bord recruteurs et candidats",
   },
   {
     id: "kamit-core",
@@ -149,13 +113,8 @@ export const PROJECTS: Project[] = [
       "PostgreSQL",
     ],
     status: "in-development",
-    description: `Produit Kamit Digital Solutions. Socle de gestion d’entreprise complet (ERP/Comptabilité/RH) pour organiser équipes, projets, gestion documentaire, dépenses et décisions d'affaires.
-
-**Modules**
-- Fiches employés et gestion du personnel (SIRH)
-- Calcul de la paie et suivi des congés
-- Gestion des projets, tâches et ressources
-- Comptabilité analytique et budgets`,
+    description:
+      "Produit Kamit Digital Solutions. Socle de gestion d’entreprise complet (ERP/Comptabilité/RH) pour organiser équipes, projets, gestion documentaire, dépenses et décisions d'affaires.\n\n**Modules**\n- Fiches employés et gestion du personnel (SIRH)\n- Calcul de la paie et suivi des congés\n- Gestion des projets, tâches et ressources\n- Comptabilité analytique et budgets",
   },
   {
     id: "kamit-sales",
@@ -173,13 +132,8 @@ export const PROJECTS: Project[] = [
       "PostgreSQL",
     ],
     status: "in-development",
-    description: `Produit Kamit Digital Solutions. CRM et outil de gestion commerciale adapté aux PME africaines pour suivre prospects, pipelines de vente, devis, facturation, paiements et relation client.
-
-**Fonctionnalités**
-- Vue Kanban du pipeline de vente
-- Génération automatisée de devis et factures
-- Suivi des règlements et rappels d'impayés
-- Statistiques de ventes et objectifs commerciaux`,
+    description:
+      "Produit Kamit Digital Solutions. CRM et outil de gestion commerciale adapté aux PME africaines pour suivre prospects, pipelines de vente, devis, facturation, paiements et relation client.\n\n**Fonctionnalités**\n- Vue Kanban du pipeline de vente\n- Génération automatisée de devis et factures\n- Suivi des règlements et rappels d'impayés\n- Statistiques de ventes et objectifs commerciaux",
   },
   {
     id: "kamit-immo",
@@ -196,13 +150,8 @@ export const PROJECTS: Project[] = [
       "PostgreSQL",
     ],
     status: "in-development",
-    description: `Produit Kamit Digital Solutions. Solution de gestion immobilière permettant aux propriétaires, bailleurs et agences de piloter portefeuilles de biens, baux, encaissement des loyers, quittances et maintenance.
-
-**Fonctionnalités**
-- Portefeuille de biens et fiches locataires
-- Édition de contrats de bail et quittances de loyer
-- Suivi des paiements et dépenses de maintenance
-- Tableaux de bord financiers et rentabilité`,
+    description:
+      "Produit Kamit Digital Solutions. Solution de gestion immobilière permettant aux propriétaires, bailleurs et agences de piloter portefeuilles de biens, baux, encaissement des loyers, quittances et maintenance.\n\n**Fonctionnalités**\n- Portefeuille de biens et fiches locataires\n- Édition de contrats de bail et quittances de loyer\n- Suivi des paiements et dépenses de maintenance\n- Tableaux de bord financiers et rentabilité",
   },
   {
     id: "kamit-field",
@@ -219,13 +168,8 @@ export const PROJECTS: Project[] = [
       "PostgreSQL",
     ],
     status: "in-development",
-    description: `Produit Kamit Digital Solutions. Plateforme web et mobile de gestion des équipes terrain pour planifier les interventions, suivre le pointage GPS, documenter les rondes et valider les tâches.
-
-**Fonctionnalités**
-- Planning d'interventions et attribution des missions
-- Pointage GPS entrée/sortie de site
-- Rapports photos, signatures tactiles et formulaires
-- Application mobile avec mode hors-ligne`,
+    description:
+      "Produit Kamit Digital Solutions. Plateforme web et mobile de gestion des équipes terrain pour planifier les interventions, suivre le pointage GPS, documenter les rondes et valider les tâches.\n\n**Fonctionnalités**\n- Planning d'interventions et attribution des missions\n- Pointage GPS entrée/sortie de site\n- Rapports photos, signatures tactiles et formulaires\n- Application mobile avec mode hors-ligne",
   },
   {
     id: "kamit-fleet",
@@ -242,13 +186,8 @@ export const PROJECTS: Project[] = [
       "PostgreSQL",
     ],
     status: "in-development",
-    description: `Produit Kamit Digital Solutions. Plateforme SaaS de gestion de flotte et de géolocalisation GPS en temps réel pour entreprises de transport et de services.
-
-**Fonctionnalités**
-- Géolocalisation des véhicules en temps réel
-- Suivi de la consommation de carburant et trajets
-- Gestion des conducteurs et plannings
-- Suivi de la maintenance préventive et alertes`,
+    description:
+      "Produit Kamit Digital Solutions. Plateforme SaaS de gestion de flotte et de géolocalisation GPS en temps réel pour entreprises de transport et de services.\n\n**Fonctionnalités**\n- Géolocalisation des véhicules en temps réel\n- Suivi de la consommation de carburant et trajets\n- Gestion des conducteurs et plannings\n- Suivi de la maintenance préventive et alertes",
   },
   {
     id: "kamit-prevention",
@@ -265,13 +204,8 @@ export const PROJECTS: Project[] = [
       "Laravel 11",
     ],
     status: "in-development",
-    description: `Produit Kamit Digital Solutions. Plateforme QHSE modulaire dédiée aux visites de sécurité (VCS), au suivi de l'accidentologie, à la gestion des risques professionnels (DUERP) et aux plans de prévention.
-
-**Fonctionnalités**
-- Audits terrain et visites de sécurité
-- Registre d'accidentologie et analyse des causes
-- Évaluation des risques professionnels (DUERP)
-- Plans d'actions QSE et suivi des correctifs`,
+    description:
+      "Produit Kamit Digital Solutions. Plateforme QHSE modulaire dédiée aux visites de sécurité (VCS), au suivi de l'accidentologie, à la gestion des risques professionnels (DUERP) et aux plans de prévention.\n\n**Fonctionnalités**\n- Audits terrain et visites de sécurité\n- Registre d'accidentologie et analyse des causes\n- Évaluation des risques professionnels (DUERP)\n- Plans d'actions QSE et suivi des correctifs",
   },
   {
     id: "kumba-intelligence",
@@ -288,17 +222,9 @@ export const PROJECTS: Project[] = [
       "Gemini AI",
     ],
     status: "available",
-    description: `Produit Kamit Digital Solutions. Moteur technologique interne de collecte, d'enrichissement et de classification automatique par IA pour soutenir la veille stratégique et la production éditoriale.
-
-**Fonctionnalités**
-- Ingestion automatisée de flux d'informations et données
-- Traitement NLP et classification automatique d'entités
-- Génération d'insights et synthèses de données`,
+    description:
+      "Produit Kamit Digital Solutions. Moteur technologique interne de collecte, d'enrichissement et de classification automatique par IA pour soutenir la veille stratégique et la production éditoriale.\n\n**Fonctionnalités**\n- Ingestion automatisée de flux d'informations et données\n- Traitement NLP et classification automatique d'entités\n- Génération d'insights et synthèses de données",
   },
-
-  // =========================================================================
-  // ============== RÉALISATIONS CLIENTS KAMIT (https://kamit.tech/realisations)
-  // =========================================================================
   {
     id: "ohkas-onesafe",
     title: "OHKAS - Cabinet QSE & OneSafe",
@@ -314,7 +240,8 @@ export const PROJECTS: Project[] = [
       "Tailwind CSS",
     ],
     status: "available",
-    description: `Projet client réalisé par Kamit. Accompagnement digital complet pour le cabinet OHKAS : site vitrine institutionnel et développement de la plateforme SaaS OneSafe dédiée à la prévention des risques QSE.`,
+    description:
+      "Projet client réalisé par Kamit. Accompagnement digital complet pour le cabinet OHKAS : site vitrine institutionnel et développement de la plateforme SaaS OneSafe dédiée à la prévention des risques QSE.",
   },
   {
     id: "onesafe-ohkas",
@@ -331,7 +258,8 @@ export const PROJECTS: Project[] = [
       "Livewire",
     ],
     status: "available",
-    description: `Projet client réalisé par Kamit. Plateforme SaaS métier de prévention des risques professionnels développée pour OHKAS. Inclut audits QHSE, génération de rapports PDF, signatures tactiles et suivi des plans d'actions.`,
+    description:
+      "Projet client réalisé par Kamit. Plateforme SaaS métier de prévention des risques professionnels développée pour OHKAS. Inclut audits QHSE, génération de rapports PDF, signatures tactiles et suivi des plans d'actions.",
   },
   {
     id: "site-vigilus-sierra-leone",
@@ -347,7 +275,8 @@ export const PROJECTS: Project[] = [
       "Tailwind CSS",
     ],
     status: "available",
-    description: `Projet client réalisé par Kamit. Plateforme web officielle pour l'implantation de VIGILUS Facilities à Freetown (Sierra Leone), présentant les services de sécurité physique, électronique, incendie et Facility Management.`,
+    description:
+      "Projet client réalisé par Kamit. Plateforme web officielle pour l'implantation de VIGILUS Facilities à Freetown (Sierra Leone), présentant les services de sécurité physique, électronique, incendie et Facility Management.",
   },
   {
     id: "site-vigilus-dubai",
@@ -363,7 +292,8 @@ export const PROJECTS: Project[] = [
       "Tailwind CSS",
     ],
     status: "available",
-    description: `Projet client réalisé par Kamit. Site web institutionnel international pour VIGILUS International LLC-FZ à Dubaï, accompagnant le positionnement global du Groupe et ses services de conseil.`,
+    description:
+      "Projet client réalisé par Kamit. Site web institutionnel international pour VIGILUS International LLC-FZ à Dubaï, accompagnant le positionnement global du Groupe et ses services de conseil.",
   },
   {
     id: "site-vigilus-cote-divoire",
@@ -379,7 +309,8 @@ export const PROJECTS: Project[] = [
       "Tailwind CSS",
     ],
     status: "available",
-    description: `Projet client réalisé par Kamit. Plateforme digitale de VIGILUS Côte d'Ivoire à Abidjan, mettant en avant les solutions de sécurité électronique, monétique, informatique et gardiennage.`,
+    description:
+      "Projet client réalisé par Kamit. Plateforme digitale de VIGILUS Côte d'Ivoire à Abidjan, mettant en avant les solutions de sécurité électronique, monétique, informatique et gardiennage.",
   },
   {
     id: "site-web-mtech-plus",
@@ -388,7 +319,8 @@ export const PROJECTS: Project[] = [
     link: "https://kamit.tech/realisations/site-web-mtech-plus",
     skills: ["Client Project", "WordPress", "PHP", "MySQL", "Tailwind CSS"],
     status: "available",
-    description: `Projet client réalisé par Kamit. Site vitrine institutionnel moderne pour MTech Plus, partenaire technologique de référence à Dakar spécialisé en monétique, IT, télécoms et sécurité.`,
+    description:
+      "Projet client réalisé par Kamit. Site vitrine institutionnel moderne pour MTech Plus, partenaire technologique de référence à Dakar spécialisé en monétique, IT, télécoms et sécurité.",
   },
   {
     id: "logiciel-facturation-mtech-plus",
@@ -404,7 +336,8 @@ export const PROJECTS: Project[] = [
       "MySQL",
     ],
     status: "available",
-    description: `Projet client réalisé par Kamit. Application web métier de gestion commerciale, création de devis, facturation automatisée et suivi des paiements développée sur mesure pour MTech Plus.`,
+    description:
+      "Projet client réalisé par Kamit. Application web métier de gestion commerciale, création de devis, facturation automatisée et suivi des paiements développée sur mesure pour MTech Plus.",
   },
   {
     id: "mbt-services-super-app",
@@ -421,7 +354,8 @@ export const PROJECTS: Project[] = [
       "Vue.js",
     ],
     status: "available",
-    description: `Projet client réalisé par Kamit. Super application multi-services intégrant VTC, taxi-moto, livraison express, opportunités d'emploi, restauration en ligne et boutiques e-commerce.`,
+    description:
+      "Projet client réalisé par Kamit. Super application multi-services intégrant VTC, taxi-moto, livraison express, opportunités d'emploi, restauration en ligne et boutiques e-commerce.",
   },
   {
     id: "site-vitrine-vigilus-mobility",
@@ -437,7 +371,8 @@ export const PROJECTS: Project[] = [
       "SEO",
     ],
     status: "available",
-    description: `Projet client réalisé par Kamit. Plateforme web d'acquisition et vitrine de VIGILUS Mobility à Dakar : location de véhicules de prestige, flotte d'entreprise et chauffeurs VIP.`,
+    description:
+      "Projet client réalisé par Kamit. Plateforme web d'acquisition et vitrine de VIGILUS Mobility à Dakar : location de véhicules de prestige, flotte d'entreprise et chauffeurs VIP.",
   },
   {
     id: "vigilus-group-site",
@@ -453,7 +388,8 @@ export const PROJECTS: Project[] = [
       "PostgreSQL",
     ],
     status: "available",
-    description: `Projet client réalisé par Kamit. Refonte complète du portail corporate de VIGILUS Group, leader africain dans la sécurité privée, le Facility Management et l'ingénierie numérique.`,
+    description:
+      "Projet client réalisé par Kamit. Refonte complète du portail corporate de VIGILUS Group, leader africain dans la sécurité privée, le Facility Management et l'ingénierie numérique.",
   },
   {
     id: "cooperative-police-platform",
@@ -469,7 +405,8 @@ export const PROJECTS: Project[] = [
       "Tailwind CSS",
     ],
     status: "available",
-    description: `Projet client réalisé par Kamit. Plateforme applicative de gestion des membres, demandes de prêts, cotisations et services pour les adhérents de la Coopérative d'Habitat de la Police.`,
+    description:
+      "Projet client réalisé par Kamit. Plateforme applicative de gestion des membres, demandes de prêts, cotisations et services pour les adhérents de la Coopérative d'Habitat de la Police.",
   },
   {
     id: "securis-site",
@@ -478,7 +415,8 @@ export const PROJECTS: Project[] = [
     link: "https://kamit.tech/realisations/securis-site",
     skills: ["Client Project", "Next.js", "React.js", "Tailwind CSS"],
     status: "available",
-    description: `Projet client réalisé par Kamit. Site vitrine moderne pour Securis Services, entreprise spécialisée dans le gardiennage, la surveillance et la sécurité privée d'entreprise à Dakar.`,
+    description:
+      "Projet client réalisé par Kamit. Site vitrine moderne pour Securis Services, entreprise spécialisée dans le gardiennage, la surveillance et la sécurité privée d'entreprise à Dakar.",
   },
   {
     id: "site-web-cooperative-police",
@@ -487,7 +425,8 @@ export const PROJECTS: Project[] = [
     link: "https://kamit.tech/realisations/site-web-cooperative-de-la-police",
     skills: ["Client Project", "Laravel", "Vue.js", "Tailwind CSS"],
     status: "available",
-    description: `Projet client réalisé par Kamit. Site web institutionnel d'information et de communication pour les membres et partenaires de la Coopérative d'Habitat de la Police.`,
+    description:
+      "Projet client réalisé par Kamit. Site web institutionnel d'information et de communication pour les membres et partenaires de la Coopérative d'Habitat de la Police.",
   },
   {
     id: "site-vitrine-vigilus-properties",
@@ -496,7 +435,8 @@ export const PROJECTS: Project[] = [
     link: "https://vigilus-properties.com",
     skills: ["Client Project", "Real Estate", "Laravel", "Tailwind CSS", "SEO"],
     status: "available",
-    description: `Projet client réalisé par Kamit. Plateforme digitale de VIGILUS Properties dédiée à la promotion immobilière, la commercialisation de programmes et la gestion locative à Dakar.`,
+    description:
+      "Projet client réalisé par Kamit. Plateforme digitale de VIGILUS Properties dédiée à la promotion immobilière, la commercialisation de programmes et la gestion locative à Dakar.",
   },
   {
     id: "site-vitrine-vigilus-facilities",
@@ -511,7 +451,8 @@ export const PROJECTS: Project[] = [
       "Tailwind CSS",
     ],
     status: "available",
-    description: `Projet client réalisé par Kamit. Site vitrine de VIGILUS Facilities Sénégal : services d'entretien, sécurité électronique, sécurité incendie, gardiennage et Facility Management.`,
+    description:
+      "Projet client réalisé par Kamit. Site vitrine de VIGILUS Facilities Sénégal : services d'entretien, sécurité électronique, sécurité incendie, gardiennage et Facility Management.",
   },
   {
     id: "site-vitrine-vigilus-securite",
@@ -520,17 +461,14 @@ export const PROJECTS: Project[] = [
     link: "https://vigilus-facilities.com/securite",
     skills: ["Client Project", "Security", "Laravel", "Vue.js", "Tailwind CSS"],
     status: "available",
-    description: `Projet client réalisé par Kamit. Vitrine digitale de VIGILUS Sécurité au Sénégal, présentant les prestations de gardiennage, surveillance et sécurité événementielle.`,
+    description:
+      "Projet client réalisé par Kamit. Vitrine digitale de VIGILUS Sécurité au Sénégal, présentant les prestations de gardiennage, surveillance et sécurité événementielle.",
   },
-
-  // =========================================================================
-  // ============== AUTRES PROJETS ET OPEN SOURCE ===========================
-  // =========================================================================
   {
     id: "payor",
     title: "Payor",
     time: "2025",
-    link: "https://github.com",
+    link: "#",
     skills: [
       "Open Source",
       "Laravel 12",
@@ -540,11 +478,12 @@ export const PROJECTS: Project[] = [
       "Free",
     ],
     status: "in-development",
-    description: `Application de facturation complète et gratuite, spécialement conçue pour le contexte sénégalais. Développée avec Laravel 12 et Livewire 3 pour la gestion de la facturation des PME africaines.`,
+    description:
+      "Application de facturation complète et gratuite, spécialement conçue pour le contexte sénégalais. Développée avec Laravel 12 et Livewire 3, Payor offre une solution moderne et intuitive pour la gestion de la facturation des PME africaines.\n\n**Gestion des Clients**\n- CRUD complet avec support du numéro NINEA sénégalais\n- Validation des numéros de téléphone (+221)\n- Gestion des 14 régions administratives du Sénégal\n- Recherche avancée et export CSV\n\n**Devis et Factures**\n- Numérotation automatique (DEV-2025-001, FAC-2025-001)\n- Conversion de devis en factures en un clic\n- Gestion des statuts (brouillon, envoyé, payé, en retard)\n- TVA 18% (standard Sénégal)\n- Support Mobile Money (Wave, Orange Money)\n\n**Rappels Automatiques**\n- Rappels configurables avant, à et après échéance\n- Templates d'emails personnalisables\n\nDevise XOF (Franc CFA), fuseau horaire Africa/Dakar, interface 100% française.",
   },
   {
     id: "paxton-securite-website",
-    title: "Paxton Sécurité",
+    title: "Paxton Sécurité - Site Web",
     time: "2025",
     link: "#",
     skills: [
@@ -553,15 +492,229 @@ export const PROJECTS: Project[] = [
       "Livewire 3",
       "Alpine.js",
       "Tailwind CSS",
+      "MySQL",
     ],
     status: "in-development",
-    description: `Site web corporate moderne pour Paxton Sécurité, entreprise spécialisée dans les solutions de sécurité physique et incendie au Sénégal.`,
+    description:
+      "Site web corporate moderne pour Paxton Sécurité, entreprise leader dans les solutions de sécurité au Sénégal. Une vitrine digitale élégante présentant l'expertise et les services de l'entreprise.\n\n**Partie Publique**\n- Vitrine corporate avec animations fluides (x-intersect)\n- Présentation détaillée des services : Protection incendie, Vidéosurveillance, Contrôle d'accès & Biométrie, Alarme intrusion, Portes coupe-feu\n- Catalogue produits avec système de filtrage avancé\n- Système de demande de devis personnalisé (remplace le panier classique)\n- Blog & Actualités sur la sécurité\n- Contact avec carte interactive\n- Générateur de signatures email pour les employés\n\n**Back-office Administration**\n- Gestion des produits et catégories\n- Gestion des articles de blog\n- Gestion des demandes de devis et contacts\n- Interface personnalisée (sans Filament) pour flexibilité maximale",
+  },
+  {
+    id: "paxton-securite-branding",
+    title: "Paxton Sécurité - Identité Visuelle",
+    time: "2025",
+    link: "#",
+    skills: [
+      "Client Project",
+      "Branding",
+      "Logo Design",
+      "Graphic Design",
+      "Print Design",
+    ],
+    status: "in-development",
+    description:
+      "Création complète de l'identité visuelle pour Paxton Sécurité. Une image de marque professionnelle et moderne reflétant l'expertise et la fiabilité de l'entreprise dans le domaine de la sécurité.\n\n**Livrables**\n- Logo principal et variations\n- Charte graphique complète\n- Cartes de visite professionnelles\n- Plaquette commerciale\n- Flyers promotionnels\n- Signature électronique pour emails\n\nL'identité visuelle utilise des couleurs évoquant la confiance et la sécurité, avec une typographie moderne et lisible.",
+  },
+  {
+    id: "ohkas-website",
+    title: "OHKAS - Site Web",
+    time: "2025",
+    link: "#",
+    skills: [
+      "Client Project",
+      "Laravel 11",
+      "Filament",
+      "Tailwind CSS",
+      "MySQL",
+      "Livewire",
+    ],
+    status: "in-development",
+    description:
+      "Site web professionnel pour OHKAS, cabinet de conseil spécialisé en Qualité, Sécurité et Environnement (QSE). Une plateforme complète offrant contenus spécialisés, outils opérationnels et accompagnement sur mesure aux entreprises.\n\n**Fonctionnalités**\n- Page d'accueil avec présentation des services QSE\n- Catalogue de formations certifiantes\n- Boutique en ligne pour outils et documents QSE\n- Blog avec articles d'expertise\n- Outil diagnostique QSE en ligne\n- Système de demande de devis\n- Espace client personnalisé\n\n**Administration**\n- Gestion via Filament Admin Panel\n- Suivi des demandes et des clients\n- Analytics et reporting",
+  },
+  {
+    id: "ohkas-branding",
+    title: "OHKAS - Identité Visuelle",
+    time: "2025",
+    link: "#",
+    skills: [
+      "Client Project",
+      "Branding",
+      "Logo Design",
+      "Graphic Design",
+      "Print Design",
+    ],
+    status: "in-development",
+    description:
+      "Création de l'identité visuelle complète pour OHKAS, reflétant le professionnalisme et l'expertise du cabinet en QSE (Qualité, Sécurité, Environnement).\n\n**Livrables**\n- Logo principal et déclinaisons\n- Charte graphique détaillée\n- Cartes de visite\n- Plaquette de présentation\n\nL'identité utilise des couleurs évoquant la confiance, la sécurité et l'environnement, avec une approche moderne et professionnelle.",
+  },
+  {
+    id: "mtech-website",
+    title: "Mtech Plus - Site Web",
+    time: "2025",
+    link: "#",
+    skills: ["Client Project", "Laravel", "Livewire", "Tailwind CSS", "MySQL"],
+    status: "in-development",
+    description:
+      "Refonte complète du site web de Mtech Plus, partenaire technologique de confiance offrant des solutions innovantes pour un futur connecté. Site vitrine moderne présentant les quatre domaines d'expertise de l'entreprise.\n\n**Domaines d'Expertise**\n- Monétique : Solutions de paiement électronique\n- Communication Digitale : Stratégies et outils digitaux\n- Informatique : Infrastructure et solutions IT\n- Sécurité : Systèmes de protection et surveillance\n\n**Fonctionnalités**\n- Design moderne et responsive\n- Présentation des services et réalisations\n- Formulaire de contact et demande de devis\n- Blog technique\n- Espace partenaires",
+  },
+  {
+    id: "mtech-erp",
+    title: "Mtech Plus - ERP",
+    time: "2025",
+    link: "#",
+    skills: [
+      "Client Project",
+      "Laravel 12",
+      "Livewire 3",
+      "Tailwind CSS",
+      "MySQL",
+      "ERP",
+    ],
+    status: "in-development",
+    description:
+      "Logiciel de gestion interne développé sur mesure pour Mtech Plus. Solution ERP complète pour la gestion quotidienne de l'entreprise.\n\n**Modules**\n- Gestion des clients et prospects\n- Création et suivi des factures\n- Établissement des devis\n- Gestion des contrats\n- Suivi des projets et tâches\n- Tableau de bord avec KPIs\n- Rapports et exports",
+  },
+  {
+    id: "kamit-fleet-mobile",
+    title: "Kamit Fleet Mobile",
+    time: "2025",
+    link: "#",
+    skills: [
+      "Company Project",
+      "React Native",
+      "Expo",
+      "TypeScript",
+      "Push Notifications",
+      "Offline Mode",
+    ],
+    status: "in-development",
+    description:
+      "Produit Kamit Solutions de Kamit Digital Solutions. Application mobile native pour le suivi de flotte Kamit Fleet. Disponible sur iOS et Android, elle permet aux gestionnaires et conducteurs d'accéder aux informations de flotte en mobilité.\n\n**Fonctionnalités**\n- Visualisation en temps réel des véhicules\n- Notifications push pour alertes critiques\n- Mode hors-ligne avec synchronisation automatique\n- Journal de bord des conducteurs\n- Rapports de trajets\n- Communication avec le central\n\n**Technologie**\n- React Native / Expo pour performances natives\n- Mode hors-ligne intelligent\n- Optimisation batterie",
+  },
+  {
+    id: "kamit-field-mobile",
+    title: "Kamit Field Mobile",
+    time: "2025",
+    link: "#",
+    skills: [
+      "Company Project",
+      "React Native",
+      "Expo",
+      "TypeScript",
+      "Push Notifications",
+      "Offline Mode",
+    ],
+    status: "in-development",
+    description:
+      "Produit Kamit Solutions de Kamit Digital Solutions. Application mobile native pour les agents terrain utilisant Kamit Field. Conçue pour une utilisation intensive sur le terrain avec mode hors-ligne robuste.\n\n**Fonctionnalités Agent**\n- Réception et gestion des missions\n- Pointage GPS entrée/sortie automatique\n- Capture photos/documents pour rapports\n- Signature électronique client\n- Notifications push pour nouvelles missions\n- Navigation vers les sites d'intervention\n\n**Mode Hors-ligne**\n- Travail sans connexion internet\n- Synchronisation automatique dès reconnexion\n- Disponible iOS et Android",
+  },
+  {
+    id: "jotali-app",
+    title: "JOTALI App",
+    time: "2025",
+    link: "#",
+    skills: [
+      "Client Project",
+      "React Native",
+      "Expo",
+      "TypeScript",
+      "Push Notifications",
+    ],
+    status: "available",
+    description:
+      "Application mobile de gestion des rondes et patrouilles pour les agents de sécurité de Prosen. Disponible sur Google Play Store, bientôt sur Apple App Store.\n\n**Fonctionnalités Agent**\n- Suivi des rondes en temps réel\n- Scan de QR codes aux points de contrôle\n- Signalement d'incidents avec photos\n- Communication instantanée avec le central\n- Géolocalisation continue\n\n**Fonctionnalités Superviseur**\n- Visualisation des rondes en cours\n- Alertes en temps réel\n- Rapports d'activité détaillés\n- Historique complet des patrouilles\n\nDisponible sur Play Store, Apple App Store bientôt disponible.",
+  },
+  {
+    id: "sensouq",
+    title: "Sensouq",
+    time: "2025",
+    link: "#",
+    skills: [
+      "Client Project",
+      "Laravel",
+      "React",
+      "Inertia.js",
+      "PostgreSQL",
+      "Tailwind CSS",
+      "Wave",
+      "Orange Money",
+    ],
+    status: "available",
+    description:
+      "Plateforme e-commerce complète pour la vente de matériels électroniques, électroménagers, produits informatiques et cosmétiques au Sénégal. Intégration native des paiements mobiles.\n\n**Catalogue et Commandes**\n- Catalogue produits avec catégories et filtres\n- Recherche avancée\n- Panier d'achat intelligent\n- Processus de commande simplifié\n- Suivi des commandes en temps réel\n\n**Paiements Intégrés**\n- Wave (paiement mobile)\n- Orange Money\n- Paiement à la livraison\n\n**Espace Client**\n- Historique des commandes\n- Gestion du profil\n- Liste de souhaits\n- Notifications",
+  },
+  {
+    id: "prosen-facturation",
+    title: "ProSen Facturation",
+    time: "2025",
+    link: "#",
+    skills: [
+      "Client Project",
+      "Laravel 12",
+      "Livewire 3",
+      "Volt",
+      "Flux UI",
+      "Tailwind CSS",
+    ],
+    status: "available",
+    description:
+      "Application web moderne de gestion de la facturation et CRM léger pour ProSen SARL. Interface élégante construite avec les dernières technologies Laravel.\n\n**Facturation**\n- Création de factures professionnelles\n- Numérotation automatique\n- Gestion des acomptes et soldes\n- Suivi des paiements\n- Rappels automatiques\n\n**Gestion Client**\n- Base de données clients\n- Historique des interactions\n- Statistiques par client\n\n**Devis**\n- Création de devis détaillés\n- Conversion en facture\n- Suivi des acceptations\n\n**Reporting**\n- Tableau de bord chiffre d'affaires\n- Analyses par période\n- Export PDF et CSV",
+  },
+  {
+    id: "s2ec-website",
+    title: "S2EC - Site Web",
+    time: "2025",
+    link: "#",
+    skills: [
+      "Client Project",
+      "Laravel 12",
+      "Livewire 3",
+      "Volt",
+      "Flux UI",
+      "Tailwind CSS",
+    ],
+    status: "available",
+    description:
+      "Site web professionnel pour S2EC (Société d'Entrepreneuriat d'Études et de Construction), entreprise de BTP reconnue à Dakar, Sénégal. Vitrine digitale mettant en valeur l'expertise et les réalisations.\n\n**Site Public**\n- Page d'accueil dynamique avec hero, services mis en avant\n- Présentation détaillée de l'entreprise (À propos)\n- 4 services détaillés avec illustrations\n- Galerie de réalisations avec filtres par catégorie\n- Blog avec articles sur le BTP\n- Formulaire de contact avec validation et rate limiting\n\n**Administration**\n- Dashboard avec statistiques\n- Gestion des réalisations (CRUD avec upload images)\n- Gestion des articles (éditeur HTML)\n- Liste des messages de contact",
+  },
+  {
+    id: "kamit-website",
+    title: "Kamit Digital Solutions",
+    time: "2021 — present",
+    link: "#",
+    skills: [
+      "Company Project",
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "TypeScript",
+      "Vercel",
+    ],
+    status: "available",
+    description:
+      "Site web officiel de Kamit Digital Solutions, entreprise d'accompagnement des startups africaines dans leur transformation numérique. Vitrine moderne reflétant notre expertise technique.\n\n**Contenu**\n- Présentation de l'entreprise et de l'équipe\n- Portfolio de projets réalisés\n- Services proposés : Développement Web, Mobile, UI/UX, Conseil\n- Blog technique avec articles de fond\n- Formulaire de contact\n\n**Technique**\n- Next.js pour performances optimales\n- Design responsive et moderne\n- SEO avancé (meta, sitemap, structured data)\n- Multilingue Français/Anglais\n- PWA installable\n- Hébergé sur Vercel",
+  },
+  {
+    id: "prosen",
+    title: "ProSen - Site Web",
+    time: "2025",
+    link: "#",
+    skills: [
+      "Client Project",
+      "Nuxt.js",
+      "Vue.js",
+      "Contentful",
+      "Tailwind CSS",
+    ],
+    status: "available",
+    description:
+      "Site web vitrine pour ProSen SARL, entreprise sénégalaise spécialisée dans les services de gardiennage et sécurité. Plateforme moderne avec gestion de contenu headless.\n\n**Pages**\n- Accueil avec présentation des services\n- À propos et valeurs de l'entreprise\n- Services détaillés (gardiennage, surveillance, protection)\n- Réalisations et clients de référence\n- Blog actualités sécurité\n- Contact et demande de devis\n\n**Technique**\n- Nuxt.js pour SEO optimal\n- Contentful CMS pour gestion du contenu\n- Animations fluides AnimXYZ",
   },
   {
     id: "portfolio-ndiaga",
     title: "ndiagandiaye.com",
-    time: "2026",
-    link: "https://ndiagandiaye.com",
+    time: "2025",
+    link: "#",
     skills: [
       "Portfolio",
       "Next.js 15",
@@ -573,7 +726,273 @@ export const PROJECTS: Project[] = [
       "Open Source",
     ],
     status: "available",
-    description: `Portfolio personnel moderne et minimaliste présentant mon parcours et mes réalisations en tant que développeur FullStack & Product Manager.`,
+    description:
+      "Portfolio personnel moderne et minimaliste présentant mon parcours et mes réalisations en tant que développeur FullStack. Design élégant inspiré des meilleures pratiques UI/UX.\n\n**Fonctionnalités**\n- Design minimaliste et élégant\n- Mode sombre/clair\n- Blog avec articles MDX\n- Pages projets détaillées\n- SEO optimisé (meta, OG, structured data)\n- PWA installable\n- Carte de visite digitale (vCard)\n- Performances optimisées (Core Web Vitals)\n\n**Tech Stack**\n- Next.js 15 avec App Router\n- Tailwind CSS v4\n- shadcn/ui components\n- Motion pour animations\n- Open Source sur GitHub",
+  },
+  {
+    id: "longrich-agence-senegal",
+    title: "Longrich Agence Sénégal",
+    time: "2025",
+    link: "#",
+    skills: [
+      "Client Project",
+      "Laravel",
+      "Livewire",
+      "Tailwind CSS",
+      "Paydunya",
+      "MySQL",
+    ],
+    status: "available",
+    description:
+      "Plateforme e-commerce pour Longrich Agence Sénégal, distributeur officiel des produits Longrich (cosmétiques, santé, bien-être). Boutique en ligne avec paiement sécurisé.\n\n**E-commerce**\n- Catalogue produits avec catégories\n- Panier d'achat\n- Paiement en ligne via Paydunya\n- Suivi des commandes\n- Espace client\n\n**Contenu**\n- Présentation de la marque Longrich\n- Opportunité d'affaires MLM\n- Témoignages clients\n- Blog beauté et santé",
+  },
+  {
+    id: "kinsiba",
+    title: "Kinsiba - Site Web",
+    time: "2025",
+    link: "#",
+    skills: ["Client Project", "Laravel", "Livewire", "Tailwind CSS", "MySQL"],
+    status: "available",
+    description:
+      "Site web pour l'association Kinsiba, organisation caritative d'aide aux personnes atteintes de cancer au Sénégal. Plateforme de sensibilisation et de collecte de dons.\n\n**Fonctionnalités**\n- Présentation de l'association et de sa mission\n- Événements et actions de sensibilisation\n- Système de dons en ligne sécurisé\n- Blog avec articles sur la prévention\n- Témoignages de bénéficiaires\n- Formulaire de contact pour bénévoles",
+  },
+  {
+    id: "kinsiba-app",
+    title: "Kinsiba - Application de Gestion",
+    time: "2025",
+    link: "#",
+    skills: [
+      "Client Project",
+      "Laravel",
+      "Vue.js",
+      "Paydunya",
+      "PayPal",
+      "Tailwind CSS",
+    ],
+    status: "available",
+    description:
+      "Application web de gestion interne pour l'association Kinsiba. Outil complet pour administrer les activités de l'organisation.\n\n**Gestion**\n- Dashboard avec statistiques\n- Gestion des dons (Paydunya, PayPal)\n- Organisation des événements\n- Gestion des articles de blog\n- Administration des utilisateurs\n- Système de rôles et permissions\n- Suivi des bénéficiaires",
+  },
+  {
+    id: "kns-services",
+    title: "KNS Services",
+    time: "2025",
+    link: "#",
+    skills: [
+      "Client Project",
+      "Nuxt.js",
+      "Vue.js",
+      "Contentful",
+      "Tailwind CSS",
+    ],
+    status: "available",
+    description:
+      "Site web vitrine pour KNS Services, entreprise sénégalaise de services de nettoyage professionnel pour entreprises et particuliers.\n\n**Contenu**\n- Présentation des services (bureaux, résidences, après chantier)\n- Catalogue de produits d'entretien\n- Demande de devis en ligne\n- Blog conseils propreté\n- Références clients\n\n**Technique**\n- Nuxt.js pour performances\n- Contentful CMS\n- Design professionnel et moderne",
+  },
+  {
+    id: "sentol221",
+    title: "Sentol221",
+    time: "2025",
+    link: "#",
+    skills: [
+      "Client Project",
+      "Laravel",
+      "Vue.js",
+      "Inertia.js",
+      "PostgreSQL",
+      "Docker",
+    ],
+    status: "available",
+    description:
+      "Plateforme e-commerce pour Sentol221, grossiste en fruits et légumes frais au Sénégal. Solution B2B pour la distribution alimentaire.\n\n**Fonctionnalités**\n- Catalogue produits avec disponibilités\n- Commandes en gros\n- Gestion des livraisons\n- Espace client professionnel\n- Tarification par volume\n\n**Administration**\n- Gestion des stocks\n- Suivi des commandes\n- Facturation automatisée",
+  },
+  {
+    id: "gainde",
+    title: "Gainde - Gestion Sécurité",
+    time: "2025",
+    link: "#",
+    skills: [
+      "Client Project",
+      "React",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Docker",
+    ],
+    status: "available",
+    description:
+      "Application web de gestion pour entreprises de sécurité privée. Solution complète pour administrer clients, agents et contrats.\n\n**Gestion**\n- Base de données clients\n- Fichiers agents avec documents\n- Contrats et affectations\n- Plannings et rotations\n- Facturation mensuelle\n\n**Reporting**\n- Rapports d'activité\n- Statistiques opérationnelles\n- Alertes et notifications",
+  },
+  {
+    id: "one-safe",
+    title: "ONESAFE",
+    time: "2025",
+    link: "#",
+    skills: [
+      "Client Project",
+      "Laravel",
+      "Livewire",
+      "Tailwind CSS",
+      "AuditLog",
+      "Multi-company",
+    ],
+    status: "available",
+    description:
+      "Suite logicielle modulaire dediee a la gestion HSE/QSE en entreprise. ONESAFE centralise les operations terrain, l'analyse des incidents, la prevention et le pilotage des risques.\n\n**Modules**\n- SafeVisit : gestion complete des visites de securite sur le terrain, audits et recurrence\n- SafeTrack : suivi de l'accidentologie, indicateurs de performance et analyse des causes\n- SafePlan : gestion des plans de prevention, permis feu et acces des entreprises exterieures\n- SafePilot : evaluation DUERP, gestion des risques chimiques et plan d'actions QSE",
+  },
+  {
+    id: "noflay",
+    title: "Noflay - Gestion Locative",
+    time: "2024",
+    link: "#",
+    skills: [
+      "Client Project",
+      "Angular",
+      "TypeScript",
+      "Node.js",
+      "PostgreSQL",
+      "Material UI",
+    ],
+    status: "available",
+    description:
+      "Plateforme de gestion locative pour propriétaires et agences immobilières. Solution complète pour administrer un parc immobilier.\n\n**Fonctionnalités**\n- Gestion du parc immobilier\n- Fiches locataires\n- Quittances de loyer automatiques\n- Suivi des paiements et relances\n- Gestion des travaux\n- Rapports financiers\n- Notifications automatiques",
+  },
+  {
+    id: "sidibe-et-frere",
+    title: "Sidibé et Frère",
+    time: "2025",
+    link: "#",
+    skills: ["Client Project", "Next.js", "React", "Tailwind CSS", "MongoDB"],
+    status: "available",
+    description:
+      "Site e-commerce pour Sidibé et Frère, boutique d'automobiles et accessoires au Sénégal. Catalogue en ligne avec système de réservation.\n\n**Contenu**\n- Catalogue véhicules avec fiches détaillées\n- Accessoires et pièces détachées\n- Système de réservation en ligne\n- Blog automobile\n- Contact et localisation",
+  },
+  {
+    id: "senegal-commerce",
+    title: "Sénégal Commerce",
+    time: "2025",
+    link: "#",
+    skills: [
+      "Personal Project",
+      "React",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Stripe",
+    ],
+    status: "standby",
+    description:
+      "Projet de marketplace multi-vendeurs pour le commerce en ligne au Sénégal. Plateforme ambitieuse actuellement mise en standby.\n\n**Fonctionnalités Prévues**\n- Multi-vendeurs avec boutiques personnalisées\n- Catalogue dynamique\n- Gestion des stocks\n- Paiements Stripe et Mobile Money\n- Dashboard vendeurs et admin\n- API REST complète\n- Interface responsive\n\n*Projet mis en standby - Reprise prévue ultérieurement*",
+  },
+  {
+    id: "digaccess",
+    title: "Digaccess",
+    time: "2024",
+    link: "#",
+    skills: ["Client Project", "React", "Node.js", "Express", "MongoDB"],
+    status: "available",
+    description:
+      "Site web vitrine pour Digaccess, opérateur télécom sénégalais fournissant services internet et solutions de télécommunication.\n\n**Contenu**\n- Présentation des offres internet\n- Services entreprises\n- Couverture réseau\n- Espace client\n- Support technique",
+  },
+  {
+    id: "securis",
+    title: "Securis Services",
+    time: "2024",
+    link: "#",
+    skills: ["Client Project", "React", "Node.js", "Express", "MongoDB"],
+    status: "available",
+    description:
+      "Site web vitrine pour Securis Services, entreprise de sécurité privée au Sénégal. Présentation des services de gardiennage et protection.\n\n**Services**\n- Gardiennage et surveillance\n- Protection rapprochée\n- Sécurité événementielle\n- Formation agents\n- Contact et devis",
+  },
+  {
+    id: "kdm",
+    title: "KDM Group",
+    time: "2025",
+    link: "#",
+    skills: ["Client Project", "WordPress", "Elementor", "WooCommerce", "WPML"],
+    status: "available",
+    description:
+      "Site web e-commerce pour KDM Group, distributeur d'équipements de protection individuelle (EPI) et matériel informatique au Sénégal.\n\n**Fonctionnalités**\n- Catalogue produits WooCommerce\n- Catégories EPI et IT\n- Panier et commande en ligne\n- Blog actualités\n- Multilingue (WPML)",
+  },
+  {
+    id: "portfolio-designs",
+    title: "UI/UX Designs",
+    time: "2020 — present",
+    link: "#",
+    skills: [
+      "Design Project",
+      "Figma",
+      "Adobe XD",
+      "Photoshop",
+      "Illustrator",
+      "Prototyping",
+    ],
+    status: "available",
+    description:
+      "Collection de créations UI/UX réalisées pour divers clients et projets personnels. Expertise en design d'interfaces modernes et expérience utilisateur.\n\n**Compétences**\n- Identités visuelles complètes\n- Wireframes et prototypes interactifs\n- Design systems\n- Applications mobiles iOS/Android\n- Sites web responsive\n- Landing pages conversion\n- Logos et branding\n- Tests utilisateurs",
+  },
+  {
+    id: "happy-avantages-app",
+    title: "Happy Avantages - Application",
+    time: "2025",
+    link: "#",
+    skills: [
+      "Client Project",
+      "Laravel",
+      "Vue.js",
+      "Pinia",
+      "Tailwind CSS",
+      "MySQL",
+    ],
+    status: "in-development",
+    description:
+      "Application web de gestion pour Happy Avantages, programme de fidélité et avantages pour entreprises. Plateforme complète B2B.\n\n**Fonctionnalités**\n- Gestion des membres et cartes\n- Réseau de partenaires\n- Système de réductions\n- Suivi des transactions\n- Dashboard analytique\n- Notifications automatiques",
+  },
+  {
+    id: "sunudroit-immo",
+    title: "Sunu Droit Immo",
+    time: "2025",
+    link: "#",
+    skills: [
+      "Client Project",
+      "Laravel",
+      "Livewire",
+      "Tailwind CSS",
+      "Responsive Design",
+    ],
+    status: "available",
+    description:
+      "Site web de présentation et de vente du livre \"Comprendre la régulation des loyers en droit immobilier sénégalais\" de Papa Djibril Diakhaté, Commissaire aux enquêtes économiques et consultant immobilier.\n\n**Pages & Contenu**\n- Page d'accueil avec hero et présentation de l'ouvrage\n- Page de présentation du livre\n- Page biographie de l'auteur\n- Page événements\n- Formulaire de commande en ligne\n- Page contact\n- Design professionnel et responsive",
+  },
+  {
+    id: "happy-avantages-website",
+    title: "Happy Avantages - Site Web",
+    time: "2025",
+    link: "#",
+    skills: ["Client Project", "Laravel", "Livewire", "Tailwind CSS"],
+    status: "in-development",
+    description:
+      "Site vitrine et plateforme d'achat de cartes Happy Avantages. Interface publique pour découvrir le programme et souscrire.\n\n**Contenu**\n- Présentation du programme\n- Catalogue des avantages\n- Achat de cartes en ligne\n- Demande de partenariat\n- Blog et actualités",
+  },
+  {
+    id: "sunu-ride",
+    title: "Sunu Ride",
+    time: "2025",
+    link: "#",
+    skills: ["Client Project", "Nuxt.js", "Vue.js", "Tailwind CSS", "PWA"],
+    status: "in-development",
+    description:
+      "Plateforme de transport et livraison au Sénégal. Application PWA pour réservation de courses et livraisons express.\n\n**Services**\n- Réservation de courses VTC\n- Livraison de colis\n- Suivi en temps réel\n- Paiements sécurisés\n- Historique des courses\n\n**Technique**\n- PWA pour expérience native\n- Géolocalisation\n- Notifications push",
+  },
+  {
+    id: "reflet",
+    title: "REFLET Network",
+    time: "2024",
+    link: "#",
+    skills: ["Client Project", "Vue.js", "Pinia", "Directus", "Tailwind CSS"],
+    status: "available",
+    description:
+      "Site web du Réseau REFLET (Réseau des Femmes Leaders autour de Thierno Amadou Ba). Plateforme de visibilité pour ce mouvement féminin engagé.\n\n**Contenu**\n- Présentation du réseau et de sa mission\n- Événements et rencontres\n- Programmes et actions\n- Galerie photos\n- Actualités et articles\n- Contact et adhésion",
   },
   {
     id: "colorfusion",
@@ -582,6 +1001,27 @@ export const PROJECTS: Project[] = [
     link: "#",
     skills: ["Open Source", "Next.js", "React", "TypeScript", "Tailwind CSS"],
     status: "available",
-    description: `Suite d'outils gratuits et open source pour développeurs et designers : convertisseur de couleurs, générateurs Tailwind, motifs et grilles.`,
+    description:
+      "Suite d'outils gratuits et open source pour développeurs et designers. Collection d'utilitaires CSS et design.\n\n**Outils Disponibles**\n- Color Converter (HEX, RGB, HSL)\n- Tailwind Gradient Generator\n- Background Patterns\n- Blob Composition\n- Box Shadow Generator\n- CSS Grid Generator\n- Table Generator\n- Code Visualizer\n\nProjet open source sur GitHub.",
+  },
+  {
+    id: "convertisseur-documents",
+    title: "Document Converter",
+    time: "2024",
+    link: "https://convertisseur-documents.vercel.app/",
+    skills: ["Open Source", "Next.js", "React", "TypeScript"],
+    status: "available",
+    description:
+      "Convertisseur de documents en ligne gratuit et open source. Conversion rapide et sécurisée entre différents formats.\n\n**Formats Supportés**\n- Documents (PDF, DOCX, TXT)\n- Images (PNG, JPG, WEBP)\n- Traitement côté client (confidentialité)\n\nGratuit et sans inscription.",
+  },
+  {
+    id: "xof-converter",
+    title: "XOF Converter",
+    time: "2024",
+    link: "https://xof-converter.vercel.app/",
+    skills: ["Open Source", "Next.js", "React", "TypeScript"],
+    status: "available",
+    description:
+      "Convertisseur de devises spécialisé pour le Franc CFA (XOF). Application gratuite avec taux en temps réel.\n\n**Fonctionnalités**\n- Conversion XOF vers 150+ devises\n- Taux de change en temps réel\n- Historique des conversions\n- Devises favorites\n- Interface intuitive\n\nGratuit et open source.",
   },
 ];
