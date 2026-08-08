@@ -42,5 +42,9 @@
   "erreurs-fatales-startups": {
     "title": "Les 7 erreurs fatales qui tuent les startups digitales (et comment les éviter)",
     "description": "Découvrez les erreurs les plus courantes qui causent l'échec de 90% des startups et apprenez comment les éviter pour maximiser vos chances de succès."
+  },
+  "pourquoi-je-construis-kumba": {
+    "title": "Pourquoi je construis KUMBA",
+    "description": "Une réflexion sur la vision, l'architecture et la motivation derrière KUMBA : une plateforme technologique visant à connecter, organiser et valoriser l'information en Afrique."
   }
 }

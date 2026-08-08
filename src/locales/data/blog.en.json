@@ -42,6 +42,10 @@
   "erreurs-fatales-startups": {
     "title": "The 7 Fatal Mistakes That Kill Digital Startups (And How to Avoid Them)",
     "description": "Discover the most common mistakes that cause 90% of startups to fail and learn how to avoid them to maximize your chances of success."
+  },
+  "pourquoi-je-construis-kumba": {
+    "title": "Why I'm Building KUMBA",
+    "description": "A deep dive into the vision, architecture, and motivation behind KUMBA—an AI-powered information platform connecting news, companies, opportunities, and data in Africa."
   }
 }
 
