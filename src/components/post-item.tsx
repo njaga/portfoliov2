@@ -23,13 +23,14 @@ export function PostItem({
       )}
     >
       {post.metadata.image && (
-        <div className="relative select-none [&_img]:aspect-1200/630 [&_img]:rounded-xl">
+        <div className="relative select-none [&_img]:aspect-1200/630 [&_img]:rounded-xl [&_img]:object-cover">
           <Image
             src={post.metadata.image}
             alt={post.metadata.title}
             width={1200}
             height={630}
             quality={100}
+            className="aspect-1200/630 h-full w-full rounded-xl object-cover"
             priority={shouldPreloadImage}
             unoptimized
           />
