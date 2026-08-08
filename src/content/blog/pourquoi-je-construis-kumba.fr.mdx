@@ -1,6 +1,6 @@
 ---
-title: "Pourquoi je construis KUMBA"
-description: "Une réflexion sur la vision, l'architecture et la motivation derrière KUMBA : une plateforme technologique visant à connecter, organiser et valoriser l'information en Afrique."
+title: "Pourquoi je construis KUMBA MEDIA"
+description: "Une plongée dans la vision, l'architecture et les motivations derrière KUMBA : passer d'un simple média à une infrastructure technologique interconnectée pour l'information africaine."
 image: /blog/pourquoi-je-construis-kumba.png
 category: Product
 new: true
@@ -8,342 +8,114 @@ createdAt: 2026-08-08
 updatedAt: 2026-08-08
 ---
 
-J’ai développé beaucoup de sites et d’applications ces dernières années.
+Pendant des années, j’ai développé une multitude de sites et d’applications : des plateformes d’entreprise, des logiciels métiers, des applications mobiles, des outils internes, des produits SaaS, ainsi que des projets personnels. Certains étaient simples et livrés en quelques jours, d'autres ont exigé des semaines ou des mois d'ingénierie et de conception.
 
-Des plateformes pour des entreprises. Des logiciels métier. Des applications mobiles. Des outils internes. Des produits SaaS. Des projets personnels aussi.
+Mais **KUMBA** occupe une place à part. Pas nécessairement parce qu'il s'agit du projet le plus complexe sur le plan technique, mais parce qu'il rassemble tout ce qui me passionne aujourd'hui dans la technologie : l'ingénierie produit, l'automatisation, l’intelligence artificielle appliquée, la gouvernance de données, la création de contenu et la capacité à bâtir une infrastructure capable de évoluer à grande échelle.
 
-Certains étaient relativement simples.
+Et surtout, parce que pour la première fois depuis longtemps, je ne sais pas exactement jusqu’où ce projet peut aller.
 
-D’autres m’ont demandé des semaines ou des mois de travail.
+---
 
-Mais KUMBA est différent.
+### **1. D'un simple média à un produit technologique**
 
-Pas nécessairement parce qu’il s’agit du projet le plus complexe que j’ai développé jusqu’ici.
+L’idée initiale derrière KUMBA était relativement classique : créer une plateforme moderne centrée sur l’actualité africaine. Je voulais expérimenter une autre manière d’agréger, de traiter et de présenter l’information.
 
-Il est différent parce qu’il rassemble presque tout ce qui m’intéresse aujourd’hui dans la technologie : le développement de produits, l’automatisation, l’intelligence artificielle, la donnée, le contenu et la capacité à construire quelque chose qui peut évoluer à grande échelle.
+Cependant, une question fondamentale s’est rapidement imposée : **Pourquoi construire simplement un autre site d’actualités ?**
 
-Et surtout parce que, pour la première fois depuis longtemps, je ne sais pas exactement jusqu’où ce projet peut aller.
+Internet en compte déjà des milliers. Le problème majeur aujourd'hui en Afrique n'est pas tant le manque d'information, mais sa **fragmentation extrême** :
 
-## Au départ, il devait simplement s’agir d’un média
+- Une actualité économique se trouve sur un média spécialisé.
+- Une opportunité de carrière est publiée sur une autre plateforme.
+- Un appel d’offres stratégique est hébergé sur un portail institutionnel.
+- Les informations d’une entreprise sont dispersées entre son propre site web et les réseaux sociaux.
 
-L’idée initiale derrière KUMBA était relativement simple : créer une plateforme moderne autour de l’actualité africaine.
+Des données utiles existent partout, mais elles restent souvent isolées les unes des autres. C'est à partir de cette observation que ma vision de KUMBA a basculé : passer d'un simple média à un **produit technologique**.
 
-Je voulais expérimenter une autre manière d’agréger, de traiter et de présenter l’information.
+L'actualité en constitue la première brique. Les opportunités de carrière et d'affaires en forment une seconde. L'annuaire d'entreprises à venir en sera une troisième. Et derrière ces différentes interfaces doit progressivement se construire une couche technologique capable de comprendre, organiser et connecter ces informations.
 
-Très vite, une question s’est imposée :
+---
 
-**Pourquoi construire simplement un autre site d’actualité ?**
+### **2. L'architecture derrière KUMBA : Comprendre, classifier et connecter**
 
-Internet en compte déjà des milliers.
+C’est probablement la partie du projet qui m’intéresse le plus sur le plan de l'ingénierie. Je travaille notamment sur des mécanismes permettant de récupérer automatiquement des informations provenant de sources hétérogènes, de les nettoyer, de les classifier, de les enrichir puis de les distribuer efficacement.
 
-Le problème n’est pas nécessairement l’absence d’information.
+#### **L'IA comme outil d'efficience, non comme artifice marketing**
 
-Le problème est aussi sa fragmentation.
+L’intelligence artificielle intervient à plusieurs étapes clés de ce processus. Cependant, je refuse de transformer KUMBA en un « projet IA » artificiel uniquement parce que le terme est tendance.
 
-Une actualité se trouve sur un média.
+Pour moi, l’IA reste un **outil au service du produit** :
 
-Une opportunité professionnelle sur une autre plateforme.
+- Si un modèle peut réduire le traitement d'une tâche de trente minutes à quelques secondes, son intégration est pertinente.
+- S'il peut aider à classifier plusieurs centaines de contenus, détecter des relations entre différentes entités ou améliorer la recherche sémantique, il devient réellement utile.
+- Sinon, il n'a aucune raison d'être ajouté.
 
-Un appel d’offres ailleurs.
+---
 
-Les informations concernant une entreprise sur son propre site ou sur les réseaux sociaux.
+### **3. Le véritable défi : Passer du fil d'actualité au graphe d'information**
 
-Des données utiles existent partout, mais elles restent souvent isolées les unes des autres.
+Ce que je souhaite construire à terme est simple à conceptualiser, bien que complexe à développer.
 
-C’est à partir de là que ma vision de KUMBA a commencé à évoluer.
+Imaginons qu’une entreprise sénégalaise annonce un investissement majeur. KUMBA va naturellement présenter l’article correspondant. Mais pourquoi s’arrêter là ?
 
-## Penser KUMBA comme un produit technologique
+La plateforme doit également comprendre le contexte global de cette organisation :
 
-Aujourd’hui, lorsque je travaille sur KUMBA, je ne pense plus vraiment « site d’actualité ».
+- **Méta-données de l'entreprise** : Son secteur, ses activités et son historique financier ou opérationnel.
+- **Réseau d'acteurs** : Identifier les personnes clés et décideurs qui y sont liés.
+- **Rétrospective** : Afficher les actualités précédentes concernant l'organisation.
+- **Opportunités actives** : Référencer ses offres d'emploi si elle recrute ainsi que ses appels d'offres en cours.
+- **Contexte sectoriel** : Relier l’information à d’autres événements du même secteur d'activité.
 
-Je pense **produit**.
+À ce stade, l'utilisateur ne navigue plus entre des articles isolés. Il explore un **ensemble d’informations connectées**. C’est cette vision du graphe de données qui me semble infiniment plus intéressante qu’un média traditionnel.
 
-L’actualité en est une première composante.
+---
 
-Les opportunités en sont une autre.
+### **4. La convergence entre développement, produit et design**
 
-L’annuaire que je souhaite développer en sera une supplémentaire.
+Je n’ai jamais réellement réussi à choisir entre le développement logiciel, le management de produit, le design UI/UX et la stratégie digitale. Pendant longtemps, je me suis demandé si cette polyvalence constituait un défaut d'alignement. Avec le recul, c'est précisément cette combinaison qui explique la structure de mes projets.
 
-Et derrière ces différentes interfaces doit progressivement se construire une couche technologique capable de comprendre, organiser et connecter ces informations.
+#### **Ce que mes expériences m'ont appris**
 
-C’est probablement cette partie du projet qui m’intéresse le plus.
+- **L'expérience chez VIGILUS** : Piloter la communication digitale et développer des plateformes web pour les différentes filiales et implantations internationales du Groupe (Sénégal, Côte d’Ivoire, Guinée, Sierra Leone, Dubaï) m'a confronté à des problématiques variées de branding, d'expérience utilisateur, de SEO et de gestion de contenu à grande échelle.
+- **L'écosystème KAMIT** : En développant des solutions pour divers besoins professionnels (gestion client, suivi commercial, RH, gestion immobilière, flotte automobile, facturation), j'ai constaté que beaucoup d'entreprises font face aux mêmes défis. Au lieu de redévelopper indéfiniment des solutions sur mesure, on commence naturellement à penser en **produit réutilisable**.
 
-Je travaille notamment sur des mécanismes permettant de récupérer automatiquement des informations provenant de différentes sources, de les nettoyer, de les classifier, de les enrichir puis de les distribuer.
+KUMBA applique cette même logique à la gestion de l'information : bâtir une infrastructure globale qui puisse bénéficier au plus grand nombre.
 
-L’intelligence artificielle intervient à plusieurs étapes.
+De plus, continuer à coder au quotidien me donne un avantage essentiel : **la capacité de transformer directement une idée en produit fonctionnel**. Je n'ai pas besoin d'en rester au concept. Je peux concevoir l'architecture, ouvrir mon éditeur, développer une version initiale et vérifier sous quelques jours si l'idée tient debout.
 
-Mais je ne souhaite pas transformer KUMBA en « projet IA » simplement parce que le terme est populaire.
+---
 
-Pour moi, l’IA reste un outil.
+### **5. Les défis d'un Solo Builder à l'ère de l'IA**
 
-Si un modèle peut réduire une tâche de trente minutes à quelques secondes, il a une utilité.
+Pour l’instant, je développe KUMBA seul. Écrire le code ne représente qu’une fraction du travail global. Un projet comme celui-ci exige d'arbitrer en permanence entre :
 
-S’il peut aider à classifier plusieurs centaines de contenus, détecter des relations entre différentes informations ou améliorer une recherche, il devient intéressant.
+- **L'architecture & la base de données** : Structuration, performance des requêtes et sécurité.
+- **L'expérience utilisateur & le SEO** : Design réactif, temps de chargement et découvrabilité.
+- **L'automatisation & les modèles IA** : Choix des pipelines de traitement et maîtrise des coûts d'infrastructure.
+- **Le ciblage des fonctionnalités** : Savoir quoi construire et quoi éliminer.
 
-Sinon, il n’a aucune raison d’être ajouté.
+Cette dernière décision est la plus critique. En tant que développeur, il est facile de tomber dans le piège de construire une fonctionnalité simplement parce qu'on en maîtrise la faisabilité technique. Ajouter du code est souvent plus satisfaisant que de se demander si quelqu'un en a réellement besoin.
 
-## Le vrai défi : connecter l’information
+J’adopte donc une approche itérative et disciplinée : **Construire → Mettre en ligne → Observer → Corriger → Bâtir la brique suivante**.
 
-Ce que j’aimerais construire à terme est finalement assez simple à expliquer, même si cela est beaucoup plus difficile à développer.
+Les nouveaux outils d'IA transforment également notre manière de développer. Ils accélèrent le prototypage, la recherche et le traitement de données volumineuses. Pour une personne qui construit seule, cela réduit considérablement la distance entre une vision et sa première version exécutable.
 
-Imaginons qu’une entreprise sénégalaise annonce un investissement.
+---
 
-KUMBA pourrait naturellement présenter l’article correspondant.
+### **6. Une ambition claire pour l'information en Afrique**
 
-Mais pourquoi s’arrêter là ?
+KUMBA est un projet jeune. Certaines fonctionnalités évolueront, d'autres seront abandonnées, et la direction globale s'affinera au fil des retours utilisateurs. Je ne construis pas KUMBA pour prouver que j’avais raison dès le premier jour, mais pour découvrir ce qu’il peut devenir.
 
-La plateforme pourrait également connaître cette entreprise, son secteur, ses activités et les autres informations disponibles à son sujet.
+Cependant, l’ambition reste très claire :
 
-Elle pourrait identifier les personnes qui y sont liées.
+- **Dépasser le modèle du site de news traditionnel** pour devenir une plateforme d'organisation de l'information stratégique produite quotidiennement en Afrique (Actualités, Entreprises, Personnes, Opportunités, Appels d'offres, Événements).
+- **Proposer de nouveaux modes d'accès et de recherche** : Permettre demain d'interroger directement cette donnée structurée (_ex: comprendre l'évolution d'un secteur sur 6 mois, identifier les entreprises qui recrutent dans un domaine précis, ou contextualiser une actualité immédiatement_).
 
-Présenter les actualités précédentes concernant l’organisation.
+C'est là que l'intelligence artificielle trouve son sens le plus noble : pas lorsqu'elle génère du contenu pour générer, mais lorsqu'elle rend une masse complexe d'informations plus intelligible et immédiatement exploitable.
 
-Afficher ses opportunités d’emploi si elle recrute.
+---
 
-Référencer ses appels d’offres.
+### **Conclusion**
 
-Relier l’information à d’autres événements concernant le même secteur.
+La plupart des projets que j'entreprends débutent avec un cahier des charges précis et un objectif défini pour un client. Avec KUMBA, la destination est volontairement plus ouverte. Je sais quel problème je veux résoudre et dans quelle direction avancer, mais le produit final reste à inventer.
 
-À ce moment-là, on ne navigue plus simplement entre des articles.
-
-On navigue dans un ensemble d’informations connectées.
-
-C’est cette idée qui me semble beaucoup plus intéressante qu’un média traditionnel.
-
-## Pourquoi mon parcours m’a naturellement amené vers ce projet
-
-Je n’ai jamais réellement réussi à choisir entre le développement, le produit, le design et le digital.
-
-Pendant longtemps, je me suis demandé si cette dispersion constituait un défaut.
-
-Avec le recul, je pense que cette combinaison explique justement beaucoup de mes projets.
-
-Mon expérience chez VIGILUS m’a notamment permis de travailler sur des problématiques très différentes.
-
-J’y ai développé plusieurs plateformes digitales pour les différentes activités et implantations du Groupe.
-
-J’ai travaillé sur des problématiques de référencement, de communication digitale, de contenu, de marque et d’expérience utilisateur.
-
-En parallèle, continuer à développer m’a permis de conserver cette capacité essentielle pour moi : **pouvoir transformer directement une idée en produit**.
-
-Je n’ai pas besoin de m’arrêter au concept.
-
-Je peux ouvrir mon éditeur, concevoir une architecture, développer une première version et voir quelques heures ou quelques jours plus tard si l’idée tient réellement debout.
-
-C’est probablement l’une des choses que j’aime le plus dans ce métier.
-
-## KAMIT m’a appris à penser au-delà du projet client
-
-KAMIT représente une autre étape importante de cette évolution.
-
-En développant des solutions pour différents besoins professionnels, j’ai commencé à observer quelque chose qui paraît évident avec le recul : beaucoup d’entreprises rencontrent les mêmes problèmes.
-
-Gestion des clients.
-
-Suivi commercial.
-
-Gestion des employés.
-
-Équipes terrain.
-
-Immobilier.
-
-Flotte automobile.
-
-Facturation.
-
-Lorsqu’un même problème revient plusieurs fois, développer éternellement une solution entièrement nouvelle n’est pas toujours la réponse la plus intéressante.
-
-On commence naturellement à réfléchir en termes de produit.
-
-C’est de cette réflexion que sont notamment nées différentes solutions de l’écosystème KAMIT.
-
-KUMBA applique finalement cette logique à un domaine complètement différent.
-
-Je ne cherche plus à résoudre le problème particulier d’une entreprise.
-
-Je cherche à comprendre comment construire une infrastructure autour de l’information qui puisse être utile à beaucoup plus de personnes.
-
-## Construire seul change beaucoup de choses
-
-Pour l’instant, je développe KUMBA seul.
-
-Cela signifie évidemment écrire le code.
-
-Mais dans un projet comme celui-ci, écrire le code ne représente qu’une partie du travail.
-
-Il faut réfléchir à l’expérience utilisateur.
-
-À l’architecture.
-
-À la base de données.
-
-Aux performances.
-
-Au SEO.
-
-À l’automatisation.
-
-Aux modèles d’intelligence artificielle.
-
-Au contenu.
-
-À la distribution.
-
-À la sécurité.
-
-Aux coûts d’infrastructure.
-
-Et surtout à ce qui mérite réellement d’être développé.
-
-Cette dernière question est probablement la plus difficile.
-
-Quand on est développeur, on peut facilement tomber dans le piège de construire simplement parce qu’on sait construire.
-
-Ajouter une fonctionnalité est parfois beaucoup plus satisfaisant que se demander si quelqu’un en a réellement besoin.
-
-J’essaie donc de garder KUMBA relativement simple dans son évolution.
-
-Construire.
-
-Mettre en ligne.
-
-Observer.
-
-Corriger.
-
-Puis construire la prochaine brique.
-
-## L’IA change aussi ma manière de développer
-
-Je trouve également intéressant de construire un projet comme KUMBA au moment où les outils d’intelligence artificielle transforment profondément notre métier.
-
-Je ne parle pas uniquement de génération de texte.
-
-L’IA modifie aussi la manière de développer des logiciels.
-
-La recherche.
-
-Le prototypage.
-
-L’analyse de données.
-
-L’automatisation.
-
-Le traitement de grandes quantités d’informations.
-
-Pour une personne qui construit seule, cette évolution est particulièrement importante.
-
-Des tâches qui auraient nécessité auparavant plusieurs profils spécialisés deviennent plus accessibles.
-
-Cela ne signifie pas qu’une personne peut soudainement remplacer une entreprise entière.
-
-Mais cela réduit considérablement la distance entre une idée et sa première version fonctionnelle.
-
-Et pour quelqu’un qui a probablement beaucoup trop d’idées, c’est assez dangereux.
-
-## KUMBA n’est pas terminé
-
-Je pourrais présenter ici une grande vision définitive du projet.
-
-Un plan sur cinq ans.
-
-Une liste de fonctionnalités révolutionnaires.
-
-Des millions d’utilisateurs imaginaires.
-
-Ce serait probablement plus impressionnant.
-
-Mais ce ne serait pas très honnête.
-
-KUMBA est encore jeune.
-
-Certaines idées fonctionneront.
-
-D’autres probablement pas.
-
-Certaines fonctionnalités que je considère aujourd’hui essentielles seront peut-être supprimées dans quelques mois.
-
-La direction elle-même pourra évoluer.
-
-C’est aussi ce qui m’intéresse.
-
-Je ne construis pas KUMBA pour démontrer que j’avais raison dès le premier jour.
-
-Je le construis pour découvrir progressivement ce qu’il peut devenir.
-
-## Mais l’ambition, elle, est claire
-
-Je veux que KUMBA devienne beaucoup plus qu’un endroit où l’on vient lire des articles.
-
-Je veux construire une plateforme capable d’organiser une partie de l’information utile produite quotidiennement en Afrique.
-
-Actualités.
-
-Entreprises.
-
-Personnes.
-
-Opportunités.
-
-Appels d’offres.
-
-Événements.
-
-Et progressivement, les relations entre toutes ces informations.
-
-Je veux également explorer de nouvelles manières d’y accéder.
-
-La recherche classique en fera évidemment partie.
-
-Mais pourquoi ne pas, demain, pouvoir interroger cette information directement ?
-
-Comprendre ce qui s’est passé dans un secteur pendant les six derniers mois.
-
-Identifier les entreprises qui recrutent dans un domaine précis.
-
-Suivre les évolutions concernant une organisation.
-
-Découvrir les opportunités correspondant réellement à son profil.
-
-Ou simplement comprendre une actualité avec davantage de contexte.
-
-C’est là que l’intelligence artificielle devient réellement intéressante à mes yeux.
-
-Pas lorsqu’elle génère pour générer.
-
-Lorsqu’elle permet de rendre une masse d’informations plus intelligible.
-
-## Je ne sais pas encore jusqu’où KUMBA ira
-
-Et c’est probablement la partie que je préfère.
-
-La plupart des projets que je réalise commencent par une destination relativement claire.
-
-Un client a un besoin.
-
-Il faut construire une solution.
-
-La mettre en production.
-
-Puis mesurer si elle remplit son objectif.
-
-Avec KUMBA, la destination est beaucoup plus ouverte.
-
-Je sais ce que je veux résoudre.
-
-Je sais dans quelle direction je veux avancer.
-
-Mais je ne connais pas encore la forme finale du produit.
-
-Alors je continue à construire.
-
-Une fonctionnalité après l’autre.
-
-Une erreur après l’autre.
-
-Une nouvelle idée après l’autre.
-
-KUMBA n’est peut-être encore qu’au début de son histoire.
-
-Mais parmi tous les produits sur lesquels j’ai travaillé jusqu’ici, c’est probablement celui dont j’ai le plus envie de découvrir la suite.
+Alors je continue à construire, une fonctionnalité et une itération après l'autre. KUMBA n'en est qu'au début de son histoire, mais c'est assurément le produit dont j'ai le plus hâte de découvrir la suite.

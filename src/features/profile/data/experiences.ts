@@ -93,6 +93,103 @@ export const EXPERIENCES: Experience[] = [
     current: true,
   },
   {
+    company: "Vigilus Group SA",
+    companyLogo: "https://ndiagandiaye.com/assets/images/companies/vigilus.png",
+    current: true,
+    positions: [
+      {
+        id: "vigilus-responsable-comm-digitale",
+        title: "Head of Digital Communications",
+        titleFr: "Responsable Communication Digitale",
+        year: "May 2026 — present",
+        yearFr: "Mai 2026 — présent",
+        employmentType: "Full-time",
+        employmentTypeFr: "Temps plein",
+        icon: "business",
+        description: `- Responsible for the digital communication strategy of Groupe Vigilus and its subsidiaries (Vigilus Facilities, Vigilus Properties, Vigilus Mobility, Vigilus Guinea, Vigilus Sierra Leone, Vigilus Ivory Coast, and Vigilus Dubai), managing brand consistency, editorial direction, digital content, social media, and digital marketing actions.
+- Supporting and leading web and digital projects across the Group, including website creation and management, SEO optimization, performance tracking, and local team coordination.
+- Websites created and managed for Vigilus Group:
+  - [groupevigilus.ci](https://groupevigilus.ci)
+  - [vigilus-facilities.com](https://vigilus-facilities.com)
+  - [groupevigilus.com](https://groupevigilus.com)
+  - [vigilus-facilities.sl](https://vigilus-facilities.sl)
+  - [locationvoituredakar.com](https://locationvoituredakar.com)
+  - [vigilus-properties.com](https://vigilus-properties.com)
+  - [vigilus-intl.com](https://vigilus-intl.com)`,
+        descriptionFr: `- En charge de la stratégie de communication digitale du Groupe Vigilus et de ses filiales (Vigilus Facilities, Vigilus Properties, Vigilus Mobility, Vigilus Guinée, Vigilus Sierra Leone, Vigilus Côte d’Ivoire et Vigilus Dubaï), je pilote la cohérence de marque, la ligne éditoriale, les contenus digitaux, les réseaux sociaux et les actions de marketing digital.
+- J’accompagne également les projets web et digitaux du Groupe, notamment la création et la gestion des sites internet, l’optimisation SEO, le suivi des performances et la coordination avec les équipes locales.
+- Sites internet réalisés et gérés pour le Groupe Vigilus :
+  - [groupevigilus.ci](https://groupevigilus.ci)
+  - [vigilus-facilities.com](https://vigilus-facilities.com)
+  - [groupevigilus.com](https://groupevigilus.com)
+  - [vigilus-facilities.sl](https://vigilus-facilities.sl)
+  - [locationvoituredakar.com](https://locationvoituredakar.com)
+  - [vigilus-properties.com](https://vigilus-properties.com)
+  - [vigilus-intl.com](https://vigilus-intl.com)`,
+        skills: [
+          "Digital Communication",
+          "Brand Strategy",
+          "Web Development",
+          "SEO",
+          "Digital Marketing",
+          "Social Media",
+          "Performance Tracking",
+          "Editorial Line",
+        ],
+        skillsFr: [
+          "Communication Digitale",
+          "Stratégie de Marque",
+          "Développement Web",
+          "SEO",
+          "Marketing Digital",
+          "Réseaux Sociaux",
+          "Suivi des Performances",
+          "Ligne Éditoriale",
+        ],
+        expanded: true,
+      },
+      {
+        id: "vigilus-chef-projet-digital",
+        title: "Digital Project Manager",
+        titleFr: "Chef de Projet Digital",
+        year: "Jan 2022 — May 2024",
+        yearFr: "Jan 2022 — Mai 2024",
+        employmentType: "Full-time",
+        employmentTypeFr: "Temps plein",
+        icon: "business",
+        description: `- Development of digital solutions for the company.
+- Management of online presence and content creation for advertising campaigns.
+- Implementation of digital marketing strategies to optimize user engagement.
+- Performance monitoring and analysis of campaign results.`,
+        descriptionFr: `- Développement de solutions digitales pour l'entreprise.
+- Gestion de la présence en ligne et création de contenu pour les campagnes publicitaires.
+- Implémentation de stratégies de marketing digital pour optimiser l'engagement utilisateur.
+- Suivi des performances et analyse des résultats des campagnes.`,
+        skills: [
+          "Digital Solutions",
+          "Project Management",
+          "Online Presence",
+          "Advertising Campaigns",
+          "Digital Marketing",
+          "Analytics",
+          "User Engagement",
+          "Performance Tracking",
+        ],
+        skillsFr: [
+          "Solutions Digitales",
+          "Gestion de Projet",
+          "Présence en Ligne",
+          "Campagnes Publicitaires",
+          "Marketing Digital",
+          "Analytique",
+          "Engagement Utilisateur",
+          "Suivi des Performances",
+        ],
+        expanded: false,
+      },
+    ],
+  },
+  {
     company: "Prosen SARL",
     companyLogo: "https://prosen.sn/images/Logo-Prosen-Securite.png",
     positions: [
@@ -311,51 +408,6 @@ export const EXPERIENCES: Experience[] = [
           "Supports Visuels",
           "Stratégie Numérique",
           "Marketing Digital",
-        ],
-        expanded: true,
-      },
-    ],
-  },
-  {
-    company: "Vigilus Group SA",
-    companyLogo: "https://ndiagandiaye.com/assets/images/companies/vigilus.png",
-    positions: [
-      {
-        id: "vigilus-chef-projet-digital",
-        title: "Digital Project Manager",
-        titleFr: "Chef de Projet Digital",
-        year: "Jan 2022 — May 2024",
-        yearFr: "Jan 2022 — Mai 2024",
-        employmentType: "Full-time",
-        employmentTypeFr: "Temps plein",
-        icon: "business",
-        description: `- Development of digital solutions for the company.
-- Management of online presence and content creation for advertising campaigns.
-- Implementation of digital marketing strategies to optimize user engagement.
-- Performance monitoring and analysis of campaign results.`,
-        descriptionFr: `- Développement de solutions digitales pour l'entreprise.
-- Gestion de la présence en ligne et création de contenu pour les campagnes publicitaires.
-- Implémentation de stratégies de marketing digital pour optimiser l'engagement utilisateur.
-- Suivi des performances et analyse des résultats des campagnes.`,
-        skills: [
-          "Digital Solutions",
-          "Project Management",
-          "Online Presence",
-          "Advertising Campaigns",
-          "Digital Marketing",
-          "Analytics",
-          "User Engagement",
-          "Performance Tracking",
-        ],
-        skillsFr: [
-          "Solutions Digitales",
-          "Gestion de Projet",
-          "Présence en Ligne",
-          "Campagnes Publicitaires",
-          "Marketing Digital",
-          "Analytique",
-          "Engagement Utilisateur",
-          "Suivi des Performances",
         ],
         expanded: true,
       },
