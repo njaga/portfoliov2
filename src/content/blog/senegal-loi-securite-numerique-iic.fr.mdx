@@ -1,0 +1,139 @@
+---
+title: "Sécurité numérique au Sénégal : ce que change le texte adopté, et ce qui reste à construire"
+description: "Analyse du projet de loi n°25/2026 sur les infrastructures d'information critiques : obligations, souveraineté, sanctions et défis d'application."
+image: "/og/simple?title=Securite%20numerique%20au%20Senegal"
+category: Cybersécurité
+new: true
+createdAt: 2026-09-12
+updatedAt: 2026-09-12
+---
+
+Le 20 août 2026, l'Assemblée nationale du Sénégal a adopté à l'unanimité — 127 voix pour, aucune contre et aucune abstention — le projet de loi n°25/2026 relatif à la protection des infrastructures d'information critiques et à la sécurité numérique.
+
+Ce vote est une étape majeure, mais les mots comptent. **Un projet adopté par l'Assemblée n'est pas automatiquement un texte applicable dans toutes ses dispositions.** Au 12 septembre 2026, les sources publiques consultées documentent le vote et le projet, mais pas encore sa promulgation sous un numéro de loi ni sa publication au Journal officiel. Plusieurs obligations dépendront en outre de décrets, de référentiels et de décisions de classement.
+
+Il faut également éviter une confusion fréquente : ce texte concerne principalement la cybersécurité et la résilience des systèmes, en particulier les infrastructures critiques. Il ne remplace pas la [loi n°2008-12 sur la protection des données à caractère personnel](https://stcc-ssi.sn/textes-legislatives/), qui encadre notamment les traitements et les droits des personnes sous le contrôle de la CDP. Les deux dispositifs sont complémentaires.
+
+## Pourquoi ce texte était nécessaire
+
+La numérisation de l'état civil, des finances, des télécommunications, de l'énergie, de la santé ou des transports transforme une panne informatique en risque économique et parfois en risque humain. Une attaque peut interrompre un service essentiel, détruire des données, perturber des paiements ou bloquer une administration entière.
+
+Jusqu'ici, les exigences de sécurité étaient dispersées entre plusieurs textes, référentiels et autorités. Le projet n°25/2026 cherche à créer un cadre transversal : identifier les infrastructures critiques, imposer un niveau minimal de maîtrise des risques et organiser la détection, la notification et la réponse aux incidents.
+
+Dans mon [intervention sur Rewmi TV à partir de 10 min 15](https://www.youtube.com/watch?v=2F2ubxeqGIk&t=615s), j'ai défendu cette orientation tout en insistant sur son véritable test : l'application. Une loi ambitieuse sans équipes formées, guides pratiques, financement et responsabilités claires peut produire beaucoup de conformité documentaire sans améliorer la sécurité réelle.
+
+## Les principales obligations du projet
+
+Le document public permet d'identifier plusieurs mesures structurantes.
+
+### Une Autorité nationale de cybersécurité
+
+L'article 6 prévoit une Autorité nationale de cybersécurité dotée de la personnalité juridique. Elle doit superviser les normes, coordonner le dispositif national et s'inscrire dans une architecture comprenant également le CERT national, des CERT sectoriels et des centres opérationnels de sécurité.
+
+Cette centralisation de la coordination est utile, à condition d'éviter la superposition. La DCSSI, la CDP, l'ARTP, les autorités sectorielles, les CERT et les SOC doivent savoir qui dirige une crise, qui reçoit les notifications, qui contrôle, qui sanctionne et qui communique.
+
+### Un programme de cybersécurité pour les infrastructures critiques
+
+L'article 27 donne aux exploitants d'infrastructures d'information critiques un délai de six mois après leur classement pour élaborer leur programme de cybersécurité. Cela suppose bien plus que l'achat d'un antivirus : inventaire des actifs, analyse de risques, politiques d'accès, gestion des vulnérabilités, sécurité des fournisseurs, continuité d'activité et gouvernance au niveau de la direction.
+
+### Une notification des incidents sous 24 heures
+
+L'article 35 impose la notification des incidents concernés dans un délai de 24 heures. Ce délai peut accélérer la coordination nationale et éviter qu'une attaque identique se propage silencieusement à plusieurs opérateurs.
+
+Il faudra toutefois préciser par voie réglementaire le point de départ du délai, les catégories d'incidents, le niveau d'information initial attendu et le canal unique de déclaration. Dans les premières heures d'une crise, une organisation connaît rarement toute la cause et toute l'étendue de l'attaque. Le bon modèle est une alerte initiale rapide, suivie de mises à jour structurées, et non un rapport forensique complet impossible à produire en 24 heures.
+
+### Des SOC dans un délai d'un an
+
+L'article 39 prévoit la création de services des opérations de cybersécurité pour les exploitants d'IIC dans un délai d'un an. L'objectif est pertinent : surveiller, détecter, qualifier et répondre en continu.
+
+Mais exiger un SOC ne doit pas se résumer à installer des écrans et un outil SIEM. Il faut des journaux exploitables, des scénarios de détection, une équipe de permanence, des procédures testées et une capacité d'investigation. Pour les structures plus petites, des SOC sectoriels ou mutualisés seront souvent plus réalistes qu'un centre isolé par organisme.
+
+### Le stockage national des données publiques
+
+L'article 12 pose le principe d'un stockage des données de l'État et des entités publiques sur le territoire national, sauf dérogation réglementaire.
+
+La souveraineté numérique ne se réduit cependant pas à la géographie d'un serveur. Une donnée hébergée à Dakar mais administrée avec des clés contrôlées à l'étranger, sauvegardée sans test ou accessible par des comptes trop puissants n'est pas souveraine au sens opérationnel. Il faut considérer ensemble :
+
+- la classification des données ;
+- la juridiction applicable et les contrats ;
+- le contrôle des clés de chiffrement ;
+- les identités et privilèges d'administration ;
+- la localisation des sauvegardes et des sites de reprise ;
+- la portabilité et le plan de sortie du fournisseur ;
+- la disponibilité de capacités nationales suffisantes.
+
+Les dérogations devront être traçables, motivées par le risque et réévaluées régulièrement.
+
+### Des sanctions pouvant atteindre 800 millions de FCFA ou 5 % du chiffre d'affaires
+
+L'article 51 prévoit des sanctions administratives élevées pour les manquements graves. Elles donnent du poids au dispositif, mais leur application doit être prévisible et proportionnée. Les opérateurs ont besoin de connaître le référentiel opposable, les délais de mise en conformité, la procédure contradictoire et les critères de calcul.
+
+Une sanction ne compense pas l'absence d'accompagnement. Elle doit intervenir après des exigences lisibles, des contrôles cohérents et une possibilité réelle de correction.
+
+## Ce que les organisations doivent préparer dès maintenant
+
+Même avant les textes d'application, les organismes potentiellement concernés peuvent engager des travaux qui resteront utiles.
+
+### 1. Cartographier ce qui est réellement critique
+
+Il faut relier actifs techniques et services rendus : quels serveurs, applications, données, fournisseurs et connexions sont nécessaires à l'électricité, aux paiements, aux soins ou à l'état civil ? Une simple liste de matériels ne permet pas de mesurer l'impact d'une interruption.
+
+### 2. Définir des objectifs de reprise
+
+Chaque service critique doit avoir un RTO — durée maximale acceptable d'interruption — et un RPO — volume maximal de données que l'on peut perdre. Ces objectifs orientent les architectures, sauvegardes, redondances et exercices.
+
+Une sauvegarde n'existe réellement que si sa restauration a été testée. Les données les plus critiques nécessitent des copies isolées ou immuables afin qu'un rançongiciel ne chiffre pas simultanément la production et les sauvegardes.
+
+### 3. Chiffrer avec une vraie gestion des clés
+
+Le chiffrement des données sensibles est indispensable en transit et au repos. Mais son efficacité dépend de la séparation des rôles, de la rotation, de la révocation et de la protection des clés. Stocker la clé au même endroit que la donnée revient souvent à fermer une porte en laissant la clé dessus.
+
+### 4. Organiser les preuves et la notification
+
+Il faut une taxonomie d'incidents, une permanence joignable, des modèles de notification, une chaîne de conservation des preuves et des exercices associant technique, juridique, direction et communication. Le délai de 24 heures ne sera tenable que si le processus est préparé avant la crise.
+
+### 5. Maîtriser les fournisseurs
+
+Cloud, télécommunications, infogérance, logiciels et maintenance créent des dépendances critiques. Les contrats doivent prévoir les journaux, les délais de notification, le droit d'audit, la coopération forensique, la réversibilité et les exigences imposées aux sous-traitants.
+
+## L'enjeu des PME et des services publics à budget limité
+
+Le coût de la conformité peut être lourd pour une startup, une PME ou une petite structure publique. Si chaque acteur doit recruter seul une équipe 24/7, acheter les mêmes outils et interpréter les mêmes obligations, le dispositif deviendra inapplicable ou purement déclaratif.
+
+L'État devrait publier des profils d'exigences proportionnés au risque et proposer :
+
+- des guides sectoriels et modèles gratuits ;
+- un portail unique de notification et d'assistance ;
+- des SOC et capacités forensiques mutualisés ;
+- des formations et exercices accessibles ;
+- un mécanisme d'aide à l'audit initial ;
+- une période de mise en conformité avec jalons mesurables ;
+- des marchés-cadres permettant d'accéder à des prestataires qualifiés à coût maîtrisé.
+
+Cet accompagnement n'affaiblit pas la loi. Il augmente la probabilité qu'elle produise de la sécurité au lieu de produire seulement des dossiers.
+
+## Les décrets feront une grande partie de la loi réelle
+
+Pour évaluer la mise en œuvre, il faudra suivre au moins huit éléments :
+
+1. la promulgation et la publication au Journal officiel ;
+2. le statut, les moyens et l'indépendance opérationnelle de l'Autorité nationale ;
+3. la méthode de classement des infrastructures critiques ;
+4. le référentiel minimal de sécurité et le calendrier par secteur ;
+5. les règles de notification et le partage d'information ;
+6. les conditions d'hébergement national et de dérogation ;
+7. la coordination avec la CDP, l'ARTP et les régulateurs sectoriels ;
+8. les dispositifs d'accompagnement et les indicateurs publics de maturité.
+
+Le texte adopté donne au Sénégal l'occasion de passer d'une cybersécurité principalement réactive à une logique de résilience mesurable. La direction est bonne. Le résultat dépendra moins de la sévérité affichée des sanctions que de trois capacités : **savoir ce qui est critique, détecter assez tôt et reprendre réellement le service**.
+
+---
+
+_Cette analyse est informative et ne constitue pas un conseil juridique. Le texte définitif promulgué, sa publication officielle et ses décrets d'application devront être vérifiés avant toute décision de conformité._
+
+### Sources
+
+- [DCSSI — Adoption du projet relatif aux infrastructures d'information critiques](https://stcc-ssi.sn/protection-des-infrastructures-dinformation-critiques-une-nouvelle-etape-pour-la-souverainete-et-la-resilience-numeriques-du-senegal/)
+- [Projet de loi n°25/2026 et synthèse des articles](https://www.archives.sn/docs/projets-de-loi/projet-loi-25-2026-assemblee-nationale-protection-infrastructures-information-critiques-securite-numerique)
+- [DCSSI — Textes législatifs existants en cybersécurité et protection des données](https://stcc-ssi.sn/textes-legislatives/)
+- [Rewmi TV — Mon intervention à partir de 10 min 15](https://www.youtube.com/watch?v=2F2ubxeqGIk&t=615s)

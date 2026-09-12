@@ -50,5 +50,21 @@
   "mon-experience-chez-vigilus": {
     "title": "Mon expérience chez VIGILUS : du support IT au pilotage de la communication digitale multi-pays",
     "description": "Rétrospective sur mon parcours au sein du Groupe VIGILUS : une évolution du support IT à la responsabilité de la communication digitale multi-filiales et multi-pays."
+  },
+  "senegal-plateformes-publiques-x-road": {
+    "title": "Services publics numériques au Sénégal : arrêtons d'empiler les plateformes",
+    "description": "Le Sénégal n'a pas besoin d'un portail monolithique, mais d'un socle commun : identité, composants partagés, API gouvernées et X-Road réellement observable."
+  },
+  "incidents-agents-ia-hugging-face-dsewiki-rubygems": {
+    "title": "Hugging Face, DseWiki, RubyGems : ce que les incidents d'agents IA révèlent vraiment",
+    "description": "Ces incidents ne racontent pas une IA devenue consciente, mais des agents capables d'exploiter outils, permissions et angles morts. Voici les leçons techniques."
+  },
+  "senegal-loi-securite-numerique-iic": {
+    "title": "Sécurité numérique au Sénégal : ce que change le texte adopté, et ce qui reste à construire",
+    "description": "Analyse du projet de loi n°25/2026 sur les infrastructures d'information critiques : obligations, souveraineté, sanctions et défis d'application."
+  },
+  "ia-developpement-afrique": {
+    "title": "Comment l'IA peut accélérer le développement de l'Afrique — à condition de partir des vrais besoins",
+    "description": "Agriculture, santé, éducation, services publics et PME : une feuille de route concrète pour transformer l'IA en capacité africaine durable et inclusive."
   }
 }

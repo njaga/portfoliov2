@@ -1,0 +1,113 @@
+---
+title: "Services publics numériques au Sénégal : arrêtons d'empiler les plateformes"
+description: "Le Sénégal n'a pas besoin d'un portail monolithique, mais d'un socle commun : identité, composants partagés, API gouvernées et X-Road réellement observable."
+image: "/og/simple?title=Services%20publics%20numeriques%20au%20Senegal"
+category: Transformation digitale
+new: true
+createdAt: 2026-09-12
+updatedAt: 2026-09-12
+---
+
+Au Sénégal, chaque nouveau besoin public semble pouvoir produire un nouveau nom, un nouveau site, un nouveau compte utilisateur et parfois une nouvelle base de données. Vu du citoyen, cette succession donne l'impression que l'État lance une plateforme presque tous les mois sans construire un service public numérique commun.
+
+Cette critique mérite toutefois une précision technique importante : **plusieurs interfaces ne sont pas forcément un problème**. Un portail pour l'emploi et un autre pour la santé peuvent répondre à des usages différents. Le vrai problème apparaît lorsque chacun recrée son authentification, ses référentiels, ses formulaires, ses paiements, ses notifications, son hébergement et ses connexions point à point.
+
+Autrement dit, l'objectif ne devrait pas être de mettre tout l'État dans une seule application géante. Il devrait être de construire **un État numérique cohérent**, avec une porte d'entrée simple pour l'usager et un socle partagé entre les administrations.
+
+## X-Road n'est pas un portail unique
+
+Le Sénégal a bien annoncé et engagé un déploiement de X-Road à travers la Plateforme d'Interopérabilité du Sénégal (PINS). Il faut comprendre ce que fait réellement cette technologie.
+
+X-Road n'est ni une base de données centrale ni un site destiné aux citoyens. C'est une couche sécurisée d'échange entre systèmes d'information. Chaque administration conserve ses données et ses applications, mais expose des services identifiés à d'autres organismes selon des règles d'accès, d'authentification, de journalisation et d'intégrité communes.
+
+Cette architecture décentralisée est saine : elle évite de concentrer toutes les données dans un « super-fichier » et permet à chaque institution de rester responsable de ses sources de référence. Plusieurs plateformes peuvent donc coexister **et** utiliser X-Road.
+
+Le problème est plutôt l'écart entre l'ambition et ce que le public peut constater. La documentation officielle de la PINS reconnaît elle-même les chevauchements fonctionnels, les dépenses dispersées, l'absence de communication entre systèmes et la répétition des documents demandés aux citoyens. Elle annonce pour 2026 cinq services pilotes et quinze API de base, avant une extension progressive jusqu'en 2034.
+
+Au 12 septembre 2026, le [tableau de bord public de la PINS](https://pins.sn/tableau-de-bord) affichait cependant zéro membre, zéro service et zéro transaction, avec plusieurs zones toujours en chargement. **Cela ne prouve pas que X-Road n'est pas utilisé en arrière-plan** : la télémétrie publique peut être incomplète ou déconnectée. Mais cela révèle un déficit d'observabilité. Quand une infrastructure est présentée comme le socle de l'État numérique, son adoption doit pouvoir être démontrée par des indicateurs fiables, même agrégés et expurgés de toute donnée sensible.
+
+La bonne question n'est donc pas « X-Road a-t-il été annoncé ? », mais : **quels services publics l'utilisent réellement, pour quels échanges, avec quels résultats mesurés ?**
+
+## Les risques d'un empilement sans socle commun
+
+### 1. Des identités et des données dupliquées
+
+Si chaque service demande à nouveau le nom, le numéro d'identification, l'adresse, les pièces justificatives et les coordonnées de l'usager, les divergences deviennent inévitables. Une correction dans un système ne se propage pas dans les autres. Le citoyen finit par porter lui-même la charge de synchroniser l'administration.
+
+Cette duplication augmente aussi le nombre de copies de données personnelles à protéger. Plus une information sensible est répliquée, plus sa surface d'exposition s'élargit.
+
+### 2. Une surface d'attaque qui grandit plus vite que la capacité de défense
+
+Chaque nouveau portail ajoute des comptes, des API, des dépendances, des certificats, des secrets, des journaux et des prestataires. Sans standards communs, le niveau de sécurité dépend du maillon le plus faible : mot de passe mal stocké, composant obsolète, sauvegarde non testée ou API exposée sans contrôle suffisant.
+
+Une faille sur une petite plateforme peut ensuite devenir un point d'entrée vers des données plus critiques si les interconnexions ont été improvisées.
+
+### 3. Des coûts invisibles pendant cinq à dix ans
+
+Le prix d'un projet ne se limite pas au développement initial. Il faut financer l'hébergement, les licences, le support, les correctifs, les audits, la supervision, la reprise après incident et les évolutions réglementaires. Dix plateformes qui répliquent les mêmes composants créent dix dettes techniques et dix chaînes de maintenance.
+
+Le risque est de financer des lancements visibles, puis de laisser s'éroder les budgets moins visibles de maintenance et de sécurité.
+
+### 4. Une dépendance accrue aux prestataires
+
+Quand les données, les contrats d'API et les procédures ne sont pas documentés selon des standards ouverts, le changement de fournisseur devient coûteux. L'État peut alors posséder juridiquement une plateforme sans disposer réellement de la capacité de la maintenir, de l'auditer ou de la faire évoluer.
+
+### 5. Une interopérabilité seulement « technique »
+
+Connecter deux API ne suffit pas. Si une administration définit un « ménage », une « entreprise active » ou une « adresse » différemment d'une autre, les systèmes échangent des champs sans partager leur sens. L'interopérabilité doit être juridique, organisationnelle et sémantique avant d'être technique.
+
+### 6. Une expérience citoyenne fragmentée
+
+Des comptes différents, des interfaces incompatibles, des statuts impossibles à suivre et des documents redemandés affaiblissent la confiance. Les personnes les moins connectées, celles qui utilisent un téléphone d'entrée de gamme ou qui ne maîtrisent pas le français administratif sont les premières exclues.
+
+## L'architecture cible : une porte commune, des briques partagées, des métiers autonomes
+
+Une architecture publique cohérente peut être organisée en cinq couches.
+
+1. **Une porte d'entrée citoyenne unifiée.** Un compte, un tableau de bord, un suivi des demandes et une application mobile légère permettent de trouver les services sans connaître l'organigramme de l'État. Des guichets physiques assistés doivent rester disponibles.
+
+2. **Des composants nationaux réutilisables.** Identité numérique et SSO, consentement, signature, paiement, notification SMS/e-mail, coffre de documents, prise de rendez-vous et suivi de dossier ne devraient pas être redéveloppés par chaque ministère.
+
+3. **Des applications métier autonomes.** Santé, emploi, fiscalité ou état civil conservent leurs règles, leurs équipes et leurs rythmes d'évolution. Mutualiser le socle ne signifie pas uniformiser tous les métiers.
+
+4. **Une couche d'échange sécurisée.** X-Road peut relier les systèmes, authentifier les organisations, signer et journaliser les échanges. Les API doivent être cataloguées, versionnées et soumises à des politiques d'accès explicites.
+
+5. **Des registres faisant autorité.** Pour chaque donnée de référence — identité, entreprise, adresse, diplôme, véhicule — une institution productrice doit être clairement désignée. Les autres services consultent cette source au lieu d'en fabriquer une copie concurrente.
+
+Cette approche applique le principe du « once only » : l'administration ne demande pas à un citoyen une information qu'une autre administration possède déjà légalement et peut transmettre avec les garanties nécessaires.
+
+## Ce qu'il faut imposer à tout nouveau projet public
+
+Le [Cadre national d'interopérabilité](https://pins.sn/cadre-national-interoperabilite) publié par la PINS contient déjà une grande partie des bons principes : réutilisabilité, standards ouverts, orientation utilisateur, transmission unique des données, API REST, OAuth 2.0, TLS 1.3 et documentation OpenAPI. Le défi est de les transformer en critères vérifiables avant tout financement et toute mise en production.
+
+Tout nouveau projet devrait fournir au minimum :
+
+- une analyse démontrant pourquoi un service ou un composant existant ne peut pas être réutilisé ;
+- un propriétaire métier, un propriétaire de données et une matrice claire des responsabilités ;
+- des contrats d'API versionnés, des schémas de données partagés et un plan de raccordement à la PINS ;
+- une authentification fédérée, des droits minimaux et des secrets à durée de vie courte ;
+- un modèle de menace, des tests de sécurité et un plan de correction des vulnérabilités ;
+- des objectifs de disponibilité, des sauvegardes restaurées lors d'exercices et un plan de continuité ;
+- une estimation du coût total sur cinq ans, incluant maintenance, sécurité et réversibilité ;
+- des tests sur téléphones modestes, réseaux lents, accessibilité et langues nationales ;
+- des métriques de résultat : délais réellement réduits, documents évités, taux d'achèvement, satisfaction et coût par démarche.
+
+Il faudrait également un **registre public des services numériques de l'État** indiquant, pour chacun, son organisme responsable, son statut, ses composants communs, ses API, sa politique de données et ses indicateurs de disponibilité. La transparence ne suppose pas de publier des secrets techniques ; elle consiste à rendre la gouvernance et les résultats auditables.
+
+## La priorité : faire du socle commun le chemin le plus facile
+
+Une norme obligatoire qui n'offre ni documentation exploitable, ni environnement de test, ni équipe d'accompagnement sera contournée. La PINS doit donc devenir un véritable produit pour les équipes publiques : portail développeur, sandbox, kits d'intégration, catalogue d'API, support, modèles de sécurité et délais de raccordement mesurés.
+
+Le Sénégal n'a pas besoin de choisir entre un portail unique et des administrations autonomes. Il peut avoir **une expérience citoyenne unifiée, des services métier spécialisés et des échanges décentralisés sécurisés par X-Road**.
+
+La réussite ne se mesurera pas au nombre de plateformes inaugurées. Elle se mesurera au nombre de démarches terminées sans déplacement, sans ressaisie, sans document redondant et sans exposition inutile des données.
+
+---
+
+### Sources
+
+- [PINS — Vision et architecture de l'interopérabilité](https://pins.sn/architecture-interoperabilite)
+- [PINS — Cadre national d'interopérabilité](https://pins.sn/cadre-national-interoperabilite)
+- [PINS — Tableau de bord public X-Road](https://pins.sn/tableau-de-bord)
+- [PINS — Projet interministériel d'échange de données](https://pins.sn/actualites/2026-01/plateforme-interministerielle-et-interoperable-dechange-de-donnees-du-senegal)
+- [X-Road — Présentation officielle](https://x-road.global/)
