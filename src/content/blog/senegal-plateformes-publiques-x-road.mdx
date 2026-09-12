@@ -1,0 +1,113 @@
+---
+title: "Digital Public Services in Senegal: Stop Stacking Platforms"
+description: "Senegal does not need one monolithic portal. It needs a shared foundation: identity, reusable components, governed APIs, and observable X-Road adoption."
+image: "/og/simple?title=Digital%20Public%20Services%20in%20Senegal"
+category: Digital Transformation
+new: true
+createdAt: 2026-09-12
+updatedAt: 2026-09-12
+---
+
+In Senegal, every new public need seems able to produce a new name, a new website, a new user account, and sometimes a new database. From a citizen's perspective, this succession creates the impression that the State launches another platform almost every month without building a shared digital public service.
+
+That criticism requires an important technical distinction: **multiple interfaces are not necessarily a problem**. Employment and health portals may serve very different journeys. The problem begins when each one recreates authentication, reference data, forms, payments, notifications, hosting, and point-to-point integrations.
+
+The goal should not be to put the entire State inside one giant application. It should be to build **a coherent digital State**, with a simple front door for users and a shared foundation across public institutions.
+
+## X-Road is not a single portal
+
+Senegal has announced and started deploying X-Road through the Senegal Interoperability Platform, known as PINS. Understanding what the technology actually does matters.
+
+X-Road is neither a central database nor a citizen-facing website. It is a secure data-exchange layer between information systems. Each institution keeps its own data and applications while exposing defined services to other organizations under shared access, authentication, logging, and integrity rules.
+
+This decentralized design is sound. It avoids concentrating all public information in a single super-database and keeps each institution accountable for its authoritative sources. Several platforms can therefore coexist **and** use X-Road.
+
+The issue is the gap between that ambition and what the public can verify. PINS's own documentation acknowledges overlapping functions, scattered expenditure, systems that do not communicate, and citizens being asked for the same documents repeatedly. Its roadmap announces five pilot services and fifteen core APIs in 2026, followed by progressive expansion through 2034.
+
+Yet on September 12, 2026, the [public PINS dashboard](https://pins.sn/tableau-de-bord) displayed zero members, zero services, and zero transactions, with several sections still loading. **That does not prove X-Road is unused behind the scenes**; the public telemetry may be incomplete or disconnected. It does, however, expose an observability gap. When an infrastructure is presented as the foundation of the digital State, adoption should be demonstrated through reliable aggregated indicators that reveal no sensitive data.
+
+The right question is not “Was X-Road announced?” It is: **which public services actually use it, for which exchanges, and with what measured outcomes?**
+
+## The risks of stacking platforms without a shared foundation
+
+### 1. Duplicated identities and data
+
+If every service asks again for a person's name, identification number, address, supporting documents, and contact details, inconsistencies become inevitable. A correction in one system does not propagate to the others. Citizens end up carrying the burden of synchronizing government data themselves.
+
+Duplication also increases the number of personal-data copies that must be secured. The more sensitive information is replicated, the wider its exposure surface becomes.
+
+### 2. An attack surface growing faster than defensive capacity
+
+Every new portal adds accounts, APIs, dependencies, certificates, secrets, logs, and suppliers. Without shared standards, security depends on the weakest link: a poorly stored password, an outdated component, an untested backup, or an API exposed without sufficient controls.
+
+A vulnerability in a small platform can then become an entry point to more critical data if integrations were improvised.
+
+### 3. Costs hidden over five to ten years
+
+A project's price is not limited to its initial build. Hosting, licenses, support, patches, audits, monitoring, incident recovery, and regulatory changes must all be funded. Ten platforms recreating the same components produce ten technical debts and ten maintenance chains.
+
+The risk is to fund visible launches while the less visible budgets for maintenance and security gradually disappear.
+
+### 4. Greater supplier lock-in
+
+When data, API contracts, and procedures are not documented with open standards, changing vendors becomes expensive. The State may legally own a platform without having the practical ability to maintain, audit, or evolve it.
+
+### 5. Interoperability that is only technical
+
+Connecting two APIs is not enough. If one institution defines a “household,” an “active business,” or an “address” differently from another, the systems exchange fields without sharing meaning. Interoperability must be legal, organizational, and semantic before it can be technical.
+
+### 6. A fragmented citizen experience
+
+Separate accounts, inconsistent interfaces, missing status tracking, and repeated document requests erode trust. People with limited connectivity, entry-level phones, or little familiarity with administrative French are excluded first.
+
+## The target architecture: one front door, shared building blocks, autonomous domains
+
+A coherent public architecture can be organized into five layers.
+
+1. **A unified citizen front door.** One account, one dashboard, request tracking, and a lightweight mobile experience help people find services without understanding the government's organizational chart. Assisted physical counters must remain available.
+
+2. **Reusable national components.** Digital identity and SSO, consent, signature, payment, SMS and email notifications, document storage, appointments, and case tracking should not be rebuilt by every ministry.
+
+3. **Autonomous business applications.** Health, employment, tax, and civil registration keep their rules, teams, and release cycles. Sharing a foundation does not mean flattening every domain into the same software.
+
+4. **A secure exchange layer.** X-Road can connect systems, authenticate organizations, sign exchanges, and create audit records. APIs must be cataloged, versioned, and governed by explicit access policies.
+
+5. **Authoritative registers.** For each reference item—identity, company, address, diploma, or vehicle—one producing institution must be clearly designated. Other services query that source rather than creating competing copies.
+
+This is the “once-only” principle: government should not ask a citizen for information another public body already holds and can lawfully transmit with the required safeguards.
+
+## What every new public digital project should be required to provide
+
+The [National Interoperability Framework](https://pins.sn/cadre-national-interoperabilite) published by PINS already contains many of the right principles: reusability, open standards, user-centric design, once-only transmission, REST APIs, OAuth 2.0, TLS 1.3, and OpenAPI documentation. The challenge is turning those principles into verifiable gates before funding and production.
+
+Every new project should provide at least:
+
+- an analysis showing why an existing service or component cannot be reused;
+- a business owner, a data owner, and a clear responsibility matrix;
+- versioned API contracts, shared data schemas, and a PINS integration plan;
+- federated authentication, least privilege, and short-lived secrets;
+- a threat model, security testing, and a vulnerability-remediation plan;
+- availability targets, restoration-tested backups, and a continuity plan;
+- a five-year total cost estimate covering maintenance, security, and exit;
+- testing on modest phones, slow networks, accessibility needs, and national languages;
+- outcome metrics: actual time saved, documents avoided, completion rate, satisfaction, and cost per procedure.
+
+Senegal also needs a **public register of government digital services**. For every service, it should identify the accountable body, operational status, reused components, APIs, data policy, and availability indicators. Transparency does not mean publishing technical secrets. It means making governance and outcomes auditable.
+
+## Make the shared path the easiest path
+
+A mandatory standard without usable documentation, a test environment, or an integration team will be bypassed. PINS should become a real product for government delivery teams: a developer portal, sandbox, integration kits, API catalog, support, security templates, and measured onboarding times.
+
+Senegal does not have to choose between a single portal and autonomous institutions. It can combine **a unified citizen experience, specialized domain services, and decentralized exchanges secured through X-Road**.
+
+Success will not be measured by the number of platforms inaugurated. It will be measured by how many procedures citizens complete without travel, re-entry, duplicate documents, or unnecessary exposure of their data.
+
+---
+
+### Sources
+
+- [PINS — Interoperability vision and architecture](https://pins.sn/architecture-interoperabilite)
+- [PINS — National Interoperability Framework](https://pins.sn/cadre-national-interoperabilite)
+- [PINS — Public X-Road dashboard](https://pins.sn/tableau-de-bord)
+- [PINS — Interministerial data-exchange project](https://pins.sn/actualites/2026-01/plateforme-interministerielle-et-interoperable-dechange-de-donnees-du-senegal)
+- [X-Road — Official overview](https://x-road.global/)

@@ -1,0 +1,139 @@
+---
+title: "Digital Security in Senegal: What the Adopted Bill Changes—and What Still Must Be Built"
+description: "An analysis of Bill No. 25/2026 on critical information infrastructure: duties, sovereignty, penalties, and the challenge of implementation."
+image: "/og/simple?title=Digital%20Security%20in%20Senegal"
+category: Cybersecurity
+new: true
+createdAt: 2026-09-12
+updatedAt: 2026-09-12
+---
+
+On August 20, 2026, Senegal's National Assembly unanimously adopted—127 votes in favor, none against, and no abstentions—Bill No. 25/2026 on the protection of critical information infrastructure and digital security.
+
+The vote is a major step, but terminology matters. **A bill adopted by the Assembly does not automatically make every provision enforceable.** As of September 12, 2026, the public sources reviewed document the vote and the bill, but not yet its promulgation under a final law number or publication in the Official Journal. Several obligations will also depend on decrees, standards, and classification decisions.
+
+Another common confusion should be avoided. The bill primarily concerns cybersecurity and system resilience, especially for critical infrastructure. It does not replace [Law No. 2008-12 on personal-data protection](https://stcc-ssi.sn/textes-legislatives/), which governs data processing and individual rights under the supervision of the CDP. The two regimes are complementary.
+
+## Why this legislation was needed
+
+The digitalization of civil registration, finance, telecommunications, energy, healthcare, and transport can turn an IT outage into an economic and sometimes human risk. An attack can interrupt an essential service, destroy records, disrupt payments, or immobilize an entire public administration.
+
+Until now, security requirements were spread across several laws, standards, and authorities. Bill No. 25/2026 seeks to create a cross-sector framework: identify critical infrastructure, impose a minimum level of risk management, and organize incident detection, reporting, and response.
+
+In my [Rewmi TV interview from 10:15](https://www.youtube.com/watch?v=2F2ubxeqGIk&t=615s), I supported this direction while emphasizing its real test: implementation. An ambitious law without trained teams, practical guidance, funding, and clear accountability can generate extensive compliance paperwork without improving actual security.
+
+## The bill's main obligations
+
+The public document identifies several structural measures.
+
+### A National Cybersecurity Authority
+
+Article 6 provides for a National Cybersecurity Authority with legal personality. It is intended to supervise standards, coordinate the national system, and operate within an architecture that also includes the national CERT, sectoral CERTs, and security operations centers.
+
+Central coordination is valuable if it avoids institutional overlap. The DCSSI, CDP, ARTP, sector regulators, CERTs, and SOCs must know who leads a crisis, receives notifications, audits, imposes sanctions, and communicates publicly.
+
+### A cybersecurity program for critical infrastructure
+
+Article 27 gives critical information infrastructure operators six months after classification to develop a cybersecurity program. This means far more than purchasing antivirus software: asset inventories, risk analysis, access policies, vulnerability management, supplier security, business continuity, and executive-level governance.
+
+### Incident reporting within 24 hours
+
+Article 35 requires relevant incidents to be notified within 24 hours. This can accelerate national coordination and prevent the same attack from spreading silently across several operators.
+
+Regulation will still need to define when the clock starts, which incident categories apply, what the initial report must contain, and which single channel should be used. During the first hours of a crisis, an organization rarely understands the full cause and scope. A workable model is a rapid initial alert followed by structured updates—not a complete forensic report that cannot realistically be produced in 24 hours.
+
+### SOC capabilities within one year
+
+Article 39 requires critical infrastructure operators to establish security operations services within one year. The objective is sound: continuous monitoring, detection, qualification, and response.
+
+But requiring a SOC should not mean installing screens and a SIEM product. Organizations need usable logs, detection scenarios, an on-call team, tested procedures, and investigative capacity. For smaller entities, sectoral or shared SOCs will often be more realistic than an isolated center for every organization.
+
+### Domestic storage of public data
+
+Article 12 establishes the principle that State and public-entity data should be stored in Senegal, subject to regulatory exemptions.
+
+Digital sovereignty, however, cannot be reduced to server geography. Data hosted in Dakar but administered with keys controlled abroad, backed up without restoration tests, or accessible through excessively powerful accounts is not operationally sovereign. The assessment must cover:
+
+- data classification;
+- applicable jurisdiction and contractual terms;
+- control of encryption keys;
+- administrative identities and privileges;
+- backup and recovery-site location;
+- portability and supplier exit planning;
+- sufficient domestic capacity and availability.
+
+Exemptions should be traceable, risk-based, and reviewed regularly.
+
+### Penalties up to CFA 800 million or 5% of revenue
+
+Article 51 provides for significant administrative penalties for serious failures. They give the framework weight, but enforcement must be predictable and proportionate. Operators need to know the binding standard, remediation deadlines, adversarial procedure, and calculation criteria.
+
+Penalties cannot compensate for a lack of support. They should follow readable requirements, coherent oversight, and a genuine opportunity to correct deficiencies.
+
+## What organizations should prepare now
+
+Even before implementing regulations arrive, potentially affected bodies can begin work that will remain useful.
+
+### 1. Map what is genuinely critical
+
+Technical assets must be linked to public services: which servers, applications, datasets, vendors, and connections are required for electricity, payments, healthcare, or civil registration? A hardware list alone cannot measure the impact of disruption.
+
+### 2. Define recovery objectives
+
+Every critical service needs an RTO—the maximum acceptable interruption—and an RPO—the maximum acceptable data loss. These targets determine architecture, backups, redundancy, and exercises.
+
+A backup only truly exists after restoration has been tested. The most critical data needs isolated or immutable copies so ransomware cannot encrypt production and backup data simultaneously.
+
+### 3. Encrypt with proper key management
+
+Sensitive data must be encrypted in transit and at rest. Its protection depends on separation of duties, rotation, revocation, and secure key custody. Keeping the key beside the data is often equivalent to locking a door and leaving the key in it.
+
+### 4. Prepare evidence and reporting
+
+Organizations need an incident taxonomy, reachable on-call contacts, notification templates, a chain of evidence custody, and exercises involving technical, legal, executive, and communications teams. A 24-hour deadline is manageable only if the process exists before the crisis.
+
+### 5. Control suppliers
+
+Cloud, telecoms, managed services, software, and maintenance create critical dependencies. Contracts should cover logs, reporting deadlines, audit rights, forensic cooperation, reversibility, and requirements imposed on subcontractors.
+
+## The challenge for SMEs and budget-constrained public services
+
+Compliance can be expensive for a startup, SME, or small public body. If every organization must recruit its own 24/7 team, purchase the same tools, and interpret the same obligations, the framework will become impractical or purely declarative.
+
+The State should publish risk-proportionate requirement profiles and provide:
+
+- free sector guides and templates;
+- a single reporting and assistance portal;
+- shared SOC and forensic capabilities;
+- accessible training and exercises;
+- support for an initial security audit;
+- a phased compliance period with measurable milestones;
+- framework agreements for qualified providers at controlled cost.
+
+Support does not weaken the law. It increases the likelihood that the law produces security instead of files.
+
+## The decrees will define much of the operational law
+
+At least eight items should be tracked to evaluate implementation:
+
+1. promulgation and publication in the Official Journal;
+2. the National Authority's status, resources, and operational independence;
+3. the method used to classify critical infrastructure;
+4. the minimum security baseline and sector timetable;
+5. notification rules and information-sharing mechanisms;
+6. domestic-hosting requirements and exemptions;
+7. coordination with the CDP, ARTP, and sector regulators;
+8. support programs and public maturity indicators.
+
+The adopted bill gives Senegal an opportunity to move from mainly reactive cybersecurity to measurable resilience. The direction is right. The outcome will depend less on the headline severity of penalties than on three capabilities: **knowing what is critical, detecting early enough, and actually restoring the service**.
+
+---
+
+_This article is general information and not legal advice. The final promulgated text, its official publication, and implementing decrees must be verified before making compliance decisions._
+
+### Sources
+
+- [DCSSI — Adoption of the critical information infrastructure bill](https://stcc-ssi.sn/protection-des-infrastructures-dinformation-critiques-une-nouvelle-etape-pour-la-souverainete-et-la-resilience-numeriques-du-senegal/)
+- [Bill No. 25/2026 and article summary](https://www.archives.sn/docs/projets-de-loi/projet-loi-25-2026-assemblee-nationale-protection-infrastructures-information-critiques-securite-numerique)
+- [DCSSI — Existing cybersecurity and data-protection legislation](https://stcc-ssi.sn/textes-legislatives/)
+- [Rewmi TV — My interview from 10:15](https://www.youtube.com/watch?v=2F2ubxeqGIk&t=615s)

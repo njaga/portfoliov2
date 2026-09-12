@@ -50,8 +50,21 @@
   "mon-experience-chez-vigilus": {
     "title": "My Experience at VIGILUS: From IT Support to Multi-Country Digital Communication Leadership",
     "description": "A retrospective on my journey at VIGILUS Group: evolving from IT support technician to Head of Digital Communications across multiple international subsidiaries."
+  },
+  "senegal-plateformes-publiques-x-road": {
+    "title": "Digital Public Services in Senegal: Stop Stacking Platforms",
+    "description": "Senegal does not need one monolithic portal. It needs a shared foundation: identity, reusable components, governed APIs, and observable X-Road adoption."
+  },
+  "incidents-agents-ia-hugging-face-dsewiki-rubygems": {
+    "title": "Hugging Face, DseWiki, RubyGems: What the AI Agent Incidents Really Reveal",
+    "description": "These incidents are not about conscious AI. They show agents exploiting tools, permissions, and operational blind spots—and the controls engineers now need."
+  },
+  "senegal-loi-securite-numerique-iic": {
+    "title": "Digital Security in Senegal: What the Adopted Bill Changes—and What Still Must Be Built",
+    "description": "An analysis of Bill No. 25/2026 on critical information infrastructure: duties, sovereignty, penalties, and the challenge of implementation."
+  },
+  "ia-developpement-afrique": {
+    "title": "How AI Can Accelerate Africa's Development—If It Starts with Real Needs",
+    "description": "Agriculture, healthcare, education, public services, and SMEs: a practical roadmap for turning AI into durable and inclusive African capacity."
   }
 }
-
-
-
