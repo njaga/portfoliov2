@@ -1,0 +1,106 @@
+---
+title: "On n'a pas tous la fibre"
+subtitle: "Une application ultra-rapide au bureau peut devenir pénible à utiliser quelques kilomètres plus loin."
+seoTitle: "Concevoir des sites rapides au Sénégal : mobile, faible débit et accessibilité"
+description: "Pourquoi le développement web au Sénégal doit tenir compte des connexions instables, de la consommation de données et des smartphones modestes."
+illustration: "/blog/on-na-pas-tous-la-fibre.svg"
+category: Tech & société
+createdAt: 2026-11-04
+updatedAt: 2026-11-04
+---
+
+Un site s'ouvre instantanément au bureau.
+
+Grand écran.
+
+Bonne connexion.
+
+Machine récente.
+
+Tout est magnifique.
+
+Puis une personne essaie de l'utiliser sur un téléphone plus ancien, avec un forfait limité et un réseau qui varie.
+
+Et soudain, la jolie page d'accueil devient une épreuve de patience.
+
+**Le problème n'est pas que l'utilisateur a un mauvais téléphone.**
+
+Le problème est peut-être que nous avons conçu le service comme si tout le monde possédait le même équipement que nous.
+
+## Couverture ne signifie pas usage
+
+On parle beaucoup de fibre et de 5G lorsqu'on évoque la modernisation numérique.
+
+Ces infrastructures comptent.
+
+Mais elles ne suffisent pas à expliquer qui peut réellement utiliser Internet.
+
+Dans un [rapport publié en décembre 2025](https://www.gsma.com/newsroom/press-release/new-gsma-report-shows-digital-reforms-could-connect-2-6-million-more-people-in-senegal-by-2030-and-expand-access-to-essential-services/), la GSMA indiquait que la couverture 4G atteignait environ 97 % de la population du Sénégal, alors que l'utilisation de l'Internet mobile restait nettement plus faible.
+
+Elle soulignait notamment les obstacles liés au coût des appareils, à l'accessibilité financière et aux compétences numériques.
+
+Cela rappelle une distinction importante : **être couvert n'est pas la même chose qu'être connecté, et être connecté n'est pas la même chose que pouvoir utiliser confortablement un service**.
+
+## Ce qu'un développeur peut contrôler
+
+Je ne peux pas construire à moi seul de nouvelles antennes ou réduire le prix d'un forfait.
+
+En revanche, je peux réfléchir à ce que mon application demande à l'utilisateur.
+
+Une image de plusieurs mégaoctets est-elle vraiment indispensable ?
+
+Faut-il charger dix bibliothèques pour afficher un simple formulaire ?
+
+Le site doit-il télécharger toute une vidéo avant de montrer le contenu essentiel ?
+
+Chaque choix a un coût.
+
+Et quand ce coût est payé en données mobiles, en batterie et en secondes d'attente, il n'est pas abstrait.
+
+## Le vrai test n'est pas toujours au bureau
+
+Imaginez un formulaire de candidature.
+
+Il fonctionne très bien avec une connexion rapide.
+
+Mais si le réseau coupe juste avant l'envoi, l'utilisateur perd tout ce qu'il vient de saisir.
+
+Il devra recommencer.
+
+Peut-être qu'il ne le fera pas.
+
+Une amélioration utile ne sera pas forcément une animation plus fluide. Ce sera peut-être de conserver les champs temporairement, d'expliquer clairement l'erreur ou de permettre de reprendre une soumission.
+
+C'est cela aussi, l'expérience utilisateur.
+
+## Une petite liste de bonnes habitudes
+
+Pour un service destiné à des utilisateurs mobiles, je commencerais par :
+
+- Optimiser les images et charger uniquement ce qui est visible.
+- Éviter les scripts et ressources non nécessaires.
+- Tester sur de vrais téléphones, pas seulement dans un navigateur de bureau.
+- Prévoir des états de chargement compréhensibles.
+- Conserver les saisies en cas d'erreur lorsque c'est approprié.
+- Rendre les actions essentielles accessibles sans animations coûteuses.
+- Mesurer le poids des pages et leur comportement sur un réseau lent.
+
+Certaines applications ont besoin de cartes, de vidéos ou de données temps réel. L'objectif n'est pas de supprimer toute richesse.
+
+C'est de rendre chaque ressource utile.
+
+## Une question d'inclusion
+
+Si une démarche administrative, une candidature ou un service commercial devient presque impossible à utiliser sur un téléphone modeste, on exclut des personnes même lorsque le produit est techniquement disponible.
+
+Ce problème ne se résout pas uniquement par une meilleure connexion.
+
+Il se résout aussi par des choix de conception.
+
+Quand je travaille sur une interface, j'essaie de me souvenir que **la machine sur laquelle je développe n'est pas le monde dans lequel le produit sera utilisé**.
+
+Un site vraiment rapide n'est pas celui qui impressionne le développeur.
+
+C'est celui qui laisse l'utilisateur faire ce qu'il était venu faire.
+
+Même avec un réseau qui n'a pas été prévenu de nos ambitions. 😅
