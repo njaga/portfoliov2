@@ -13,7 +13,7 @@ import type { Post } from "@/types/blog";
 import { Panel, PanelHeader, PanelTitle } from "./panel";
 
 export function Blog() {
-  const { t, mounted } = useTranslation();
+  const { t, mounted, locale } = useTranslation();
   const translations = mounted ? t : getTranslations(defaultLocale);
   const [allPosts, setAllPosts] = useState<Post[]>([]);
 
@@ -44,7 +44,7 @@ export function Blog() {
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {allPosts.map((post) => (
-            <PostItem key={post.slug} post={post} />
+            <PostItem key={post.slug} post={post} locale={locale} />
           ))}
         </div>
       </div>
