@@ -1,61 +1,71 @@
-import dayjs from "dayjs";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
-import { cn } from "@/lib/utils";
+import {
+  BLOG_TEXT,
+  formatBlogDate,
+  getEditorialCategory,
+  type BlogPreview,
+} from "@/lib/blog-editorial";
+import type { Locale } from "@/lib/i18n";
 import type { Post } from "@/types/blog";
+
+type PostCard = Post | BlogPreview;
 
 export function PostItem({
   post,
-  shouldPreloadImage,
+  shouldPreloadImage = false,
+  locale = "en",
 }: {
-  readonly post: Post;
+  readonly post: PostCard;
   readonly shouldPreloadImage?: boolean;
+  readonly locale?: Locale;
 }) {
+  const category = "category" in post ? post.category : getEditorialCategory(post);
+  const minutes = "readingMinutes" in post ? post.readingMinutes : undefined;
+  const copy = BLOG_TEXT[locale];
+
   return (
     <Link
-      href={`/blog/${post.slug}`}
-      className={cn(
-        "group/post flex flex-col gap-2 p-2",
-        "max-sm:screen-line-before max-sm:screen-line-after",
-        "sm:nth-[2n+1]:screen-line-before sm:nth-[2n+1]:screen-line-after"
-      )}
+      href={"/blog/" + post.slug}
+      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-edge bg-background transition-colors hover:border-foreground/30 hover:bg-muted/20 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
     >
       {post.metadata.image && (
-        <div className="relative select-none [&_img]:aspect-1200/630 [&_img]:rounded-xl [&_img]:object-cover">
+        <div className="relative aspect-[16/9] overflow-hidden bg-muted">
           <Image
             src={post.metadata.image}
-            alt={post.metadata.title}
+            alt=""
             width={1200}
-            height={630}
-            quality={100}
-            className="aspect-1200/630 h-full w-full rounded-xl object-cover"
+            height={675}
+            sizes="(max-width: 640px) 100vw, 360px"
+            quality={85}
             priority={shouldPreloadImage}
             unoptimized
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.035]"
           />
-
-          <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-black/10 ring-inset dark:ring-white/10" />
-
-          {post.metadata.new && (
-            <span className="absolute top-1.5 right-1.5 rounded-md bg-info px-1.5 font-mono text-sm font-medium text-white text-shadow-xs">
-              New
-            </span>
-          )}
         </div>
       )}
-
-      <div className="flex flex-col gap-1 p-2">
-        <h3 className="font-heading text-lg leading-snug font-medium text-balance decoration-ring underline-offset-4 group-hover/post:underline">
+      <div className="flex flex-1 flex-col gap-3 p-5">
+        <p className="text-xs font-medium tracking-wide text-muted-foreground">
+          {copy.categories[category]}
+        </p>
+        <h3 className="font-heading text-xl leading-snug font-semibold text-balance group-hover:underline group-hover:underline-offset-4">
           {post.metadata.title}
         </h3>
-
-        <time
-          className="text-sm text-muted-foreground"
-          dateTime={dayjs(post.metadata.createdAt).toISOString()}
-        >
-          {dayjs(post.metadata.createdAt).format("DD.MM.YYYY")}
-        </time>
+        <p className="line-clamp-2 text-sm leading-relaxed text-muted-foreground">
+          {post.metadata.description}
+        </p>
+        <div className="mt-auto flex flex-wrap items-center gap-2 pt-2 text-xs text-muted-foreground">
+          <time dateTime={new Date(post.metadata.createdAt).toISOString()}>
+            {formatBlogDate(post.metadata.createdAt, locale)}
+          </time>
+          {minutes !== undefined && (
+            <>
+              <span aria-hidden="true">·</span>
+              <span>{minutes} {copy.readTime}</span>
+            </>
+          )}
+        </div>
       </div>
     </Link>
   );
