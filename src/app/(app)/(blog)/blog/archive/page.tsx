@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
 import { ArrowLeftIcon, ArrowUpRightIcon } from "lucide-react";
+import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import Link from "next/link";
 
