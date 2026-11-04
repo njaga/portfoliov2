@@ -47,8 +47,8 @@ export function BlogPostContent({
         <h1 className="font-heading text-3xl leading-[1.15] font-semibold tracking-tight text-balance sm:text-5xl">
           {post.metadata.title}
         </h1>
-        <p className="mt-5 text-base leading-8 text-muted-foreground sm:text-lg">
-          {post.metadata.description}
+        <p className="mt-5 max-w-[48ch] text-lg leading-8 font-medium text-foreground/75 sm:text-2xl sm:leading-9">
+          {post.metadata.subtitle || post.metadata.description}
         </p>
         <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 text-xs text-muted-foreground">
           <span className="font-medium text-foreground">{USER.displayName}</span>
