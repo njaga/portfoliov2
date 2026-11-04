@@ -1,197 +1,119 @@
-"use client";
-
-import dayjs from "dayjs";
-import {
-  ArrowLeftIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  MailIcon,
-  PenToolIcon,
-} from "lucide-react";
+import { ArrowUpRightIcon, MapPinIcon, RssIcon } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { cookies } from "next/headers";
 
-import { PostItem } from "@/components/post-item";
-import { Button } from "@/components/ui/button";
-import { useTranslation } from "@/hooks/use-translation";
-import { defaultLocale, getTranslations } from "@/lib/i18n";
-import type { Post } from "@/types/blog";
+import {
+  BLOG_TEXT,
+  formatBlogDate,
+  toBlogPreview,
+} from "@/lib/blog-editorial";
+import { getAllPosts } from "@/data/blog";
+import type { Locale } from "@/lib/i18n";
 
-const POSTS_PER_PAGE = 12;
+import { BlogExplorer } from "./blog-explorer";
 
-export default function Page() {
-  const { t, mounted } = useTranslation();
-  const translations = mounted ? t : getTranslations(defaultLocale);
-  const [allPosts, setAllPosts] = useState<Post[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [currentPage, setCurrentPage] = useState(1);
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const response = await fetch("/api/blog");
-        const posts = await response.json();
-        const sortedPosts = posts
-          .slice()
-          .sort((a: Post, b: Post) =>
-            dayjs(b.metadata.createdAt).diff(dayjs(a.metadata.createdAt))
-          );
-        setAllPosts(sortedPosts);
-      } catch (error) {
-        console.error("Error fetching posts:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchPosts();
-  }, []);
-
-  const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
-  const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
-  const endIndex = startIndex + POSTS_PER_PAGE;
-  const currentPosts = allPosts.slice(startIndex, endIndex);
-
-  const goToPage = (page: number) => {
-    setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+export default async function BlogPage() {
+  const cookieStore = await cookies();
+  const locale: Locale = cookieStore.get("locale")?.value === "fr" ? "fr" : "en";
+  const copy = BLOG_TEXT[locale];
+  const posts = getAllPosts(locale).map(toBlogPreview);
+  const featured =
+    posts.find((post) => post.slug === "pourquoi-je-construis-kumba") ??
+    posts[0];
+  const remaining = posts.filter((post) => post.slug !== featured?.slug);
 
   return (
-    <>
-      {/* Header */}
-      <div className="flex items-center justify-between p-2 pl-4">
-        <Link
-          href="/#blog"
-          className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-        >
-          <ArrowLeftIcon className="h-4 w-4" />
-          {translations.common.backToPortfolio}
-        </Link>
-
-        <Link
-          href="/contact"
-          className="flex items-center gap-2 rounded-lg bg-primary px-3 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-        >
-          <MailIcon className="h-4 w-4" />
-          {translations.contact.getInTouch}
-        </Link>
-      </div>
-
-      <div className="screen-line-after -mt-px px-4">
-        <h1 className="font-heading text-3xl font-semibold">
-          {translations.blog.title}
-        </h1>
-      </div>
-
-      <div className="screen-line-after p-4">
-        <p className="font-mono text-sm text-muted-foreground">
-          {translations.blog.description} {translations.blog.page} {currentPage}{" "}
-          {translations.blog.of} {totalPages} ({allPosts.length}{" "}
-          {translations.blog.articlesTotal})
+    <div>
+      <header className="px-5 pb-10 pt-12 sm:px-10 sm:pb-14 sm:pt-16">
+        <p className="mb-5 inline-flex items-center gap-2 text-xs font-medium tracking-[0.14em] text-muted-foreground uppercase">
+          <MapPinIcon className="size-3.5" aria-hidden="true" />
+          {copy.eyebrow}
         </p>
-      </div>
-
-      {/* Posts Grid */}
-      <div className="relative pt-4">
-        <div className="absolute inset-0 -z-1 grid grid-cols-1 gap-4 max-sm:hidden sm:grid-cols-2">
-          <div className="border-r border-edge"></div>
-          <div className="border-l border-edge"></div>
+        <h1 className="max-w-xl font-heading text-4xl leading-[1.08] font-semibold tracking-tight text-balance sm:text-6xl">
+          {copy.title}
+        </h1>
+        <p className="mt-6 max-w-[58ch] text-base leading-8 text-foreground/85 sm:text-lg">
+          {copy.introduction}
+        </p>
+        <p className="mt-4 text-sm italic leading-7 text-muted-foreground">
+          {copy.signature}
+        </p>
+        <div className="mt-7 flex flex-wrap items-center gap-4 text-sm">
+          <a
+            href="#articles"
+            className="inline-flex items-center gap-1.5 rounded-full bg-foreground px-4 py-2.5 font-medium text-background transition-opacity hover:opacity-85"
+          >
+            {copy.latest}
+            <ArrowUpRightIcon className="size-4" />
+          </a>
+          <Link href="/rss" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground">
+            <RssIcon className="size-4" />
+            {copy.rss}
+          </Link>
         </div>
+      </header>
 
-        {loading ? (
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            {Array.from({ length: POSTS_PER_PAGE }).map((_, index) => (
-              <div key={index} className="animate-pulse">
-                <div className="mb-4 h-48 rounded-lg bg-muted"></div>
-                <div className="mb-2 h-4 w-3/4 rounded bg-muted"></div>
-                <div className="h-3 w-1/2 rounded bg-muted"></div>
+      {featured && (
+        <section className="border-y border-edge bg-muted/20 px-5 py-10 sm:px-10">
+          <div className="mb-5 flex items-center justify-between gap-3">
+            <h2 className="text-xs font-semibold tracking-[0.18em] text-muted-foreground uppercase">
+              {copy.featured}
+            </h2>
+            <span className="text-xs text-muted-foreground">
+              {copy.categories[featured.category]}
+            </span>
+          </div>
+          <Link href={"/blog/" + featured.slug} className="group block">
+            {featured.metadata.image && (
+              <div className="relative mb-6 aspect-[16/9] overflow-hidden rounded-2xl bg-muted">
+                <Image
+                  src={featured.metadata.image}
+                  alt=""
+                  width={1200}
+                  height={675}
+                  priority
+                  sizes="(max-width: 768px) 100vw, 720px"
+                  unoptimized
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                />
               </div>
-            ))}
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            {currentPosts.map((post, index) => (
-              <PostItem
-                key={post.slug}
-                post={post}
-                shouldPreloadImage={index <= 4}
-              />
-            ))}
-          </div>
-        )}
-      </div>
-
-      {/* Pagination */}
-      {totalPages > 1 && (
-        <div className="screen-line-before p-4">
-          <div className="flex items-center justify-center gap-2">
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={() => goToPage(currentPage - 1)}
-              disabled={currentPage === 1}
-            >
-              <ChevronLeftIcon className="h-4 w-4" />
-            </Button>
-
-            <div className="flex items-center gap-1">
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map(
-                (page) => (
-                  <Button
-                    key={page}
-                    variant={currentPage === page ? "default" : "ghost"}
-                    size="icon"
-                    onClick={() => goToPage(page)}
-                    className="h-8 w-8"
-                  >
-                    {page}
-                  </Button>
-                )
-              )}
+            )}
+            <h3 className="font-heading text-2xl leading-tight font-semibold text-balance group-hover:underline group-hover:underline-offset-4 sm:text-3xl">
+              {featured.metadata.title}
+            </h3>
+            <p className="mt-3 max-w-[60ch] text-sm leading-7 text-muted-foreground sm:text-base">
+              {featured.metadata.description}
+            </p>
+            <div className="mt-4 flex items-center gap-2 text-xs text-muted-foreground">
+              <time dateTime={new Date(featured.metadata.createdAt).toISOString()}>
+                {formatBlogDate(featured.metadata.createdAt, locale)}
+              </time>
+              <span aria-hidden="true">·</span>
+              <span>{featured.readingMinutes} {copy.readTime}</span>
+              <ArrowUpRightIcon className="ml-auto size-5 text-foreground" aria-hidden="true" />
             </div>
-
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={() => goToPage(currentPage + 1)}
-              disabled={currentPage === totalPages}
-            >
-              <ChevronRightIcon className="h-4 w-4" />
-            </Button>
-          </div>
-        </div>
+          </Link>
+        </section>
       )}
 
-      {/* CTA Section */}
-      <div className="screen-line-before p-4">
-        <div className="rounded-xl border border-edge bg-muted/50 p-6 text-center">
-          <h2 className="mb-2 font-heading text-xl font-semibold">
-            {translations.blog.wantToShare}
-          </h2>
-          <p className="mb-4 text-sm text-muted-foreground">
-            {translations.blog.connectDescription}
-          </p>
-          <div className="flex flex-col justify-center gap-3 sm:flex-row">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-            >
-              <MailIcon className="h-4 w-4" />
-              {translations.blog.letsConnect}
-            </Link>
-            <Link
-              href="/services"
-              className="inline-flex items-center justify-center gap-2 rounded-lg border border-edge px-4 py-2 text-sm font-medium transition-colors hover:bg-muted"
-            >
-              <PenToolIcon className="h-4 w-4" />
-              {translations.contact.workTogether}
-            </Link>
-          </div>
-        </div>
-      </div>
+      <BlogExplorer posts={remaining} locale={locale} />
 
-      <div className="h-4" />
-    </>
+      <aside className="border-t border-edge bg-muted/20 px-5 py-10 sm:px-10 sm:py-12">
+        <h2 className="font-heading text-2xl font-semibold">
+          {copy.aboutTitle}
+        </h2>
+        <p className="mt-3 max-w-[58ch] text-sm leading-7 text-muted-foreground">
+          {copy.about}
+        </p>
+        <Link
+          href="/contact"
+          className="mt-5 inline-flex items-center gap-2 text-sm font-medium underline underline-offset-4 hover:text-muted-foreground"
+        >
+          {copy.contact}
+          <ArrowUpRightIcon className="size-4" />
+        </Link>
+      </aside>
+    </div>
   );
 }
