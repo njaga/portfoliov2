@@ -1,5 +1,5 @@
-import type { Post, PostMetadata } from "@/types/blog";
 import type { Locale } from "@/lib/i18n";
+import type { Post, PostMetadata } from "@/types/blog";
 
 export type EditorialCategory =
   | "journal"
