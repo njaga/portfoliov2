@@ -54,6 +54,13 @@ export default async function BlogPage() {
             <RssIcon className="size-4" />
             {copy.rss}
           </Link>
+          <Link
+            href="/blog/archive"
+            className="inline-flex items-center gap-1.5 text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+          >
+            {locale === "fr" ? "Toutes les archives" : "Full archive"}
+            <ArrowUpRightIcon className="size-3.5" aria-hidden="true" />
+          </Link>
         </div>
       </header>
 

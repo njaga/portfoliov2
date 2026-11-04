@@ -16,7 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${SITE_INFO.url}/projects/${project.id}`,
   }));
 
-  const routes = ["", "/projects", "/services", "/blog", "/contact"].map(
+  const routes = ["", "/projects", "/services", "/blog", "/blog/archive", "/contact"].map(
     (route) => ({
       url: `${SITE_INFO.url}${route}`,
     })
