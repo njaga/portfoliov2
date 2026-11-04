@@ -3,9 +3,9 @@ import Link from "next/link";
 
 import {
   BLOG_TEXT,
+  type BlogPreview,
   formatBlogDate,
   getEditorialCategory,
-  type BlogPreview,
 } from "@/lib/blog-editorial";
 import type { Locale } from "@/lib/i18n";
 import type { Post } from "@/types/blog";
