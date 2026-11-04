@@ -8,8 +8,8 @@ import type { BlogPosting as PageSchema, WithContext } from "schema-dts";
 import { SITE_INFO } from "@/config/site";
 import { findNeighbour, getAllPosts, getPostBySlug } from "@/data/blog";
 import { USER } from "@/data/user";
-import { defaultLocale } from "@/lib/i18n";
 import { getEditorialCategory, toBlogPreview } from "@/lib/blog-editorial";
+import { defaultLocale } from "@/lib/i18n";
 import type { Post } from "@/types/blog";
 
 import { Back } from "./back";
