@@ -34,10 +34,10 @@ export function PostItem({
         href={`/blog/${post.slug}`}
         className="group flex h-full flex-col overflow-hidden rounded-xl border border-edge transition-colors hover:bg-muted/30 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
       >
-        {post.metadata.image && (
+        {(post.metadata.illustration || post.metadata.image) && (
           <div className="relative aspect-[16/9] bg-muted/20">
             <Image
-              src={post.metadata.image}
+              src={post.metadata.illustration || post.metadata.image || ""}
               alt=""
               width={1200}
               height={675}
@@ -89,7 +89,7 @@ export function PostItem({
       <div className="relative aspect-[16/9] overflow-hidden rounded-xl bg-muted/20 sm:aspect-[5/3]">
         {post.metadata.image ? (
           <Image
-            src={post.metadata.image}
+            src={post.metadata.illustration || post.metadata.image || ""}
             alt=""
             width={1200}
             height={720}
