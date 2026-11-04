@@ -139,7 +139,7 @@ export function BlogPostContent({
           <h2 className="mb-6 font-heading text-2xl font-semibold">{copy.more}</h2>
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
             {related.map((item) => (
-              <PostItem key={item.slug} post={item} locale={locale} />
+              <PostItem key={item.slug} post={item} locale={locale} variant="compact" />
             ))}
           </div>
         </section>
