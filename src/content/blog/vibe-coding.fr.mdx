@@ -1,103 +1,66 @@
 ---
-title: "Vibe Coding : L'Avenir du Développement Alimenté par l'IA"
+title: "Coder à l'instinct ?"
+illustration: "/blog/coder-a-linstinct.svg"
+subtitle: "On peut créer une application en parlant à l'IA. Mais qui comprend encore le code ?"
+seoTitle: "Vibe Coding : L'Avenir du Développement Alimenté par l'IA"
 description: "Découvrez le vibe coding, une approche révolutionnaire du développement logiciel qui utilise de grands modèles de langage pour générer du code à partir de descriptions en langage naturel."
 image: /blog/vibe-coding.jpg
 category: Development
 new: false
 createdAt: 2025-05-15
-updatedAt: 2025-05-15
+updatedAt: "2026-11-04"
 ---
 
-Le **vibe coding** est une approche révolutionnaire du développement logiciel où les développeurs utilisent principalement de grands modèles de langage (LLM) pour générer du code basé sur des descriptions en langage naturel, plutôt que de l'écrire manuellement. Il met l'accent sur une façon de travailler plus conversationnelle et intuitive, transformant notre façon de penser la programmation.
+La première impression est grisante.
 
-## Qu'est-ce que le Vibe Coding ?
+On décrit une interface. L'IA écrit les composants. On demande un formulaire, puis une connexion, puis un tableau de bord. À l'écran, tout apparaît à une vitesse qui aurait semblé absurde il y a quelques années.
 
-Le vibe coding tourne autour de l'utilisation de l'IA pour traduire des instructions en langage naturel en code exécutable. Au lieu de passer du temps sur la syntaxe et la construction détaillée du code, les développeurs se concentrent sur la description de la fonctionnalité souhaitée ou du problème en langage clair.
+Et puis arrive la phrase dangereuse : **« Ça marche, donc c'est terminé. »** 😅
 
-## Comment Fonctionne le Vibe Coding
+Sauf qu'un logiciel n'est pas une capture d'écran. Il doit encore supporter les erreurs, les utilisateurs pressés, les données incohérentes et les mises à jour qu'on n'avait pas prévues.
 
-### 1. Saisie en Langage Naturel
+C'est toute l'ambiguïté du *vibe coding* : une manière formidable de démarrer, qui peut aussi donner l'illusion qu'on a déjà fini.
 
-Les développeurs décrivent leurs intentions en langage clair, soit par texte, soit par commandes vocales.
+## Pourquoi c'est aussi séduisant
 
-### 2. Génération Alimentée par l'IA
+Je développe des applications depuis plusieurs années. Je connais le temps que peuvent prendre une interface, une API ou les mêmes formulaires que l'on recrée de projet en projet.
 
-L'IA, en s'appuyant sur les LLM, traduit ces descriptions en code exécutable.
+Alors, pouvoir décrire ce qu'on veut en langage naturel, obtenir une première version, la tester et la corriger en quelques échanges, oui, c'est impressionnant.
 
-### 3. Itération et Raffinement
+Pour une maquette, une expérimentation ou un petit outil interne, cette vitesse a une vraie valeur. On passe plus de temps à tester une idée et moins à recopier du code.
 
-Si le code généré ne fonctionne pas comme prévu, les développeurs peuvent fournir des retours à l'IA, souvent en collant des messages d'erreur, et l'IA affinera le code en fonction de ces retours.
+Mais **aller vite n'est pas la même chose que savoir où l'on va**.
 
-## Outils Populaires de Vibe Coding
+## Quand le prototype rencontre le monde réel
 
-### Éditeurs de Code & IDE
+Imaginez un outil de réservation. Sur la démo, trois personnes cliquent, tout se passe bien.
 
-- **Cursor** : Éditeur de code axé sur l'IA avec génération intelligente de code
-- **Windsurf** : Assistant de codage IA avancé avec conscience contextuelle
-- **GitHub Copilot** : Programmeur pair IA intégré dans les éditeurs populaires
+En production, deux clients réservent la dernière place en même temps. Une connexion coupe au mauvais moment. Un administrateur change un tarif pendant qu'un paiement est en cours.
 
-### Outils IA Spécialisés
+C'est ici que l'on découvre si le logiciel possède de véritables règles métiers, des transactions, une gestion des erreurs et des tests.
 
-- **Trae** : Assistant de développement alimenté par l'IA
-- **Blackbox AI** : Assistant de génération et débogage de code
-- **Jules (Google)** : Compagnon de codage IA de Google
+L'IA peut aider à construire tout cela. Mais elle ne remplace pas la nécessité de **comprendre ce qui doit se passer**.
 
-### Plateformes Full-Stack
+## Ma règle : ne jamais confondre généré et validé
 
-- **Firebase Studio** : Plateforme de développement d'applications alimentée par l'IA de Google
-- **Bolt** : Constructeur d'applications web rapide avec IA
-- **Lovable** : Plateforme de développement full-stack alimentée par l'IA
-- **Replit** : IDE basé sur le cloud avec assistance IA
-- **V0** : Générateur d'interface utilisateur alimenté par l'IA de Vercel
+J'essaie de garder quelques réflexes, même quand un assistant me fournit une solution très convaincante :
 
-## Avantages Clés
+- Comprendre les données manipulées et leurs contraintes.
+- Lire les parties sensibles : authentification, paiement, autorisations, suppression de données.
+- Tester les chemins d'échec, pas seulement le parcours idéal.
+- Vérifier les dépendances et les secrets avant le déploiement.
+- Préférer une architecture simple que je saurai reprendre dans six mois.
 
-### Accessibilité
+Ce n'est pas une guerre contre l'IA. Au contraire : ces outils sont d'autant plus utiles qu'on sait leur poser de bonnes questions.
 
-Le vibe coding réduit les barrières à l'entrée pour le développement logiciel, le rendant plus accessible aux personnes non techniques et permettant aux développeurs expérimentés de se concentrer sur la conception de haut niveau.
+## Alors, faut-il « vibe coder » ?
 
-### Efficacité
+Oui, si cela aide à expérimenter, apprendre et livrer un prototype utile.
 
-Il peut accélérer considérablement le processus de développement, en particulier pour les prototypes rapides ou les applications plus petites, en automatisant la génération de code.
+Non, si cela signifie expédier sans lecture ni contrôle un système dont personne ne comprend les conséquences.
 
-### Focus sur la Créativité
+La nuance tient en une phrase : **je peux déléguer la rédaction d'une partie du code, pas la responsabilité du produit.**
 
-En gérant les détails techniques, le vibe coding permet aux développeurs de se concentrer sur les aspects créatifs de la conception logicielle et de l'expérience utilisateur.
+Et c'est justement ce qui rend le métier de développeur intéressant à l'ère de l'IA. J'en parle aussi dans [Le dernier développeur ?](/blog/ia-vs-developpeurs).
 
-## Inconvénients Potentiels
-
-### Qualité du Code
-
-Le code généré par l'IA pourrait ne pas toujours être optimal ou exempt d'erreurs, en particulier dans les systèmes complexes.
-
-### Risques de Sécurité
-
-Si les développeurs ne comprennent pas le code généré par l'IA, ils pourraient ne pas être en mesure d'identifier ou de corriger les vulnérabilités de sécurité potentielles.
-
-### Défis de Débogage
-
-Le débogage du code généré par l'IA peut être plus complexe, surtout si le développeur n'a pas une compréhension solide de la logique sous-jacente.
-
-## Meilleures Pratiques
-
-### Commencez Petit
-
-Commencez par des tâches simples et bien définies et abordez progressivement des défis plus complexes.
-
-### Maintenez la Compréhension
-
-Toujours examiner le code généré en profondeur et tester extensivement avant le déploiement.
-
-### Sécurité d'Abord
-
-Auditez le code généré par l'IA pour les problèmes de sécurité et ne déployez jamais sans révision de sécurité appropriée.
-
-## L'Avenir du Vibe Coding
-
-Le vibe coding représente un changement fondamental dans le développement logiciel, rendant la programmation plus accessible, efficace et créative. Alors que les modèles d'IA continuent de s'améliorer et que de nouveaux outils émergent, le vibe coding deviendra probablement une compétence essentielle pour les développeurs à tous les niveaux.
-
-## Conclusion
-
-Le vibe coding est un outil puissant qui peut améliorer la productivité et la créativité des développeurs, mais il est important d'être conscient de ses limitations et de l'utiliser de manière responsable, en particulier dans les projets qui nécessitent un code robuste et sécurisé.
-
-L'avenir du développement est conversationnel, et le vibe coding ouvre la voie.
+Pour l'instant, je continue à expérimenter. Avec enthousiasme, mais en gardant une main sur le volant. 😉
