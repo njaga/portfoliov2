@@ -1,5 +1,7 @@
 export type PostMetadata = {
   title: string;
+  subtitle?: string;
+  seoTitle?: string;
   description: string;
   image?: string;
   category?: string;
