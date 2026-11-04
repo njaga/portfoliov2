@@ -6,8 +6,8 @@ import { useMemo, useState } from "react";
 import { PostItem } from "@/components/post-item";
 import {
   BLOG_TEXT,
-  EDITORIAL_CATEGORIES,
   type BlogPreview,
+  EDITORIAL_CATEGORIES,
   type EditorialCategory,
 } from "@/lib/blog-editorial";
 import type { Locale } from "@/lib/i18n";
