@@ -86,9 +86,9 @@ export default async function BlogPage() {
               </div>
             </div>
             <div className="relative aspect-[16/9] overflow-hidden rounded-xl bg-muted/20 sm:aspect-[5/4]">
-              {featured.metadata.image && (
+              {(featured.metadata.illustration || featured.metadata.image) && (
                 <Image
-                  src={featured.metadata.image}
+                  src={featured.metadata.illustration || featured.metadata.image || ""}
                   alt=""
                   width={1200}
                   height={900}
