@@ -23,7 +23,7 @@
     "page": "Page",
     "of": "sur",
     "projectsTotal": "projets au total",
-    "collection": "Une collection de mes projets et réalisations.",
+    "collection": "Sites web, applications métiers et plateformes SaaS conçus avec Laravel, Next.js et d'autres technologies à Dakar et ailleurs.",
     "haveProject": "Vous avez un projet en tête ?",
     "excited": "Je suis toujours ravi de travailler sur de nouveaux projets et de donner vie aux idées. Discutons de la façon dont nous pouvons collaborer !",
     "startProject": "Démarrer un projet",
@@ -44,7 +44,7 @@
   "contact": {
     "title": "Contact",
     "workTogether": "Travaillons ensemble",
-    "description": "Contactez-moi pour discuter de vos projets web et demander un devis.",
+    "description": "Contactez Ndiaga Ndiaye, développeur full stack à Dakar, pour vos projets Laravel, Next.js, SaaS, sites web et logiciels métiers au Sénégal.",
     "getInTouch": "Contactez-moi",
     "email": "Email",
     "phone": "Téléphone",
@@ -82,7 +82,7 @@
   },
   "services": {
     "title": "Services",
-    "description": "Services numériques complets pour aider votre entreprise à croître et réussir dans le monde numérique.",
+    "description": "Développement de sites web à Dakar, logiciels métiers sur mesure, applications SaaS, UI/UX et référencement SEO au Sénégal.",
     "getQuote": "Demander un devis",
     "viewAll": "Voir tous les services",
     "backToPortfolio": "Retour au portfolio",
@@ -100,7 +100,7 @@
   },
   "about": {
     "title": "À propos",
-    "text": "Je suis Ndiaga Ndiaye — un **Résolveur de Problèmes** et **Transporteur Digital**. Je suis votre **Couteau Suisse** pour les défis numériques.\n\nJe transforme les problèmes business complexes en solutions numériques élégantes. Que ce soit la construction d'applications web scalables, la conception d'interfaces utilisateur intuitives, l'optimisation des performances, ou l'implémentation de systèmes backend robustes — je livre des solutions de bout en bout.\n\nMon expertise couvre le développement FullStack, l'architecture backend, le design frontend, le DevOps, les Applications Web Progressives, et l'exploration de l'intégration IA et des solutions de machine learning.\n\nAvec plus de 4 ans d'expérience, j'ai fondé **Kamit Digital Solutions** pour accompagner les startups africaines dans leur transformation digitale en fournissant des solutions sur mesure adaptées à leurs besoins et budgets.\n\n**Prêt à résoudre votre prochain défi numérique ?** [Connectons-nous !](/contact)"
+    "text": "Je suis **Ndiaga Ndiaye**, **développeur full stack et entrepreneur digital à Dakar, au Sénégal**. Je conçois des sites web, des plateformes SaaS et des logiciels métiers qui répondent à des besoins concrets.\n\nJe travaille notamment avec **Laravel (PHP), JavaScript, React et Next.js**, de la conception des interfaces et des API jusqu'aux bases de données, au déploiement et à la maintenance. Pour moi, comprendre le métier du client compte autant que produire du code fiable.\n\nJ'ai fondé **[KAMIT Digital Solutions](https://kamit.tech)** pour accompagner les entreprises dans leurs projets numériques. Je développe aussi mes propres produits, dont **[KUMBA](https://kumba.media)**, un projet média autour de l'information et de l'intelligence artificielle.\n\nDécouvrez [mes réalisations](/projects), les histoires de mon [journal de bord](/blog), ou [contactez-moi](/contact) pour parler d'un site web, d'une application ou d'un logiciel sur mesure."
   },
   "experience": {
     "title": "Expérience"
@@ -111,13 +111,13 @@
   "profile": {
     "overview": "Aperçu",
     "verified": "Vérifié",
-    "bio": "Résolveur de Problèmes & Transporteur Digital",
+    "bio": "Développeur full stack & entrepreneur digital — Dakar, Sénégal",
     "flipSentences": [
-      "Résolveur de Problèmes",
-      "Transporteur Digital",
-      "Couteau Suisse",
-      "Développeur FullStack",
-      "Designer UI/UX"
+      "Développeur full stack",
+      "Laravel & Next.js",
+      "SaaS & logiciels métiers",
+      "Créateur de produits digitaux",
+      "UI/UX & référencement SEO"
     ],
     "jobs": [
       {
