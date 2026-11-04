@@ -1,0 +1,106 @@
+---
+title: "We don't all have fibre"
+subtitle: "An app that's lightning-fast in the office can be painful to use a few kilometres away."
+seoTitle: "Building fast websites for Senegal: mobile performance, low bandwidth and accessibility"
+description: "Why web development for mobile users in Senegal must account for unstable connectivity, limited data and modest devices."
+illustration: "/blog/on-na-pas-tous-la-fibre.svg"
+category: Tech & société
+createdAt: 2026-11-04
+updatedAt: 2026-11-04
+---
+
+A website loads instantly at the office.
+
+Big screen.
+
+Fast connection.
+
+New computer.
+
+Everything looks wonderful.
+
+Then somebody opens it on an older phone, with a limited data plan and a network that changes throughout the day.
+
+Suddenly that beautiful homepage becomes a patience test.
+
+**The problem may not be the user's phone.**
+
+It may be that we designed the service as though everyone used the same equipment as us.
+
+## Coverage isn't the same as usage
+
+We talk a lot about fibre and 5G when discussing digital progress.
+
+Infrastructure matters.
+
+But it doesn't explain who can actually use the Internet.
+
+In a [December 2025 report](https://www.gsma.com/newsroom/press-release/new-gsma-report-shows-digital-reforms-could-connect-2-6-million-more-people-in-senegal-by-2030-and-expand-access-to-essential-services/), the GSMA reported that 4G covered around 97% of Senegal's population while actual mobile Internet usage remained much lower.
+
+Affordability, device cost and digital skills were among the barriers highlighted.
+
+That's a useful distinction: **being covered doesn't mean being connected, and being connected doesn't always mean a digital service is comfortable to use**.
+
+## What a developer can control
+
+I can't build new cell towers or make mobile data cheaper by myself.
+
+But I can question what my app asks users to download.
+
+Does that image really need several megabytes?
+
+Do we need ten libraries to display a simple form?
+
+Should a video load before the essential page content?
+
+Every decision has a cost.
+
+And when users pay it with data, battery life and waiting time, that cost is real.
+
+## The real test isn't always at the office
+
+Imagine an application form.
+
+It works perfectly on a fast connection.
+
+But the network drops before submission, and the user loses everything they typed.
+
+They must start over.
+
+Maybe they won't.
+
+The most useful improvement might not be a smoother animation. It might be keeping form data, explaining the error clearly or allowing the submission to resume.
+
+That's user experience too.
+
+## Practical habits
+
+For mobile-first services, I'd start with:
+
+- Optimised images and lazy loading.
+- Fewer unnecessary scripts.
+- Testing on real phones.
+- Clear loading and error states.
+- Preserving form inputs when appropriate.
+- Making essential actions work without heavy animations.
+- Measuring page weight under slow-network conditions.
+
+Some products need maps, video and real-time information. The point isn't to remove everything rich.
+
+It's to make every resource earn its place.
+
+## Inclusion is a design decision
+
+If a public service, job application or business tool is almost impossible to use on a modest phone, people are excluded even when the service is technically online.
+
+Better infrastructure helps.
+
+So does better design.
+
+I try to remember that **the machine I develop on isn't the world my product will live in**.
+
+A genuinely fast website isn't one that impresses the developer.
+
+It's one that lets the user complete their task.
+
+Even when the network wasn't informed about our ambitions. 😅

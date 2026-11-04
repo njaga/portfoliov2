@@ -1,0 +1,120 @@
+---
+title: "The monster behind the screen"
+subtitle: "An app can be simple to use. That may be exactly what makes it hard to build."
+seoTitle: "Why building a multi-service application is complicated"
+description: "The hidden complexity of multi-service platforms: state machines, real-time actions, notifications and business rules."
+illustration: "/blog/le-monstre-derriere-lecran.svg"
+category: Development
+createdAt: 2026-11-04
+updatedAt: 2026-11-04
+---
+
+In a transport app, a customer taps one button.
+
+They want a car.
+
+In a delivery app, they tap another.
+
+They want their order.
+
+Simple, right?
+
+From the screen, yes.
+
+But behind one button can live **an entire organisation that needs to work in real time**.
+
+It's the kind of complexity I've encountered while working on business systems and multi-service platforms.
+
+## Simple interface, complicated system
+
+Consider a hypothetical ride booking.
+
+The customer confirms a request.
+
+The system finds an available driver, may calculate a price, waits for acceptance, updates statuses and sends notifications.
+
+What if the driver declines?
+
+What if nobody is available?
+
+What if the customer cancels just as the driver accepts?
+
+What if the network fails after acceptance but before the confirmation arrives?
+
+The customer doesn't want to understand all of this.
+
+They just want to know whether the ride is confirmed.
+
+**A good app hides complexity from the user, not from the engineers who need to manage it.**
+
+## The importance of states
+
+Business systems often depend on state transitions.
+
+An order can be created, accepted, prepared, picked up, delivered or cancelled.
+
+Those labels aren't just coloured tags.
+
+They determine what people are allowed to do.
+
+Can a customer cancel after pickup? Who confirms delivery? What happens when a booking is refused?
+
+If these rules aren't explicit, the code can end up with contradictory conditions scattered everywhere.
+
+Each new feature becomes harder.
+
+## Notifications add another layer
+
+The same event may matter to several people.
+
+Customers need confirmations. Providers need requests. Administrators may need alerts.
+
+The system must decide who receives what, when and where.
+
+An event may be delivered twice. A notification can arrive when someone is offline. A booking may be cancelled while a message is still in a queue.
+
+These aren't details people show off in a sales demo.
+
+But they determine whether the service feels trustworthy.
+
+## When features collide
+
+A multi-service app might combine transport, delivery, bookings and commerce.
+
+It's attractive: one account, several needs.
+
+But each area has different actors, rules and exceptions.
+
+Trying to push everything into one data model because the screens look similar can create a mess.
+
+I prefer to separate shared services—accounts, authentication, notifications—from rules specific to each business area.
+
+It can take longer initially.
+
+It often saves trouble later.
+
+## Start by drawing the journey
+
+Before adding buttons, I try to map the scenarios.
+
+What does the customer do? What does the provider do? Which statuses exist? Which transitions are forbidden? What happens on failure?
+
+A simple diagram can expose a contradiction that several files of code might hide.
+
+Only then does implementation begin.
+
+## The quiet kind of elegance
+
+We admire software for animations, maps and beautiful transitions.
+
+I do too.
+
+But there's a quieter elegance: a product that gives clear answers even when things don't go to plan.
+
+Users don't need to know there are twenty rules behind a button.
+
+They need those rules to work.
+
+**Sometimes the best engineering makes complexity disappear for the people using the product.**
+
+Unfortunately for the developer, the complexity doesn't actually disappear. 😅

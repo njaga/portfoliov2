@@ -1,0 +1,126 @@
+---
+title: "Le monstre derrière l'écran"
+subtitle: "Une application peut sembler très simple à utiliser. C'est parfois ce qui la rend si difficile à développer."
+seoTitle: "Pourquoi développer une application multiservices est complexe"
+description: "Une application multiservices simple en façade cache des règles métiers, des statuts, des notifications et une architecture difficile à maintenir."
+illustration: "/blog/le-monstre-derriere-lecran.svg"
+category: Development
+createdAt: 2026-11-04
+updatedAt: 2026-11-04
+---
+
+Sur une application de transport, le client appuie sur un bouton.
+
+Il veut une voiture.
+
+Sur une application de livraison, il appuie sur un autre bouton.
+
+Il veut recevoir une commande.
+
+Facile, non ?
+
+Vu depuis l'écran, oui.
+
+Mais derrière un bouton apparemment simple peut se cacher **une petite organisation entière qui doit fonctionner en temps réel**.
+
+C'est le genre de complexité que j'ai découvert en travaillant sur des plateformes métiers et multiservices.
+
+## Une interface simple ne signifie pas un système simple
+
+Prenons une réservation de course, de manière hypothétique.
+
+Le client confirme une demande.
+
+Le système cherche un chauffeur disponible, calcule éventuellement un tarif, attend une acceptation, met à jour des statuts et envoie des notifications.
+
+Que se passe-t-il si le chauffeur refuse ?
+
+Si aucun chauffeur n'est disponible ?
+
+Si le client annule au moment où le chauffeur accepte ?
+
+Si le réseau coupe après l'acceptation mais avant que la confirmation apparaisse ?
+
+L'utilisateur ne veut pas connaître ces détails.
+
+Il veut simplement savoir si sa course est confirmée.
+
+**Le rôle de l'application est de rendre cette complexité invisible, pas de prétendre qu'elle n'existe pas.**
+
+## Une histoire de statuts
+
+Beaucoup de systèmes métiers reposent sur des transitions d'état.
+
+Une commande peut être « créée », « acceptée », « en préparation », « prise en charge », « livrée », « annulée ».
+
+Mais ces mots ne sont pas de simples étiquettes à afficher en couleur.
+
+Ils définissent ce que les utilisateurs ont le droit de faire.
+
+Peut-on annuler après la prise en charge ?
+
+Qui confirme la livraison ?
+
+Que devient une réservation refusée ?
+
+Quelles opérations financières ou notifications doivent suivre ?
+
+Si ces règles ne sont pas écrites clairement, le code finit souvent par contenir des conditions contradictoires dans plusieurs endroits.
+
+Et la prochaine fonctionnalité devient de plus en plus difficile à ajouter.
+
+## Les notifications compliquent encore le jeu
+
+Un événement peut intéresser plusieurs personnes.
+
+Le client attend une confirmation. Le prestataire attend une demande. L'administrateur veut savoir si un incident nécessite une intervention.
+
+Il faut choisir qui reçoit quoi, à quel moment et par quel canal.
+
+Le même événement peut arriver deux fois. La notification peut être envoyée alors que l'utilisateur est hors ligne. Une course peut être annulée pendant qu'un message est en attente.
+
+C'est le genre de détail que personne ne met en avant lors de la démonstration commerciale.
+
+Pourtant, il détermine largement la confiance que l'on accordera au service.
+
+## Le danger des fonctionnalités qui se croisent
+
+Une application multiservices peut vouloir réunir transport, livraison, réservation et commerce.
+
+L'idée est attirante : un compte, plusieurs besoins.
+
+Mais chaque domaine a ses règles, ses acteurs et ses exceptions.
+
+Vouloir tout mettre dans un seul modèle de données parce que les écrans se ressemblent peut créer des problèmes difficiles à démêler.
+
+J'essaie plutôt de distinguer les éléments communs — comptes, authentification, notifications — des règles propres à chaque service.
+
+Ce n'est pas toujours la solution la plus courte au départ.
+
+C'est souvent celle qui rend les changements moins douloureux ensuite.
+
+## Commencer par dessiner le parcours
+
+Avant d'ajouter des boutons, je préfère poser les scénarios.
+
+Que fait le client ? Que fait le prestataire ? Quels statuts sont possibles ? Quelles actions sont interdites ? Qu'arrive-t-il lorsqu'une étape échoue ?
+
+Un schéma très simple peut révéler une contradiction que plusieurs fichiers de code auraient rendue difficile à voir.
+
+Ensuite, seulement, on choisit comment l'implémenter.
+
+## La vraie élégance
+
+On admire parfois une interface pour ses animations, ses cartes et ses belles transitions.
+
+Moi aussi.
+
+Mais il existe une élégance plus discrète : celle d'un produit qui répond clairement même quand tout ne se passe pas comme prévu.
+
+Un utilisateur n'a pas besoin de savoir qu'il existe vingt règles derrière son bouton.
+
+Il a besoin que ces vingt règles fonctionnent.
+
+**Le plus beau travail consiste parfois à faire disparaître la complexité du regard de ceux qui utilisent le produit.**
+
+Et, malheureusement pour le développeur, elle ne disparaît pas pour autant. 😅

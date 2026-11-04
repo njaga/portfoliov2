@@ -1,0 +1,101 @@
+---
+title: "Ça marche chez moi !"
+subtitle: "La phrase préférée des développeurs. Jusqu'au premier déploiement."
+seoTitle: "Pourquoi une application fonctionne en local mais pas en production"
+description: "Les différences entre développement local et production : configurations, bases de données, dépendances, logs, tests et déploiements."
+illustration: "/blog/ca-marche-chez-moi.svg"
+category: Development
+createdAt: 2026-11-04
+updatedAt: 2026-11-04
+---
+
+C'est une phrase merveilleuse.
+
+« Ça marche chez moi. »
+
+On la prononce devant un écran où tout fonctionne. Le bouton répond, la base de données enregistre et l'application ne montre aucune erreur.
+
+Puis on déploie.
+
+Et soudain, le serveur a décidé qu'il ne partageait pas notre enthousiasme. 🙃
+
+C'est l'un des premiers chocs du développement : **une application qui fonctionne sur son ordinateur n'est pas forcément une application qui fonctionne dans le monde réel**.
+
+## Le monde parfait de l'ordinateur local
+
+Sur notre machine, nous contrôlons beaucoup de choses sans même y penser.
+
+La version de PHP ou de Node.js. Les extensions installées. Les accès à la base de données. Les variables d'environnement. Les fichiers présents sur le disque.
+
+Nous avons parfois des données de test idéales : trois utilisateurs, un formulaire bien rempli, aucun paiement en attente et une connexion stable.
+
+En production, les conditions sont différentes.
+
+Un chemin de fichier sensible à la casse. Une migration oubliée. Une variable d'environnement absente. Une dépendance qui ne s'installe pas exactement de la même manière.
+
+Ce sont de petits détails.
+
+Jusqu'au moment où ils empêchent tout de fonctionner.
+
+## Le bug qui n'a rien à voir avec le code
+
+Imaginez un formulaire d'inscription.
+
+En local, on remplit les champs et le compte est créé.
+
+Sur le serveur, on obtient une erreur. On passe une heure à relire le contrôleur, les règles de validation et les requêtes SQL.
+
+Puis on découvre que le service ne peut pas écrire dans le dossier utilisé pour stocker les documents.
+
+Le formulaire n'était pas mal programmé.
+
+L'environnement n'était pas prêt.
+
+Ce scénario est fictif, mais il décrit un type de problème très réel : **la cause d'un échec peut être extérieure à l'endroit où il apparaît**.
+
+C'est pour cela que les journaux d'erreurs, les permissions et les configurations méritent autant d'attention que le code.
+
+## Réduire la distance entre les environnements
+
+Plus le développement et la production se ressemblent, moins on laisse de place aux mauvaises surprises.
+
+Cela peut passer par des versions de dépendances verrouillées, une configuration documentée, des services conteneurisés si le projet le justifie, et des environnements de prévisualisation.
+
+Il n'est pas nécessaire d'installer une infrastructure compliquée pour un petit site.
+
+Mais il est utile de savoir précisément ce qui change entre deux environnements.
+
+Si une mise à jour nécessite dix actions manuelles connues d'une seule personne, la prochaine livraison sera probablement stressante.
+
+## Ce que je vérifie avant de publier
+
+Je ne peux pas garantir qu'un déploiement sera toujours parfait, mais quelques contrôles évitent beaucoup de dégâts :
+
+- Les secrets et variables d'environnement nécessaires sont-ils présents ?
+- Les migrations de base de données ont-elles été testées ?
+- Les fichiers et droits d'accès sont-ils corrects ?
+- Les fonctions importantes marchent-elles sur la prévisualisation ?
+- Les erreurs sont-elles visibles dans des journaux exploitables ?
+- Existe-t-il une manière de revenir en arrière si la version échoue ?
+
+Et après publication, il faut ouvrir le vrai site.
+
+Pas seulement regarder une coche verte dans un tableau de bord.
+
+## Ce que « terminé » devrait vouloir dire
+
+Pour un développeur, on peut être tenté de considérer une tâche finie dès que le code est écrit.
+
+Mais l'utilisateur ne voit pas notre terminal local.
+
+Il voit le service qui lui est livré.
+
+Une fonctionnalité n'est donc pas réellement terminée lorsqu'elle passe seulement sur l'ordinateur de son auteur.
+
+**Elle est terminée lorsqu'elle résout correctement le problème dans l'environnement où elle doit servir.**
+
+C'est moins satisfaisant que de dire « ça marche chez moi ».
+
+Mais beaucoup plus utile.
+
+Et quand le serveur ne partage pas notre enthousiasme, il reste une excellente question à poser : *qu'est-ce qui est différent ici ?*

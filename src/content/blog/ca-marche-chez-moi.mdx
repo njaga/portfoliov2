@@ -1,0 +1,101 @@
+---
+title: "Works on my machine!"
+subtitle: "Every developer's favourite sentence. Until the first deployment."
+seoTitle: "Why an app works locally but fails in production"
+description: "The gap between local development and production: environment variables, dependencies, databases, logging and deployment checklists."
+illustration: "/blog/ca-marche-chez-moi.svg"
+category: Development
+createdAt: 2026-11-04
+updatedAt: 2026-11-04
+---
+
+It's a wonderful sentence.
+
+“Works on my machine.”
+
+You say it while looking at an app that behaves perfectly. The button works. The database saves. No errors appear.
+
+Then you deploy.
+
+And the server decides it doesn't share your enthusiasm. 🙃
+
+It's one of the early surprises of software development: **an app working on your laptop isn't necessarily an app working in the real world**.
+
+## The comfort of local development
+
+On your own computer, you control more than you realise.
+
+The PHP or Node.js version. Installed extensions. Database permissions. Environment variables. Files on disk.
+
+You may even have perfect test data: three users, a well-filled form, no failed payments and reliable Wi-Fi.
+
+Production is different.
+
+A case-sensitive filename. A missed migration. An absent environment variable. A dependency installed with a slightly different version.
+
+Small details.
+
+Until they stop everything.
+
+## The bug outside the code
+
+Imagine a registration form.
+
+Locally, you submit it and the account is created.
+
+On the server, it fails. You spend an hour rereading validation rules, the controller and SQL queries.
+
+Then you discover the server cannot write to the folder where uploaded documents should be stored.
+
+The form wasn't necessarily wrong.
+
+The environment wasn't ready.
+
+This is a hypothetical example, but the lesson is real: **the cause of a failure may live somewhere other than where the error appears**.
+
+That's why logs, file permissions and configuration deserve attention.
+
+## Making environments more alike
+
+The closer development, testing and production environments are, the fewer surprises you should expect.
+
+Version-locking dependencies, documenting configuration, using preview deployments and sometimes containers can help.
+
+A small website doesn't need a huge infrastructure platform.
+
+But it does need a clear understanding of what's different between environments.
+
+If shipping requires ten manual steps only one person remembers, releases will become stressful.
+
+## My pre-deployment checklist
+
+Nothing guarantees a flawless release, but a few checks reduce unnecessary pain:
+
+- Are required secrets and environment variables available?
+- Have database migrations been tested?
+- Are file paths and permissions correct?
+- Do essential journeys work on the preview?
+- Can errors be seen in useful logs?
+- Is there a safe way to roll back?
+
+Then actually open the live website.
+
+Don't just admire a green status icon.
+
+## What “done” should mean
+
+Developers sometimes treat a task as complete when the code is written.
+
+But users never see our local terminal.
+
+They see the service we deliver.
+
+A feature isn't really finished because it passes on its author's laptop.
+
+**It's finished when it reliably solves the problem where people will use it.**
+
+Less satisfying than “works on my machine.”
+
+Much more useful.
+
+And when the server disagrees, you still have an excellent question: *what is different here?*

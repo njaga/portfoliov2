@@ -1,0 +1,130 @@
+---
+title: "The code I no longer understand"
+subtitle: "I wrote it myself. A few months later, I needed a guide to read it."
+seoTitle: "Technical debt and maintainable software: write code your future self can understand"
+description: "How shortcuts, unclear naming, missing tests and forgotten decisions turn working code into technical debt."
+illustration: "/blog/le-code-que-je-ne-comprends-plus.svg"
+category: Development
+createdAt: 2026-11-04
+updatedAt: 2026-11-04
+---
+
+There's a particular kind of embarrassment software developers encounter.
+
+You open an old project.
+
+Find a two-hundred-line function.
+
+Read the variables, conditions and comments.
+
+And wonder: **who wrote this?**
+
+Git history has an answer.
+
+You did.
+
+Wonderful. 😂
+
+## Code is a conversation with your future self
+
+When you build a feature, its logic feels obvious.
+
+You know why that condition exists. You remember the unusual customer requirement. You understand the vaguely named variable.
+
+Then you move on.
+
+Months later, those details have left your memory.
+
+The code becomes the only surviving trace of your reasoning.
+
+If it's hard to follow, even a small fix requires investigation.
+
+## The problem with small shortcuts
+
+Technical debt doesn't always begin with a dramatic mistake.
+
+Sometimes it's a validation rule copied into three controllers.
+
+A function with a vague name.
+
+A business rule hidden deep inside a query.
+
+A temporary workaround that never gets revisited.
+
+Each decision seems tolerable alone.
+
+Then they accumulate.
+
+One day, changing a status in one screen breaks something elsewhere.
+
+You start hesitating to touch the code.
+
+That isn't a good sign.
+
+## Documentation isn't a substitute for clarity
+
+The obvious answer is documentation.
+
+Yes, but useful documentation.
+
+A comment that simply repeats the next line adds little.
+
+An explanation of **why** an unusual decision was made can be invaluable.
+
+A small README describing how to run the project, required environment variables and where key business rules live may be worth more than a giant document nobody updates.
+
+Tests serve another purpose.
+
+They don't just show what code does today. They show what it should keep doing tomorrow.
+
+## What I try to do instead
+
+When a project becomes hard to understand, I prefer a gradual approach.
+
+First, identify the behaviour that matters.
+
+Then add or improve tests around essential cases.
+
+Only after that do I simplify naming, split responsibilities and remove painful duplication.
+
+It isn't dramatic.
+
+But it's safer than rewriting everything just to enjoy a cleaner-looking repository.
+
+## The big rewrite temptation
+
+Old code practically begs for a fresh start.
+
+New framework. New architecture. New folders.
+
+Everything neat again.
+
+But the existing system may contain years of business rules and exceptions discovered the hard way.
+
+A total rewrite can lose useful behaviour nobody thought to document.
+
+Sometimes the less heroic solution is better: improve one section at a time.
+
+## What about AI?
+
+Coding assistants make it possible to generate software quickly.
+
+They can also produce structures we accept without really understanding.
+
+The risk isn't that AI writes code differently.
+
+It's accumulating thousands of lines nobody can confidently maintain.
+
+I explore that in [Coding by instinct?](/blog/vibe-coding).
+
+## The real quality test
+
+Good code isn't only code that works today.
+
+It's code people can understand, fix and improve later.
+
+I'd like whoever opens my project in six months to understand my intentions.
+
+Even if that person is me.
+
+Especially if it's me. 😅

@@ -1,0 +1,132 @@
+---
+title: "Le code que je ne comprends plus"
+subtitle: "Je l'avais écrit moi-même. Quelques mois plus tard, il me fallait un guide pour le relire."
+seoTitle: "Dette technique et maintenance : écrire du code que l'on comprend encore"
+description: "Le coût des raccourcis techniques, des noms flous, de l'absence de tests et de la documentation qui n'a jamais été écrite."
+illustration: "/blog/le-code-que-je-ne-comprends-plus.svg"
+category: Development
+createdAt: 2026-11-04
+updatedAt: 2026-11-04
+---
+
+Il y a une petite humiliation que le métier de développeur nous réserve parfois.
+
+On ouvre un ancien projet.
+
+On trouve une fonction de deux cents lignes.
+
+On lit les noms des variables, puis les conditions, puis les commentaires.
+
+Et on se demande : **qui a écrit ça ?**
+
+La réponse apparaît dans l'historique Git.
+
+Nous.
+
+Formidable. 😂
+
+## Le code est une conversation avec notre futur nous
+
+Quand on écrit une fonctionnalité, son fonctionnement nous paraît évident.
+
+On sait pourquoi une condition existe. On se souvient du cas particulier demandé par un client. On connaît cette variable dont le nom n'est pas très clair.
+
+Puis on passe à autre chose.
+
+Quelques mois plus tard, tous ces détails ne sont plus dans notre tête.
+
+Le code devient alors la seule trace de notre raisonnement.
+
+S'il est difficile à suivre, on doit refaire une enquête avant de pouvoir corriger le moindre bug.
+
+## Le danger des petits raccourcis
+
+La dette technique ne commence pas toujours par une grosse erreur.
+
+Parfois, c'est une validation copiée dans trois contrôleurs.
+
+Un nom de fonction trop vague.
+
+Une règle métier cachée au milieu d'une requête.
+
+Une modification « provisoire » qui n'a jamais été revue.
+
+Chaque décision semble acceptable isolément.
+
+Puis elles s'accumulent.
+
+Un jour, changer un statut dans une page casse une fonctionnalité dans une autre.
+
+On commence à hésiter avant de toucher au code.
+
+C'est rarement bon signe.
+
+## La documentation ne remplace pas la clarté
+
+On pourrait répondre : il suffit de documenter.
+
+Oui, mais pas n'importe comment.
+
+Un commentaire qui répète exactement ce que fait la ligne suivante apporte peu de valeur.
+
+En revanche, expliquer **pourquoi** une décision inhabituelle a été prise peut éviter beaucoup de confusion.
+
+Un petit fichier README qui décrit comment lancer le projet, quelles variables sont nécessaires et où se trouvent les règles principales est parfois plus précieux qu'un long document jamais mis à jour.
+
+Les tests jouent aussi ce rôle.
+
+Ils ne montrent pas seulement ce que le code fait aujourd'hui. Ils expriment ce qu'on s'attend à ce qu'il continue de faire demain.
+
+## Ce que j'essaie de faire différemment
+
+Quand j'interviens sur un projet qui devient difficile à comprendre, je préfère avancer par étapes.
+
+D'abord, identifier ce que la fonctionnalité doit garantir.
+
+Ensuite, écrire ou améliorer des tests autour des comportements essentiels.
+
+Puis seulement, simplifier les noms, découper les responsabilités et supprimer les répétitions vraiment gênantes.
+
+Ce n'est pas toujours spectaculaire.
+
+Mais c'est plus sûr que de tout réécrire pour retrouver le plaisir d'avoir un projet « propre ».
+
+## Le piège de la grande refonte
+
+Face à du code ancien, la tentation est forte : repartir de zéro.
+
+Nouveau framework. Nouvelle architecture. Nouveau dossier.
+
+Plus rien de l'ancien système.
+
+Sur le papier, c'est très séduisant.
+
+Mais le code en place contient aussi des années de règles métier et d'exceptions découvertes dans la réalité.
+
+Tout réécrire peut faire perdre des comportements utiles dont personne n'a pensé à rédiger la liste.
+
+Parfois, la meilleure solution est moins héroïque : améliorer une partie à la fois.
+
+## Et l'IA dans tout ça ?
+
+Les assistants de code permettent d'aller vite.
+
+Ils peuvent aussi générer des structures que l'on accepte sans réellement les lire.
+
+Le risque n'est pas que l'IA écrive du code différent du nôtre.
+
+Le risque est d'ajouter des milliers de lignes dont personne ne maîtrise les conséquences.
+
+J'en parle dans [Coder à l'instinct ?](/blog/vibe-coding).
+
+## Le vrai critère de qualité
+
+Un bon code n'est pas seulement celui qui fonctionne aujourd'hui.
+
+C'est aussi celui qu'on peut comprendre, corriger et faire évoluer dans des conditions raisonnables.
+
+J'aimerais que le développeur qui ouvrira mes projets dans six mois puisse saisir mes intentions.
+
+Même si ce développeur, c'est encore moi.
+
+Surtout si c'est encore moi. 😅
