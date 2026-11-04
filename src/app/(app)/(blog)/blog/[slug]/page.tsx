@@ -42,7 +42,7 @@ export async function generateMetadata({
     return notFound();
   }
 
-  const title = post.metadata.title;
+  const title = post.metadata.seoTitle || post.metadata.title;
   const description = post.metadata.description;
   const { image, createdAt, updatedAt } = post.metadata;
 
@@ -88,6 +88,7 @@ function getPageJsonLd(post: Post): WithContext<PageSchema> {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: post.metadata.title,
+    ...(post.metadata.subtitle ? { alternativeHeadline: post.metadata.subtitle } : {}),
     description: post.metadata.description,
     image:
       post.metadata.image ||
