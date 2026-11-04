@@ -44,7 +44,7 @@ export function Blog() {
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {allPosts.map((post) => (
-            <PostItem key={post.slug} post={post} locale={locale} />
+            <PostItem key={post.slug} post={post} locale={locale} variant="compact" />
           ))}
         </div>
       </div>
