@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+<title id="title">Encore un projet ?</title>
+<desc id="desc">Une illustration originale d'un développeur entouré de projets, de notes et de fenêtres d'application, devant un ordinateur KUMBA.</desc>
+<rect width="1200" height="720" fill="#fffaf0"/>
+<ellipse cx="609" cy="616" rx="470" ry="35" fill="#e9ddc8" opacity=".58"/>
+<path d="M53 600H1144" stroke="#252b37" stroke-width="7" stroke-linecap="round"/>
+<path d="M125 77c18-19 46-13 59 9M989 71c17 0 29 12 31 30M177 461l-17 15m34-7-12 23" fill="none" stroke="#f3bd57" stroke-width="8" stroke-linecap="round"/>
+<!-- floating client card -->
+<g transform="rotate(-8 230 208)">
+<rect x="98" y="111" width="267" height="206" rx="24" fill="#fff" stroke="#252b37" stroke-width="8"/>
+<rect x="98" y="111" width="267" height="48" rx="24" fill="#f5d47c" stroke="#252b37" stroke-width="8"/>
+<path d="M100 150h260" stroke="#252b37" stroke-width="7"/>
+<circle cx="131" cy="135" r="7" fill="#e87760"/><circle cx="155" cy="135" r="7" fill="#72b7ac"/>
+<rect x="130" y="184" width="108" height="18" rx="9" fill="#d6e5f2"/>
+<rect x="130" y="216" width="191" height="14" rx="7" fill="#e2e3de"/>
+<rect x="130" y="242" width="153" height="14" rx="7" fill="#e2e3de"/>
+<path d="M309 280l18-21 11 10" fill="none" stroke="#e48164" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<!-- floating news card -->
+<g transform="rotate(8 967 210)">
+<rect x="856" y="117" width="263" height="207" rx="24" fill="#ffffff" stroke="#252b37" stroke-width="8"/>
+<rect x="884" y="151" width="118" height="16" rx="8" fill="#e4a46a"/>
+<rect x="884" y="185" width="210" height="14" rx="7" fill="#dce6e0"/>
+<rect x="884" y="209" width="155" height="14" rx="7" fill="#dce6e0"/>
+<rect x="884" y="247" width="77" height="53" rx="12" fill="#abd9cd" stroke="#252b37" stroke-width="5"/>
+<path d="M897 286l15-21 12 10 12-18 13 29" fill="none" stroke="#252b37" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="980" y="253" width="109" height="11" rx="6" fill="#e2e3de"/>
+<rect x="980" y="276" width="86" height="11" rx="6" fill="#e2e3de"/>
+</g>
+<!-- light bulb -->
+<g transform="rotate(-7 604 98)">
+<path d="M584 143c-19-13-31-33-27-56 5-29 25-46 52-44 27 1 47 22 47 48 0 20-9 35-28 51l-3 18h-37z" fill="#ffdd7e" stroke="#252b37" stroke-width="7" stroke-linejoin="round"/>
+<path d="M587 168h36m-32 12h28m-34-59-13-24m39 20 13-28" stroke="#252b37" stroke-width="6" stroke-linecap="round"/>
+<path d="M537 40l-12-13m94-2 9-18m57 43 18-10" fill="none" stroke="#f0b84b" stroke-width="8" stroke-linecap="round"/>
+</g>
+<!-- person behind computer -->
+<path d="M445 495c0-90 42-145 151-146 107 0 154 62 158 148" fill="#7bbaaa" stroke="#252b37" stroke-width="9"/>
+<path d="M474 474c31-43 68-61 107-62m122 61c-23-40-58-60-85-62" fill="none" stroke="#5d9a90" stroke-width="7" stroke-linecap="round"/>
+<path d="M555 351v30c20 25 56 26 78 0v-34" fill="#b97b55" stroke="#252b37" stroke-width="8"/>
+<ellipse cx="597" cy="283" rx="81" ry="88" fill="#c78b64" stroke="#252b37" stroke-width="9"/>
+<path d="M518 278c-12-17-2-45 7-58-6-32 28-48 44-44 20-32 53-19 66-7 32-9 59 20 57 42 23 25 8 52-7 68-10-3-17-19-22-36-20 0-35-10-50-24-20 16-48 20-76 16-1 17-8 37-19 43z" fill="#342a2b" stroke="#252b37" stroke-width="8" stroke-linejoin="round"/>
+<path d="M549 269q15-10 29 0m32 1q13-10 28 0" fill="none" stroke="#252b37" stroke-width="7" stroke-linecap="round"/>
+<ellipse cx="569" cy="284" rx="5" ry="7" fill="#252b37"/><ellipse cx="626" cy="284" rx="5" ry="7" fill="#252b37"/>
+<path d="M598 290l-5 20 12 3" fill="none" stroke="#935c44" stroke-width="5" stroke-linecap="round"/>
+<path d="M580 328q18 16 36 0" fill="none" stroke="#252b37" stroke-width="6" stroke-linecap="round"/>
+<ellipse cx="515" cy="290" rx="13" ry="20" fill="#c78b64" stroke="#252b37" stroke-width="6"/>
+<ellipse cx="679" cy="290" rx="13" ry="20" fill="#c78b64" stroke="#252b37" stroke-width="6"/>
+<!-- hands -->
+<path d="M461 451c-51 12-82 40-95 70-16 37-1 43 18 38l113-59" fill="#7bbaaa" stroke="#252b37" stroke-width="9" stroke-linejoin="round"/>
+<path d="M381 522c-19-15-48-10-54 10-5 16 3 27 16 31 21 7 40-1 58-18" fill="#c78b64" stroke="#252b37" stroke-width="8"/>
+<path d="M735 449c59 11 85 42 111 65 24 25 21 45-3 46-23 1-84-37-126-65" fill="#7bbaaa" stroke="#252b37" stroke-width="9" stroke-linejoin="round"/>
+<path d="M827 519c27-19 56-9 60 11 6 23-12 34-30 28-11-4-21-10-31-19" fill="#c78b64" stroke="#252b37" stroke-width="8"/>
+<!-- laptop at foreground -->
+<rect x="430" y="413" width="354" height="186" rx="23" fill="#5f7b91" stroke="#252b37" stroke-width="10"/>
+<rect x="453" y="435" width="310" height="140" rx="13" fill="#8fb2bf"/>
+<circle cx="605" cy="489" r="34" fill="#ffdd7e" stroke="#252b37" stroke-width="7"/>
+<path d="M588 491l15 16 24-33" fill="none" stroke="#252b37" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="605" y="550" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="20" font-weight="900" letter-spacing="5" fill="#252b37">KUMBA</text>
+<path d="M408 596h397l-32 23H442z" fill="#a8b9be" stroke="#252b37" stroke-width="9" stroke-linejoin="round"/>
+<!-- scattered sticky notes -->
+<g transform="rotate(11 277 457)">
+<rect x="209" y="385" width="132" height="124" rx="6" fill="#f8cf79" stroke="#252b37" stroke-width="7"/>
+<path d="M233 421h80m-80 20h60m-60 21h75" stroke="#997b48" stroke-width="7" stroke-linecap="round"/>
+</g>
+<g transform="rotate(-12 927 468)">
+<rect x="866" y="402" width="140" height="120" rx="6" fill="#ef9e87" stroke="#252b37" stroke-width="7"/>
+<path d="M890 435h80m-80 24h67" stroke="#9b5448" stroke-width="7" stroke-linecap="round"/>
+<path d="M935 490l12-11 12 9" fill="none" stroke="#9b5448" stroke-width="7" stroke-linecap="round"/>
+</g>
+<!-- coffee and device cables -->
+<path d="M948 584v23c0 15 18 25 35 25s35-10 35-25v-23z" fill="#f8cf79" stroke="#252b37" stroke-width="7"/>
+<path d="M1018 588c22-7 37 11 22 27-6 6-13 8-22 5" fill="none" stroke="#252b37" stroke-width="7"/>
+<path d="M969 562q-9-10 0-20m20 21q-8-10 0-20" fill="none" stroke="#252b37" stroke-width="5" stroke-linecap="round"/>
+<path d="M250 593q30-27 60 0m28-2q15-17 27 0" fill="none" stroke="#252b37" stroke-width="5" stroke-linecap="round"/>
+<!-- stars -->
+<path d="M1077 395l7-18 7 18 18 7-18 7-7 18-7-18-18-7z" fill="#f3bd57" stroke="#252b37" stroke-width="5"/>
+<path d="M127 360l5-12 5 12 12 5-12 5-5 12-5-12-12-5z" fill="#abd9cd" stroke="#252b37" stroke-width="4"/>
+</svg>
