@@ -94,9 +94,9 @@ export function BlogExplorer({
       </div>
 
       {visible.length ? (
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+        <div className="flex flex-col">
           {visible.map((post) => (
-            <PostItem key={post.slug} post={post} locale={locale} />
+            <PostItem key={post.slug} post={post} locale={locale} variant="list" />
           ))}
         </div>
       ) : (
