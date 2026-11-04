@@ -9,6 +9,7 @@ import { SITE_INFO } from "@/config/site";
 import { findNeighbour, getAllPosts, getPostBySlug } from "@/data/blog";
 import { USER } from "@/data/user";
 import { defaultLocale } from "@/lib/i18n";
+import { getEditorialCategory, toBlogPreview } from "@/lib/blog-editorial";
 import type { Post } from "@/types/blog";
 
 import { Back } from "./back";
@@ -41,12 +42,8 @@ export async function generateMetadata({
     return notFound();
   }
 
-  // Utiliser les traductions si disponibles
-  const { getTranslatedBlogPost } = await import("@/lib/translations");
-  const postTranslation = getTranslatedBlogPost(slug, locale);
-
-  const title = postTranslation?.title || post.metadata.title;
-  const description = postTranslation?.description || post.metadata.description;
+  const title = post.metadata.title;
+  const description = post.metadata.description;
   const { image, createdAt, updatedAt } = post.metadata;
 
   // Construire l'URL absolue de l'image
@@ -62,10 +59,6 @@ export async function generateMetadata({
     description,
     alternates: {
       canonical: `/blog/${post.slug}`,
-      languages: {
-        fr: `/blog/${post.slug}`,
-        en: `/blog/${post.slug}`,
-      },
     },
     openGraph: {
       url: blogUrl,
@@ -138,8 +131,18 @@ export default async function Page({
   //   0
   // );
 
-  const allPosts = getAllPosts();
+  const allPosts = getAllPosts(locale);
   const { previous, next } = findNeighbour(allPosts, slug);
+  const category = getEditorialCategory(post);
+  const related = allPosts
+    .filter((item) => item.slug !== slug)
+    .sort(
+      (a, b) =>
+        Number(getEditorialCategory(b) === category) -
+        Number(getEditorialCategory(a) === category)
+    )
+    .slice(0, 2)
+    .map(toBlogPreview);
 
   return (
     <>
@@ -161,7 +164,7 @@ export default async function Page({
       </div>
 
       <Suspense>
-        <BlogPostContent post={post} toc={toc} />
+        <BlogPostContent post={post} toc={toc} locale={locale} related={related} />
       </Suspense>
 
       <div className="screen-line-before h-4 w-full" />
