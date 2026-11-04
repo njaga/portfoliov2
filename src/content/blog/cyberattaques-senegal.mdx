@@ -1,80 +1,84 @@
 ---
-title: "Cyberattacks in Senegal: When strategic institutions become targets"
-description: "Analysis of the recent cyberattacks against the DAF and DGID in Senegal, exposing the critical vulnerabilities of national digital infrastructures."
+title: "When ID cards stop"
+illustration: "/blog/quand-les-cartes-sarretent.svg"
+seoTitle: "Senegal cyber incident: the DAF identity-card interruption and public-service security"
+subtitle: "An IT incident can interrupt a public service—and everything that depends on it."
+description: "A sourced look at the February 2026 incident affecting Senegal's DAF identity card production and the lessons for public-sector cybersecurity."
 image: /blog/cyberattaques-senegal.png
 category: Security
 createdAt: 2026-02-06
-updatedAt: 2026-02-06
+updatedAt: "2026-11-04"
 ---
 
-Senegal is currently facing a major cybersecurity crisis. Several strategic state institutions have been victims of sophisticated cyberattacks, exposing critical vulnerabilities in our national digital infrastructures. Between ransomware, theft of sensitive data, and astronomical ransom demands, the country faces a threat that goes far beyond the technical realm to touch on national sovereignty.
+You rarely notice how important an IT system is while it works.
 
-## DAF under pirate fire: 139 terabytes of data held hostage
+An identity-card application. An administrative file. A check. A service that is supposed to simply respond.
 
-The Directorate for Automation of Files (DAF) announced this week the temporary suspension of national identity card production following a cyberattack detected in early February 2026. The cybercriminal group "The Green Blood Group" claims responsibility for this attack and asserts holding no less than 139 terabytes of data including:
+Then one day, it stops.
 
-- The identities of the entire Senegalese population
-- Complete biometric data
-- Electoral rolls
-- Immigration data
+And something that sounded like an issue only for IT teams becomes a very real problem for thousands of people.
 
-What is particularly concerning is that this group, which only appeared in early 2026, reportedly targeted only two countries: Senegal and Egypt. This attack also raises questions about the management of technical service providers, notably Iris Corporation, whose reaction upon discovering the intrusion fueled questions about a possible underlying commercial conflict.
+That's what the incident reported by Senegal's **Directorate of File Automation (DAF)** in February 2026 reminds me of.
 
-## DGID paralyzed since October 2025
+## What was officially confirmed
 
-A few months earlier, in October 2025, the General Directorate of Taxes and Domains (DGID) suffered an equally devastating attack. The group "BlackShantrac" paralyzed the tax administration's computer systems, rendering tax management and collection software inaccessible.
+In its [February 5, 2026 statement](https://www.interieur.gouv.sn/actualites/communiques/communique-de-la-direction-de-l-automatisation-des-fichiers-du-05-fevrier-2026), Senegal's Interior Ministry said that an incident in the DAF system had temporarily suspended production of national identity cards.
 
-The hackers are demanding a ransom of 10 million euros (about 6.5 billion FCFA) and claim to have stolen 1 terabyte of sensitive data including:
+The ministry reported technical recovery measures, stated that citizens' personal data remained intact and announced an investigation.
 
-- Tax and financial information of taxpayers
-- Administration HR data
-- Password management files
-- Documents related to Senegalese companies
+Those are the facts the institution publicly confirmed at that point.
 
-The DGID attempted to downplay the incident by citing a simple "technical problem," but the facts speak for themselves: the systems remained paralyzed for several days, severely disrupting tax services.
+Other reports relayed claims attributed to a cybercriminal group about allegedly stolen data. **A criminal claim is not, by itself, independent verification of what data was compromised or in what quantity.**
 
-## A series of attacks revealing our structural flaws
+That distinction matters enormously when identity information is involved.
 
-These cyberattacks are not isolated incidents. They highlight several critical issues:
+## Why an interruption reaches so far
 
-**1. Obsolete or poorly secured infrastructure**
-The affected institutions likely use aging or misconfigured systems, facilitating intrusion by cybercriminals.
+An identity card isn't used only during an identity check.
 
-**2. Lack of cybersecurity culture**
-Insufficient training of public agents in IT security best practices creates easy entry points for attackers.
+It can be required for administrative, financial and professional processes, and sometimes travel.
 
-**3. Absence of an effective response plan**
-The delayed reactions and poor communication from authorities demonstrate the absence of clear protocols in the event of a cyberattack.
+When its production stops, the consequences reach far beyond the IT system responsible.
 
-**4. Dependence on external providers**
-The management of critical systems by third-party companies raises questions of digital sovereignty and control of strategic infrastructures.
+That's what makes public infrastructure critical: many other activities depend on it.
 
-## What to do in the face of this growing threat?
+## What the incident teaches us
 
-As a digital professional, I believe it is urgent to act on several fronts:
+Cybersecurity is often described as the ability to stop intrusions.
 
-**For public institutions:**
+That's necessary. But the next question is just as important: **what happens when normal operations are no longer possible?**
 
-- Audit all critical information systems
-- Massively train agents on cybersecurity issues
-- Implement robust and disconnected backup systems
-- Develop internal cybersecurity skills
+Teams need to isolate systems, understand what happened, preserve evidence, restore priority services and communicate clearly with the public.
 
-**For private companies:**
+Resilient public services need multiple safeguards:
 
-- Do not wait to be victims to act
-- Invest in security solutions adapted to the local context
-- Raise awareness among all collaborators about cyber risks
-- Establish incident response protocols
+- Access control and privileged-account management.
+- Network segmentation and patch management.
+- Tested backups and continuity plans.
+- Monitoring and incident investigation.
+- Recovery exercises.
+- Clear communication during disruption.
 
-**For the Senegalese tech ecosystem:**
+Owning security tools isn't enough. They need to be part of how the organisation works.
 
-- Train more cybersecurity experts
-- Create security solutions adapted to African realities
-- Collaborate with institutions to strengthen national resilience
+## What about digital sovereignty?
 
-## A necessary wake-up call
+Sovereignty is not only about where a server is located.
 
-These attacks constitute an alarm signal that we can no longer ignore. The digital transformation we are calling for to accelerate the country's development cannot happen without a solid cybersecurity foundation.
+It also involves control over dependencies, providers, emergency procedures, local expertise and data recovery.
 
-Senegal must invest massively in the protection of its critical digital infrastructures. At stake is the protection of millions of citizens' data, economic stability, and, ultimately, our digital sovereignty.
+A locally hosted system can still be vulnerable. A well-designed system can still be fragile if nobody knows how to restore it.
+
+What matters is an organisation's real ability to **understand, control and recover** its services.
+
+## My takeaway
+
+As a developer, cases like this remind me that invisible decisions—backups, permissions, documentation and monitoring—become very visible when a service stops.
+
+No organisation can guarantee zero incidents.
+
+But we can build systems that are better prepared to prevent, detect, respond to and recover from them.
+
+And we can discuss cybersecurity without confusing confirmed facts, criminal claims and hypotheses.
+
+*This article analyses the publicly reported February 2026 incident. It does not claim to establish the final cause or scope of any alleged compromise.*
