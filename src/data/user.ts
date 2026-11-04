@@ -4,7 +4,7 @@ export const USER = {
   displayName: "Ndiaga Ndiaye",
   username: "ndiaga",
   gender: "male",
-  bio: "FullStack Developer passionate about digital transformation.",
+  bio: "Ndiaga Ndiaye, full-stack developer in Dakar, Senegal. Laravel, Next.js, SaaS and business applications. Founder of KAMIT and creator of KUMBA.",
   flipSentences: ["FullStack Developer", "UI/UX Designer", "Digital Marketer"],
   address: "Dakar, Senegal",
   phoneNumber: "KzIyMTc4MTYzMzQxOQ==", // E.164 format, base64 encoded (https://t.io.vn/base64-string-converter)
@@ -16,7 +16,7 @@ export const USER = {
     "https://www.x.com/ndiagandiaye",
   ],
   dateOfBirth: "1998-03-05", // YYYY-MM-DD
-  jobTitle: "FullStack Developer & Entrepreneur",
+  jobTitle: "Full-Stack Developer & Digital Entrepreneur",
   jobs: [
     {
       title: "Founder & CEO",

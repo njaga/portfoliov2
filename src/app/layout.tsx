@@ -43,15 +43,13 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: new URL(SITE_INFO.url),
     alternates: {
+      // Only the homepage is canonical here. Child routes set their own canonical.
+      // Locale switching currently uses cookies, not separately crawlable URLs.
       canonical: "/",
-      languages: {
-        fr: "/",
-        en: "/",
-      },
     },
     title: {
       template: `%s | ${SITE_INFO.name}`,
-      default: `${USER.displayName} - ${USER.jobTitle}`,
+      default: `${USER.displayName} | Full-Stack Developer in Dakar, Senegal`,
     },
     description,
     keywords: SITE_INFO.keywords,
@@ -82,7 +80,7 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      creator: "@ndiaga_dev",
+      creator: "@ndiagandiaye",
       description,
       images: [SITE_INFO.ogImage],
     },

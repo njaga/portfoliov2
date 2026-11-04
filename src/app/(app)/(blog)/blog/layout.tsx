@@ -11,8 +11,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const copy = BLOG_TEXT[locale];
   const title =
     locale === "fr"
-      ? "Journal de bord | Ndiaga Ndiaye"
-      : "Build journal | Ndiaga Ndiaye";
+      ? "Journal de bord"
+      : "Build journal";
   const description = copy.introduction;
   const ogImage = SITE_INFO.url + SITE_INFO.ogImage;
 

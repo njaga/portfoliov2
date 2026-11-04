@@ -90,17 +90,22 @@ function getPageJsonLd(post: Post): WithContext<PageSchema> {
     headline: post.metadata.title,
     ...(post.metadata.subtitle ? { alternativeHeadline: post.metadata.subtitle } : {}),
     description: post.metadata.description,
-    image:
-      post.metadata.image ||
-      `/og/simple?title=${encodeURIComponent(post.metadata.title)}`,
+    image: post.metadata.image
+      ? post.metadata.image.startsWith("http")
+        ? post.metadata.image
+        : `${SITE_INFO.url}${post.metadata.image}`
+      : `${SITE_INFO.url}/og/simple?title=${encodeURIComponent(post.metadata.title)}`,
     url: `${SITE_INFO.url}/blog/${post.slug}`,
     datePublished: dayjs(post.metadata.createdAt).toISOString(),
     dateModified: dayjs(post.metadata.updatedAt).toISOString(),
     author: {
       "@type": "Person",
+      "@id": `${USER.website}/#person`,
       name: USER.displayName,
       identifier: USER.username,
-      image: USER.avatar,
+      url: USER.website,
+      image: `${USER.website}${USER.avatar}`,
+      sameAs: USER.otherWebsites,
     },
   };
 }

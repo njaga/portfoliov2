@@ -65,13 +65,33 @@ function getPageJsonLd(): WithContext<PageSchema> {
   return {
     "@context": "https://schema.org",
     "@type": "ProfilePage",
+    "@id": `${USER.website}/#profile`,
     dateCreated: dayjs(USER.dateCreated).toISOString(),
-    dateModified: dayjs().toISOString(),
     mainEntity: {
       "@type": "Person",
+      "@id": `${USER.website}/#person`,
       name: USER.displayName,
       identifier: USER.username,
-      image: USER.avatar,
+      url: USER.website,
+      image: `${USER.website}${USER.avatar}`,
+      jobTitle: USER.jobTitle,
+      sameAs: USER.otherWebsites,
+      knowsAbout: [
+        "Full-stack web development",
+        "Laravel",
+        "Next.js",
+        "SaaS",
+        "Digital transformation",
+      ],
+      worksFor: {
+        "@type": "Organization",
+        name: "KAMIT Digital Solutions",
+        url: "https://kamit.tech",
+      },
+      homeLocation: {
+        "@type": "Place",
+        name: USER.address,
+      },
     },
   };
 }
