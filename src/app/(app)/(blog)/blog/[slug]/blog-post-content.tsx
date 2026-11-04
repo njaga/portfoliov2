@@ -64,11 +64,11 @@ export function BlogPostContent({
         </div>
       </header>
 
-      {post.metadata.image && (
+      {(post.metadata.illustration || post.metadata.image) && (
         <div className="px-5 pb-8 sm:px-10">
           <div className="relative aspect-[16/9] overflow-hidden rounded-2xl bg-muted">
             <Image
-              src={post.metadata.image}
+              src={post.metadata.illustration || post.metadata.image || ""}
               alt=""
               width={1200}
               height={675}
