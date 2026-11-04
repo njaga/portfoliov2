@@ -1,61 +1,108 @@
-import dayjs from "dayjs";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
-import { cn } from "@/lib/utils";
+import {
+  BLOG_TEXT,
+  type BlogPreview,
+  formatBlogDate,
+  getEditorialCategory,
+} from "@/lib/blog-editorial";
+import type { Locale } from "@/lib/i18n";
 import type { Post } from "@/types/blog";
+
+type PostCard = Post | BlogPreview;
 
 export function PostItem({
   post,
-  shouldPreloadImage,
+  shouldPreloadImage = false,
+  locale = "en",
+  variant = "list",
 }: {
-  readonly post: Post;
+  readonly post: PostCard;
   readonly shouldPreloadImage?: boolean;
+  readonly locale?: Locale;
+  readonly variant?: "list" | "compact";
 }) {
+  const category = "category" in post ? post.category : getEditorialCategory(post);
+  const minutes = "readingMinutes" in post ? post.readingMinutes : undefined;
+  const copy = BLOG_TEXT[locale];
+  const subtitle = post.metadata.subtitle || post.metadata.description;
+
+  if (variant === "compact") {
+    return (
+      <Link
+        href={`/blog/${post.slug}`}
+        className="group flex h-full flex-col overflow-hidden rounded-xl border border-edge transition-colors hover:bg-muted/30 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+      >
+        {(post.metadata.illustration || post.metadata.image) && (
+          <div className="relative aspect-[16/9] bg-muted/20">
+            <Image
+              src={post.metadata.illustration || post.metadata.image || ""}
+              alt=""
+              width={1200}
+              height={675}
+              sizes="(max-width: 640px) 100vw, 360px"
+              priority={shouldPreloadImage}
+              unoptimized
+              className="h-full w-full object-contain"
+            />
+          </div>
+        )}
+        <div className="flex flex-1 flex-col gap-2 p-4">
+          <p className="text-xs text-muted-foreground">{copy.categories[category]}</p>
+          <h3 className="font-heading text-lg leading-snug font-semibold text-balance group-hover:underline group-hover:underline-offset-4">
+            {post.metadata.title}
+          </h3>
+          <p className="line-clamp-2 text-sm leading-relaxed text-muted-foreground">{subtitle}</p>
+        </div>
+      </Link>
+    );
+  }
+
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className={cn(
-        "group/post flex flex-col gap-2 p-2",
-        "max-sm:screen-line-before max-sm:screen-line-after",
-        "sm:nth-[2n+1]:screen-line-before sm:nth-[2n+1]:screen-line-after"
-      )}
+      className="group grid items-center gap-5 border-b border-edge py-7 transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring sm:grid-cols-[minmax(0,1fr)_minmax(190px,0.9fr)] sm:gap-9"
     >
-      {post.metadata.image && (
-        <div className="relative select-none [&_img]:aspect-1200/630 [&_img]:rounded-xl [&_img]:object-cover">
-          <Image
-            src={post.metadata.image}
-            alt={post.metadata.title}
-            width={1200}
-            height={630}
-            quality={100}
-            className="aspect-1200/630 h-full w-full rounded-xl object-cover"
-            priority={shouldPreloadImage}
-            unoptimized
-          />
-
-          <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-black/10 ring-inset dark:ring-white/10" />
-
-          {post.metadata.new && (
-            <span className="absolute top-1.5 right-1.5 rounded-md bg-info px-1.5 font-mono text-sm font-medium text-white text-shadow-xs">
-              New
-            </span>
-          )}
-        </div>
-      )}
-
-      <div className="flex flex-col gap-1 p-2">
-        <h3 className="font-heading text-lg leading-snug font-medium text-balance decoration-ring underline-offset-4 group-hover/post:underline">
+      <div className="flex flex-col items-start gap-2.5">
+        <span className="text-xs font-medium text-muted-foreground">
+          {copy.categories[category]}
+        </span>
+        <h3 className="font-heading text-2xl leading-[1.12] font-semibold tracking-tight text-balance group-hover:underline group-hover:underline-offset-4 sm:text-3xl">
           {post.metadata.title}
         </h3>
-
-        <time
-          className="text-sm text-muted-foreground"
-          dateTime={dayjs(post.metadata.createdAt).toISOString()}
-        >
-          {dayjs(post.metadata.createdAt).format("DD.MM.YYYY")}
-        </time>
+        <p className="max-w-[44ch] text-sm leading-relaxed text-muted-foreground sm:text-base">
+          {subtitle}
+        </p>
+        <div className="flex flex-wrap items-center gap-2 pt-2 text-xs text-muted-foreground">
+          <time dateTime={new Date(post.metadata.createdAt).toISOString()}>
+            {formatBlogDate(post.metadata.createdAt, locale)}
+          </time>
+          {minutes !== undefined && (
+            <>
+              <span aria-hidden="true">·</span>
+              <span>{minutes} {copy.readTime}</span>
+            </>
+          )}
+        </div>
+      </div>
+      <div className="relative aspect-[16/9] overflow-hidden rounded-xl bg-muted/20 sm:aspect-[5/3]">
+        {post.metadata.image ? (
+          <Image
+            src={post.metadata.illustration || post.metadata.image || ""}
+            alt=""
+            width={1200}
+            height={720}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 40vw, 430px"
+            priority={shouldPreloadImage}
+            unoptimized
+            className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.025]"
+          />
+        ) : (
+          <div className="flex h-full items-center justify-center text-sm italic text-muted-foreground">
+            {copy.categories[category]}
+          </div>
+        )}
       </div>
     </Link>
   );

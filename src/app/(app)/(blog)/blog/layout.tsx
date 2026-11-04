@@ -2,34 +2,40 @@ import type { Metadata } from "next";
 import { cookies } from "next/headers";
 
 import { SITE_INFO } from "@/config/site";
-import { defaultLocale, getTranslations, type Locale } from "@/lib/i18n";
+import { BLOG_TEXT } from "@/lib/blog-editorial";
+import type { Locale } from "@/lib/i18n";
 
 export async function generateMetadata(): Promise<Metadata> {
   const cookieStore = await cookies();
-  const locale = (cookieStore.get("locale")?.value as Locale) || defaultLocale;
-  const t = getTranslations(locale);
-
-  const ogImage = `${SITE_INFO.url}${SITE_INFO.ogImage}`;
+  const locale: Locale = cookieStore.get("locale")?.value === "fr" ? "fr" : "en";
+  const copy = BLOG_TEXT[locale];
+  const title =
+    locale === "fr"
+      ? "Journal de bord | Ndiaga Ndiaye"
+      : "Build journal | Ndiaga Ndiaye";
+  const description = copy.introduction;
+  const ogImage = SITE_INFO.url + SITE_INFO.ogImage;
 
   return {
-    title: t.blog.title,
-    description: t.blog.description,
+    title,
+    description,
+    alternates: { canonical: "/blog" },
     openGraph: {
-      url: `${SITE_INFO.url}/blog`,
+      url: SITE_INFO.url + "/blog",
       type: "website",
-      title: t.blog.title,
-      description: t.blog.description,
+      title,
+      description,
       images: {
         url: ogImage,
         width: 1200,
         height: 630,
-        alt: t.blog.title,
+        alt: title,
       },
     },
     twitter: {
       card: "summary_large_image",
-      title: t.blog.title,
-      description: t.blog.description,
+      title,
+      description,
       images: [ogImage],
     },
   };
