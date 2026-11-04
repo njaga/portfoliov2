@@ -47,7 +47,10 @@ export default async function BlogPage() {
             {copy.latest}
             <ArrowUpRightIcon className="size-4" />
           </a>
-          <Link href="/rss" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground">
+          <Link
+            href="/rss"
+            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground"
+          >
             <RssIcon className="size-4" />
             {copy.rss}
           </Link>
@@ -55,43 +58,46 @@ export default async function BlogPage() {
       </header>
 
       {featured && (
-        <section className="border-y border-edge bg-muted/20 px-5 py-10 sm:px-10">
-          <div className="mb-5 flex items-center justify-between gap-3">
-            <h2 className="text-xs font-semibold tracking-[0.18em] text-muted-foreground uppercase">
-              {copy.featured}
-            </h2>
-            <span className="text-xs text-muted-foreground">
-              {copy.categories[featured.category]}
-            </span>
-          </div>
-          <Link href={"/blog/" + featured.slug} className="group block">
-            {featured.metadata.image && (
-              <div className="relative mb-6 aspect-[16/9] overflow-hidden rounded-2xl bg-muted">
+        <section className="border-y border-edge bg-muted/10 px-5 py-9 sm:px-10 sm:py-12">
+          <p className="mb-6 text-xs font-semibold tracking-[0.18em] text-muted-foreground uppercase">
+            {copy.featuredLabel}
+          </p>
+          <Link
+            href={`/blog/${featured.slug}`}
+            className="group grid items-center gap-7 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring sm:grid-cols-[1fr_1fr] sm:gap-10"
+          >
+            <div>
+              <p className="text-xs text-muted-foreground">
+                {copy.categories[featured.category]}
+              </p>
+              <h2 className="mt-3 font-heading text-3xl leading-[1.1] font-semibold tracking-tight text-balance group-hover:underline group-hover:underline-offset-4 sm:text-4xl">
+                {featured.metadata.title}
+              </h2>
+              <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+                {featured.metadata.subtitle || featured.metadata.description}
+              </p>
+              <div className="mt-6 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+                <time dateTime={new Date(featured.metadata.createdAt).toISOString()}>
+                  {formatBlogDate(featured.metadata.createdAt, locale)}
+                </time>
+                <span aria-hidden="true">·</span>
+                <span>{featured.readingMinutes} {copy.readTime}</span>
+                <ArrowUpRightIcon className="ml-1 size-4 text-foreground" aria-hidden="true" />
+              </div>
+            </div>
+            <div className="relative aspect-[16/9] overflow-hidden rounded-xl bg-muted/20 sm:aspect-[5/4]">
+              {featured.metadata.image && (
                 <Image
                   src={featured.metadata.image}
                   alt=""
                   width={1200}
-                  height={675}
+                  height={900}
                   priority
-                  sizes="(max-width: 768px) 100vw, 720px"
+                  sizes="(max-width: 640px) 100vw, 440px"
                   unoptimized
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                  className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.025]"
                 />
-              </div>
-            )}
-            <h3 className="font-heading text-2xl leading-tight font-semibold text-balance group-hover:underline group-hover:underline-offset-4 sm:text-3xl">
-              {featured.metadata.title}
-            </h3>
-            <p className="mt-3 max-w-[60ch] text-sm leading-7 text-muted-foreground sm:text-base">
-              {featured.metadata.description}
-            </p>
-            <div className="mt-4 flex items-center gap-2 text-xs text-muted-foreground">
-              <time dateTime={new Date(featured.metadata.createdAt).toISOString()}>
-                {formatBlogDate(featured.metadata.createdAt, locale)}
-              </time>
-              <span aria-hidden="true">·</span>
-              <span>{featured.readingMinutes} {copy.readTime}</span>
-              <ArrowUpRightIcon className="ml-auto size-5 text-foreground" aria-hidden="true" />
+              )}
             </div>
           </Link>
         </section>
