@@ -23,7 +23,7 @@
     "page": "Page",
     "of": "of",
     "projectsTotal": "projects total",
-    "collection": "A collection of my projects and work.",
+    "collection": "Websites, SaaS platforms and business applications I've built with Laravel, Next.js and other technologies.",
     "haveProject": "Have a Project in Mind?",
     "excited": "I'm always excited to work on new projects and bring ideas to life. Let's discuss how we can collaborate!",
     "startProject": "Start a Project",
@@ -44,7 +44,7 @@
   "contact": {
     "title": "Contact",
     "workTogether": "Let's work together",
-    "description": "Contact me to discuss your web projects and request a quote.",
+    "description": "Contact Ndiaga Ndiaye, full-stack web developer based in Dakar, Senegal, to discuss Laravel, Next.js, SaaS or custom software projects.",
     "getInTouch": "Get in Touch",
     "email": "Email",
     "phone": "Phone",
@@ -82,7 +82,7 @@
   },
   "services": {
     "title": "Services",
-    "description": "Comprehensive digital services to help your business grow and succeed in the digital world.",
+    "description": "Website development, custom business software, SaaS applications, UX and SEO services in Dakar, Senegal.",
     "getQuote": "Get Quote",
     "viewAll": "View all services",
     "backToPortfolio": "Back to Portfolio",
@@ -100,7 +100,7 @@
   },
   "about": {
     "title": "About",
-    "text": "I'm Ndiaga Ndiaye — a **Problem Solver** and **Digital Transporter**. I'm your **Swiss Army Knife** for digital challenges.\n\nI transform complex business problems into elegant digital solutions. Whether it's building scalable web applications, designing intuitive user interfaces, optimizing performance, or implementing robust backend systems — I deliver end-to-end solutions.\n\nMy expertise spans FullStack development, backend architecture, frontend design, DevOps, Progressive Web Apps, and exploring AI integration and machine learning solutions.\n\nWith over 4 years of experience, I founded **Kamit Digital Solutions** to support African startups in their digital transformation by providing solutions tailored to their needs and budgets.\n\n**Ready to solve your next digital challenge?** [Let's connect!](/contact)"
+    "text": "I'm **Ndiaga Ndiaye**, a **full-stack web developer and digital entrepreneur based in Dakar, Senegal**. I build websites, SaaS products and business applications that solve practical problems for organisations and their teams.\n\nI work with **Laravel (PHP), JavaScript, React and Next.js**, from user interfaces and APIs to databases, deployments and maintenance. I care as much about understanding a business need as I do about the quality of the code.\n\nI founded **[KAMIT Digital Solutions](https://kamit.tech)** to help businesses develop reliable, useful digital tools. I also build independent projects, including **[KUMBA](https://kumba.media)**, where I explore AI and digital publishing.\n\nExplore [my projects](/projects), read my [build journal](/blog), or [get in touch](/contact) to discuss a web application or digital project."
   },
   "experience": {
     "title": "Experience"
@@ -111,13 +111,13 @@
   "profile": {
     "overview": "Overview",
     "verified": "Verified",
-    "bio": "Problem Solver & Digital Transporter",
+    "bio": "Full-stack developer & digital entrepreneur — Dakar, Senegal",
     "flipSentences": [
-      "Problem Solver",
-      "Digital Transporter",
-      "Swiss Army Knife",
-      "FullStack Developer",
-      "UI/UX Designer"
+      "Full-stack Developer",
+      "Laravel & Next.js",
+      "SaaS & Business Software",
+      "Digital Product Builder",
+      "UI/UX & SEO"
     ],
     "jobs": [
       {
