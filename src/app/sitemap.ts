@@ -11,15 +11,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: dayjs(post.metadata.updatedAt).toISOString(),
   }));
 
+  // Avoid assigning the build timestamp to pages that weren't actually updated.
   const projects = PROJECTS.map((project) => ({
     url: `${SITE_INFO.url}/projects/${project.id}`,
-    lastModified: dayjs().toISOString(),
   }));
 
-  const routes = ["", "/projects", "/blog", "/components"].map((route) => ({
-    url: `${SITE_INFO.url}${route}`,
-    lastModified: dayjs().toISOString(),
-  }));
+  const routes = ["", "/projects", "/services", "/blog", "/contact"].map(
+    (route) => ({
+      url: `${SITE_INFO.url}${route}`,
+    })
+  );
 
   return [...routes, ...posts, ...projects];
 }

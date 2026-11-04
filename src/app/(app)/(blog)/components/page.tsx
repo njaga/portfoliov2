@@ -7,6 +7,7 @@ import { getPostsByCategory } from "@/data/blog";
 export const metadata: Metadata = {
   title: "Components",
   description: "A collection of reusable components.",
+  robots: { index: false, follow: true },
 };
 
 export default function Page() {
