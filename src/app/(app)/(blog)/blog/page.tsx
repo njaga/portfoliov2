@@ -1,14 +1,14 @@
 import { ArrowUpRightIcon, MapPinIcon, RssIcon } from "lucide-react";
+import { cookies } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
-import { cookies } from "next/headers";
 
+import { getAllPosts } from "@/data/blog";
 import {
   BLOG_TEXT,
   formatBlogDate,
   toBlogPreview,
 } from "@/lib/blog-editorial";
-import { getAllPosts } from "@/data/blog";
 import type { Locale } from "@/lib/i18n";
 
 import { BlogExplorer } from "./blog-explorer";
