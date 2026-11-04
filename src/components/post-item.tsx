@@ -87,7 +87,7 @@ export function PostItem({
         </div>
       </div>
       <div className="relative aspect-[16/9] overflow-hidden rounded-xl bg-muted/20 sm:aspect-[5/3]">
-        {post.metadata.image ? (
+        {(post.metadata.illustration || post.metadata.image) ? (
           <Image
             src={post.metadata.illustration || post.metadata.image || ""}
             alt=""
