@@ -6,7 +6,7 @@ import { Suspense } from "react";
 import type { BlogPosting as PageSchema, WithContext } from "schema-dts";
 
 import { SITE_INFO } from "@/config/site";
-import { findNeighbour, getAllPosts, getPostBySlug, getPublicModifiedAt } from "@/data/blog";
+import { findNeighbour, getAllPosts, getPostBySlug } from "@/data/blog";
 import { USER } from "@/data/user";
 import { getEditorialCategory, toBlogPreview } from "@/lib/blog-editorial";
 import { defaultLocale } from "@/lib/i18n";
@@ -15,9 +15,6 @@ import type { Post } from "@/types/blog";
 import { Back } from "./back";
 import { BlogNavigation } from "./blog-navigation";
 import { BlogPostContent } from "./blog-post-content";
-
-// The publishing schedule is evaluated on each request, not frozen at build time.
-export const dynamic = "force-dynamic";
 
 export async function generateStaticParams() {
   const posts = getAllPosts();
@@ -49,7 +46,7 @@ export async function generateMetadata({
   const description = post.metadata.description;
   const shareTitle = post.metadata.shareTitle || title;
   const shareDescription = post.metadata.shareDescription || description;
-  const { image, createdAt } = post.metadata;
+  const { image, createdAt, updatedAt } = post.metadata;
 
   // Construire l'URL absolue de l'image
   const ogImagePath = image || `/og/simple?title=${encodeURIComponent(shareTitle)}`;
@@ -71,7 +68,7 @@ export async function generateMetadata({
       title: shareTitle,
       description: shareDescription,
       publishedTime: dayjs(createdAt).toISOString(),
-      modifiedTime: getPublicModifiedAt(post.metadata),
+      modifiedTime: dayjs(updatedAt).toISOString(),
       images: {
         url: ogImage,
         width: 1200,
@@ -102,7 +99,7 @@ function getPageJsonLd(post: Post): WithContext<PageSchema> {
       : `${SITE_INFO.url}/og/simple?title=${encodeURIComponent(post.metadata.shareTitle || post.metadata.title)}`,
     url: `${SITE_INFO.url}/blog/${post.slug}`,
     datePublished: dayjs(post.metadata.createdAt).toISOString(),
-    dateModified: getPublicModifiedAt(post.metadata),
+    dateModified: dayjs(post.metadata.updatedAt).toISOString(),
     author: {
       "@type": "Person",
       "@id": `${USER.website}/#person`,

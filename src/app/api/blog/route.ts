@@ -12,9 +12,7 @@ export async function GET() {
       (cookieStore.get("locale")?.value as "fr" | "en") || defaultLocale;
 
     const posts = getAllPosts(locale);
-    return NextResponse.json(posts, {
-      headers: { "Cache-Control": "no-store" },
-    });
+    return NextResponse.json(posts);
   } catch (error) {
     console.error("Error fetching blog posts:", error);
     return NextResponse.json(
