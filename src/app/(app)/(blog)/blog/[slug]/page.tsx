@@ -44,10 +44,12 @@ export async function generateMetadata({
 
   const title = post.metadata.seoTitle || post.metadata.title;
   const description = post.metadata.description;
+  const shareTitle = post.metadata.shareTitle || title;
+  const shareDescription = post.metadata.shareDescription || description;
   const { image, createdAt, updatedAt } = post.metadata;
 
   // Construire l'URL absolue de l'image
-  const ogImagePath = image || `/og/simple?title=${encodeURIComponent(title)}`;
+  const ogImagePath = image || `/og/simple?title=${encodeURIComponent(shareTitle)}`;
   const ogImage = ogImagePath.startsWith("http")
     ? ogImagePath
     : `${SITE_INFO.url}${ogImagePath}`;
@@ -63,21 +65,21 @@ export async function generateMetadata({
     openGraph: {
       url: blogUrl,
       type: "article",
-      title,
-      description,
+      title: shareTitle,
+      description: shareDescription,
       publishedTime: dayjs(createdAt).toISOString(),
       modifiedTime: dayjs(updatedAt).toISOString(),
       images: {
         url: ogImage,
         width: 1200,
         height: 630,
-        alt: title,
+        alt: shareTitle,
       },
     },
     twitter: {
       card: "summary_large_image",
-      title,
-      description,
+      title: shareTitle,
+      description: shareDescription,
       images: [ogImage],
     },
   };
@@ -94,7 +96,7 @@ function getPageJsonLd(post: Post): WithContext<PageSchema> {
       ? post.metadata.image.startsWith("http")
         ? post.metadata.image
         : `${SITE_INFO.url}${post.metadata.image}`
-      : `${SITE_INFO.url}/og/simple?title=${encodeURIComponent(post.metadata.title)}`,
+      : `${SITE_INFO.url}/og/simple?title=${encodeURIComponent(post.metadata.shareTitle || post.metadata.title)}`,
     url: `${SITE_INFO.url}/blog/${post.slug}`,
     datePublished: dayjs(post.metadata.createdAt).toISOString(),
     dateModified: dayjs(post.metadata.updatedAt).toISOString(),
