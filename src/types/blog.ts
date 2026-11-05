@@ -3,6 +3,8 @@ export type PostMetadata = {
   subtitle?: string;
   seoTitle?: string;
   description: string;
+  shareTitle?: string;
+  shareDescription?: string;
   image?: string;
   illustration?: string;
   category?: string;
