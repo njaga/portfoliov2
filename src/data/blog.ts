@@ -14,6 +14,20 @@ function parseFrontmatter(fileContent: string) {
   };
 }
 
+// Published dates are calendar days in UTC (the site's editorial timezone, Dakar).
+// Future-dated posts stay in the repository but are not visible before launch.
+export function isPostPublished(metadata: PostMetadata, now = Date.now()): boolean {
+  const publishedAt = new Date(metadata.createdAt).getTime();
+  return Number.isFinite(publishedAt) && publishedAt <= now;
+}
+
+// A scheduled release can't be "last modified" before it was published.
+export function getPublicModifiedAt(metadata: PostMetadata): string {
+  const publicationDate = new Date(metadata.createdAt).getTime();
+  const modificationDate = new Date(metadata.updatedAt).getTime();
+  return new Date(Math.max(publicationDate, modificationDate)).toISOString();
+}
+
 function getMDXFiles(dir: string) {
   const allFiles = fs
     .readdirSync(dir)
@@ -55,7 +69,7 @@ function getMDXData(dir: string) {
 
 export function getAllPosts(locale?: "en" | "fr") {
   const blogDir = path.join(process.cwd(), "src", "content", "blog");
-  const posts = getMDXData(blogDir);
+  const posts = getMDXData(blogDir).filter((post) => isPostPublished(post.metadata));
 
   // Si une locale est spécifiée, essayer de charger les versions traduites
   if (locale && locale !== "en") {
@@ -95,6 +109,7 @@ export function getPostBySlug(slug: string, locale?: "en" | "fr") {
     const translatedPath = path.join(blogDir, `${slug}.${locale}.mdx`);
     if (fs.existsSync(translatedPath)) {
       const { metadata, content } = readMDXFile(translatedPath);
+      if (!isPostPublished(metadata)) return null;
       return {
         slug,
         metadata,
@@ -107,6 +122,7 @@ export function getPostBySlug(slug: string, locale?: "en" | "fr") {
   const defaultPath = path.join(blogDir, `${slug}.mdx`);
   if (fs.existsSync(defaultPath)) {
     const { metadata, content } = readMDXFile(defaultPath);
+    if (!isPostPublished(metadata)) return null;
     return {
       slug,
       metadata,
