@@ -54,19 +54,17 @@ export async function GET(request: Request) {
         <div tw="absolute flex inset-x-0 h-px bg-zinc-200 top-16" />
         <div tw="absolute flex inset-x-0 h-px bg-zinc-200 bottom-16" />
 
-        <div tw="absolute flex bottom-16 right-16">
-          <svg
-            width={160}
-            height={80}
-            viewBox="0 0 640 320"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+        <div tw="absolute flex bottom-16 right-16 items-center">
+          <span
+            style={{
+              fontFamily: "Roboto",
+              fontSize: 26,
+              letterSpacing: 1.2,
+              color: "#52525b",
+            }}
           >
-            <path
-              d="M192 0H224V64H192V0ZM64 0H192V64H64V0ZM0 64H64V256H0V64ZM64 256H192V320H64V256ZM192 256H224V320H192V256ZM224 192H288V256H224V192ZM288 128H352V192H288V128ZM352 64H416V128H352V64ZM416 0H448V64H416V0ZM448 0H576V64H448V0ZM576 64H640V256H576V64ZM448 256H576V320H448V256ZM416 256H448V320H416V256Z"
-              fill="currentColor"
-            />
-          </svg>
+            ndiagandiaye.com
+          </span>
         </div>
       </div>
     ),
