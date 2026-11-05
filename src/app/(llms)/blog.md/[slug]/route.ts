@@ -1,8 +1,6 @@
 import dayjs from "dayjs";
 
-import { getAllPosts, getPublicModifiedAt } from "@/data/blog";
-
-export const dynamic = "force-dynamic";
+import { getAllPosts } from "@/data/blog";
 
 export async function generateStaticParams() {
   const posts = getAllPosts();
@@ -37,7 +35,7 @@ ${post.metadata.description}
 
 ${post.content.trim()}
 
-Last updated on ${dayjs(getPublicModifiedAt(post.metadata)).format("MMMM D, YYYY")}
+Last updated on ${dayjs(post.metadata.updatedAt).format("MMMM D, YYYY")}
 `,
     {
       headers: {

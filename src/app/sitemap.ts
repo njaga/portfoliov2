@@ -1,15 +1,14 @@
+import dayjs from "dayjs";
 import type { MetadataRoute } from "next";
 
 import { SITE_INFO } from "@/config/site";
-import { getAllPosts, getPublicModifiedAt } from "@/data/blog";
+import { getAllPosts } from "@/data/blog";
 import { PROJECTS } from "@/features/profile/data/projects";
-
-export const dynamic = "force-dynamic";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts().map((post) => ({
     url: `${SITE_INFO.url}/blog/${post.slug}`,
-    lastModified: getPublicModifiedAt(post.metadata),
+    lastModified: dayjs(post.metadata.updatedAt).toISOString(),
   }));
 
   // Avoid assigning the build timestamp to pages that weren't actually updated.

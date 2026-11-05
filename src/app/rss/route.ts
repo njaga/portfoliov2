@@ -3,7 +3,7 @@ import dayjs from "dayjs";
 import { SITE_INFO } from "@/config/site";
 import { getAllPosts } from "@/data/blog";
 
-export const dynamic = "force-dynamic";
+export const dynamic = "force-static";
 
 export function GET() {
   const allPosts = getAllPosts();
@@ -33,7 +33,6 @@ export function GET() {
   return new Response(rssFeed, {
     headers: {
       "Content-Type": "text/xml",
-      "Cache-Control": "no-store",
     },
   });
 }
