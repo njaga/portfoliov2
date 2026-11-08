@@ -1,6 +1,6 @@
 import { ArrowRightIcon } from "lucide-react";
-import Link from "next/link";
 
+import Link from "@/components/localized-link";
 import { NdiagaMark } from "@/components/ndiaga-mark";
 import { Button } from "@/components/ui/button";
 

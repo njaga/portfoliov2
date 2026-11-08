@@ -1,8 +1,8 @@
 "use client";
 
 import { ArrowLeftIcon, ArrowRightIcon, MailIcon } from "lucide-react";
-import Link from "next/link";
 
+import Link from "@/components/localized-link";
 import { ProjectImage } from "@/components/ui/project-image";
 import { PROJECTS } from "@/features/profile/data/projects";
 import { useTranslation } from "@/hooks/use-translation";

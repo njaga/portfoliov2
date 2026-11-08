@@ -1,9 +1,9 @@
 import type { TOCItemType } from "fumadocs-core/server";
 import { ArrowUpRightIcon, BookOpenIcon, LinkedinIcon } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 
 import { InlineTOC } from "@/components/inline-toc";
+import Link from "@/components/localized-link";
 import { MDX } from "@/components/mdx";
 import { PostItem } from "@/components/post-item";
 import { Prose } from "@/components/ui/typography";
