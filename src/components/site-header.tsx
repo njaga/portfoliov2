@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
 
 import { CommandMenu } from "@/components/command-menu";
 import { DesktopNav } from "@/components/desktop-nav";
+import Link from "@/components/localized-link";
 import { MobileNav } from "@/components/mobile-nav";
 import { ToggleTheme } from "@/components/toggle-theme";
 import { MAIN_NAV } from "@/config/site";
