@@ -1,9 +1,9 @@
 "use client";
 
 import { ArrowRightIcon } from "lucide-react";
-import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
+import Link from "@/components/localized-link";
 import { PostItem } from "@/components/post-item";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "@/hooks/use-translation";

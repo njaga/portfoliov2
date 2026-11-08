@@ -1,8 +1,8 @@
 "use client";
 
 import { ChevronDownIcon } from "lucide-react";
-import Link from "next/link";
 
+import Link from "@/components/localized-link";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "@/hooks/use-translation";
 import { defaultLocale, getTranslations } from "@/lib/i18n";

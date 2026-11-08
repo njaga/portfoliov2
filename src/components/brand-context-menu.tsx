@@ -1,10 +1,10 @@
 "use client";
 
 import { DownloadIcon, TriangleDashedIcon, TypeIcon } from "lucide-react";
-import Link from "next/link";
 import { useTheme } from "next-themes";
 import { toast } from "sonner";
 
+import Link from "@/components/localized-link";
 import { copyText } from "@/utils/copy";
 
 import { getMarkSVG, getWordmarkSVG,NdiagaMark } from "./ndiaga-mark";

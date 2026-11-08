@@ -1,8 +1,8 @@
 "use client";
 
 import { ArrowRightIcon } from "lucide-react";
-import Link from "next/link";
 
+import Link from "@/components/localized-link";
 import { useTranslation } from "@/hooks/use-translation";
 import { defaultLocale } from "@/lib/i18n";
 import { getTranslatedService } from "@/lib/translations";

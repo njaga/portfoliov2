@@ -9,7 +9,12 @@ import { Providers } from "@/components/providers";
 import { META_THEME_COLORS, SITE_INFO } from "@/config/site";
 import { USER } from "@/data/user";
 import { fontGlitch, fontMono, fontSans } from "@/lib/fonts";
-import { defaultLocale, type Locale } from "@/lib/i18n";
+import {
+  addLocaleToPath,
+  defaultLocale,
+  getLanguageAlternates,
+  type Locale,
+} from "@/lib/i18n";
 
 function getWebSiteJsonLd(): WithContext<WebSite> {
   return {
@@ -37,19 +42,23 @@ const darkModeScript = String.raw`
 `;
 
 export async function generateMetadata(): Promise<Metadata> {
-  // Utiliser la bio de l'utilisateur comme description (elle est déjà traduite dans les données)
+  const cookieStore = await cookies();
+  const locale: Locale =
+    cookieStore.get("locale")?.value === "en" ? "en" : defaultLocale;
   const description = SITE_INFO.description;
 
   return {
     metadataBase: new URL(SITE_INFO.url),
     alternates: {
-      // Only the homepage is canonical here. Child routes set their own canonical.
-      // Locale switching currently uses cookies, not separately crawlable URLs.
-      canonical: "/",
+      canonical: addLocaleToPath("/", locale),
+      languages: getLanguageAlternates("/"),
     },
     title: {
       template: `%s | ${SITE_INFO.name}`,
-      default: `${USER.displayName} | Full-Stack Developer in Dakar, Senegal`,
+      default:
+        locale === "fr"
+          ? `${USER.displayName} | Développeur full stack à Dakar, Sénégal`
+          : `${USER.displayName} | Full-Stack Developer in Dakar, Senegal`,
     },
     description,
     keywords: SITE_INFO.keywords,
@@ -62,7 +71,8 @@ export async function generateMetadata(): Promise<Metadata> {
     creator: "Ndiaga Ndiaye",
     openGraph: {
       siteName: SITE_INFO.name,
-      url: "/",
+      url: addLocaleToPath("/", locale),
+      locale: locale === "fr" ? "fr_SN" : "en_US",
       type: "profile",
       firstName: USER.firstName,
       lastName: USER.lastName,
@@ -155,7 +165,7 @@ export default async function RootLayout({
           `}
         </Script>
 
-        <Providers>{children}</Providers>
+        <Providers initialLocale={locale}>{children}</Providers>
       </body>
     </html>
   );

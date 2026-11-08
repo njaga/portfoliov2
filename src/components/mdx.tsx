@@ -9,6 +9,7 @@ import { visit } from "unist-util-visit";
 
 import { ComponentPreview } from "@/components/component-preview";
 import { ComponentSource } from "@/components/component-source";
+import Link from "@/components/localized-link";
 import {
   Table,
   TableBody,
@@ -33,6 +34,12 @@ import { CopyButton } from "./copy-button";
 import { getIconForLanguageExtension, Icons } from "./icons";
 
 const components: MDXRemoteProps["components"] = {
+  a: ({ href, ...props }: React.ComponentProps<"a">) =>
+    href?.startsWith("/") && !href.startsWith("//") ? (
+      <Link href={href} {...props} />
+    ) : (
+      <a href={href} {...props} />
+    ),
   h1: (props: React.ComponentProps<"h1">) => <Heading as="h1" {...props} />,
   h2: (props: React.ComponentProps<"h2">) => <Heading as="h2" {...props} />,
   h3: (props: React.ComponentProps<"h3">) => <Heading as="h3" {...props} />,

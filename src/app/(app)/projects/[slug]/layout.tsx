@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 
 import { SITE_INFO } from "@/config/site";
 import { PROJECTS } from "@/features/profile/data/projects";
-import { defaultLocale, type Locale } from "@/lib/i18n";
+import { addLocaleToPath, defaultLocale, getLanguageAlternates, type Locale } from "@/lib/i18n";
 import { getTranslatedProject } from "@/lib/translations";
 
 export async function generateMetadata({
@@ -33,10 +33,12 @@ export async function generateMetadata({
     title,
     description,
     alternates: {
-      canonical: `/projects/${slug}`,
+      canonical: addLocaleToPath(`/projects/${slug}`, locale),
+      languages: getLanguageAlternates(`/projects/${slug}`),
     },
     openGraph: {
-      url: `/projects/${slug}`,
+      url: addLocaleToPath(`/projects/${slug}`, locale),
+      locale: locale === "fr" ? "fr_SN" : "en_US",
       type: "website",
       title,
       description,

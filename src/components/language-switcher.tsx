@@ -8,7 +8,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import type { Locale } from "@/lib/i18n";
+import { addLocaleToPath, type Locale } from "@/lib/i18n";
 
 // Composants SVG pour les drapeaux
 function FlagGB({ className }: { className?: string }) {
@@ -85,8 +85,12 @@ export function LanguageSwitcher() {
   const CurrentFlag = currentLang.Flag;
 
   const handleLanguageChange = (newLocale: Locale) => {
+    if (newLocale === locale) return;
     setLocale(newLocale);
-    window.location.reload();
+
+    const nextUrl = new URL(window.location.href);
+    nextUrl.pathname = addLocaleToPath(nextUrl.pathname, newLocale);
+    window.location.assign(nextUrl.toString());
   };
 
   return (

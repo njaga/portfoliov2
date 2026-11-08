@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 
 import { Icons } from "@/components/icons";
+import Link from "@/components/localized-link";
 import { getPostsByCategory } from "@/data/blog";
 
 export const metadata: Metadata = {

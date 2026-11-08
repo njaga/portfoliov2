@@ -1,9 +1,9 @@
 import type { TOCItemType } from "fumadocs-core/server";
 import { ArrowUpRightIcon, BookOpenIcon, LinkedinIcon } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 
 import { InlineTOC } from "@/components/inline-toc";
+import Link from "@/components/localized-link";
 import { MDX } from "@/components/mdx";
 import { PostItem } from "@/components/post-item";
 import { Prose } from "@/components/ui/typography";
@@ -16,7 +16,7 @@ import {
   getEditorialCategory,
   getReadingMinutes,
 } from "@/lib/blog-editorial";
-import type { Locale } from "@/lib/i18n";
+import { addLocaleToPath, type Locale } from "@/lib/i18n";
 import type { Post } from "@/types/blog";
 
 export function BlogPostContent({
@@ -33,7 +33,7 @@ export function BlogPostContent({
   const copy = BLOG_TEXT[locale];
   const category = getEditorialCategory(post);
   const readingMinutes = getReadingMinutes(post.content);
-  const articleUrl = SITE_INFO.url + "/blog/" + post.slug;
+  const articleUrl = SITE_INFO.url + addLocaleToPath("/blog/" + post.slug, locale);
   const shareUrl =
     "https://www.linkedin.com/sharing/share-offsite/?url=" +
     encodeURIComponent(articleUrl);

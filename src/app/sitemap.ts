@@ -4,23 +4,40 @@ import type { MetadataRoute } from "next";
 import { SITE_INFO } from "@/config/site";
 import { getAllPosts } from "@/data/blog";
 import { PROJECTS } from "@/features/profile/data/projects";
+import { addLocaleToPath } from "@/lib/i18n";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts().map((post) => ({
-    url: `${SITE_INFO.url}/blog/${post.slug}`,
+    path: `/blog/${post.slug}`,
     lastModified: dayjs(post.metadata.updatedAt).toISOString(),
   }));
 
-  // Avoid assigning the build timestamp to pages that weren't actually updated.
   const projects = PROJECTS.map((project) => ({
-    url: `${SITE_INFO.url}/projects/${project.id}`,
+    path: `/projects/${project.id}`,
   }));
 
   const routes = ["", "/projects", "/services", "/blog", "/blog/archive", "/contact"].map(
-    (route) => ({
-      url: `${SITE_INFO.url}${route}`,
-    })
+    (path) => ({ path: path || "/" })
   );
 
-  return [...routes, ...posts, ...projects];
+  // A common entry type avoids a union with an unknown lastModified field.
+  const entries: { path: string; lastModified?: string }[] = [
+    ...routes,
+    ...posts,
+    ...projects,
+  ];
+
+  // Each language has its own crawlable URL and reciprocal hreflang links.
+  return entries.flatMap((entry) =>
+    (["fr", "en"] as const).map((locale) => ({
+      url: `${SITE_INFO.url}${addLocaleToPath(entry.path, locale)}`,
+      lastModified: entry.lastModified,
+      alternates: {
+        languages: {
+          fr: `${SITE_INFO.url}${addLocaleToPath(entry.path, "fr")}`,
+          en: `${SITE_INFO.url}${addLocaleToPath(entry.path, "en")}`,
+        },
+      },
+    }))
+  );
 }

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
 
-import { defaultLocale, getTranslations, type Locale } from "@/lib/i18n";
+import { addLocaleToPath, defaultLocale, getLanguageAlternates, getTranslations, type Locale } from "@/lib/i18n";
 
 export async function generateMetadata(): Promise<Metadata> {
   const cookieStore = await cookies();
@@ -11,9 +11,13 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: t.contact.title,
     description: t.contact.description,
-    alternates: { canonical: "/contact" },
+    alternates: {
+      canonical: addLocaleToPath("/contact", locale),
+      languages: getLanguageAlternates("/contact"),
+    },
     openGraph: {
-      url: "/contact",
+      url: addLocaleToPath("/contact", locale),
+      locale: locale === "fr" ? "fr_SN" : "en_US",
       title: t.contact.title,
       description: t.contact.description,
     },

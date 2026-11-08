@@ -4,9 +4,9 @@ import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import { DownloadIcon, FileTextIcon } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import React, { useRef, useState } from "react";
 
+import Link from "@/components/localized-link";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 

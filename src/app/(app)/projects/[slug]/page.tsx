@@ -7,10 +7,10 @@ import {
   ExternalLinkIcon,
 } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import { notFound, useRouter } from "next/navigation";
 import React, { useState } from "react";
 
+import Link from "@/components/localized-link";
 import { Tag } from "@/components/ui/tag";
 import { Prose } from "@/components/ui/typography";
 import {

@@ -2,9 +2,9 @@
 
 import { ArrowRightIcon, ArrowUpRightIcon } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 
 import { Icons } from "@/components/icons";
+import Link from "@/components/localized-link";
 import { Button } from "@/components/ui/button";
 import { Tag } from "@/components/ui/tag";
 import { useTranslation } from "@/hooks/use-translation";

@@ -1,9 +1,9 @@
-import Link from "next/link";
 import { MarkdownAsync } from "react-markdown";
 import ReactMarkdown from "react-markdown";
 import rehypeExternalLinks from "rehype-external-links";
 import remarkGfm from "remark-gfm";
 
+import Link from "@/components/localized-link";
 import { UTM_PARAMS } from "@/config/site";
 import { rehypeAddQueryParams } from "@/lib/rehype-add-query-params";
 
