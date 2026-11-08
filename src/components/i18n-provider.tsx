@@ -41,6 +41,8 @@ export function I18nProvider({
   const setLocale = (newLocale: Locale) => {
     setLocaleState(newLocale);
     document.cookie = `locale=${newLocale}; path=/; max-age=31536000; SameSite=Lax`;
+    // Persist only an explicit visitor choice, not an automatically detected locale.
+    document.cookie = `locale_preference=${newLocale}; path=/; max-age=31536000; SameSite=Lax`;
     localStorage.setItem("locale", newLocale);
   };
 
