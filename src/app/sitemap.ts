@@ -20,11 +20,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     (path) => ({ path: path || "/" })
   );
 
+  // A common entry type avoids a union with an unknown lastModified field.
+  const entries: { path: string; lastModified?: string }[] = [
+    ...routes,
+    ...posts,
+    ...projects,
+  ];
+
   // Each language has its own crawlable URL and reciprocal hreflang links.
-  return [...routes, ...posts, ...projects].flatMap((entry) =>
+  return entries.flatMap((entry) =>
     (["fr", "en"] as const).map((locale) => ({
       url: `${SITE_INFO.url}${addLocaleToPath(entry.path, locale)}`,
-      ...("lastModified" in entry ? { lastModified: entry.lastModified } : {}),
+      lastModified: entry.lastModified,
       alternates: {
         languages: {
           fr: `${SITE_INFO.url}${addLocaleToPath(entry.path, "fr")}`,
