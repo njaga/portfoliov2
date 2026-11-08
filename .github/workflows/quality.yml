@@ -19,10 +19,6 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: TypeScript
         run: pnpm check-types
-      - name: Inspect middleware import autofix
-        run: |
-          pnpm exec eslint src/middleware.ts --fix
-          sed -n '1,8p' src/middleware.ts
       - name: ESLint
         run: pnpm lint
       - name: Production build
