@@ -2,11 +2,11 @@
 
 import { ArrowUpRightIcon, ChevronDownIcon } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import { Accordion as AccordionPrimitive } from "radix-ui";
 import React from "react";
 
 import { Icons } from "@/components/icons";
+import Link from "@/components/localized-link";
 import { MarkdownClient } from "@/components/markdown";
 import { Tag } from "@/components/ui/tag";
 import { Prose } from "@/components/ui/typography";
