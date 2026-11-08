@@ -1,58 +1,47 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
-import { defaultLocale, type Locale } from "@/lib/i18n";
+import { getLocaleFromPath, removeLocaleFromPath } from "@/lib/i18n";
 
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
-  // Ne pas traiter les routes API, statiques, etc.
-  if (
-    pathname.startsWith("/api") ||
-    pathname.startsWith("/_next") ||
-    pathname.startsWith("/favicon") ||
-    pathname.match(/\.(ico|png|jpg|jpeg|svg|gif|webp|woff|woff2|ttf|eot)$/)
-  ) {
-    return NextResponse.next();
+  // The URL, not a previous cookie or the visitor's browser, determines the
+  // language. French lives at /, English at /en and /en/...
+  if (pathname === "/fr" || pathname.startsWith("/fr/")) {
+    const redirect = request.nextUrl.clone();
+    redirect.pathname = removeLocaleFromPath(pathname);
+    return NextResponse.redirect(redirect, 308);
   }
 
-  // Détection de la langue préférée du navigateur ou cookie
-  const cookieLocale = request.cookies.get("locale")?.value as
-    | Locale
-    | undefined;
-  const acceptLanguage = request.headers.get("accept-language");
-  let locale: Locale = cookieLocale || defaultLocale;
+  const locale = getLocaleFromPath(pathname);
 
-  if (!cookieLocale && acceptLanguage) {
-    const preferredLocale = acceptLanguage.split(",")[0]?.split("-")[0];
-    if (preferredLocale === "fr") {
-      locale = "fr";
-    }
+  // Pass the locale to the current server render; a response cookie alone
+  // would only become readable on the *next* request.
+  request.cookies.set("locale", locale);
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set("x-locale", locale);
+
+  const options = { request: { headers: requestHeaders } };
+  let response: NextResponse;
+
+  if (locale === "en") {
+    const destination = request.nextUrl.clone();
+    destination.pathname = removeLocaleFromPath(pathname);
+    response = NextResponse.rewrite(destination, options);
+  } else {
+    response = NextResponse.next(options);
   }
 
-  // Créer une réponse et définir le cookie
-  const response = NextResponse.next();
-
-  // Toujours définir/mettre à jour le cookie de locale pour garantir la synchronisation
   response.cookies.set("locale", locale, {
     path: "/",
-    maxAge: 60 * 60 * 24 * 365, // 1 an
+    maxAge: 60 * 60 * 24 * 365,
     sameSite: "lax",
   });
-
-  // Ajouter un header pour que les composants puissent accéder à la locale
-  response.headers.set("x-locale", locale);
 
   return response;
 }
 
 export const config = {
-  matcher: [
-    // Matcher toutes les routes sauf:
-    // - api routes
-    // - _next (Next.js internals)
-    // - static files (images, etc.)
-    // - favicon.ico
-    "/((?!api|_next|.*\\..*|favicon.ico).*)",
-  ],
+  matcher: ["/((?!api|_next|.*\\..*|favicon.ico).*)"],
 };

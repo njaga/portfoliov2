@@ -1,9 +1,15 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 import { createContext, useContext, useEffect, useState } from "react";
 
-import { defaultLocale, getTranslations, type Locale } from "@/lib/i18n";
+import {
+  defaultLocale,
+  getLocaleFromPath,
+  getTranslations,
+  type Locale,
+} from "@/lib/i18n";
 
 type TranslationContextType = {
   locale: Locale;
@@ -16,67 +22,37 @@ const TranslationContext = createContext<TranslationContextType | undefined>(
   undefined
 );
 
-function getCookieLocale(): Locale | null {
-  if (typeof window === "undefined") {
-    return null;
-  }
+export function I18nProvider({
+  children,
+  initialLocale = defaultLocale,
+}: {
+  children: ReactNode;
+  initialLocale?: Locale;
+}) {
+  const pathname = usePathname();
+  const [locale, setLocaleState] = useState<Locale>(initialLocale);
 
-  const cookieLocale = document.cookie
-    .split("; ")
-    .find((row) => row.startsWith("locale="))
-    ?.split("=")[1] as Locale | undefined;
-
-  if (cookieLocale && (cookieLocale === "fr" || cookieLocale === "en")) {
-    return cookieLocale;
-  }
-
-  return null;
-}
-
-function getStoredLocale(): Locale | null {
-  if (typeof window === "undefined") {
-    return null;
-  }
-
-  const storedLocale = localStorage.getItem("locale") as Locale | null;
-  if (storedLocale && (storedLocale === "fr" || storedLocale === "en")) {
-    return storedLocale;
-  }
-
-  return null;
-}
-
-export function I18nProvider({ children }: { children: ReactNode }) {
-  const [mounted, setMounted] = useState(false);
-  const [locale, setLocaleState] = useState<Locale>(defaultLocale);
-
+  // Keep client-side navigation in sync with the URL. Do not restore an old
+  // preference that would override the language of a shared link.
   useEffect(() => {
-    // Au montage, lire la locale depuis le cookie ou localStorage
-    const cookieLocale = getCookieLocale();
-    if (cookieLocale) {
-      setLocaleState(cookieLocale);
-    } else {
-      const storedLocale = getStoredLocale();
-      if (storedLocale) {
-        setLocaleState(storedLocale);
-        document.cookie = `locale=${storedLocale}; path=/; max-age=31536000; SameSite=Lax`;
-      }
-    }
-    setMounted(true);
-  }, []);
+    setLocaleState(getLocaleFromPath(window.location.pathname));
+  }, [pathname]);
 
   const setLocale = (newLocale: Locale) => {
     setLocaleState(newLocale);
-    if (typeof window !== "undefined") {
-      document.cookie = `locale=${newLocale}; path=/; max-age=31536000; SameSite=Lax`;
-      localStorage.setItem("locale", newLocale);
-    }
+    document.cookie = `locale=${newLocale}; path=/; max-age=31536000; SameSite=Lax`;
+    localStorage.setItem("locale", newLocale);
   };
 
-  const t = getTranslations(locale);
-
   return (
-    <TranslationContext.Provider value={{ locale, setLocale, t, mounted }}>
+    <TranslationContext.Provider
+      value={{
+        locale,
+        setLocale,
+        t: getTranslations(locale),
+        mounted: true,
+      }}
+    >
       {children}
     </TranslationContext.Provider>
   );
