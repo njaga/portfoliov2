@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+import { cookies } from "next/headers";
 import type { ProfilePage as PageSchema, WithContext } from "schema-dts";
 
 import { USER } from "@/data/user";
@@ -13,15 +14,19 @@ import { Projects } from "@/features/profile/components/projects";
 import { Services } from "@/features/profile/components/services";
 import { SocialLinks } from "@/features/profile/components/social-links";
 import { TeckStack } from "@/features/profile/components/teck-stack";
+import { addLocaleToPath, type Locale } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
-export default function Page() {
+export default async function Page() {
+  const cookieStore = await cookies();
+  const locale: Locale = cookieStore.get("locale")?.value === "en" ? "en" : "fr";
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(getPageJsonLd()).replace(/</g, "\\u003c"),
+          __html: JSON.stringify(getPageJsonLd(locale)).replace(/</g, "\\u003c"),
         }}
       />
 
@@ -61,11 +66,11 @@ export default function Page() {
   );
 }
 
-function getPageJsonLd(): WithContext<PageSchema> {
+function getPageJsonLd(locale: Locale): WithContext<PageSchema> {
   return {
     "@context": "https://schema.org",
     "@type": "ProfilePage",
-    "@id": `${USER.website}/#profile`,
+    "@id": `${USER.website}${addLocaleToPath("/", locale)}#profile`,
     dateCreated: dayjs(USER.dateCreated).toISOString(),
     mainEntity: {
       "@type": "Person",
