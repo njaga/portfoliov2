@@ -1,8 +1,8 @@
 import { ArrowUpRightIcon, MapPinIcon, RssIcon } from "lucide-react";
 import type { Metadata } from "next";
-import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import Image from "next/image";
+import { redirect } from "next/navigation";
 
 import Link from "@/components/localized-link";
 import { SITE_INFO } from "@/config/site";
