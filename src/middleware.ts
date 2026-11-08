@@ -1,4 +1,4 @@
-import { NextResponse, type NextRequest } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 
 import { getLocaleFromPath, removeLocaleFromPath, type Locale } from "@/lib/i18n";
 
