@@ -1,6 +1,6 @@
 import { type NextRequest, NextResponse } from "next/server";
 
-import { getLocaleFromPath, removeLocaleFromPath, type Locale } from "@/lib/i18n";
+import { getLocaleFromPath, type Locale, removeLocaleFromPath } from "@/lib/i18n";
 
 /** Choose the first supported language from the browser's weighted preferences. */
 function getBrowserLocale(header: string | null): Locale {
