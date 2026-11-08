@@ -1,6 +1,5 @@
 import { ArrowLeftIcon, ArrowUpRightIcon } from "lucide-react";
 import type { Metadata } from "next";
-import { cookies } from "next/headers";
 
 import Link from "@/components/localized-link";
 import { getAllPosts } from "@/data/blog";
@@ -9,11 +8,11 @@ import {
   formatBlogDate,
   getEditorialCategory,
 } from "@/lib/blog-editorial";
-import { addLocaleToPath, getLanguageAlternates, type Locale } from "@/lib/i18n";
+import { localizedMetadata } from "@/lib/seo";
+import { getRequestLocale } from "@/lib/server-locale";
 
 async function getArchiveLocale(): Promise<Locale> {
-  const cookieStore = await cookies();
-  return cookieStore.get("locale")?.value === "fr" ? "fr" : "en";
+  return getRequestLocale();
 }
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -25,21 +24,7 @@ export async function generateMetadata(): Promise<Metadata> {
       ? "Tous les billets de Ndiaga Ndiaye : développement web, projets SaaS, intelligence artificielle et entrepreneuriat numérique au Sénégal."
       : "Browse all stories by Ndiaga Ndiaye about web development, SaaS products, AI and building a digital business in Senegal.";
 
-  return {
-    title,
-    description,
-    alternates: {
-      canonical: addLocaleToPath("/blog/archive", locale),
-      languages: getLanguageAlternates("/blog/archive"),
-    },
-    openGraph: {
-      url: addLocaleToPath("/blog/archive", locale),
-      title,
-      description,
-      type: "website",
-      locale: locale === "fr" ? "fr_SN" : "en_US",
-    },
-  };
+  return localizedMetadata(locale, "/blog/archive", title, description);
 }
 
 export default async function BlogArchivePage() {
