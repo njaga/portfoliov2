@@ -45,7 +45,10 @@ export async function generateMetadata(): Promise<Metadata> {
   const cookieStore = await cookies();
   const locale: Locale =
     cookieStore.get("locale")?.value === "en" ? "en" : defaultLocale;
-  const description = SITE_INFO.description;
+  const description =
+    locale === "fr"
+      ? "Ndiaga Ndiaye, développeur full stack à Dakar, Sénégal. Laravel, Next.js, applications métiers et SaaS. Fondateur de KAMIT et créateur de KUMBA."
+      : SITE_INFO.description;
 
   return {
     metadataBase: new URL(SITE_INFO.url),

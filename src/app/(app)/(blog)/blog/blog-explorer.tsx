@@ -52,6 +52,8 @@ export function BlogExplorer({
   );
 
   const pageCount = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+  const pageNumbers = Array.from({ length: pageCount }, (_, index) => index + 1)
+    .filter((number) => number === 1 || number === pageCount || Math.abs(number - Number(searchParams.get("page") || 1)) <= 2);
   const requestedPage = Number(searchParams.get("page") || 1);
   const page =
     Number.isSafeInteger(requestedPage) && requestedPage > 0
@@ -156,9 +158,24 @@ export function BlogExplorer({
             </span>
           )}
 
-          <span className="text-sm text-muted-foreground">
-            {locale === "fr" ? "Page" : "Page"} {page} / {pageCount}
-          </span>
+          <div className="flex items-center gap-1" aria-label={locale === "fr" ? "Pages" : "Pages"}>
+            {pageNumbers.map((number, index) => (
+              <span key={number} className="inline-flex items-center gap-1">
+                {index > 0 && number - pageNumbers[index - 1] > 1 && (
+                  <span aria-hidden="true" className="px-1 text-muted-foreground">…</span>
+                )}
+                <Link
+                  href={pageHref(number)}
+                  scroll={false}
+                  aria-label={`${locale === "fr" ? "Page" : "Page"} ${number}`}
+                  aria-current={number === page ? "page" : undefined}
+                  className={`rounded-md px-2 py-1 text-sm ${number === page ? "bg-foreground font-semibold text-background" : "text-muted-foreground hover:bg-muted"}`}
+                >
+                  {number}
+                </Link>
+              </span>
+            ))}
+          </div>
 
           {page < pageCount ? (
             <Link

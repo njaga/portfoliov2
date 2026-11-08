@@ -1,5 +1,6 @@
 import { ArrowUpRightIcon, MapPinIcon, RssIcon } from "lucide-react";
 import type { Metadata } from "next";
+import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import Image from "next/image";
 
@@ -28,8 +29,14 @@ export async function generateMetadata({
   const [cookieStore, query] = await Promise.all([cookies(), searchParams]);
   const locale: Locale = cookieStore.get("locale")?.value === "en" ? "en" : "fr";
   const category = EDITORIAL_CATEGORIES.find((c) => c === query.category);
+  const posts = getAllPosts(locale).map(toBlogPreview);
+  const featured = posts.find((post) => post.slug === "pourquoi-je-construis-kumba") ?? posts[0];
+  const filtered = posts.filter((post) => post.slug !== featured?.slug && (!category || post.category === category));
+  const pageCount = Math.max(1, Math.ceil(filtered.length / 6));
   const requested = Number(query.page);
-  const page = Number.isSafeInteger(requested) && requested > 1 ? requested : 1;
+  const page = Number.isSafeInteger(requested) && requested > 1
+    ? Math.min(requested, pageCount)
+    : 1;
 
   const params = new URLSearchParams();
   if (category) params.set("category", category);
@@ -65,8 +72,12 @@ export async function generateMetadata({
   };
 }
 
-export default async function BlogPage() {
-  const cookieStore = await cookies();
+export default async function BlogPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ page?: string; category?: string }>;
+}) {
+  const [cookieStore, query] = await Promise.all([cookies(), searchParams]);
   const locale: Locale = cookieStore.get("locale")?.value === "en" ? "en" : "fr";
   const copy = BLOG_TEXT[locale];
   const posts = getAllPosts(locale).map(toBlogPreview);
@@ -74,6 +85,24 @@ export default async function BlogPage() {
     posts.find((post) => post.slug === "pourquoi-je-construis-kumba") ??
     posts[0];
   const remaining = posts.filter((post) => post.slug !== featured?.slug);
+
+  const category = EDITORIAL_CATEGORIES.find((item) => item === query.category);
+  const filtered = remaining.filter((post) => !category || post.category === category);
+  const pageCount = Math.max(1, Math.ceil(filtered.length / 6));
+  const requested = query.page === undefined ? 1 : Number(query.page);
+  const page = Number.isSafeInteger(requested) && requested >= 1
+    ? Math.min(requested, pageCount)
+    : 1;
+  const params = new URLSearchParams();
+  if (category) params.set("category", category);
+  if (page > 1) params.set("page", String(page));
+  const expected = params.toString();
+  const provided = new URLSearchParams();
+  if (query.category !== undefined) provided.set("category", query.category);
+  if (query.page !== undefined) provided.set("page", query.page);
+  if (provided.toString() !== expected) {
+    redirect(addLocaleToPath(`/blog${expected ? `?${expected}` : ""}`, locale));
+  }
 
   return (
     <div>
