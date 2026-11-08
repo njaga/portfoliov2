@@ -9,7 +9,7 @@ import {
   formatBlogDate,
   getEditorialCategory,
 } from "@/lib/blog-editorial";
-import type { Locale } from "@/lib/i18n";
+import { addLocaleToPath, getLanguageAlternates, type Locale } from "@/lib/i18n";
 
 async function getArchiveLocale(): Promise<Locale> {
   const cookieStore = await cookies();
@@ -28,8 +28,17 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title,
     description,
-    alternates: { canonical: "/blog/archive" },
-    openGraph: { url: "/blog/archive", title, description, type: "website" },
+    alternates: {
+      canonical: addLocaleToPath("/blog/archive", locale),
+      languages: getLanguageAlternates("/blog/archive"),
+    },
+    openGraph: {
+      url: addLocaleToPath("/blog/archive", locale),
+      title,
+      description,
+      type: "website",
+      locale: locale === "fr" ? "fr_SN" : "en_US",
+    },
   };
 }
 

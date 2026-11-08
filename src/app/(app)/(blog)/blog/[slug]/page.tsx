@@ -9,7 +9,7 @@ import { SITE_INFO } from "@/config/site";
 import { findNeighbour, getAllPosts, getPostBySlug } from "@/data/blog";
 import { USER } from "@/data/user";
 import { getEditorialCategory, toBlogPreview } from "@/lib/blog-editorial";
-import { defaultLocale } from "@/lib/i18n";
+import { addLocaleToPath, defaultLocale, getLanguageAlternates, type Locale } from "@/lib/i18n";
 import type { Post } from "@/types/blog";
 
 import { Back } from "./back";
@@ -49,22 +49,30 @@ export async function generateMetadata({
   const { image, createdAt, updatedAt } = post.metadata;
 
   // Construire l'URL absolue de l'image
-  const ogImagePath = image || `/og/simple?title=${encodeURIComponent(shareTitle)}`;
+  // An English share card is always generated from the English title, not a
+  // language-neutral photo that may contain French text.
+  const ogImagePath =
+    locale === "en"
+      ? `/og/simple?title=${encodeURIComponent(shareTitle)}`
+      : image || `/og/simple?title=${encodeURIComponent(shareTitle)}`;
   const ogImage = ogImagePath.startsWith("http")
     ? ogImagePath
     : `${SITE_INFO.url}${ogImagePath}`;
 
-  const blogUrl = `${SITE_INFO.url}/blog/${post.slug}`;
+  const articlePath = `/blog/${post.slug}`;
+  const blogUrl = `${SITE_INFO.url}${addLocaleToPath(articlePath, locale)}`;
 
   return {
     title,
     description,
     alternates: {
-      canonical: `/blog/${post.slug}`,
+      canonical: addLocaleToPath(articlePath, locale),
+      languages: getLanguageAlternates(articlePath),
     },
     openGraph: {
       url: blogUrl,
       type: "article",
+      locale: locale === "fr" ? "fr_SN" : "en_US",
       title: shareTitle,
       description: shareDescription,
       publishedTime: dayjs(createdAt).toISOString(),
@@ -85,19 +93,20 @@ export async function generateMetadata({
   };
 }
 
-function getPageJsonLd(post: Post): WithContext<PageSchema> {
+function getPageJsonLd(post: Post, locale: Locale): WithContext<PageSchema> {
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: post.metadata.title,
     ...(post.metadata.subtitle ? { alternativeHeadline: post.metadata.subtitle } : {}),
     description: post.metadata.description,
-    image: post.metadata.image
-      ? post.metadata.image.startsWith("http")
-        ? post.metadata.image
-        : `${SITE_INFO.url}${post.metadata.image}`
-      : `${SITE_INFO.url}/og/simple?title=${encodeURIComponent(post.metadata.shareTitle || post.metadata.title)}`,
-    url: `${SITE_INFO.url}/blog/${post.slug}`,
+    image:
+      locale === "en" || !post.metadata.image
+        ? `${SITE_INFO.url}/og/simple?title=${encodeURIComponent(post.metadata.shareTitle || post.metadata.title)}`
+        : post.metadata.image.startsWith("http")
+          ? post.metadata.image
+          : `${SITE_INFO.url}${post.metadata.image}`,
+    url: `${SITE_INFO.url}${addLocaleToPath(`/blog/${post.slug}`, locale)}`,
     datePublished: dayjs(post.metadata.createdAt).toISOString(),
     dateModified: dayjs(post.metadata.updatedAt).toISOString(),
     author: {
@@ -157,7 +166,7 @@ export default async function Page({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(getPageJsonLd(post)).replace(/</g, "\\u003c"),
+          __html: JSON.stringify(getPageJsonLd(post, locale)).replace(/</g, "\\u003c"),
         }}
       />
 
