@@ -8,8 +8,8 @@ import remarkGfm from "remark-gfm";
 import { visit } from "unist-util-visit";
 
 import { ComponentPreview } from "@/components/component-preview";
-import Link from "@/components/localized-link";
 import { ComponentSource } from "@/components/component-source";
+import Link from "@/components/localized-link";
 import {
   Table,
   TableBody,
