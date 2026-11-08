@@ -37,7 +37,7 @@ interface ContactFormData {
 }
 
 export function ContactForm() {
-  const { t, mounted } = useTranslation();
+  const { t, mounted, locale } = useTranslation();
   const translations = mounted ? t : getTranslations(defaultLocale);
 
   const [formData, setFormData] = useState<ContactFormData>({
@@ -305,7 +305,7 @@ export function ContactForm() {
           </>
         ) : (
           <p role="alert" className="text-sm text-muted-foreground">
-            {mounted && window.location.pathname.startsWith("/en")
+            {locale === "en"
               ? "The contact form is temporarily unavailable. Please contact me by email."
               : "Le formulaire est temporairement indisponible. Contactez-moi par email."}
           </p>
