@@ -23,3 +23,26 @@ jobs:
         run: pnpm lint
       - name: Production build
         run: pnpm build
+
+  browser-tests:
+    needs: verify
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.10.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+      # Install Playwright in an isolated folder so the existing pnpm lockfile
+      # remains untouched. Pin the version for reproducible browser tests.
+      - name: Install Playwright test runner
+        run: npm install --prefix .ci --no-save --no-package-lock @playwright/test@1.56.1
+      - name: Install Chromium
+        run: ./.ci/node_modules/.bin/playwright install --with-deps chromium
+      - name: Browser regression tests
+        run: NODE_PATH="$PWD/.ci/node_modules" ./.ci/node_modules/.bin/playwright test
