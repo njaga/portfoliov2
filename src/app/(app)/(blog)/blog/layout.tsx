@@ -3,11 +3,11 @@ import { cookies } from "next/headers";
 
 import { SITE_INFO } from "@/config/site";
 import { BLOG_TEXT } from "@/lib/blog-editorial";
-import type { Locale } from "@/lib/i18n";
+import { addLocaleToPath, getLanguageAlternates, type Locale } from "@/lib/i18n";
 
 export async function generateMetadata(): Promise<Metadata> {
   const cookieStore = await cookies();
-  const locale: Locale = cookieStore.get("locale")?.value === "fr" ? "fr" : "en";
+  const locale: Locale = cookieStore.get("locale")?.value === "en" ? "en" : "fr";
   const copy = BLOG_TEXT[locale];
   const title =
     locale === "fr"
@@ -19,9 +19,13 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title,
     description,
-    alternates: { canonical: "/blog" },
+    alternates: {
+      canonical: addLocaleToPath("/blog", locale),
+      languages: getLanguageAlternates("/blog"),
+    },
     openGraph: {
-      url: SITE_INFO.url + "/blog",
+      url: SITE_INFO.url + addLocaleToPath("/blog", locale),
+      locale: locale === "fr" ? "fr_SN" : "en_US",
       type: "website",
       title,
       description,

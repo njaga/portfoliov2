@@ -1,21 +1,73 @@
 import { ArrowUpRightIcon, MapPinIcon, RssIcon } from "lucide-react";
+import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import Image from "next/image";
 
 import Link from "@/components/localized-link";
+import { SITE_INFO } from "@/config/site";
 import { getAllPosts } from "@/data/blog";
 import {
   BLOG_TEXT,
+  EDITORIAL_CATEGORIES,
   formatBlogDate,
   toBlogPreview,
 } from "@/lib/blog-editorial";
-import type { Locale } from "@/lib/i18n";
+import {
+  addLocaleToPath,
+  getLanguageAlternates,
+  type Locale,
+} from "@/lib/i18n";
 
 import { BlogExplorer } from "./blog-explorer";
 
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: Promise<{ page?: string; category?: string }>;
+}): Promise<Metadata> {
+  const [cookieStore, query] = await Promise.all([cookies(), searchParams]);
+  const locale: Locale = cookieStore.get("locale")?.value === "en" ? "en" : "fr";
+  const category = EDITORIAL_CATEGORIES.find((c) => c === query.category);
+  const requested = Number(query.page);
+  const page = Number.isSafeInteger(requested) && requested > 1 ? requested : 1;
+
+  const params = new URLSearchParams();
+  if (category) params.set("category", category);
+  if (page > 1) params.set("page", String(page));
+  const queryString = params.toString();
+  const route = `/blog${queryString ? `?${queryString}` : ""}`;
+  const title = locale === "fr" ? "Journal de bord" : "Build journal";
+  const pageTitle = page > 1 ? `${title} — page ${page}` : title;
+  const description = BLOG_TEXT[locale].introduction;
+  const localizedUrl = addLocaleToPath(route, locale);
+
+  return {
+    title: pageTitle,
+    description,
+    alternates: {
+      canonical: localizedUrl,
+      languages: getLanguageAlternates(route),
+    },
+    openGraph: {
+      url: `${SITE_INFO.url}${localizedUrl}`,
+      title: pageTitle,
+      description,
+      type: "website",
+      locale: locale === "fr" ? "fr_SN" : "en_US",
+      images: [{ url: `${SITE_INFO.url}${SITE_INFO.ogImage}`, width: 1200, height: 630, alt: pageTitle }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: pageTitle,
+      description,
+      images: [`${SITE_INFO.url}${SITE_INFO.ogImage}`],
+    },
+  };
+}
+
 export default async function BlogPage() {
   const cookieStore = await cookies();
-  const locale: Locale = cookieStore.get("locale")?.value === "fr" ? "fr" : "en";
+  const locale: Locale = cookieStore.get("locale")?.value === "en" ? "en" : "fr";
   const copy = BLOG_TEXT[locale];
   const posts = getAllPosts(locale).map(toBlogPreview);
   const featured =
