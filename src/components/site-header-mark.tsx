@@ -8,7 +8,7 @@ import { NdiagaMark } from "./ndiaga-mark";
 
 export function SiteHeaderMark() {
   const pathname = usePathname();
-  return pathname === "/" ? <NdiagaMarkMotion /> : <NdiagaMark />;
+  return pathname === "/" || pathname === "/en" ? <NdiagaMarkMotion /> : <NdiagaMark />;
 }
 
 function NdiagaMarkMotion() {

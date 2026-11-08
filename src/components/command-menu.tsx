@@ -32,7 +32,7 @@ import {
 import { PROJECTS } from "@/features/profile/data/projects";
 import { SOCIAL_LINKS as SOCIAL_LINKS_DATA } from "@/features/profile/data/social-links";
 import { useTranslation } from "@/hooks/use-translation";
-import { defaultLocale, getTranslations } from "@/lib/i18n";
+import { addLocaleToPath, defaultLocale, getTranslations } from "@/lib/i18n";
 import {
   getTranslatedBlogPost,
   getTranslatedProject,
@@ -208,10 +208,10 @@ export function CommandMenu() {
       if (external) {
         window.open(href, "_blank", "noopener");
       } else {
-        router.push(href);
+        router.push(addLocaleToPath(href, locale));
       }
     },
-    [router]
+    [locale, router]
   );
 
   const handleThemeChange = useCallback(

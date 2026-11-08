@@ -7,11 +7,12 @@ import { Provider as JotaiProvider } from "jotai";
 import { ThemeProvider } from "next-themes";
 
 import { Toaster } from "@/components/ui/sonner";
+import type { Locale } from "@/lib/i18n";
 
 import { I18nProvider } from "./i18n-provider";
 import { PostHogProvider } from "./posthog-provider";
 
-export function Providers({ children }: { children: React.ReactNode }) {
+export function Providers({ children, initialLocale }: { children: React.ReactNode; initialLocale: Locale }) {
   return (
     <JotaiProvider>
       <ThemeProvider
@@ -22,7 +23,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
         defaultTheme="system"
         attribute="class"
       >
-        <I18nProvider>
+        <I18nProvider initialLocale={initialLocale}>
           <AppProgressProvider
             color="var(--color-info)"
             height="2px"
