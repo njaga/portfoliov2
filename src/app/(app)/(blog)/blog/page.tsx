@@ -16,7 +16,6 @@ import {
   addLocaleToPath,
   getLanguageAlternates,
 } from "@/lib/i18n";
-
 import { getRequestLocale } from "@/lib/server-locale";
 
 import { BlogExplorer } from "./blog-explorer";
