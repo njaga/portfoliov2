@@ -11,7 +11,7 @@ import {
 import { localizedMetadata } from "@/lib/seo";
 import { getRequestLocale } from "@/lib/server-locale";
 
-async function getArchiveLocale(): Promise<Locale> {
+async function getArchiveLocale() {
   return getRequestLocale();
 }
 
