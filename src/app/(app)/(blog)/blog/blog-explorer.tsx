@@ -1,8 +1,10 @@
 "use client";
 
 import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useMemo } from "react";
 
+import Link from "@/components/localized-link";
 import { PostItem } from "@/components/post-item";
 import {
   BLOG_TEXT,
@@ -10,7 +12,7 @@ import {
   EDITORIAL_CATEGORIES,
   type EditorialCategory,
 } from "@/lib/blog-editorial";
-import type { Locale } from "@/lib/i18n";
+import { addLocaleToPath, type Locale } from "@/lib/i18n";
 
 const PAGE_SIZE = 6;
 type Filter = EditorialCategory | "all";
@@ -23,8 +25,15 @@ export function BlogExplorer({
   locale: Locale;
 }) {
   const copy = BLOG_TEXT[locale];
-  const [filter, setFilter] = useState<Filter>("all");
-  const [page, setPage] = useState(1);
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const requestedCategory = searchParams.get("category");
+  const filter: Filter =
+    requestedCategory &&
+    EDITORIAL_CATEGORIES.some((category) => category === requestedCategory)
+      ? (requestedCategory as EditorialCategory)
+      : "all";
 
   const availableCategories = useMemo(
     () =>
@@ -43,20 +52,42 @@ export function BlogExplorer({
   );
 
   const pageCount = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+  const requestedPage = Number(searchParams.get("page") || 1);
+  const page =
+    Number.isSafeInteger(requestedPage) && requestedPage > 0
+      ? Math.min(requestedPage, pageCount)
+      : 1;
   const visible = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
-  function chooseCategory(category: Filter) {
-    setFilter(category);
-    setPage(1);
+  function pageHref(nextPage: number, nextFilter: Filter = filter) {
+    const params = new URLSearchParams();
+    if (nextFilter !== "all") params.set("category", nextFilter);
+    if (nextPage > 1) params.set("page", String(nextPage));
+
+    const suffix = params.toString();
+    const pathname = addLocaleToPath("/blog", locale);
+    return `${pathname}${suffix ? `?${suffix}` : ""}#articles`;
   }
 
-  function changePage(nextPage: number) {
-    setPage(nextPage);
+  function chooseCategory(category: Filter) {
+    router.push(pageHref(1, category), { scroll: false });
     document.getElementById("articles")?.scrollIntoView({
       behavior: "smooth",
       block: "start",
     });
   }
+
+  function scrollToArticles() {
+    document.getElementById("articles")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+
+  const pagerClass =
+    "inline-flex items-center gap-2 rounded-lg border border-edge px-3 py-2 text-sm hover:bg-muted";
+  const disabledClass =
+    "inline-flex items-center gap-2 rounded-lg border border-edge px-3 py-2 text-sm opacity-40";
 
   return (
     <section id="articles" className="scroll-mt-24 px-5 py-10 sm:px-10">
@@ -107,27 +138,45 @@ export function BlogExplorer({
 
       {pageCount > 1 && (
         <nav className="mt-9 flex items-center justify-between gap-3" aria-label="Pagination">
-          <button
-            type="button"
-            disabled={page === 1}
-            onClick={() => changePage(page - 1)}
-            className="inline-flex items-center gap-2 rounded-lg border border-edge px-3 py-2 text-sm disabled:cursor-not-allowed disabled:opacity-40 hover:bg-muted"
-          >
-            <ArrowLeftIcon className="size-4" />
-            {copy.previous}
-          </button>
+          {page > 1 ? (
+            <Link
+              href={pageHref(page - 1)}
+              scroll={false}
+              onClick={scrollToArticles}
+              rel="prev"
+              className={pagerClass}
+            >
+              <ArrowLeftIcon className="size-4" />
+              {copy.previous}
+            </Link>
+          ) : (
+            <span aria-disabled="true" className={disabledClass}>
+              <ArrowLeftIcon className="size-4" />
+              {copy.previous}
+            </span>
+          )}
+
           <span className="text-sm text-muted-foreground">
-            {page} / {pageCount}
+            {locale === "fr" ? "Page" : "Page"} {page} / {pageCount}
           </span>
-          <button
-            type="button"
-            disabled={page === pageCount}
-            onClick={() => changePage(page + 1)}
-            className="inline-flex items-center gap-2 rounded-lg border border-edge px-3 py-2 text-sm disabled:cursor-not-allowed disabled:opacity-40 hover:bg-muted"
-          >
-            {copy.next}
-            <ArrowRightIcon className="size-4" />
-          </button>
+
+          {page < pageCount ? (
+            <Link
+              href={pageHref(page + 1)}
+              scroll={false}
+              onClick={scrollToArticles}
+              rel="next"
+              className={pagerClass}
+            >
+              {copy.next}
+              <ArrowRightIcon className="size-4" />
+            </Link>
+          ) : (
+            <span aria-disabled="true" className={disabledClass}>
+              {copy.next}
+              <ArrowRightIcon className="size-4" />
+            </span>
+          )}
         </nav>
       )}
     </section>
