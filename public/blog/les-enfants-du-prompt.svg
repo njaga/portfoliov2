@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-label="The children of the prompt">
+<title>The children of the prompt</title>
+<rect width="1200" height="720" fill="#fff8ee"/>
+<circle cx="1070" cy="100" r="163" fill="#d6e9de" opacity=".7"/>
+<circle cx="110" cy="590" r="155" fill="#f4d5a1" opacity=".6"/>
+<path d="M84 605h1035" stroke="#283241" stroke-width="9" stroke-linecap="round"/>
+<path d="M88 130l14-28 14 28 29 13-29 13-14 28-14-28-29-13z" fill="#f3c77f" stroke="#283241" stroke-width="5"/>
+
+<rect x="475" y="139" width="412" height="262" rx="26" fill="#fffefa" stroke="#283241" stroke-width="11"/>
+<rect x="503" y="170" width="356" height="53" rx="16" fill="#c7e3d5"/>
+<path d="M534 197h280" stroke="#75a58a" stroke-width="9" stroke-linecap="round"/>
+<path d="M541 263h234m-234 33h176m-176 33h246" stroke="#9fb8be" stroke-width="11" stroke-linecap="round"/>
+<path d="M599 400l-38 53 103-53" fill="#fffefa" stroke="#283241" stroke-width="9" stroke-linejoin="round"/>
+<g transform="translate(143 317)">
+<path d="M10 283q5-162 148-162 139 0 150 162" fill="#7db69e" stroke="#283241" stroke-width="11"/>
+<ellipse cx="159" cy="85" rx="83" ry="89" fill="#bb805c" stroke="#283241" stroke-width="10"/>
+<path d="M77 87Q58 0 141-11q78-10 103 69l-33-13-26-26q-47 40-105 26z" fill="#283241"/>
+<circle cx="126" cy="90" r="9" fill="#283241"/><circle cx="188" cy="90" r="9" fill="#283241"/>
+<path d="M138 129q23 17 42-4" stroke="#283241" stroke-width="7" stroke-linecap="round" fill="none"/>
+<rect x="48" y="211" width="228" height="111" rx="15" fill="#b5d3df" stroke="#283241" stroke-width="10"/>
+<path d="M29 325h266l-26 22H53z" fill="#e3e9e7" stroke="#283241" stroke-width="9"/>
+</g>
+<circle cx="1002" cy="313" r="92" fill="#f3d18e" stroke="#283241" stroke-width="10"/>
+<path d="M969 286q0-31 35-31 34 0 35 30 0 20-30 40l-1 16" stroke="#283241" stroke-width="12" fill="none" stroke-linecap="round"/>
+<circle cx="1008" cy="362" r="9" fill="#283241"/>
+<path d="M994 422v65m-54-24h108" stroke="#283241" stroke-width="9" stroke-linecap="round"/>
+
+</svg>

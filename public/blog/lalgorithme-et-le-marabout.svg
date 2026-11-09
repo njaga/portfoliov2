@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-label="The algorithm and the marabout">
+<title>The algorithm and the marabout</title>
+<rect width="1200" height="720" fill="#fff8ee"/>
+<circle cx="1070" cy="100" r="163" fill="#d6e9de" opacity=".7"/>
+<circle cx="110" cy="590" r="155" fill="#f4d5a1" opacity=".6"/>
+<path d="M84 605h1035" stroke="#283241" stroke-width="9" stroke-linecap="round"/>
+<path d="M88 130l14-28 14 28 29 13-29 13-14 28-14-28-29-13z" fill="#f3c77f" stroke="#283241" stroke-width="5"/>
+
+<rect x="406" y="143" width="392" height="427" rx="35" fill="#fffefa" stroke="#283241" stroke-width="11"/>
+<path d="M445 194h312" stroke="#ede1d4" stroke-width="9" stroke-linecap="round"/>
+<rect x="458" y="257" width="285" height="112" rx="25" fill="#c6e2d4" stroke="#283241" stroke-width="9"/>
+<path d="M488 298h219m-219 34h145" stroke="#64977e" stroke-width="10" stroke-linecap="round"/>
+<rect x="491" y="399" width="252" height="106" rx="24" fill="#f3d28c" stroke="#283241" stroke-width="9"/>
+<path d="M527 438h181m-181 30h122" stroke="#ae8a52" stroke-width="10" stroke-linecap="round"/>
+<g transform="translate(123 250)">
+<path d="M63 318V114q10-115 127-115t127 115v204z" fill="#b6d6df" stroke="#283241" stroke-width="11"/>
+<path d="M101 124q0-88 91-88 83 0 87 88" stroke="#6799aa" stroke-width="12" fill="none"/>
+<path d="M111 250h154m-112-41h70" stroke="#6799aa" stroke-width="11" stroke-linecap="round"/>
+<circle cx="185" cy="162" r="25" fill="#f3d38d" stroke="#283241" stroke-width="8"/>
+</g>
+<g transform="translate(814 227)">
+<rect x="49" y="86" width="214" height="229" rx="23" fill="#7cb49d" stroke="#283241" stroke-width="11"/>
+<rect x="83" y="126" width="147" height="132" rx="15" fill="#fffefa" stroke="#283241" stroke-width="8"/>
+<path d="M109 160l23 17-23 16m94-33-23 17 23 16" stroke="#283241" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M157 155l-15 48" stroke="#283241" stroke-width="9" stroke-linecap="round"/>
+<path d="M7 177h42m214 0h41M149 44v42m0 229v42" stroke="#283241" stroke-width="11" stroke-linecap="round"/>
+</g>
+<path d="M381 350q28-27 47-6m365 0q29-22 47 7" fill="none" stroke="#283241" stroke-width="9" stroke-linecap="round"/>
+
+</svg>

@@ -1,0 +1,156 @@
+---
+title: "Le bug était humain"
+subtitle: "Tout semblait fonctionner. Jusqu'au moment où deux personnes ont compris la même chose différemment."
+seoTitle: "Le bug était humain : quand les projets numériques échouent sans erreur de code"
+description: "Dans un projet logiciel, les pannes les plus coûteuses ne viennent pas toujours du code. Elles naissent aussi des décisions, des silences et des malentendus."
+shareTitle: "Le bug était humain"
+shareDescription: "Parfois, tout le code fonctionne. C'est le projet qui ne fonctionne pas."
+illustration: "/blog/le-bug-etait-humain.svg"
+category: Development
+createdAt: 2026-11-09
+updatedAt: 2026-11-09
+---
+
+Le bouton fonctionne.
+
+La base de données répond.
+
+Les tests sont au vert.
+
+Et pourtant, quelque chose ne va pas.
+
+Le client affirme avoir demandé une chose. Le développeur assure avoir livré exactement ce qui était prévu. L'utilisateur, lui, cherche une fonctionnalité que personne n'a pensé à ajouter.
+
+Trois personnes.
+
+Trois versions de la même application.
+
+Et aucun message d'erreur pour nous expliquer ce qui s'est passé.
+
+**Le bug n'était pas dans le code.**
+
+## Une application peut être correcte et complètement à côté
+
+Dans le développement, on aime les problèmes que l'on peut reproduire.
+
+Un formulaire plante ? On regarde les logs.
+
+Une requête est lente ? On mesure.
+
+Un bouton ne répond pas ? On inspecte.
+
+Mais que fait-on lorsqu'une fonctionnalité fonctionne parfaitement et ne répond pas au vrai besoin ?
+
+Prenons un exemple fictif : une entreprise demande un tableau de bord pour suivre ses interventions sur le terrain.
+
+On lui livre une belle interface avec des graphiques, des filtres et des statistiques.
+
+Sauf que les responsables n'avaient pas vraiment besoin de graphiques.
+
+Ils voulaient surtout savoir, à huit heures du matin, quels agents étaient absents et qui devait les remplacer.
+
+L'application est réussie sur le plan technique.
+
+Elle a simplement résolu le mauvais problème.
+
+## « Je pensais que c'était évident »
+
+Cette phrase devrait déclencher une petite alarme dans chaque projet.
+
+*Je pensais que c'était évident.*
+
+Que le client recevrait une notification.
+
+Que l'administrateur pourrait modifier une commande.
+
+Qu'une annulation remettrait automatiquement une place à disposition.
+
+Que l'utilisateur saurait quoi faire après avoir cliqué.
+
+Ce qui paraît évident à une personne peut être complètement invisible pour une autre.
+
+J'ai appris à me méfier de ce que l'on ne prend même pas la peine de préciser.
+
+Quand je travaille sur des applications métiers, je préfère désormais poser des questions qui semblent parfois trop simples.
+
+Qui fait cette action ?
+
+Que se passe-t-il ensuite ?
+
+Et si cela échoue ?
+
+**Une question embarrassante avant le développement coûte généralement moins cher qu'une correction embarrassante après la livraison.**
+
+## Le silence est aussi une décision
+
+Il arrive qu'une équipe remarque un problème et n'en parle pas immédiatement.
+
+On ne veut pas ralentir le projet.
+
+On pense que quelqu'un d'autre l'a déjà vu.
+
+On espère que cela se réglera tout seul.
+
+Puis vient la mise en production.
+
+Et le petit doute que personne n'a exprimé devient une urgence collective.
+
+Le problème n'est pas toujours un manque de compétence. Parfois, les personnes compétentes travaillent dans un environnement où il est difficile de dire : *je ne suis pas sûr*.
+
+C'est dangereux.
+
+Une équipe qui n'ose pas poser de questions finit par payer ses certitudes beaucoup trop cher.
+
+## Le développeur ne peut pas tout deviner
+
+On présente parfois le bon développeur comme celui qui comprend immédiatement le client.
+
+Ce serait pratique.
+
+Mais un projet dépend de connaissances qui ne sont pas toutes dans la tête de la même personne.
+
+Le métier appartient à ceux qui l'exercent. Les contraintes techniques appartiennent à ceux qui construisent le système. L'usage réel se découvre souvent auprès des personnes qui vont vivre avec l'outil.
+
+Il faut faire circuler ces connaissances.
+
+Dessiner un parcours.
+
+Faire essayer une première version.
+
+Écrire noir sur blanc ce qu'une action doit déclencher.
+
+Montrer les cas où cela ne marche pas.
+
+Et accepter qu'une démonstration puisse remettre en question une idée à laquelle on tenait.
+
+Je parle de cette complexité cachée dans [Le monstre derrière l'écran](/blog/le-monstre-derriere-lecran).
+
+## Corriger sans chercher un coupable
+
+Après un incident, la tentation est forte de demander : **qui a fait l'erreur ?**
+
+La question peut être nécessaire lorsqu'il faut établir les responsabilités.
+
+Mais elle ne suffit pas à empêcher la prochaine erreur.
+
+Il est souvent plus utile de comprendre à quel moment une information a été perdue, pourquoi une hypothèse n'a pas été vérifiée ou comment une décision a été prise sans les bonnes personnes.
+
+Ce n'est pas une façon de supprimer les responsabilités.
+
+C'est une façon d'améliorer le système au lieu de simplement désigner quelqu'un.
+
+## Le prochain bug
+
+Je continuerai à vérifier mes requêtes, mes validations et mes permissions.
+
+Évidemment.
+
+Mais j'essaie aussi de tester autre chose : la compréhension que nous avons du projet.
+
+Parce qu'on peut corriger une erreur de syntaxe en quelques secondes.
+
+Corriger plusieurs semaines de malentendus est une autre histoire.
+
+**Le code ne peut pas exécuter correctement une intention que personne n'a clairement exprimée.**
+
+Et ça, aucun framework ne le réglera à notre place.

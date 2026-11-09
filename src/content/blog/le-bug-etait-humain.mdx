@@ -1,0 +1,156 @@
+---
+title: "The bug was human"
+subtitle: "Everything worked. Until two people realised they'd understood the same request differently."
+seoTitle: "The bug was human: when software projects fail without broken code"
+description: "Not every expensive software failure starts with a technical defect. Some begin with assumptions, silence and people who never meant the same thing."
+shareTitle: "The bug was human"
+shareDescription: "Sometimes all the code works. The project is what doesn't work."
+illustration: "/blog/le-bug-etait-humain.svg"
+category: Development
+createdAt: 2026-11-09
+updatedAt: 2026-11-09
+---
+
+The button works.
+
+The database responds.
+
+The tests pass.
+
+And something is still wrong.
+
+The client insists they asked for one thing. The developer says they delivered exactly what was agreed. The person using the product is looking for a feature nobody thought to build.
+
+Three people.
+
+Three versions of the same application.
+
+And not a single error message to explain what happened.
+
+**The bug wasn't in the code.**
+
+## A working app can miss the point
+
+Developers like problems we can reproduce.
+
+A form crashes? Check the logs.
+
+A query is slow? Measure it.
+
+A button doesn't respond? Inspect it.
+
+But what do we do when a feature works perfectly and solves the wrong problem?
+
+Consider a fictional example: a company asks for a dashboard to monitor field operations.
+
+We build attractive charts, advanced filters and colourful statistics.
+
+Except the managers didn't really need charts.
+
+What they needed at eight in the morning was a quick way to see which staff members were absent and who could replace them.
+
+Technically, the application is a success.
+
+It just answered the wrong question.
+
+## "I thought that was obvious"
+
+That sentence should set off a small alarm on every project.
+
+*I thought that was obvious.*
+
+That the customer would receive a notification.
+
+That an administrator could edit an order.
+
+That cancelling a booking would free the slot again.
+
+That users would know what to do after clicking.
+
+What seems obvious to one person can be completely invisible to another.
+
+I've learned to be suspicious of the things nobody bothers to specify.
+
+When I work on business applications, I try to ask questions that can sound almost silly.
+
+Who performs this action?
+
+What happens next?
+
+And what if it fails?
+
+**An awkward question before development usually costs less than an awkward correction after launch.**
+
+## Silence is a decision too
+
+Sometimes a team spots an issue and doesn't mention it immediately.
+
+Nobody wants to delay the project.
+
+Someone assumes another person has already noticed.
+
+Everyone hopes it will sort itself out.
+
+Then the product goes live.
+
+And the small doubt nobody voiced becomes everybody's emergency.
+
+This isn't always about a lack of expertise. Sometimes competent people work in environments where saying *I'm not sure* feels risky.
+
+That's dangerous.
+
+A team that cannot ask questions ends up paying a high price for its certainty.
+
+## Developers cannot read minds
+
+We sometimes describe a great developer as someone who instantly understands the client.
+
+That would be convenient.
+
+But a software project depends on knowledge that no single person has.
+
+The business process belongs to the people doing the work. The technical constraints belong to the people building the system. Real-world usage often becomes clear only when people try it.
+
+We have to bring those perspectives together.
+
+Sketch a user journey.
+
+Put an early version in someone's hands.
+
+Write down what an action is supposed to trigger.
+
+Discuss what happens when it doesn't.
+
+And accept that a demo might challenge an idea we really liked.
+
+I explored that hidden complexity in [The monster behind the screen](/blog/le-monstre-derriere-lecran).
+
+## Fix the system, not just the blame
+
+After an incident, the tempting question is: **whose fault was it?**
+
+Sometimes responsibility really does need to be established.
+
+But assigning blame alone won't prevent the next mistake.
+
+It can be more useful to understand where information was lost, why an assumption wasn't checked or how a decision happened without the right people involved.
+
+That doesn't mean removing accountability.
+
+It means improving the process instead of stopping at a name.
+
+## The next bug
+
+I'll keep checking my queries, validations and permissions.
+
+Of course I will.
+
+But I'm also trying to test something less visible: whether we actually understand the same project.
+
+A syntax error may take seconds to fix.
+
+Several weeks of misunderstanding are another matter.
+
+**Code cannot faithfully execute an intention nobody has clearly expressed.**
+
+No framework is going to solve that for us.

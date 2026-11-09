@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-label="The graveyard of projects">
+<title>The graveyard of projects</title>
+<rect width="1200" height="720" fill="#fff8ee"/>
+<circle cx="1070" cy="100" r="163" fill="#d6e9de" opacity=".7"/>
+<circle cx="110" cy="590" r="155" fill="#f4d5a1" opacity=".6"/>
+<path d="M84 605h1035" stroke="#283241" stroke-width="9" stroke-linecap="round"/>
+<path d="M88 130l14-28 14 28 29 13-29 13-14 28-14-28-29-13z" fill="#f3c77f" stroke="#283241" stroke-width="5"/>
+
+<path d="M109 607q206-70 416-22 223-65 563-5" fill="#d0e3d5" stroke="#283241" stroke-width="10"/>
+<g transform="translate(208 221) rotate(-5 160 200)">
+<path d="M0 326V90Q0 0 104 0h136q108 0 108 90v236z" fill="#b8d3da" stroke="#283241" stroke-width="11" stroke-linejoin="round"/>
+<path d="M67 87h210m-210 35h138" stroke="#688e9f" stroke-width="12" stroke-linecap="round"/>
+<rect x="86" y="183" width="177" height="105" rx="16" fill="#fff8ee" stroke="#283241" stroke-width="9"/>
+<path d="M118 214h113m-113 30h80" stroke="#c59e62" stroke-width="9" stroke-linecap="round"/>
+</g>
+<g transform="translate(620 305) rotate(6 137 135)">
+<path d="M0 264V67Q0 0 81 0h120q78 0 78 67v197z" fill="#eeb78d" stroke="#283241" stroke-width="11"/>
+<path d="M48 89h174m-174 32h118" stroke="#af7d5d" stroke-width="11" stroke-linecap="round"/>
+<path d="M79 200h115" stroke="#283241" stroke-width="9" stroke-linecap="round"/>
+</g>
+<path d="M536 600v-96q0-72 64-88" stroke="#427e64" stroke-width="13" fill="none" stroke-linecap="round"/>
+<path d="M599 413q-66-59-101 2 65 41 101-2zm1 0q61-81 114-17-55 54-114 17z" fill="#7fb8a0" stroke="#283241" stroke-width="8" stroke-linejoin="round"/>
+<path d="M944 554q47-59 93-18m-46 17q39-67 85-34" stroke="#427e64" stroke-width="10" fill="none" stroke-linecap="round"/>
+<circle cx="952" cy="190" r="55" fill="#f3d18e" stroke="#283241" stroke-width="9"/>
+<path d="M936 186h32m-17-15v33" stroke="#283241" stroke-width="9" stroke-linecap="round"/>
+
+</svg>
