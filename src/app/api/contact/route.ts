@@ -31,39 +31,56 @@ type TurnstileResult =
 
 async function validateTurnstile(token: string, secret: string): Promise<TurnstileResult> {
   try {
+    // Cloudflare supports both JSON and urlencoded requests. JSON keeps the
+    // wire format unambiguous, and Siteverify always responds with JSON.
     const response = await fetch(
       "https://challenges.cloudflare.com/turnstile/v0/siteverify",
       {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams({ secret, response: token }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ secret: secret.trim(), response: token }),
         cache: "no-store",
         signal: AbortSignal.timeout(12000),
       }
     );
 
-    if (!response.ok) {
-      console.error("[contact] Turnstile Siteverify HTTP failure", response.status);
+    // Siteverify may return useful error-codes with HTTP 400 (not only 200).
+    // Inspect them before classifying the failure. Never log tokens or secrets.
+    let data: { success?: boolean; "error-codes"?: string[] };
+    try {
+      data = await response.json();
+    } catch {
+      console.error("[contact] Turnstile returned non-JSON response", {
+        status: response.status,
+      });
       return { success: false, reason: "unavailable" };
     }
 
-    const data: { success?: boolean; "error-codes"?: string[] } = await response.json();
-    if (data.success === true) return { success: true };
-
-    // Cloudflare's error codes are safe to log. Never log the token or secret.
     const codes = Array.isArray(data["error-codes"]) ? data["error-codes"] : [];
-    console.warn("[contact] Turnstile verification refused", { codes });
+    if (response.ok && data.success === true) return { success: true };
 
-    if (codes.some((code) => code === "invalid-input-secret" || code === "missing-input-secret")) {
+    console.warn("[contact] Turnstile Siteverify rejected request", {
+      status: response.status,
+      codes,
+    });
+
+    if (
+      codes.some((code) =>
+        ["invalid-input-secret", "missing-input-secret", "invalid-widget-id", "invalid-parsed-secret", "bad-request"].includes(code)
+      )
+    ) {
       return { success: false, reason: "config" };
     }
     if (codes.includes("timeout-or-duplicate")) {
       return { success: false, reason: "expired" };
     }
-    if (codes.includes("internal-error")) {
-      return { success: false, reason: "unavailable" };
+    if (codes.includes("invalid-input-response") || codes.includes("missing-input-response")) {
+      return { success: false, reason: "invalid" };
     }
-    return { success: false, reason: "invalid" };
+    if (!response.ok && response.status === 400) {
+      return { success: false, reason: "config" };
+    }
+    return { success: false, reason: "unavailable" };
   } catch (error) {
     console.error("[contact] Turnstile verification request failed", {
       error: error instanceof Error ? error.name : "Unknown",
