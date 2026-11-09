@@ -7,22 +7,37 @@ import {
   SendIcon,
   UserIcon,
 } from "lucide-react";
-import { useEffect, useState } from "react";
+import Script from "next/script";
+import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 
 import { useTranslation } from "@/hooks/use-translation";
 import { defaultLocale, getTranslations } from "@/lib/i18n";
+
+type TurnstileApi = {
+  render: (
+    element: HTMLElement,
+    options: {
+      sitekey: string;
+      callback: (token: string) => void;
+      "expired-callback": () => void;
+      "error-callback": () => void;
+      language: string;
+    }
+  ) => string;
+  reset: (widgetId: string) => void;
+  remove: (widgetId: string) => void;
+};
 
 interface ContactFormData {
   name: string;
   email: string;
   subject: string;
   message: string;
-  captcha: string;
 }
 
 export function ContactForm() {
-  const { t, mounted } = useTranslation();
+  const { t, mounted, locale } = useTranslation();
   const translations = mounted ? t : getTranslations(defaultLocale);
 
   const [formData, setFormData] = useState<ContactFormData>({
@@ -30,45 +45,42 @@ export function ContactForm() {
     email: "",
     subject: "",
     message: "",
-    captcha: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // Simple captcha system
-  const [captchaQuestion, setCaptchaQuestion] = useState({
-    question: "",
-    answer: "",
-  });
+  // Configure a Turnstile widget in Cloudflare before activating email delivery.
+  const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+  const [captchaToken, setCaptchaToken] = useState("");
+  const [scriptReady, setScriptReady] = useState(false);
+  const widgetContainer = useRef<HTMLDivElement>(null);
+  const widgetId = useRef<string | null>(null);
 
-  // Generate simple math captcha
-  const generateCaptcha = () => {
-    const num1 = Math.floor(Math.random() * 10) + 1;
-    const num2 = Math.floor(Math.random() * 10) + 1;
-    const operations = ["+", "-"];
-    const operation = operations[Math.floor(Math.random() * operations.length)];
-
-    let answer;
-    let question;
-
-    if (operation === "+") {
-      answer = num1 + num2;
-      question = `${num1} + ${num2}`;
-    } else {
-      // Ensure positive result for subtraction
-      const larger = Math.max(num1, num2);
-      const smaller = Math.min(num1, num2);
-      answer = larger - smaller;
-      question = `${larger} - ${smaller}`;
-    }
-
-    setCaptchaQuestion({ question, answer: answer.toString() });
-  };
-
-  // Generate captcha on component mount
   useEffect(() => {
-    generateCaptcha();
-  }, []);
+    if (!siteKey || !scriptReady || !widgetContainer.current || widgetId.current) return;
+    const api = (window as Window & { turnstile?: TurnstileApi }).turnstile;
+    if (!api) return;
+
+    const id = api.render(widgetContainer.current, {
+      sitekey: siteKey,
+      callback: (token: string) => setCaptchaToken(token),
+      "expired-callback": () => setCaptchaToken(""),
+      "error-callback": () => setCaptchaToken(""),
+      language: "auto",
+    });
+    widgetId.current = id;
+
+    return () => {
+      api.remove(id);
+      widgetId.current = null;
+    };
+  }, [siteKey, scriptReady]);
+
+  const resetCaptcha = () => {
+    const api = (window as Window & { turnstile?: TurnstileApi }).turnstile;
+    if (widgetId.current) api?.reset(widgetId.current);
+    setCaptchaToken("");
+  };
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -80,17 +92,15 @@ export function ContactForm() {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Validate captcha
-    if (formData.captcha !== captchaQuestion.answer) {
+    if (!siteKey || !captchaToken) {
       toast.error(translations.contact.incorrectCaptcha);
-      generateCaptcha(); // Generate new captcha
-      setFormData((prev) => ({ ...prev, captcha: "" }));
       return;
     }
 
+    const honeypot = new FormData(e.currentTarget).get("website")?.toString() || "";
     setIsSubmitting(true);
 
     try {
@@ -105,7 +115,9 @@ export function ContactForm() {
           email: formData.email,
           subject: formData.subject,
           message: formData.message,
-          captcha: formData.captcha,
+          captchaToken,
+          website: honeypot,
+          locale: window.location.pathname.startsWith("/en") ? "en" : "fr",
         }),
       });
 
@@ -118,12 +130,12 @@ export function ContactForm() {
       console.log("Message sent successfully:", result);
 
       setIsSubmitted(true);
+      resetCaptcha();
       setFormData({
         name: "",
         email: "",
         subject: "",
         message: "",
-        captcha: "",
       });
       toast.success(translations.contact.messageSentToast);
     } catch (error) {
@@ -136,6 +148,7 @@ export function ContactForm() {
       }
 
       toast.error(errorMessage);
+      resetCaptcha();
     } finally {
       setIsSubmitting(false);
     }
@@ -164,7 +177,7 @@ export function ContactForm() {
           <button
             onClick={() => {
               setIsSubmitted(false);
-              generateCaptcha(); // Generate new captcha for next form
+              resetCaptcha();
             }}
             className="inline-flex items-center gap-2 rounded-lg border border-edge bg-background px-4 py-2 text-sm font-medium text-foreground transition-all hover:bg-muted/50 hover:shadow-sm"
           >
@@ -272,34 +285,35 @@ export function ContactForm() {
           ></textarea>
         </div>
 
-        {/* Captcha */}
-        <div className="space-y-2">
-          <label
-            htmlFor="captcha"
-            className="block text-sm font-medium text-foreground"
-          >
-            {translations.contact.securityCheck}: {translations.contact.whatIs}{" "}
-            <span className="font-mono font-semibold">
-              {captchaQuestion.question}
-            </span>
-            ?
-          </label>
-          <input
-            type="text"
-            id="captcha"
-            name="captcha"
-            value={formData.captcha}
-            onChange={handleInputChange}
-            className="w-full rounded-lg border border-edge bg-background px-4 py-3 text-sm transition-all placeholder:text-muted-foreground/60 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
-            placeholder={translations.contact.enterAnswer}
-            required
-            disabled={isSubmitting}
-          />
+        {/* A honeypot catches unsophisticated scripted submissions. */}
+        <div className="absolute -left-[9999px]" aria-hidden="true">
+          <label htmlFor="website">Website</label>
+          <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
         </div>
+
+        {siteKey ? (
+          <>
+            <Script
+              src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+              strategy="afterInteractive"
+              onReady={() => setScriptReady(true)}
+            />
+            <div className="space-y-2">
+              <p className="text-sm font-medium">{translations.contact.securityCheck}</p>
+              <div ref={widgetContainer} aria-label={translations.contact.securityCheck} />
+            </div>
+          </>
+        ) : (
+          <p role="alert" className="text-sm text-muted-foreground">
+            {locale === "en"
+              ? "The contact form is temporarily unavailable. Please contact me by email."
+              : "Le formulaire est temporairement indisponible. Contactez-moi par email."}
+          </p>
+        )}
 
         <button
           type="submit"
-          disabled={isSubmitting}
+          disabled={isSubmitting || !siteKey || !captchaToken}
           className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary/90 hover:shadow-md focus:ring-2 focus:ring-primary/50 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
         >
           {isSubmitting ? (

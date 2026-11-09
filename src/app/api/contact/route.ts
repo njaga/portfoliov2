@@ -1,160 +1,142 @@
-import type { NextRequest } from "next/server";
-import { NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import { z } from "zod";
+
+const contactSchema = z.object({
+  name: z.string().trim().min(2).max(100),
+  email: z.string().trim().email().max(254),
+  subject: z.string().trim().min(3).max(160),
+  message: z.string().trim().min(10).max(5000),
+  captchaToken: z.string().min(1).max(2048),
+  website: z.string().max(0).optional(),
+  locale: z.enum(["fr", "en"]).default("fr"),
+});
+
+function escapeHtml(value: string): string {
+  return value.replace(/[&<>"']/g, (char) => {
+    const encoded: Record<string, string> = {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;",
+    };
+    return encoded[char];
+  });
+}
+
+async function validateTurnstile(token: string, secret: string): Promise<boolean> {
+  try {
+    const response = await fetch(
+      "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({ secret, response: token }),
+        cache: "no-store",
+        signal: AbortSignal.timeout(8000),
+      }
+    );
+    if (!response.ok) return false;
+    const data: { success?: boolean } = await response.json();
+    return data.success === true;
+  } catch {
+    return false; // Network errors must never bypass CAPTCHA validation.
+  }
+}
 
 export async function POST(request: NextRequest) {
+  // Reject cross-site browser submissions, without trusting this check as bot protection.
+  const origin = request.headers.get("origin");
+  if (origin && origin !== request.nextUrl.origin) {
+    return NextResponse.json({ error: "Invalid origin" }, { status: 403 });
+  }
+
+  const length = Number(request.headers.get("content-length") || 0);
+  if (length > 9000) {
+    return NextResponse.json({ error: "Payload too large" }, { status: 413 });
+  }
+
+  let payload: unknown;
   try {
-    const { name, email, subject, message, captcha } = await request.json();
-
-    // Validation des données
-    if (!name || !email || !subject || !message || !captcha) {
-      return NextResponse.json(
-        { error: "All fields are required" },
-        { status: 400 }
-      );
+    const raw = await request.text();
+    if (raw.length > 9000) {
+      return NextResponse.json({ error: "Payload too large" }, { status: 413 });
     }
+    payload = JSON.parse(raw);
+  } catch {
+    return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
+  }
 
-    // Validation email basique
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      return NextResponse.json(
-        { error: "Invalid email format" },
-        { status: 400 }
-      );
-    }
+  const validated = contactSchema.safeParse(payload);
+  if (!validated.success) {
+    return NextResponse.json({ error: "Invalid form data" }, { status: 400 });
+  }
 
-    // Configuration du transporteur SMTP
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST || "smtp.gmail.com",
-      port: parseInt(process.env.SMTP_PORT || "587"),
-      secure: false, // true pour 465, false pour les autres ports
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    });
+  const secret = process.env.TURNSTILE_SECRET_KEY;
+  if (!secret || !process.env.SMTP_USER || !process.env.SMTP_PASS) {
+    return NextResponse.json({ error: "Contact service unavailable" }, { status: 503 });
+  }
 
-    // Vérification de la configuration SMTP
-    await transporter.verify();
+  const { name, email, subject, message, captchaToken, locale } = validated.data;
+  if (!(await validateTurnstile(captchaToken, secret))) {
+    return NextResponse.json({ error: "Invalid or expired security verification" }, { status: 403 });
+  }
 
-    // Configuration de l'email principal (bilingue)
-    const mailOptions = {
+  const port = Number(process.env.SMTP_PORT || "587");
+  const transporter = nodemailer.createTransport({
+    host: process.env.SMTP_HOST || "smtp.gmail.com",
+    port,
+    secure: port === 465,
+    auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
+  });
+
+  const fields = {
+    name: escapeHtml(name),
+    email: escapeHtml(email),
+    subject: escapeHtml(subject),
+    message: escapeHtml(message),
+  };
+  const date = new Intl.DateTimeFormat(locale === "fr" ? "fr-FR" : "en-GB", {
+    dateStyle: "long",
+    timeStyle: "short",
+    timeZone: "Africa/Dakar",
+  }).format(new Date());
+
+  try {
+    await transporter.sendMail({
       from: process.env.SMTP_FROM || process.env.SMTP_USER,
       to: "contact@ndiagandiaye.com",
+      replyTo: email,
       subject: `[Portfolio] ${subject}`,
-      html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #333; border-bottom: 2px solid #007bff; padding-bottom: 10px;">
-            🇫🇷 Nouveau message de contact / 🇬🇧 New Contact Message
-          </h2>
-          
-          <div style="margin: 20px 0;">
-            <p><strong>Name / Nom:</strong> ${name}</p>
-            <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Subject / Sujet:</strong> ${subject}</p>
-          </div>
-          
-          <div style="background-color: #f8f9fa; padding: 20px; border-radius: 5px; margin: 20px 0;">
-            <h3 style="color: #495057; margin-top: 0;">Message:</h3>
-            <p style="white-space: pre-wrap; line-height: 1.6;">${message}</p>
-          </div>
-          
-          <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #dee2e6; color: #6c757d; font-size: 12px;">
-            <p>🇫🇷 Message envoyé depuis ndiagandiaye.com</p>
-            <p>🇬🇧 Message sent from ndiagandiaye.com</p>
-            <p>Date: ${new Date().toLocaleString("fr-FR")} (GMT+1) / ${new Date().toLocaleString("en-US")}</p>
-          </div>
-        </div>
-      `,
-      text: `
-🇫🇷 NOUVEAU MESSAGE DE CONTACT / 🇬🇧 NEW CONTACT MESSAGE
+      html: `<div style="font-family:Arial,sans-serif;max-width:600px">
+        <h2>New portfolio contact message</h2>
+        <p><strong>Name:</strong> ${fields.name}</p>
+        <p><strong>Email:</strong> ${fields.email}</p>
+        <p><strong>Subject:</strong> ${fields.subject}</p>
+        <p style="white-space:pre-wrap">${fields.message}</p>
+        <p>${escapeHtml(date)} (Dakar)</p></div>`,
+      text: `New portfolio message\nName: ${name}\nEmail: ${email}\nSubject: ${subject}\n\n${message}\n\n${date} (Dakar)`,
+    });
 
-Nom / Name: ${name}
-Email: ${email}
-Sujet / Subject: ${subject}
-
-Message:
-${message}
-
----
-🇫🇷 Message envoyé depuis ndiagandiaye.com
-🇬🇧 Message sent from ndiagandiaye.com
-Date: ${new Date().toLocaleString("fr-FR")} / ${new Date().toLocaleString("en-US")}
-      `,
-    };
-
-    // Envoi de l'email
-    await transporter.sendMail(mailOptions);
-
-    // Email de confirmation bilingue pour l'utilisateur
-    const confirmationOptions = {
-      from: process.env.SMTP_FROM || process.env.SMTP_USER,
-      to: email,
-      subject:
-        "🇫🇷 Confirmation de réception / 🇬🇧 Message Received - Ndiaga Ndiaye",
-      html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #333;">🇫🇷 Merci pour votre message ! / 🇬🇧 Thank you for your message!</h2>
-          
-          <div style="background-color: #f8f9fa; padding: 20px; border-radius: 5px; margin: 20px 0;">
-            <h3 style="color: #495057; margin-top: 0;">🇫🇷 Français</h3>
-            <p>Bonjour <strong>${name}</strong>,</p>
-            <p>J'ai bien reçu votre message concernant "<strong>${subject}</strong>" et je vous répondrai dans les plus brefs délais, généralement sous 24 heures.</p>
-          </div>
-          
-          <div style="background-color: #e7f3ff; padding: 20px; border-radius: 5px; margin: 20px 0;">
-            <h3 style="color: #495057; margin-top: 0;">🇬🇧 English</h3>
-            <p>Hello <strong>${name}</strong>,</p>
-            <p>I have received your message regarding "<strong>${subject}</strong>" and I will respond as soon as possible, usually within 24 hours.</p>
-          </div>
-          
-          <div style="background-color: #f1f1f1; padding: 15px; border-radius: 5px; margin: 20px 0;">
-            <p><strong>🇫🇷 Récapitulatif de votre message / 🇬🇧 Your message summary:</strong></p>
-            <p style="white-space: pre-wrap; margin: 10px 0; font-style: italic;">${message}</p>
-          </div>
-          
-          <div style="text-align: center; margin: 30px 0;">
-            <p>🇫🇷 En attendant, n'hésitez pas à consulter mes autres projets sur mon portfolio.</p>
-            <p>🇬🇧 In the meantime, feel free to check out my other projects on my portfolio.</p>
-            <a href="https://ndiagandiaye.com" style="display: inline-block; background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin: 10px 0;">
-              Visit Portfolio / Voir Portfolio
-            </a>
-          </div>
-          
-          <div style="border-top: 1px solid #dee2e6; padding-top: 20px; margin-top: 30px;">
-            <p style="margin: 0;">
-              🇫🇷 Cordialement,<br>
-              🇬🇧 Best regards,<br>
-              <strong>Ndiaga Ndiaye</strong><br>
-              <em>🇫🇷 Développeur Web / 🇬🇧 Web Developer</em>
-            </p>
-          </div>
-          
-          <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #dee2e6; color: #6c757d; font-size: 12px; text-align: center;">
-            <p>🇫🇷 Ceci est un message automatique de confirmation.</p>
-            <p>🇬🇧 This is an automatic confirmation message.</p>
-          </div>
-        </div>
-      `,
-    };
-
+    // The main message is already delivered; a confirmation failure must not
+    // cause duplicate submissions.
     try {
-      await transporter.sendMail(confirmationOptions);
-    } catch (confirmationError) {
-      console.warn("Failed to send confirmation email:", confirmationError);
-      // On continue même si l'email de confirmation échoue
+      await transporter.sendMail({
+        from: process.env.SMTP_FROM || process.env.SMTP_USER,
+        to: email,
+        subject: locale === "fr" ? "Message reçu — Ndiaga Ndiaye" : "Message received — Ndiaga Ndiaye",
+        text: locale === "fr"
+          ? `Bonjour ${name},\n\nJ'ai bien reçu votre message. Je vous répondrai dès que possible.\n\nNdiaga Ndiaye`
+          : `Hello ${name},\n\nI have received your message. I'll get back to you as soon as possible.\n\nNdiaga Ndiaye`,
+      });
+    } catch {
+      console.warn("Contact confirmation email could not be delivered.");
     }
 
-    return NextResponse.json(
-      { message: "Email sent successfully" },
-      { status: 200 }
-    );
-  } catch (error) {
-    console.error("Error sending email:", error);
-
-    return NextResponse.json(
-      { error: "Server error while sending email" },
-      { status: 500 }
-    );
+    return NextResponse.json({ message: "Email sent successfully" });
+  } catch {
+    console.error("Portfolio contact SMTP delivery failed.");
+    return NextResponse.json({ error: "Unable to send message" }, { status: 502 });
   }
 }

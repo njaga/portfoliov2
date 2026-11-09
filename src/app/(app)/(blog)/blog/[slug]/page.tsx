@@ -9,7 +9,9 @@ import { SITE_INFO } from "@/config/site";
 import { findNeighbour, getAllPosts, getPostBySlug } from "@/data/blog";
 import { USER } from "@/data/user";
 import { getEditorialCategory, toBlogPreview } from "@/lib/blog-editorial";
-import { addLocaleToPath, defaultLocale, getLanguageAlternates, type Locale } from "@/lib/i18n";
+import { addLocaleToPath, type Locale } from "@/lib/i18n";
+import { localizedMetadata } from "@/lib/seo";
+import { getRequestLocale } from "@/lib/server-locale";
 import type { Post } from "@/types/blog";
 
 import { Back } from "./back";
@@ -30,11 +32,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const slug = (await params).slug;
 
-  // Récupérer la locale depuis les cookies
-  const { cookies: getCookies } = await import("next/headers");
-  const cookieStore = await getCookies();
-  const locale =
-    (cookieStore.get("locale")?.value as "fr" | "en") || defaultLocale;
+  const locale = await getRequestLocale();
 
   const post = getPostBySlug(slug, locale);
 
@@ -63,12 +61,7 @@ export async function generateMetadata({
   const blogUrl = `${SITE_INFO.url}${addLocaleToPath(articlePath, locale)}`;
 
   return {
-    title,
-    description,
-    alternates: {
-      canonical: addLocaleToPath(articlePath, locale),
-      languages: getLanguageAlternates(articlePath),
-    },
+    ...localizedMetadata(locale, articlePath, title, description),
     openGraph: {
       url: blogUrl,
       type: "article",
@@ -130,11 +123,7 @@ export default async function Page({
 }) {
   const slug = (await params).slug;
 
-  // Récupérer la locale depuis les cookies
-  const { cookies: getCookies } = await import("next/headers");
-  const cookieStore = await getCookies();
-  const locale =
-    (cookieStore.get("locale")?.value as "fr" | "en") || defaultLocale;
+  const locale = await getRequestLocale();
 
   const post = getPostBySlug(slug, locale);
 

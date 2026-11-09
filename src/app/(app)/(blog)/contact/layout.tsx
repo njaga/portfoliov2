@@ -1,32 +1,14 @@
 import type { Metadata } from "next";
-import { cookies } from "next/headers";
 
-import { addLocaleToPath, defaultLocale, getLanguageAlternates, getTranslations, type Locale } from "@/lib/i18n";
+import { getTranslations } from "@/lib/i18n";
+import { localizedMetadata } from "@/lib/seo";
+import { getRequestLocale } from "@/lib/server-locale";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const cookieStore = await cookies();
-  const locale = (cookieStore.get("locale")?.value as Locale) || defaultLocale;
+  const locale = await getRequestLocale();
   const t = getTranslations(locale);
 
-  return {
-    title: t.contact.title,
-    description: t.contact.description,
-    alternates: {
-      canonical: addLocaleToPath("/contact", locale),
-      languages: getLanguageAlternates("/contact"),
-    },
-    openGraph: {
-      url: addLocaleToPath("/contact", locale),
-      locale: locale === "fr" ? "fr_SN" : "en_US",
-      title: t.contact.title,
-      description: t.contact.description,
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: t.contact.title,
-      description: t.contact.description,
-    },
-  };
+  return localizedMetadata(locale, "/contact", t.contact.title, t.contact.description);
 }
 
 export default function ContactLayout({

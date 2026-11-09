@@ -1,7 +1,6 @@
 import "@/styles/globals.css";
 
 import type { Metadata, Viewport } from "next";
-import { cookies } from "next/headers";
 import Script from "next/script";
 import type { WebSite, WithContext } from "schema-dts";
 
@@ -9,12 +8,8 @@ import { Providers } from "@/components/providers";
 import { META_THEME_COLORS, SITE_INFO } from "@/config/site";
 import { USER } from "@/data/user";
 import { fontGlitch, fontMono, fontSans } from "@/lib/fonts";
-import {
-  addLocaleToPath,
-  defaultLocale,
-  getLanguageAlternates,
-  type Locale,
-} from "@/lib/i18n";
+import { addLocaleToPath, getLanguageAlternates } from "@/lib/i18n";
+import { getRequestLocale } from "@/lib/server-locale";
 
 function getWebSiteJsonLd(): WithContext<WebSite> {
   return {
@@ -42,9 +37,7 @@ const darkModeScript = String.raw`
 `;
 
 export async function generateMetadata(): Promise<Metadata> {
-  const cookieStore = await cookies();
-  const locale: Locale =
-    cookieStore.get("locale")?.value === "en" ? "en" : defaultLocale;
+  const locale = await getRequestLocale();
   const description =
     locale === "fr"
       ? "Ndiaga Ndiaye, développeur full stack à Dakar, Sénégal. Laravel, Next.js, applications métiers et SaaS. Fondateur de KAMIT et créateur de KUMBA."
@@ -120,8 +113,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const cookieStore = await cookies();
-  const locale = (cookieStore.get("locale")?.value as Locale) || defaultLocale;
+  const locale = await getRequestLocale();
 
   return (
     <html

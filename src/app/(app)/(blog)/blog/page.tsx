@@ -1,6 +1,5 @@
 import { ArrowUpRightIcon, MapPinIcon, RssIcon } from "lucide-react";
 import type { Metadata } from "next";
-import { cookies } from "next/headers";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 
@@ -16,8 +15,8 @@ import {
 import {
   addLocaleToPath,
   getLanguageAlternates,
-  type Locale,
 } from "@/lib/i18n";
+import { getRequestLocale } from "@/lib/server-locale";
 
 import { BlogExplorer } from "./blog-explorer";
 
@@ -26,8 +25,7 @@ export async function generateMetadata({
 }: {
   searchParams: Promise<{ page?: string; category?: string }>;
 }): Promise<Metadata> {
-  const [cookieStore, query] = await Promise.all([cookies(), searchParams]);
-  const locale: Locale = cookieStore.get("locale")?.value === "en" ? "en" : "fr";
+  const [locale, query] = await Promise.all([getRequestLocale(), searchParams]);
   const category = EDITORIAL_CATEGORIES.find((c) => c === query.category);
   const posts = getAllPosts(locale).map(toBlogPreview);
   const featured = posts.find((post) => post.slug === "pourquoi-je-construis-kumba") ?? posts[0];
@@ -77,8 +75,7 @@ export default async function BlogPage({
 }: {
   searchParams: Promise<{ page?: string; category?: string }>;
 }) {
-  const [cookieStore, query] = await Promise.all([cookies(), searchParams]);
-  const locale: Locale = cookieStore.get("locale")?.value === "en" ? "en" : "fr";
+  const [locale, query] = await Promise.all([getRequestLocale(), searchParams]);
   const copy = BLOG_TEXT[locale];
   const posts = getAllPosts(locale).map(toBlogPreview);
   const featured =

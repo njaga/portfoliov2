@@ -1,5 +1,4 @@
 import dayjs from "dayjs";
-import { cookies } from "next/headers";
 import type { ProfilePage as PageSchema, WithContext } from "schema-dts";
 
 import { USER } from "@/data/user";
@@ -15,11 +14,11 @@ import { Services } from "@/features/profile/components/services";
 import { SocialLinks } from "@/features/profile/components/social-links";
 import { TeckStack } from "@/features/profile/components/teck-stack";
 import { addLocaleToPath, type Locale } from "@/lib/i18n";
+import { getRequestLocale } from "@/lib/server-locale";
 import { cn } from "@/lib/utils";
 
 export default async function Page() {
-  const cookieStore = await cookies();
-  const locale: Locale = cookieStore.get("locale")?.value === "en" ? "en" : "fr";
+  const locale = await getRequestLocale();
 
   return (
     <>
