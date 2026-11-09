@@ -124,10 +124,24 @@ export function ContactForm() {
       const result = await response.json();
 
       if (!response.ok) {
-        throw new Error(result.error || "Error sending message");
+        const en = locale === "en";
+        const messages: Record<string, string> = {
+          captcha_expired: en
+            ? "Security verification has expired or was already used. Please try again."
+            : "La vérification de sécurité a expiré ou a déjà été utilisée. Veuillez réessayer.",
+          captcha_invalid: en
+            ? "Security verification was rejected. Please try again with a new check."
+            : "La vérification de sécurité a été refusée. Veuillez recommencer.",
+          captcha_config: en
+            ? "The security service is misconfigured. Please contact me by email."
+            : "Le service de sécurité est mal configuré. Contactez-moi par email.",
+          captcha_unavailable: en
+            ? "Security verification is temporarily unavailable. Please try again."
+            : "Le service de vérification est temporairement indisponible. Réessayez.",
+        };
+        throw new Error(messages[result.code] || result.error || translations.contact.messageError);
       }
 
-      console.log("Message sent successfully:", result);
 
       setIsSubmitted(true);
       resetCaptcha();
