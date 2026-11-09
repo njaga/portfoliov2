@@ -1,10 +1,9 @@
 "use client";
 
-import { DownloadIcon, TriangleDashedIcon, TypeIcon } from "lucide-react";
+import { TypeIcon } from "lucide-react";
 import { useTheme } from "next-themes";
 import { toast } from "sonner";
 
-import Link from "@/components/localized-link";
 import { copyText } from "@/utils/copy";
 
 import { getMarkSVG, getWordmarkSVG,NdiagaMark } from "./ndiaga-mark";
@@ -47,19 +46,6 @@ export function BrandContextMenu({ children }: { children: React.ReactNode }) {
           Copy Logotype as SVG
         </ContextMenuItem>
 
-        <ContextMenuItem asChild>
-          <Link href="/blog/ndiaga-brand">
-            <TriangleDashedIcon />
-            Brand Guidelines
-          </Link>
-        </ContextMenuItem>
-
-        <ContextMenuItem asChild>
-          <a href="https://ndiagandiaye.com/assets/ndiaga-brand.zip" download>
-            <DownloadIcon />
-            Download Brand Assets
-          </a>
-        </ContextMenuItem>
       </ContextMenuContent>
     </ContextMenu>
   );
