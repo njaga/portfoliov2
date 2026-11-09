@@ -25,7 +25,11 @@ function escapeHtml(value: string): string {
   });
 }
 
-async function validateTurnstile(token: string, secret: string): Promise<boolean> {
+type TurnstileResult =
+  | { success: true }
+  | { success: false; reason: "config" | "expired" | "invalid" | "unavailable" };
+
+async function validateTurnstile(token: string, secret: string): Promise<TurnstileResult> {
   try {
     const response = await fetch(
       "https://challenges.cloudflare.com/turnstile/v0/siteverify",
@@ -34,14 +38,37 @@ async function validateTurnstile(token: string, secret: string): Promise<boolean
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams({ secret, response: token }),
         cache: "no-store",
-        signal: AbortSignal.timeout(8000),
+        signal: AbortSignal.timeout(12000),
       }
     );
-    if (!response.ok) return false;
-    const data: { success?: boolean } = await response.json();
-    return data.success === true;
-  } catch {
-    return false; // Network errors must never bypass CAPTCHA validation.
+
+    if (!response.ok) {
+      console.error("[contact] Turnstile Siteverify HTTP failure", response.status);
+      return { success: false, reason: "unavailable" };
+    }
+
+    const data: { success?: boolean; "error-codes"?: string[] } = await response.json();
+    if (data.success === true) return { success: true };
+
+    // Cloudflare's error codes are safe to log. Never log the token or secret.
+    const codes = Array.isArray(data["error-codes"]) ? data["error-codes"] : [];
+    console.warn("[contact] Turnstile verification refused", { codes });
+
+    if (codes.some((code) => code === "invalid-input-secret" || code === "missing-input-secret")) {
+      return { success: false, reason: "config" };
+    }
+    if (codes.includes("timeout-or-duplicate")) {
+      return { success: false, reason: "expired" };
+    }
+    if (codes.includes("internal-error")) {
+      return { success: false, reason: "unavailable" };
+    }
+    return { success: false, reason: "invalid" };
+  } catch (error) {
+    console.error("[contact] Turnstile verification request failed", {
+      error: error instanceof Error ? error.name : "Unknown",
+    });
+    return { success: false, reason: "unavailable" };
   }
 }
 
@@ -79,8 +106,19 @@ export async function POST(request: NextRequest) {
   }
 
   const { name, email, subject, message, captchaToken, locale } = validated.data;
-  if (!(await validateTurnstile(captchaToken, secret))) {
-    return NextResponse.json({ error: "Invalid or expired security verification" }, { status: 403 });
+  const verification = await validateTurnstile(captchaToken, secret);
+  if (!verification.success) {
+    const responses = {
+      config: { status: 503, code: "captcha_config", error: "Security verification configuration error" },
+      expired: { status: 403, code: "captcha_expired", error: "Security verification expired. Please retry" },
+      invalid: { status: 403, code: "captcha_invalid", error: "Security verification failed. Please retry" },
+      unavailable: { status: 503, code: "captcha_unavailable", error: "Security verification temporarily unavailable" },
+    } as const;
+    const failure = responses[verification.reason];
+    return NextResponse.json(
+      { error: failure.error, code: failure.code },
+      { status: failure.status }
+    );
   }
 
   const port = Number(process.env.SMTP_PORT || "587");
