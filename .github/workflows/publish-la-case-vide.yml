@@ -1,0 +1,98 @@
+name: Publish La case vide on December 1
+
+on:
+  schedule:
+    # Dakar is UTC+0. Three attempts on the date make the schedule resilient
+    # to delayed or skipped GitHub Actions cron executions.
+    - cron: "17 9,10,11 1 12"
+  workflow_dispatch:
+    inputs:
+      publish_now:
+        description: "Publish manually (use only when ready to release)"
+        required: true
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-la-case-vide
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.repository == 'njaga/portfoliov2'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check scheduled date
+        id: release
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          MANUAL_OVERRIDE: ${{ inputs.publish_now }}
+        shell: bash
+        run: |
+          if [[ "$EVENT_NAME" == "schedule" && "$(date -u +%Y-%m-%d)" == "2026-12-01" ]]; then
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+          elif [[ "$EVENT_NAME" == "workflow_dispatch" && "$MANUAL_OVERRIDE" == "true" ]]; then
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+            echo "Outside the publication date; no changes."
+          fi
+
+      - uses: actions/checkout@v4
+        if: steps.release.outputs.publish == 'true'
+        with:
+          ref: main
+          persist-credentials: true
+
+      - name: Prepare article (FR + EN)
+        if: steps.release.outputs.publish == 'true'
+        id: draft
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -f src/content/blog/la-case-vide.mdx || -f src/content/blog/la-case-vide.fr.mdx ]]; then
+            test -f src/content/blog/la-case-vide.mdx
+            test -f src/content/blog/la-case-vide.fr.mdx
+            echo "already_published=true" >> "$GITHUB_OUTPUT"
+            echo "Both versions are already published."
+            exit 0
+          fi
+          test -f scheduled-posts/la-case-vide.mdx
+          test -f scheduled-posts/la-case-vide.fr.mdx
+          grep -q '^createdAt: 2026-12-01$' scheduled-posts/la-case-vide.mdx
+          grep -q '^createdAt: 2026-12-01$' scheduled-posts/la-case-vide.fr.mdx
+          git mv scheduled-posts/la-case-vide.mdx src/content/blog/la-case-vide.mdx
+          git mv scheduled-posts/la-case-vide.fr.mdx src/content/blog/la-case-vide.fr.mdx
+          echo "already_published=false" >> "$GITHUB_OUTPUT"
+
+      - name: Set up pnpm
+        if: steps.release.outputs.publish == 'true' && steps.draft.outputs.already_published == 'false'
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.10.0
+
+      - name: Set up Node.js
+        if: steps.release.outputs.publish == 'true' && steps.draft.outputs.already_published == 'false'
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: pnpm
+
+      - name: Validate the release build
+        if: steps.release.outputs.publish == 'true' && steps.draft.outputs.already_published == 'false'
+        run: |
+          pnpm install --frozen-lockfile
+          pnpm build
+
+      - name: Commit and trigger Vercel publication
+        if: steps.release.outputs.publish == 'true' && steps.draft.outputs.already_published == 'false'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "feat(blog): publish La case vide / The blank field"
+          git push origin HEAD:main
