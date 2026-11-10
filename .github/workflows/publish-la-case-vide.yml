@@ -4,7 +4,7 @@ on:
   schedule:
     # Dakar is UTC+0. Three attempts on the date make the schedule resilient
     # to delayed or skipped GitHub Actions cron executions.
-    - cron: "17 9,10,11 1 12"
+    - cron: "17 9,10,11 1 12 *"
   workflow_dispatch:
     inputs:
       publish_now:
