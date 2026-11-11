@@ -1,0 +1,133 @@
+name: Publish December blog articles
+
+on:
+  schedule:
+    # Africa/Dakar = UTC+0. Back-up runs help with delayed GitHub cron jobs.
+    - cron: "17 9,10,11 8,15 12 *"
+  workflow_dispatch:
+    inputs:
+      article:
+        description: "Article to release manually"
+        required: true
+        type: choice
+        options:
+          - le-brouillon
+          - par-defaut
+      publish_now:
+        description: "Explicitly authorize manual publication"
+        required: true
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: scheduled-december-blog-publications
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.repository == 'njaga/portfoliov2'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Select the scheduled article
+        id: release
+        shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          MANUAL_OVERRIDE: ${{ inputs.publish_now }}
+          ARTICLE: ${{ inputs.article }}
+        run: |
+          set -euo pipefail
+          slug=""
+          date=""
+          if [[ "$EVENT_NAME" == "schedule" ]]; then
+            case "$(date -u +%Y-%m-%d)" in
+              2026-12-08) slug="le-brouillon"; date="2026-12-08" ;;
+              2026-12-15) slug="par-defaut"; date="2026-12-15" ;;
+            esac
+          elif [[ "$EVENT_NAME" == "workflow_dispatch" && "$MANUAL_OVERRIDE" == "true" ]]; then
+            case "$ARTICLE" in
+              le-brouillon) slug="le-brouillon"; date="2026-12-08" ;;
+              par-defaut) slug="par-defaut"; date="2026-12-15" ;;
+              *) echo "Invalid article"; exit 1 ;;
+            esac
+          fi
+          if [[ -z "$slug" ]]; then
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+            echo "Not a scheduled release date. Nothing to publish."
+          else
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+            echo "slug=$slug" >> "$GITHUB_OUTPUT"
+            echo "date=$date" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/checkout@v4
+        if: steps.release.outputs.publish == 'true'
+        with:
+          ref: main
+          persist-credentials: true
+
+      - name: Stage French and English releases together
+        id: stage
+        if: steps.release.outputs.publish == 'true'
+        shell: bash
+        env:
+          SLUG: ${{ steps.release.outputs.slug }}
+          PUB_DATE: ${{ steps.release.outputs.date }}
+        run: |
+          set -euo pipefail
+          fr="src/content/blog/$SLUG.fr.mdx"
+          en="src/content/blog/$SLUG.mdx"
+          draft_fr="scheduled-posts/$SLUG.fr.mdx"
+          draft_en="scheduled-posts/$SLUG.mdx"
+
+          # Re-running the job cannot duplicate a publication.
+          if [[ -f "$fr" || -f "$en" ]]; then
+            test -f "$fr"
+            test -f "$en"
+            echo "already_published=true" >> "$GITHUB_OUTPUT"
+            echo "Both translations are already published."
+            exit 0
+          fi
+
+          test -f "$draft_fr"
+          test -f "$draft_en"
+          grep -q "^createdAt: $PUB_DATE$" "$draft_fr"
+          grep -q "^createdAt: $PUB_DATE$" "$draft_en"
+          git mv "$draft_fr" "$fr"
+          git mv "$draft_en" "$en"
+          echo "already_published=false" >> "$GITHUB_OUTPUT"
+
+      - name: Set up pnpm
+        if: steps.release.outputs.publish == 'true' && steps.stage.outputs.already_published == 'false'
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.10.0
+
+      - name: Set up Node
+        if: steps.release.outputs.publish == 'true' && steps.stage.outputs.already_published == 'false'
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: pnpm
+
+      - name: Validate website before release
+        if: steps.release.outputs.publish == 'true' && steps.stage.outputs.already_published == 'false'
+        run: |
+          pnpm install --frozen-lockfile
+          pnpm check-types
+          pnpm build
+
+      - name: Commit and trigger production deployment
+        if: steps.release.outputs.publish == 'true' && steps.stage.outputs.already_published == 'false'
+        shell: bash
+        env:
+          SLUG: ${{ steps.release.outputs.slug }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "feat(blog): publish $SLUG"
+          git push origin HEAD:main
