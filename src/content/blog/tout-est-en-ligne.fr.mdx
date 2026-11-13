@@ -1,0 +1,307 @@
+---
+title: "Tout est en ligne"
+subtitle: "Jusqu'au jour où plus rien ne répond."
+seoTitle: "Tout est en ligne — Jusqu'au jour où ça ne l'est plus"
+description: "La panne Microsoft 365 nous rappelle que le cloud n'est pas infaillible. Réflexion sur la disponibilité des applications et les dépendances numériques."
+shareTitle: "Tout est en ligne"
+shareDescription: "Le cloud nous facilite la vie. Mais que se passe-t-il lorsque les services dont nous dépendons cessent de répondre ?"
+category: Development
+createdAt: 2026-11-13
+updatedAt: 2026-11-13
+---
+
+Il y a quelques années, avoir ses données dans le cloud était présenté comme une petite révolution.
+
+Plus besoin de serveurs dans les bureaux.
+
+Plus besoin de se soucier du matériel.
+
+Tout est disponible.
+
+Partout.
+
+Tout le temps.
+
+Enfin, presque.
+
+Le 12 novembre 2026, Microsoft a connu une importante panne qui a perturbé Outlook, Teams et plusieurs services de Microsoft 365.
+
+Des utilisateurs ne pouvaient plus accéder à leurs emails. D'autres rencontraient des difficultés avec leurs outils de travail habituels.
+
+Pour certaines entreprises, une partie de la journée s'est transformée en séance collective de dépannage.
+
+On actualise.
+
+On redémarre.
+
+On essaie depuis son téléphone.
+
+On change de navigateur.
+
+Puis quelqu'un finit par poser la question.
+
+*Et si le problème ne venait pas de chez nous ?*
+
+## Le serveur de quelqu'un d'autre
+
+J'aime beaucoup le cloud.
+
+Je développe des applications, je déploie des sites web et j'utilise quotidiennement des services qui me permettent de travailler sans posséder une seule machine dans un centre de données.
+
+Je peux déployer une application depuis mon ordinateur et la rendre accessible à des utilisateurs situés à des milliers de kilomètres.
+
+C'est quand même assez formidable.
+
+Mais il y a une phrase qui me fait sourire.
+
+*« Tout est dans le cloud. »*
+
+Comme si nos fichiers avaient quitté le monde physique.
+
+Comme s'ils flottaient quelque part au-dessus de nos têtes, à l'abri des coupures d'électricité, des erreurs humaines et des pannes matérielles.
+
+En réalité, le cloud repose toujours sur des ordinateurs.
+
+Beaucoup d'ordinateurs.
+
+Des serveurs dans des bâtiments.
+
+Des câbles.
+
+Des systèmes de refroidissement.
+
+Des équipements réseau.
+
+Et des logiciels écrits par des êtres humains.
+
+**Le cloud, c'est aussi l'ordinateur de quelqu'un d'autre.**
+
+Un ordinateur généralement beaucoup mieux équipé et administré que celui qu'on pourrait installer dans son bureau.
+
+Mais un ordinateur quand même.
+
+## Quand tout dépend de tout
+
+Ce qui m'intéresse dans la panne de Microsoft, ce n'est pas seulement qu'Outlook ait cessé de fonctionner correctement.
+
+C'est ce qui se passe lorsqu'un composant partagé rencontre un problème.
+
+Microsoft a expliqué qu'une partie de ses serveurs devenait indisponible et que les machines restantes subissaient une charge supplémentaire.
+
+Les équipes ont tenté de redistribuer le trafic et de remettre progressivement les serveurs en service.
+
+La cause exacte de l'incident restait en cours d'analyse au moment où j'écris.
+
+Mais le phénomène rappelle quelque chose que nous connaissons bien en développement.
+
+Une application peut être composée de dizaines de services qui fonctionnent parfaitement.
+
+Jusqu'à ce qu'un seul de ceux dont les autres dépendent ne réponde plus.
+
+Un système d'authentification tombe.
+
+Les utilisateurs ne peuvent plus se connecter.
+
+Une base de données ralentit.
+
+Les pages deviennent inutilisables.
+
+Une API ne répond plus.
+
+Plusieurs fonctionnalités cessent de fonctionner, même si leur code n'a pas changé.
+
+C'est un peu comme une maison où toutes les pièces ont de magnifiques interrupteurs.
+
+Mais où tout repose sur le même disjoncteur.
+
+Lorsque celui-ci saute, inutile de remplacer les ampoules.
+
+## Le problème du 99,9 %
+
+Dans le numérique, on aime beaucoup parler de disponibilité.
+
+99 %.
+
+99,9 %.
+
+99,99 %.
+
+Plus on ajoute de neuf, plus le service semble rassurant.
+
+Et pourtant, même une disponibilité de 99,9 % correspond à environ 8 heures et 46 minutes d'indisponibilité sur une année complète.
+
+Huit heures.
+
+Cela peut sembler raisonnable sur douze mois.
+
+Jusqu'à ce que ces huit heures tombent précisément le jour où l'on doit envoyer une proposition commerciale, terminer un dossier ou accéder à un document urgent.
+
+Les pourcentages sont utiles pour mesurer la qualité d'un service.
+
+Mais ils ne racontent pas toujours ce que représente une panne pour la personne qui la subit.
+
+**Une application disponible presque tout le temps peut être indisponible au pire moment.**
+
+Et aucun tableau de bord ne peut garantir le contraire.
+
+## On a oublié de prévoir l'échec
+
+Quand on développe un produit, on passe beaucoup de temps à imaginer le parcours idéal.
+
+L'utilisateur ouvre l'application.
+
+Il se connecte.
+
+Il effectue une action.
+
+Le serveur répond.
+
+Tout fonctionne.
+
+C'est propre.
+
+C'est fluide.
+
+C'est exactement ce qu'on voulait.
+
+Sauf que la réalité n'a jamais promis de respecter notre scénario.
+
+Les connexions sont parfois instables.
+
+Les serveurs peuvent devenir indisponibles.
+
+Les services externes peuvent répondre avec plusieurs secondes de retard.
+
+Les utilisateurs peuvent perdre leur connexion au milieu d'une opération.
+
+Et pourtant, nous continuons parfois à concevoir des applications comme si chaque requête devait forcément réussir.
+
+Je connais cette tentation.
+
+Il est beaucoup plus agréable de travailler sur une nouvelle fonctionnalité que de prévoir ce qui se passera lorsqu'elle échouera.
+
+Une belle interface attire immédiatement l'attention.
+
+Un mécanisme de reprise après incident, beaucoup moins.
+
+On ne prend pas de capture d'écran d'une stratégie de sauvegarde pour la publier sur LinkedIn.
+
+Pourtant, elle peut avoir beaucoup plus de valeur le jour où quelque chose tourne mal.
+
+## Le bouton qui ne fait rien
+
+Il y a un détail auquel j'essaie de faire davantage attention dans les applications.
+
+Que voit l'utilisateur lorsque quelque chose ne fonctionne pas ?
+
+Un écran blanc ?
+
+Un chargement infini ?
+
+Un message technique incompréhensible ?
+
+Ou une explication suffisamment claire pour qu'il sache quoi faire ensuite ?
+
+On ne peut pas empêcher toutes les pannes.
+
+Mais on peut éviter de laisser les utilisateurs seuls devant elles.
+
+Afficher un message utile.
+
+Permettre de réessayer.
+
+Éviter de perdre les informations déjà saisies.
+
+Enregistrer temporairement une opération lorsqu'elle ne peut pas être envoyée immédiatement.
+
+Signaler clairement qu'un service externe est indisponible.
+
+Ces détails ne rendent pas une application invincible.
+
+Ils la rendent simplement plus honnête.
+
+Une interface devrait pouvoir dire :
+
+*« Je ne peux pas faire ça pour le moment. »*
+
+Plutôt que de laisser croire que tout va bien pendant qu'un bouton tourne indéfiniment.
+
+**Bien gérer un échec fait aussi partie d'une bonne expérience utilisateur.**
+
+## Et si demain ?
+
+Je ne crois pas que cette panne soit une raison d'abandonner Microsoft 365.
+
+Ni de revenir systématiquement aux serveurs installés dans les bureaux.
+
+Les infrastructures cloud apportent des avantages réels, notamment en matière de capacité, de maintenance et d'accessibilité.
+
+Mais une entreprise devrait savoir de quels services elle dépend réellement.
+
+Et surtout, ce qu'elle ferait si l'un d'eux devenait indisponible pendant plusieurs heures.
+
+Pas besoin de concevoir une infrastructure digne d'une agence spatiale.
+
+Parfois, les premières précautions sont assez simples.
+
+Disposer d'un autre moyen de joindre les personnes essentielles.
+
+Conserver des copies sécurisées des documents critiques.
+
+Savoir quels outils peuvent continuer à fonctionner sans les autres.
+
+Et tester, de temps en temps, les procédures qu'on a prévues.
+
+Côté développement, cela signifie aussi prendre les dépendances au sérieux.
+
+Un service tiers n'est jamais une promesse absolue.
+
+Une API peut tomber.
+
+Une connexion peut expirer.
+
+Un fournisseur peut rencontrer un incident.
+
+Ce ne sont pas forcément des événements exceptionnels qu'on peut ignorer.
+
+Ce sont des situations que notre logiciel doit être capable de rencontrer.
+
+## Toujours en ligne
+
+J'écris cet article depuis un ordinateur connecté à Internet.
+
+Mon site fonctionne grâce à plusieurs services que je n'héberge pas moi-même.
+
+Le code est stocké sur une plateforme.
+
+L'application est déployée sur une autre.
+
+D'autres services interviennent pour faire fonctionner certaines fonctionnalités.
+
+Et je trouve toujours cet écosystème fascinant.
+
+Je peux construire des choses qui auraient demandé des moyens considérables il y a quelques années.
+
+Mais je sais aussi que je ne contrôle pas tout.
+
+Même lorsque mon code fonctionne parfaitement.
+
+Même lorsque tous les tests sont au vert.
+
+Même lorsque le dernier déploiement s'est terminé sans erreur.
+
+Quelque part, un service peut cesser de répondre.
+
+Alors je continuerai à utiliser le cloud.
+
+À développer des applications.
+
+À déployer mes projets.
+
+À profiter de toute cette technologie qui nous facilite la vie.
+
+Simplement, j'essaierai de me souvenir d'une chose.
+
+**Tout est en ligne.**
+
+**Jusqu'au jour où ça ne l'est plus.**
